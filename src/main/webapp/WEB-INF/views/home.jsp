@@ -9,7 +9,11 @@
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
+	<h3>bookinsert</h3>
 	<a href="${root}/bookManage/bookInsert.do">BookInsert</a><br/>
+	
+	<h3>member</h3>
+	<a href="${root}/member/register.do">회원가입</a>
 
 	<P>  The time on the server is ${serverTime}. </P>
 
