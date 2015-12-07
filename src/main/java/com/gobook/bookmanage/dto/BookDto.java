@@ -1,9 +1,9 @@
 package com.gobook.bookmanage.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class BookDto {
-	private int book_num;
+	private long book_num;
 	private String book_name;
 	private String book_writer;
 	private String book_publisher;
@@ -31,10 +31,10 @@ public class BookDto {
 	private int book_group_purchase_count;
 	private int book_state;
 	
-	public int getBook_num() {
+	public long getBook_num() {
 		return book_num;
 	}
-	public void setBook_num(int book_num) {
+	public void setBook_num(long book_num) {
 		this.book_num = book_num;
 	}
 	public String getBook_name() {

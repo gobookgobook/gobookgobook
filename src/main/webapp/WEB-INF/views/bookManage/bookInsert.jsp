@@ -14,11 +14,6 @@
 	</div>	
 	<div align="center">
 		<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="" enctype="multipart/form-data">	
-			<input type="hidden" name="board_number" value="${boardNumber}"/>
-			<input type="hidden" name="group_number" value="${groupNumber}"/>
-			<input type="hidden" name="sequence_number" value="${sequenceNumber}"/>
-			<input type="hidden" name="sequence_level" value="${sequenceLevel}"/>
-			
 			<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 				<a href="${root}/bookManage/bookStockList.do">도서목록</a>
 			</div>

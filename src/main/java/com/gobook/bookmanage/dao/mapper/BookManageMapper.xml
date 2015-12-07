@@ -3,6 +3,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.bookmanage.gobook.com">
-
+<mapper namespace="dao.bookmanageMapper">
+	<insert id="bookInsert" parameterType="com.gobook.bookmanage.dto.BookDto">
+		insert into book values(#{book_num},#{book_name},#{book_writer},#{book_publisher},to_date(#{book_publish_date},'yyyy-mm-dd'),#{book_cost},#{book_price},#{book_quantity},#{book_index, jdbcType=VARCHAR},#{book_summary, jdbcType=VARCHAR},#{book_category},#{book_cover_file_name, jdbcType=VARCHAR},#{book_cover_file_path, jdbcType=VARCHAR},#{book_cover_file_size, jdbcType=INTEGER},#{book_preview_file_name1, jdbcType=VARCHAR},#{book_preview_file_path1, jdbcType=VARCHAR},#{book_preview_file_size1, jdbcType=INTEGER},#{book_preview_file_name2, jdbcType=VARCHAR},#{book_preview_file_path2, jdbcType=VARCHAR},#{book_preview_file_size2, jdbcType=INTEGER},#{book_preview_file_name3, jdbcType=VARCHAR},#{book_preview_file_path3, jdbcType=VARCHAR},#{book_preview_file_size3, jdbcType=INTEGER},#{book_star, jdbcType=FLOAT},#{book_reorder_count, jdbcType=INTEGER},#{book_group_purchase_count, jdbcType=INTEGER},#{book_state})
+	</insert>
 </mapper>
