@@ -15,7 +15,7 @@
 		<property name="dataSource" ref="dataSourceJNDI"/>
 		<property name="mapperLocations">
 			<list>
-				<value></value>
+				<value>classpath:com/gobook/bookmanage/dao/mapper/BookManageMapper.xml</value>
 			</list>
 		</property>
 	</bean>
