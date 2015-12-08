@@ -5,16 +5,35 @@
 
 
 <mapper namespace="dao.UserOrderMapper">
-   <select id="getUserOrderCount" resultType="int">
-      select count(*) from userorder
+   <select id="userOrderCount" resultType="int">
+      select count(*) from userorder where member_id=#{member_id}
    </select>
    
-   <select id="getUserOrderList" resultType="com.gobook.userorder.dto.UserOrderDto" parameterType="java.util.Map">
+   <select id="userOrderList" resultType="com.gobook.userorder.dto.UserOrderDto" parameterType="java.util.Map">
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from 
-					(select * from userorder) a)
+					(select * from userorder) a) where member_id=#{member_id}
 		]]>
 	</select>
    
+   <insert id="userOrderListOk" parameterType="com.gobook.userorder.dto.UserOrderDto">
+		insert into userorder values(
+			#{order_bunho},
+			#{member_id},
+			#{book_num},
+			#{order_book_name},
+			#{order_book_price},
+			#{order_book_count},
+			#{order_zipcode},
+			#{order_book_user_address1},
+			#{order_book_user_address2},
+			#{order_book_point},
+			#{order_user_coupon_name},
+			#{order_user_coupon_discount},
+			#{order_book_user_number},
+			#{order_book_state},
+			#{order_book_charge},
+			#{order_date})
+	</insert>
 </mapper>

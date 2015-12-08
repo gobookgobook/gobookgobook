@@ -13,7 +13,9 @@ import com.gobook.userorder.dto.UserOrderDto;
 
 public interface IUserOrderDao {
   
-	public int getUserOrderCount();
+	public int userOrderCount(String member_id);
 	
-	public List<UserOrderDto> getUserOrderList();
+	public List<UserOrderDto> userOrderList(String member_id);
+	
+	public int userOrderListOk(UserOrderDto userorderDto);
 }

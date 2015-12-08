@@ -26,15 +26,21 @@ public class UserOrderDao implements IUserOrderDao{
 	private PlatformTransactionManager transactionManager;
 
 	@Override
-	public int getUserOrderCount() {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectOne("dao.UserOrderMapper.getUserOrderCount");
+	public int userOrderCount(String member_id) {
+		
+		return sqlSessionTemplate.selectOne("dao.UserOrderMapper.userOrderCount",member_id);
 	}
 
 	@Override
-	public List<UserOrderDto> getUserOrderList() {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("dao.UserOrderMapper.getUserOrderList");
+	public List<UserOrderDto> userOrderList(String member_id) {
+		
+		return sqlSessionTemplate.selectList("dao.UserOrderMapper.userOrderList",member_id);
+	}
+
+	@Override
+	public int userOrderListOk(UserOrderDto userorderDto) {
+		
+		return sqlSessionTemplate.insert("dao.UserOrderMapper.userOrderListOk", userorderDto);
 	}
 
 	

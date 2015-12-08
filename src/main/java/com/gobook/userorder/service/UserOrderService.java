@@ -30,15 +30,18 @@ public class UserOrderService implements IUserOrderService{
 	public void userOrderList(ModelAndView mav) {
 		Map<String, Object> map= mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String member_id="abc123"; /*request.getParameter("member_id");*/
 		
-		int count =iUserOrderDao.getUserOrderCount();
+		//원래 주석 처리된 코드가 들어가는 것이 맞으 (로그인 된 회원의 아이디를 이용하여 주문 리스트 뿌리기)
+		
+		int count =iUserOrderDao.userOrderCount(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" +count);
 		
 		int sum=0;
 		
 		List<UserOrderDto> userOrderList=null;
 		if(count >0){
-			userOrderList=iUserOrderDao.getUserOrderList();
+			userOrderList=iUserOrderDao.userOrderList(member_id);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "userOrderList Size:"+userOrderList.size());
 		}
 		
@@ -50,8 +53,15 @@ public class UserOrderService implements IUserOrderService{
 
 	@Override
 	public void userOrderPay(ModelAndView mav) {
-		// TODO Auto-generated method stub
+		Map<String,Object> map= mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		UserOrderDto userorderDto=(UserOrderDto) map.get("userorderDto");
 		
+		int check=iUserOrderDao.userOrderListOk(userorderDto);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + check);
+		
+		mav.addObject("check", check);
+		mav.setViewName("userOrder/userOrderListOk");
 	}
 
 }
