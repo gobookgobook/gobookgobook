@@ -2,6 +2,13 @@ package com.gobook.userorder.dto;
 
 import java.util.Date;
 
+/**
+ * @클래스이름 : UserOrderDto
+ * @날짜 : 2015-12-08
+ * @개발자 : 김재석
+ * @설명 : 
+ */
+
 public class UserOrderDto {
 	
 	private int order_bunho;	            //주문번호

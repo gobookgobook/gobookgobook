@@ -11,13 +11,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.userorder.service.IUserOrderService;
 
+/**
+ * @클래스이름 : UserOrderController
+ * @날짜 : 2015-12-08
+ * @개발자 : 김재석
+ * @설명 : 
+ */
+
 @Controller
 public class UserOrderController {
 	
 	@Autowired
 	IUserOrderService UserOrderService;
 	
-	@RequestMapping(value="/bookUser/bookOrderList.do", method=RequestMethod.GET)
+	@RequestMapping(value="/userOrder/userOrderList.do", method=RequestMethod.GET)
 	public ModelAndView userOrderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("request",request);
@@ -26,7 +33,7 @@ public class UserOrderController {
 		
 	}   //주문리스트(주문리스트(결제대한 정보, 무통장, 신용카드, 휴대폰결제),(쿠폰 및 포인트사용),(배송지정보), 사용자 정보 가져오기(포인트까지), 사용자 쿠폰 가져오기)
 	
-	@RequestMapping(value="/bookUser/bookOrderList.do",method=RequestMethod.POST)
+	@RequestMapping(value="/userOrder/userOrderList.do",method=RequestMethod.POST)
 	public void userOrderPayOk(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("request",request);

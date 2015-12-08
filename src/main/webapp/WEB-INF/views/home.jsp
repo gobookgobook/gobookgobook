@@ -13,7 +13,7 @@
 	<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
 	<a href="${root}/bookManage/bookStockList.do">도서현황</a><br/>
 	<h3>bookOrderList</h3>
-	<a href="${root}/bookUser/bookOrderList.do">주문현황</a>
+	<a href="${root}/userOrder/userOrderList.do">주문현황</a>
 	<h3>member</h3>
 	<a href="${root}/member/register.do">회원가입</a>
 	

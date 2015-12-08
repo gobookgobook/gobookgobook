@@ -3,6 +3,18 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.bookuserMapper">
 
+<mapper namespace="dao.UserOrderMapper">
+   <select id="getUserOrderCount" resultType="int">
+      select count(*) from userorder
+   </select>
+   
+   <select id="getUserOrderList" resultType="com.gobook.userorder.dto.UserOrderDto" parameterType="java.util.Map">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from 
+					(select * from userorder) a)
+		]]>
+	</select>
+   
 </mapper>

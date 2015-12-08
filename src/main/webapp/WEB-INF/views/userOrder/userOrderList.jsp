@@ -15,13 +15,13 @@
 <body>
   
   <div align="center">
-     <form class="form_style" action="${root}/bookUser/bookOrderList.do" method="post" onsubmit="" enctype="multipart/form-data">
+     <form class="form_style" action="${root}/userOrder/userOrderList.do" method="post" onsubmit="" enctype="multipart/form-data">
        <input type="hidden" name="order_bunho" value="${order_bunho}"/>
      
      <div align="left">
          <label class="title">1. 주문 상품 목록</label>
          
-<div class="container">					
+<div class="container" style="width:50%">					
 	<table class="table table-bordered">
     <thead>
       <tr class="info">
@@ -53,7 +53,7 @@
      <div align="left">
          <label class="title">2. 배송지 정보</label>
 			
-<div class="container">			
+<div class="container" style="width:50%">			
  <div class="alert alert-success">
     <strong>배송지</strong>
    <div align="center">
@@ -86,7 +86,7 @@
          <label class="title">3. 할인/적립 혜택</label>
 
 		
-<div class="container">
+<div class="container" style="width:50%">
 	<div class="alert alert-warning">			
 			<div align="left">
 				<label class="title">쿠폰</label>
@@ -109,7 +109,7 @@
 
 <div align="left">
          <label class="title">4. 결제정보</label>
-<div class="container">
+<div class="container" style="width:50%">
 	<div class="alert alert-danger">
 	<div align="left">			
 			<label class="title">결제수단</label>

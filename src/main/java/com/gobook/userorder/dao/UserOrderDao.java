@@ -1,9 +1,20 @@
 package com.gobook.userorder.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
+
+import com.gobook.userorder.dto.UserOrderDto;
+
+/**
+ * @클래스이름 : UserOrderDao
+ * @날짜 : 2015-12-08
+ * @개발자 : 김재석
+ * @설명 : 
+ */
 
 @Component
 public class UserOrderDao implements IUserOrderDao{
@@ -15,33 +26,17 @@ public class UserOrderDao implements IUserOrderDao{
 	private PlatformTransactionManager transactionManager;
 
 	@Override
-	public void userOrderListSelect() {
+	public int getUserOrderCount() {
 		// TODO Auto-generated method stub
-		
+		return sqlSessionTemplate.selectOne("dao.UserOrderMapper.getUserOrderCount");
 	}
 
 	@Override
-	public void userOrderMemberSelect() {
+	public List<UserOrderDto> getUserOrderList() {
 		// TODO Auto-generated method stub
-		
+		return sqlSessionTemplate.selectList("dao.UserOrderMapper.getUserOrderList");
 	}
 
-	@Override
-	public void userOrderMemberCoupon() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void userOrderPayInsert() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void userOrderCouponListSelect() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
