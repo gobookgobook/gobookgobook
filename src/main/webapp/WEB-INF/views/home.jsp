@@ -11,7 +11,8 @@
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	<h3>bookinsert</h3>
 	<a href="${root}/bookManage/bookInsert.do">BookInsert</a><br/>
-	
+	<h3>bookOrderList</h3>
+	<a href="${root}/bookUser/bookOrderList.do">BookOrderlist</a>
 	<h3>member</h3>
 	<a href="${root}/member/register.do">회원가입</a>
 
