@@ -16,8 +16,10 @@
 		]]>
 	</select>
 	
-	<select id="myPageOrderCount" resultType="int">
-		select count(*) from userorder
+	<select id="myPageOrderCount" parameterType="java.lang.String" resultType="int">
+		<![CDATA[ 
+		select count(*) from userorder where member_id=#{member_id}
+		]]>
 	</select>
 	
 	<select id="myPageHistoryListSelect" parameterType="java.util.HashMap" resultType="com.gobook.userorder.dto.UserOrderDto">
@@ -33,4 +35,24 @@
 	<select id="myPageCouponSelect" parameterType="java.lang.String" resultType="com.gobook.member.dto.UserCouponDto">
 		select *from usercoupon where member_id=#{member_id}
 	</select>
+	
+	<!-- 포인트함 -->
+	<select id="myPagePointSelect" parameterType="java.lang.String" resultType="int">
+		select member_point from member where member_id=#{member_id}
+	</select>
+<!-- 	
+	1:1문의
+	<select id="myPagePvPListSelect" parameterType="java.lang.String" resultType="com.gobook.help.dto.HelpPvPDto">
+		<![CDATA[
+		SELECT * FROM
+			(SELECT ROWNUM rnum, A.* FROM
+				(SELECT *FROM helppvp where member_id=#{member_id} ORDER BY helppvp_write_date DESC)A)
+					where rnum>=1 and rnum<=5
+		]]> 
+	</select>
+	
+	<select id="myPagePvPRead" resultType="com.gobook.help.dto.HelpPvPDto">
+		select *from helppvp where helppvp_num=#{helppvp_num}
+	</select>
+	 -->
 </mapper>

@@ -12,12 +12,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.mypage.service.IMyPageService;
 
+/**
+ * @클래스이름 : MyPageController
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 오주석
+ * @설명 : 
+ */
 @Controller
 public class MyPageController {
 
 	@Autowired
 	private IMyPageService iMyPageService;
 	
+	/**
+	 * @함수이름 : myPageOrderList
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/myPage/myPageOrderList.do", method=RequestMethod.GET)
 	public ModelAndView myPageOrderList(HttpServletRequest request, HttpServletResponse response){
 		
@@ -28,6 +40,12 @@ public class MyPageController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : myPageCoupon
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/myPage/myPageCoupon.do", method=RequestMethod.GET)
 	public ModelAndView myPageCoupon(HttpServletRequest request, HttpServletResponse response){
 		
@@ -38,4 +56,40 @@ public class MyPageController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : myPagePoint
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@RequestMapping(value="/myPage/myPagePoint.do", method=RequestMethod.GET)
+	public ModelAndView myPagePoint(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iMyPageService.myPagePoint(mav);
+		
+		return mav;
+	}
+/*	
+	@RequestMapping(value="/myPage/myPagePvPList.do", method=RequestMethod.GET)
+	public ModelAndView myPagePvPList(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iMyPageService.myPagePvPList(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/myPage/myPagePvPRead.do", method=RequestMethod.GET)
+	public ModelAndView myPagePvPRead(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iMyPageService.myPagePvPRead(mav);
+		
+		return mav;
+	}
+*/
 }

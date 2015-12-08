@@ -11,11 +11,11 @@
 <body>
 		<div class="category">
 		<a href="${root}/myPage/myPageOrderList.do">주문내역</a>
-		<a href="">1:1문의내역</a>
+		<a href="${root}/myPage/myPagePvPList.do">1:1문의내역(들가면안되여)</a>
 		<a href="${root}/myPage/myPageCoupon.do">쿠폰함</a>
-		<a href="">포인트함</a>
-		<a href="">회원수정</a>
-		<a href="">회원탈퇴</a>
+		<a href="${root}/myPage/myPagePoint.do">포인트함</a>
+		<a href="${root}/member/update.do">회원수정</a>
+		<a href="${root}/member/delete.do">회원탈퇴</a>
 		</div>
 </body>
 </html>
