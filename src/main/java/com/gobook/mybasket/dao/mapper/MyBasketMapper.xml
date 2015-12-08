@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.myBasketMapper">
+	<select id="getMyBasketCount" resultType="int">
+		select count(*) from myBasket
+	</select>
+	
+	<select id="getMyBasketList" resultType="com.gobook.mybasket.dto.MyBasketDto" parameterType="java.util.Map">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from 
+					(select * from myBasket) a)
+		]]>
+	</select>
+</mapper>
