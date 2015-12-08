@@ -1,7 +1,11 @@
 package com.gobook.bookmanage.service;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,18 +16,37 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gobook.bookmanage.dao.IBookManageDao;
 import com.gobook.bookmanage.dto.BookDto;
 
+/**
+ * @클래스이름 : BookManageService
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 성기훈
+ * @설명 : 도서 등록 관리 수정 삭제
+ */
 @Component
 public class BookManageService implements IBookManageService {
 
 	@Autowired
 	private IBookManageDao iBookManageDao;
 	
+	/**
+	 * @함수이름 : bookInsert
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서등록
+	 */
 	@Override
 	public void bookInsert(ModelAndView mav) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
+	/**
+	 * @함수이름 : bookInsertOk
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서등록
+	 */
 	@Override
 	public void bookInsertOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -97,6 +120,68 @@ public class BookManageService implements IBookManageService {
 		
 		mav.setViewName("bookManage/bookInsertOk");
 		
+	}
+
+
+	/**
+	 * @함수이름 : bookStockList
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 현황
+	 */
+	@Override
+	public void bookStockList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookStockCount();
+		
+		List<BookDto> bookList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookList=iBookManageDao.bookSoldOutList(hMap);
+		}
+		
+		mav.addObject("bookList", bookList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookStockList");
+		
+	}
+
+
+	/**
+	 * @함수이름 : bookStockUpdate
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서수정(입고요청)
+	 */
+	@Override
+	public void bookStockUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("bookDto", bookDto);
+		
+		mav.setViewName("bookManage/bookStockUpdate");
 	}
 
 }

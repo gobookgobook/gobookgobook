@@ -19,6 +19,12 @@ public class BookManageCotroller {
 	@Autowired
 	private IBookManageService iBookManageService;
 	
+	/**
+	 * @함수이름 : bookInsert
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서등록
+	 */
 	@RequestMapping(value="/bookManage/bookInsert.do", method=RequestMethod.GET)
 	public ModelAndView bookInsert(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -28,12 +34,48 @@ public class BookManageCotroller {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : bookInsertOk
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서등록
+	 */
 	@RequestMapping(value="/bookManage/bookInsert.do", method=RequestMethod.POST)
 	public ModelAndView bookInsertOk(HttpServletRequest request, HttpServletResponse response, BookDto bookDto){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("bookDto", bookDto);
 		iBookManageService.bookInsertOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookStockList
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서현황
+	 */
+	@RequestMapping(value="/bookManage/bookStockList.do", method=RequestMethod.GET)
+	public ModelAndView bookStockList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookStockList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookStockUpdate
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서수정(입고신청)
+	 */
+	@RequestMapping(value="/bookManage/bookStockUpdate.do", method=RequestMethod.GET)
+	public ModelAndView bookStockUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookStockUpdate(mav);
 		
 		return mav;
 	}

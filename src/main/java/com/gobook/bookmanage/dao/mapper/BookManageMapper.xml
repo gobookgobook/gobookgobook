@@ -7,4 +7,21 @@
 	<insert id="bookInsert" parameterType="com.gobook.bookmanage.dto.BookDto">
 		insert into book values(#{book_num},#{book_name},#{book_writer},#{book_publisher},to_date(#{book_publish_date},'yyyy-mm-dd'),#{book_cost},#{book_price},#{book_quantity},#{book_index, jdbcType=VARCHAR},#{book_summary, jdbcType=VARCHAR},#{book_category},#{book_cover_file_name, jdbcType=VARCHAR},#{book_cover_file_path, jdbcType=VARCHAR},#{book_cover_file_size, jdbcType=INTEGER},#{book_preview_file_name1, jdbcType=VARCHAR},#{book_preview_file_path1, jdbcType=VARCHAR},#{book_preview_file_size1, jdbcType=INTEGER},#{book_preview_file_name2, jdbcType=VARCHAR},#{book_preview_file_path2, jdbcType=VARCHAR},#{book_preview_file_size2, jdbcType=INTEGER},#{book_preview_file_name3, jdbcType=VARCHAR},#{book_preview_file_path3, jdbcType=VARCHAR},#{book_preview_file_size3, jdbcType=INTEGER},#{book_star, jdbcType=FLOAT},#{book_reorder_count, jdbcType=INTEGER},#{book_group_purchase_count, jdbcType=INTEGER},#{book_state})
 	</insert>
+	
+	<select id="bookStockCount" resultType="int">
+		select count(*) from book 
+	</select>
+	
+	<select id="bookSoldOutList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from book order by book_quantity asc, book_reorder_count desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
+	
+	<select id="bookInfo" parameterType="long" resultType="com.gobook.bookmanage.dto.BookDto">
+		select * from book where book_num=#{book_num}
+	</select>
 </mapper>

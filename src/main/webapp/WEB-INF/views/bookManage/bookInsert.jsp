@@ -84,14 +84,14 @@
 				<span class="content">
 					<select name="book_category">
 						<option></option>
-						<option value="회사원">문학</option>
-						<option value="학생">교육도서</option>
-						<option value="전문직">전공도서</option>
-						<option value="기타">만화</option>
-						<option value="기타">잡지</option>
-						<option value="기타">역사</option>
-						<option value="기타">교양</option>
-						<option value="기타">SF/판타지</option>
+						<option value="문학">문학</option>
+						<option value="교육도서">교육도서</option>
+						<option value="전공도서">전공도서</option>
+						<option value="만화">만화</option>
+						<option value="잡지">잡지</option>
+						<option value="역사">역사</option>
+						<option value="교양">교양</option>
+						<option value="SF/판타지">SF/판타지</option>
 					</select>
 				</span>
 			</div>

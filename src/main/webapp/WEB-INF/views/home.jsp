@@ -9,10 +9,11 @@
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
-	<h3>bookinsert</h3>
-	<a href="${root}/bookManage/bookInsert.do">BookInsert</a><br/>
+	<h3>bookManage</h3>
+	<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
+	<a href="${root}/bookManage/bookStockList.do">도서현황</a><br/>
 	<h3>bookOrderList</h3>
-	<a href="${root}/bookUser/bookOrderList.do">BookOrderlist</a>
+	<a href="${root}/bookUser/bookOrderList.do">주문현황</a>
 	<h3>member</h3>
 	<a href="${root}/member/register.do">회원가입</a>
 	

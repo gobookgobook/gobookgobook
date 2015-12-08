@@ -13,13 +13,13 @@
 	<c:if test="${check>0}">
 	<script type="text/javascript">
 		alert("게시판 글이 작성되었습니다.");
-		location.href="${root}/"
+		location.href="${root}/bookManage/bookStockList.do"
 	</script>
 	</c:if>
 	<c:if test="${check==0}">
 	<script type="text/javascript">
 		alert("게시판 글 작성에 문제가 발생하였습니다.");
-		location.href="${root}/"
+		location.href="${root}/bookManage/bookInsert.do"
 	</script>
 	</c:if>
 </body>
