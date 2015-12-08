@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>Insert title here</title>
 <link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 </head>
@@ -147,5 +147,19 @@
 			</div>
 		</form>
 	</div>
+	
+	<c:if test="${check >0}">
+		<script type="text/javascript">
+			alert("회원가입을 축하드립니다.\n회원으로 로그인하세요.");
+			location.href="${root}/member/login.do";
+		</script>
+	</c:if>
+	
+	<c:if test="${check == 0 }">
+		<script type="text/javascript">
+			alert("회원가입에 실패하였습니다.");
+			location.href="${root}/member/register.do";
+		</script>
+	</c:if>
 </body>
 </html>

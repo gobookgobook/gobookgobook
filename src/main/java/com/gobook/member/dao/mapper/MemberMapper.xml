@@ -26,4 +26,18 @@
 			#{member_email},
 			#{member_point})
 	</insert>
+	
+	<select id="memberLogin" resultType="String" parameterType="java.util.HashMap">
+		select member_id from member where member_id=#{id} and member_password=#{password}
+	</select>
+	
+	<delete id="memberDelete" parameterType="java.util.HashMap">
+		delete from member where member_id=#{id} and member_password=#{password}
+	</delete>
+	
+	<select id="memberSelect" parameterType="String" resultType="com.gobook.member.dto.MemberDto">
+		select * from member where member_id=#{id}
+	</select>
+	
+	
 </mapper>

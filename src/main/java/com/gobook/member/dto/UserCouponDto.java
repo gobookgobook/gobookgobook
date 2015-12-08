@@ -2,6 +2,12 @@ package com.gobook.member.dto;
 
 import java.sql.Date;
 
+/**
+ * @클래스이름 : UserCouponDto
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 강주혁
+ * @설명 : 사용자 쿠폰 DTO
+ */
 public class UserCouponDto {
 	private int user_coupon_num;			//쿠폰 고유 번호 
 	private String member_id;				//쿠폰 사용자 아이디

@@ -1,5 +1,11 @@
 package com.gobook.member.dto;
 
+/**
+ * @클래스이름 : ZipcodeDto
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 강주혁
+ * @설명 : 우편번호 DTO
+ */
 public class ZipcodeDto {
 	private String zipcode;
 	private String sido;

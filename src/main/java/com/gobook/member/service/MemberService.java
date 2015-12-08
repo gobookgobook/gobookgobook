@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,12 +15,24 @@ import com.gobook.member.dao.IMemberDao;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
 
+/**
+ * @클래스이름 : MemberService
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 강주혁
+ * @설명 : 회원관리 Service
+ */
 @Component
 public class MemberService implements IMemberService {
 
 	@Autowired
 	private IMemberDao iMemberDao;
 
+	/**
+	 * @함수이름 : zipcode
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : 우편번호
+	 */
 	@Override
 	public void zipcode(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -38,6 +51,12 @@ public class MemberService implements IMemberService {
 		mav.setViewName("member/zipcode");
 	}
 
+	/**
+	 * @함수이름 : memberIdCheck
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : ID 중복체크
+	 */
 	@Override
 	public void memberIdCheck(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -59,6 +78,12 @@ public class MemberService implements IMemberService {
 		mav.setViewName("member/idCheck");
 	}
 
+	/**
+	 * @함수이름 : memberInsert
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : 회원가입
+	 */
 	@Override
 	public void memberInsert(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -74,5 +99,73 @@ public class MemberService implements IMemberService {
 		mav.addObject("check", check);
 		mav.setViewName("member/registerOk");
 		
+	}
+
+	/**
+	 * @함수이름 : memberLogin
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : 회원로그인
+	 */
+	@Override
+	public void memberLogin(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String id=request.getParameter("member_id");
+		String password=request.getParameter("member_password");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + id + "\t" + password);
+		
+		String loginId=iMemberDao.memberLogin(id,password);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + loginId);
+		
+		mav.addObject("loginId", loginId);
+		
+		mav.setViewName("member/loginOk");
+	}
+
+	/**
+	 * @함수이름 : memberDeleteOk
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : 회원탈퇴
+	 */
+	@Override
+	public void memberDeleteOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String id=request.getParameter("member_id");
+		String password=request.getParameter("member_password");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "id:" + id + "," + "password:" + password);
+		
+		int check=iMemberDao.memberDelete(id, password);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
+		
+		mav.addObject("check", check);
+		mav.setViewName("member/deleteOk");
+	}
+
+	/**
+	 * @함수이름 : memberUpdate
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 강주혁
+	 * @설명 : 사용자 정보 가져오기
+	 */
+	@Override
+	public void memberUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + id);
+		
+		MemberDto memberDto=iMemberDao.memberSelect(id);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + memberDto);
+		
+		mav.addObject("memberDto", memberDto);
+		
+		mav.setViewName("member/update");
 	}
 }
