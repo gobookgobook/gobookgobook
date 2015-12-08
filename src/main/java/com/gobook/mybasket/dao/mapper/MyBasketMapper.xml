@@ -4,15 +4,20 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.myBasketMapper">
-	<select id="getMyBasketCount" resultType="int">
-		select count(*) from myBasket
+	<select id="myBasketCount" parameterType="String" resultType="int">
+		select count(*) from myBasket where member_id=#{member_id}
 	</select>
 	
-	<select id="getMyBasketList" resultType="com.gobook.mybasket.dto.MyBasketDto" parameterType="java.util.Map">
+	<select id="myBasketList" parameterType="String" resultType="com.gobook.mybasket.dto.MyBasketDto">
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from 
 					(select * from myBasket) a)
+			where member_id=#{member_id}
 		]]>
 	</select>
+	
+	<delete id="myBasketDelete" parameterType="int">
+		delete from myBasket where basket_num=#{basket_num}
+	</delete>
 </mapper>

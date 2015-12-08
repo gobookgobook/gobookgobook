@@ -1,5 +1,11 @@
 package com.gobook.mybasket.dto;
 
+/**
+ * @클래스이름 : MyBasketDto
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 황규성
+ * @설명 : 장바구니 Dto
+ */
 public class MyBasketDto {
 	private int basket_num;				// 장바구니번호
 	private String member_id;			// 사용자아이디

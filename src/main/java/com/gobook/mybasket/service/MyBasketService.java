@@ -1,9 +1,12 @@
 package com.gobook.mybasket.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,25 +16,39 @@ import com.gobook.aop.GoBookAspect;
 import com.gobook.mybasket.dao.IMyBasketDao;
 import com.gobook.mybasket.dto.MyBasketDto;
 
+/**
+ * @클래스이름 : MyBasketService
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 황규성
+ * @설명 : 장바구니 Service
+ */
 @Component
 public class MyBasketService implements IMyBasketService {
 	
 	@Autowired
 	private IMyBasketDao iMyBasketDao;
 
+	/**
+	 * @함수이름 : myBasketList
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 황규성
+	 * @설명 : 장바구니 내역
+	 */
 	@Override
 	public void myBasketList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String member_id="abc123"; /*request.getParameter("member_id");*/ 
+		// 원래 주석 처리된 코드가 들어가는 것이 맞음(로그인 된 회원의 아이디를 이용하여 장바구니 리스트 뿌리기)
 		
-		int count=iMyBasketDao.getMyBasketCount();
+		int count=iMyBasketDao.myBasketCount(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
 		
 		int sum=0;
 		
 		List<MyBasketDto> myBasketList=null;
 		if(count > 0){
-			myBasketList=iMyBasketDao.getMyBasketList();
+			myBasketList=iMyBasketDao.myBasketList(member_id);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketList Size:"+myBasketList.size());
 		}
 		
@@ -39,5 +56,32 @@ public class MyBasketService implements IMyBasketService {
 		mav.addObject("count", count);
 		mav.addObject("sum",sum);
 		mav.setViewName("myBasket/myBasketList");
+	}
+
+	/**
+	 * @함수이름 : myBasketDelete
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 황규성
+	 * @설명 : 장바구니 내역 제거
+	 */
+	@Override
+	public void myBasketDelete(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
+		
+		int basket_num=Integer.parseInt(request.getParameter("basket_num"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_num:"+basket_num);
+		
+		int value=iMyBasketDao.myBasketDelete(basket_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "value:" + value);
+		
+		try{
+			response.setContentType("application/html;charset=utf-8");
+			PrintWriter out=response.getWriter();
+			out.print(value);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 }
