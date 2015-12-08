@@ -2,6 +2,12 @@ package com.gobook.member.dto;
 
 import java.util.Date;
 
+/**
+ * @클래스이름 : MemberDto
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 강주혁
+ * @설명 : 회원관리 DTO
+ */
 public class MemberDto {
 	private String member_id;			//아이디
 	private String member_password; 	//비밀번호

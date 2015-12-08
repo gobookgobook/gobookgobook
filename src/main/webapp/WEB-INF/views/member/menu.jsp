@@ -9,17 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${memberLevel==null}">
+	<c:if test="${id==null}">
 		<a href="${root}/member/register.do">회원가입</a>
 		<a href="${root}/member/login.do">로그인</a>
 	</c:if>
 	
-	<c:if test="${memberLevel!=null}">
+	<c:if test="${id!=null}">
 		<a href="${root}/member/logout.do">로그아웃</a>
 		<a href="${root}/member/update.do">회원수정</a>
 		<a href="${root}/member/delete.do">회원탈퇴</a>
 		
-		<c:if test="${memberLevel == 'AA'}">
+		<c:if test="${id == 'admin'}">
 			<a href="">관리자</a>
 		</c:if>
 	</c:if>
