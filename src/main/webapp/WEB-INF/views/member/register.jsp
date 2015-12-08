@@ -19,13 +19,13 @@
 	</div>
 
 	<div align="center">
-		<form class="form_style" name="memberForm" action="${root}/member/registerOk.do" 
+		<form class="form_style" name="memberForm" action="${root}/member/register.do" 
 			method="post" onsubmit="return registerForm(this)">
 			<div class="line">
 				<label class="title">아이디</label>
 				<span class="content">
 					*<input type="text" name="id_check" />	
-					<input type="hidden" name="id"/>
+					<input type="hidden" name="member_id"/>
 					<input type="button" value="아이디중복" onclick="idCheck('${root}',memberForm)" />
 				</span>
 			</div>
@@ -33,7 +33,7 @@
 			<div class="line">
 				<label  class="title">비밀번호</label>
 				<span class="content">
-					*<input type="password" name="password" />
+					*<input type="password" name="member_password" />
 				</span>
 			</div>
 			
@@ -47,36 +47,38 @@
 			<div class="line">
 				<label class="title">이름</label>
 				<span class="content">
-					*<input type="text" name="name"/>
+					*<input type="text" name="member_name"/>
 				</span>
 			</div>
 			
 			<div class="line">
 				<label class="title">우편번호</label>
 				<span class="content">
-					*<input type="text" name="zipcode"/>
-					<input type="button" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
+					*<input type="text" name="zipcodeDisp" disabled="disabled"/>
+					<input type="hidden" name="member_zipcode"/>
+					<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
 				</span>
 		  	</div>
 			
 			<div class="line">
 				<label class="title">주소</label>
 				<span class="content">
-					*<input type="text" name="address1" size="48" />
+					*<input type="text" name="address1Disp" size="48" disabled="disabled"/>
+					<input type="hidden" name="member_address1"/>
 				</span>
 			</div>
 			
 			<div class="line">
-				<label class="title">상세 주소</label>
+				<label class="title">상세주소</label>
 				<span class="content">
-					*<input type="text" name="address2" size="48" />
+					*<input type="text" name="member_address2" size="48" />
 				</span>
 			</div>
 			
 			<div class="line">
 				<label class="title">전화번호</label>
 				<span class="content">
-					*<input type="text" name="phone" size="48" />
+					*<input type="text" name="member_phone" size="48" />
 				</span>
 			</div>
 						
@@ -90,14 +92,14 @@
 			<div class="line">
 				<label class="title">직업</label>
 				<span class="content">
-					<input type="checkbox" name="interest"/>문학
-					<input type="checkbox" name="interest"/>교육도서
-					<input type="checkbox" name="interest"/>전공도서
-					<input type="checkbox" name="interest"/>만화
-					<input type="checkbox" name="interest"/>잡지
-					<input type="checkbox" name="interest"/>역사
-					<input type="checkbox" name="interest"/>SF/판타지
-					<input type="checkbox" name="interest"/>교양
+					<input type="checkbox" name="member_interest"/>문학
+					<input type="checkbox" name="member_interest"/>교육도서
+					<input type="checkbox" name="member_interest"/>전공도서
+					<input type="checkbox" name="member_interest"/>만화
+					<input type="checkbox" name="member_interest"/>잡지
+					<input type="checkbox" name="member_interest"/>역사
+					<input type="checkbox" name="member_interest"/>SF/판타지
+					<input type="checkbox" name="member_interest"/>교양
 				</span>
 			</div>
 			
@@ -105,13 +107,14 @@
 				<label class="title">생년월일</label>
 				<span class="content">
 					<input type="text" name="birth" size="25" />
+					<input type="hidden" name="member_birth"/>
 				</span>
 			</div>
 			
 			<div class="line">
 				<label class="title">이메일</label>
 				<span class="content">
-					<input type="text" name="email" size="25" />
+					<input type="text" name="member_email" size="25" />
 				</span>
 			</div>
 			

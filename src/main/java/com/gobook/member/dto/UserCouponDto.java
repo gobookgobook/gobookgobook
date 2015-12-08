@@ -1,6 +1,6 @@
 package com.gobook.member.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UserCouponDto {
 	private int user_coupon_num;			//쿠폰 고유 번호 

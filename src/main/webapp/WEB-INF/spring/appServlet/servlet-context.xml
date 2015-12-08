@@ -25,8 +25,6 @@
 	
 	<context:component-scan base-package="com.gobook.gobook" />
 	<context:component-scan base-package="com.gobook" />
-	<context:component-scan base-package="com.gobook.member" />
-	<context:component-scan base-package="com.gobook.aop" />
 	
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding" value="utf-8"/>

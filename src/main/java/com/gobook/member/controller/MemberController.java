@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gobook.member.dto.MemberDto;
 import com.gobook.member.service.IMemberService;
 
 @Controller
@@ -17,7 +18,7 @@ public class MemberController {
 	private IMemberService iMemberService;
 	
 	@RequestMapping(value="/member/register.do", method=RequestMethod.GET)
-	public ModelAndView register(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView memberRegister(HttpServletRequest request, HttpServletResponse response){
 		return new ModelAndView("member/register");
 	}
 	
@@ -27,6 +28,25 @@ public class MemberController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		iMemberService.zipcode(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/idCheck.do", method={RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView idCheck(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iMemberService.memberIdCheck(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/register.do", method=RequestMethod.POST)
+	public ModelAndView memberRegisterOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("memberDto", memberDto);
+		iMemberService.memberInsert(mav);
 		
 		return mav;
 	}
