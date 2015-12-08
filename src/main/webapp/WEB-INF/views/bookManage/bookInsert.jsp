@@ -7,13 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 </head>
 <body>
 	<div align="center">
 		<b> 도서등록 </b>
 	</div>	
 	<div align="center">
-		<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="" enctype="multipart/form-data">	
+		<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookInsertForm(this)" enctype="multipart/form-data">	
 			<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 				<a href="${root}/bookManage/bookStockList.do">도서목록</a>
 			</div>
@@ -82,17 +83,15 @@
 			<div class="line">
 				<label class="title">카테고리</label>
 				<span class="content">
-					<select name="book_category">
-						<option></option>
-						<option value="문학">문학</option>
-						<option value="교육도서">교육도서</option>
-						<option value="전공도서">전공도서</option>
-						<option value="만화">만화</option>
-						<option value="잡지">잡지</option>
-						<option value="역사">역사</option>
-						<option value="교양">교양</option>
-						<option value="SF/판타지">SF/판타지</option>
-					</select>
+					<input type="checkbox" name="category" value="문학"/> 문학 &nbsp;
+					<input type="checkbox" name="category" value="교육도서"/> 교육도서 &nbsp;
+					<input type="checkbox" name="category" value="전공도서"/> 전공도서 &nbsp;
+					<input type="checkbox" name="category" value="만화"/> 만화 &nbsp;
+					<input type="checkbox" name="category" value="잡지"/> 잡지 &nbsp;
+					<input type="checkbox" name="category" value="역사"/> 역사 &nbsp;
+					<input type="checkbox" name="category" value="교양"/> 교양 &nbsp;
+					<input type="checkbox" name="category" value="SF/판타지"/> SF/판타지 &nbsp;
+					<input type="hidden" name="book_category"/>
 				</span>
 			</div>
 			

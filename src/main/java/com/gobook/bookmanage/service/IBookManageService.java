@@ -7,4 +7,5 @@ public interface IBookManageService {
 	public void bookInsertOk(ModelAndView mav);
 	public void bookStockList(ModelAndView mav);
 	public void bookStockUpdate(ModelAndView mav);
+	public void bookStockUpdateOk(ModelAndView mav);
 }

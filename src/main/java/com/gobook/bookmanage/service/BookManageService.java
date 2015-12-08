@@ -40,7 +40,6 @@ public class BookManageService implements IBookManageService {
 		
 	}
 	
-	
 	/**
 	 * @함수이름 : bookInsertOk
 	 * @작성일 : 2015. 12. 8.
@@ -53,10 +52,11 @@ public class BookManageService implements IBookManageService {
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
 		BookDto bookDto=(BookDto)map.get("bookDto");
 		
-		bookDto.setBook_state(1);
+		if(bookDto.getBook_quantity()!=0) bookDto.setBook_state(1);
+		else bookDto.setBook_state(2);
 		
 		MultipartFile book_cover_file=request.getFile("book_cover_file");
-		String book_cover_file_name=/*Long.toString(System.currentTimeMillis()) + "_" + */book_cover_file.getOriginalFilename();
+		String book_cover_file_name=book_cover_file.getOriginalFilename();
 		long book_cover_file_size=book_cover_file.getSize();
 		
 		if(book_cover_file_size!=0){
@@ -184,4 +184,30 @@ public class BookManageService implements IBookManageService {
 		mav.setViewName("bookManage/bookStockUpdate");
 	}
 
+
+	/**
+	 * @함수이름 : bookStockUpdateOk
+	 * @작성일 : 2015. 12. 8.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서수정(입고요청)
+	 */
+	@Override
+	public void bookStockUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
+		BookDto bookDto=(BookDto)map.get("bookDto");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
+		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
+		
+		if(bookDto.getBook_quantity()!=0) bookDto.setBook_state(1);
+		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
+		
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("check", check);
+		
+		mav.setViewName("bookManage/bookStockUpdateOk");
+	}
+	
 }

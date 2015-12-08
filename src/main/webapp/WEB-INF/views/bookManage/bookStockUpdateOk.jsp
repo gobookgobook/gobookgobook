@@ -12,14 +12,14 @@
 	
 	<c:if test="${check>0}">
 	<script type="text/javascript">
-		alert("도서 등록이 완료 되었습니다.");
+		alert("도서정보가 수정되었습니다.");
 		location.href="${root}/bookManage/bookStockList.do"
 	</script>
 	</c:if>
 	<c:if test="${check==0}">
 	<script type="text/javascript">
-		alert("도서 등록에 문제가 발생하였습니다.");
-		location.href="${root}/bookManage/bookInsert.do"
+		alert("도서 정보 수정에 문제가 발생하였습니다.");
+		location.href="${root}/bookManage/bookStockList.do"
 	</script>
 	</c:if>
 </body>

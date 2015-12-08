@@ -10,4 +10,5 @@ public interface IBookManageDao {
 	public int bookStockCount();
 	public List<BookDto> bookSoldOutList(HashMap<String, Integer> hMap);
 	public BookDto bookInfo(long book_num);
+	public int bookStockUpdate(BookDto bookDto, int reorder_quantity);
 }

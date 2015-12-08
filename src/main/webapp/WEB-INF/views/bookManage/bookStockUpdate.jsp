@@ -1,29 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 </head>
 <body>
 	<div align="center">
 		<b>도서수정 </b>
 	</div>	
 	<div align="center">
-		<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="" enctype="multipart/form-data">	
+		<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookUpdateForm(this)" enctype="multipart/form-data">	
 			<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 				<a href="${root}/bookManage/bookStockList.do">도서목록</a>
 			</div>
 			
-			<input type="hidden" value="${pageNumber}"/>
+			<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 			
 			<div class="line">
 				<label class="title">도서번호</label>
 				<span class="content">
-					<input type="hidden" name="book_num"/>
+					<input type="hidden" name="book_num" value="${bookDto.book_num}"/>
 					<input type="text" value="${bookDto.book_num}" disabled="disabled"/>
 				</span>
 			</div>
@@ -49,8 +51,8 @@
 			
 			<div class="line">
 				<label class="title">출판일</label>
-				<span class="content">
-					<input type="text" name="book_publish_date" value="${bookDto.book_publish_date}"/>
+				<span class="content">	
+					<input type="text" name="book_publish_date" value="<fmt:formatDate value="${bookDto.book_publish_date}" pattern="yyyy/MM/dd"/>"/>
 				</span>
 			</div>
 			
@@ -83,29 +85,41 @@
 			</div>
 			
 			<div class="line">
-				<label class="title">카테고리</label>
+				<label class="title">관심분야</label>
 				<span class="content">
-					<select name="book_category">
-						<option></option>
-						<option value="문학">문학</option>
-						<option value="교육도서">교육도서</option>
-						<option value="전공도서">전공도서</option>
-						<option value="만화">만화</option>
-						<option value="잡지">잡지</option>
-						<option value="역사">역사</option>
-						<option value="교양">교양</option>
-						<option value="SF/판타지">SF/판타지</option>
-					</select>
-					<script type="text/javascript">
-					bookStokUpdate.book_category.value="${bookDto.book_category}";
-					</script>
+					<input type="checkbox" name="category" value="문학"/> 문학 &nbsp;
+					<input type="checkbox" name="category" value="교육도서"/> 교육도서 &nbsp;
+					<input type="checkbox" name="category" value="전공도서"/> 전공도서 &nbsp;
+					<input type="checkbox" name="category" value="만화"/> 만화 &nbsp;
+					<input type="checkbox" name="category" value="잡지"/> 잡지 &nbsp;
+					<input type="checkbox" name="category" value="역사"/> 역사 &nbsp;
+					<input type="checkbox" name="category" value="교양"/> 교양 &nbsp;
+					<input type="checkbox" name="category" value="SF/판타지"/> SF/판타지 &nbsp;
+					<input type="hidden" name="book_category"/>
+					<c:forTokens var="categorychk" items="${bookDto.book_category}" delims=",">
+						<script type="text/javascript">
+							for(var i=0;i<bookStokUpdate.category.length;i++){
+								if(bookStokUpdate.category[i].value=="${categorychk}"){
+									bookStokUpdate.category[i].checked=true;
+								}
+							}
+						</script>
+					</c:forTokens>
 				</span>
 			</div>
 			
 			<div class="line">
-				<label class="title">입고수량</label>
+				<label class="title">재고수량</label>
 				<span class="content">
-					<input type="text" name="book_quantity" value="${bookDto.book_quantity}"/>
+					<input type="hidden" name="book_quantity" value="${bookDto.book_quantity}"/>
+					<input type="text" value="${bookDto.book_quantity}" disabled="disabled"/>
+				</span>
+			</div>
+			
+			<div class="line">
+				<label class="title">입고요청수량</label>
+				<span class="content">
+					<input type="text" name="reorder_quantity" value="0"/>
 				</span>
 			</div>
 			

@@ -1,6 +1,6 @@
 package com.gobook.bookmanage.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BookDto {
 	private long book_num;
