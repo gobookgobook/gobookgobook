@@ -20,6 +20,9 @@
 	<%-- <c:set var="member_id" value="${'11'}" scope="session"/> --%>
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
 	<a href="${root}/myPage/myPageOrderList.do">마이페이지</a>
+	
+	<h3>myBasket</h3>
+	<a href="${root}/myBasket/myBasketList.do">장바구니목록</a>
 	<P>  The time on the server is ${serverTime}. </P>
 
 

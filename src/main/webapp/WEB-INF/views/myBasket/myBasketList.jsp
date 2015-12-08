@@ -41,9 +41,9 @@
 				</c:forEach>
 			</table>
 			
-			<hr/>
+			<hr width="50%"/>
 			
-			<div align="right">
+			<div align="right" style="width:50%">
 				<span>상품 총 금액:${sum}</span>
 				<input type="button" value="주문하기"/>
 			</div>
