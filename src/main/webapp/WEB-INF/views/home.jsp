@@ -15,7 +15,11 @@
 	<a href="${root}/bookUser/bookOrderList.do">BookOrderlist</a>
 	<h3>member</h3>
 	<a href="${root}/member/register.do">회원가입</a>
-
+	
+	<h3>mypage</h3>
+	<%-- <c:set var="member_id" value="${'11'}" scope="session"/> --%>
+	<c:set var="root" value="${pageContext.request.contextPath }"/>
+	<a href="${root}/myPage/myPageOrderList.do">마이페이지</a>
 	<P>  The time on the server is ${serverTime}. </P>
 
 

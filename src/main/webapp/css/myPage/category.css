@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+div{
+	display: block;
+}
+
+.category{
+	width: 100px; height:200px;
+	border: 1px solid black;
+	display: block;
+	float: left;	
+}
+
+.category > a{
+	display: block;
+}

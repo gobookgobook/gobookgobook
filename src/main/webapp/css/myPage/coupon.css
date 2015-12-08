@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+div{
+	display: block;
+}
+
+.body{
+	width: 700px; height:600px;
+	border: 1px solid blue;
+	display: block;
+	float: left;	
+}
+
+.title{
+	width: 700px; height:30px;
+	border: 1px solid black;
+	margin-bottom: 3px; 
+}
+
+.myPageCouponSelect{
+	width:600px; height:500px;
+ 	border: 1px solid yellow; 
+	margin: 0px auto;
+}
+
+.user_coupon_title{
+	width:600px; height:50px;
+ 	border: 1px solid yellow; 
+	margin: 0px auto;
+}
+
+.user_coupon_name{
+	width:80px; height:50px;
+ 	border: 1px solid yellow; 
+	float: left;
+}
+
+.user_coupon_period{
+	width:100px; height:50px;
+ 	border: 1px solid yellow; 
+	float: left;
+}
+
+.user_copoun_content{
+	width:210px; height:50px;
+ 	border: 1px solid yellow; 
+	float: left;
+}
+
+.user_copoun_field{
+	width:100px; height:50px;
+ 	border: 1px solid yellow; 
+	float: left;
+}
+
+.user_copoun_discount{
+	width:100px; height:50px;
+ 	border: 1px solid yellow; 
+	float: left;
+}
