@@ -19,6 +19,12 @@ public class BookManageCotroller {
 	@Autowired
 	private IBookManageService iBookManageService;
 	
+	@RequestMapping(value="/bookManage/bookManage.do", method=RequestMethod.GET)
+	public ModelAndView bookManager(HttpServletRequest request, HttpServletResponse response){
+		
+		return new ModelAndView();
+	}
+
 	/**
 	 * @함수이름 : bookInsert
 	 * @작성일 : 2015. 12. 8.

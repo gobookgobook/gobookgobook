@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+body{
+   font-size:13px;
+}
+
+a:link {
+	text-decoration:none;
+	color: blue;
+}
+
+a:visited {
+	text-decoration:none;
+	color: purple;
+}
+
+a:hover {
+	text-decoration:none;
+	color: black;
+}
+
+#wrap{
+	width: 1024px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+#header{
+	width: 100%; height: 100px;
+	line-height: 100px;
+}
+
+#nav{
+	width: 100%; height: 100px;
+}
+
+#sec{
+	width: 100%;
+	overflow: hidden;
+}
+
+#con1{
+	width: 200px;
+	float: left;
+}
+
+#con2{
+	width: 80%;
+	float: left;
+}
+
+#foot{
+	width: 780px; height: 100px;
+	line-height: 100px;
+}
+
+.line{	
+	width:610px;height:30px;float:left;
+	border:solid 0px #000000;
+	margin:0px; padding:0px
+	;text-align:left; 
+}
+
+.title{
+	width:96px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 0px 0px 2px;
+    text-align:center; line-height:30px;
+}

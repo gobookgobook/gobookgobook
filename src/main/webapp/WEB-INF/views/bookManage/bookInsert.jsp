@@ -8,16 +8,33 @@
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
 </head>
 <body>
-	<div align="center">
-		<b> 도서등록 </b>
-	</div>	
-	<div align="center">
-		<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookInsertForm(this)" enctype="multipart/form-data">	
-			<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
-				<a href="${root}/bookManage/bookStockList.do">도서목록</a>
-			</div>
+	<div id="wrap">
+	<div id="header">
+		<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
+	</div>
+	
+	<div id="con1" align="left" style="height:1000px;">
+	<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
+	<a href="">도서수정</a><br/>
+	<a href="${root}/bookManage/bookStockList.do">도서목록</a><br/>
+	<a href="">재고관리</a><br/>
+	<a href="">특가설정</a><br/>
+	<a href="">품절도서목록</a><br/>
+	<hr width="80px" align="left"/>
+	<a href="">재입고신청</a><br/>
+	<a href="">재입고현황</a><br/>
+	<hr width="80px" align="left"/>
+	<a href="">공동구매</a><br/>
+	<a href="">출간일정관리</a><br/>
+	</div>
+	
+	<div id="#con2" align="left">
+		<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookInsertForm(this)" enctype="multipart/form-data">
+			<b>도서등록</b>
+			<hr/>
 			
 			<div class="line">
 				<label class="title">도서번호</label>
@@ -66,31 +83,31 @@
 				</span>
 			</div>
 			
-			<div class="line" style="height:230px;">
-				<label class="title" style="height:230px;">줄거리</label>
-				<span class="content" style="height:230px;">
-					<textarea rows="14" cols="67" name="book_summary"></textarea>
+			<div class="line" style="height:200px;">
+				<label class="title" style="height:180px;">줄거리</label>
+				<span class="content" style="height:180px;">
+					<textarea rows="10" cols="67" name="book_summary"></textarea>
 				</span>
 			</div>
 			
-			<div class="line" style="height:230px;">
-				<label class="title" style="height:230px;">목차</label>
-				<span class="content" style="height:230px;">
-					<textarea rows="14" cols="67" name="book_index"></textarea>
+			<div class="line" style="height:200px;">
+				<label class="title" style="height:180px;">목차</label>
+				<span class="content" style="height:180px;">
+					<textarea rows="10" cols="67" name="book_index"></textarea>
 				</span>
 			</div>
 			
-			<div class="line">
-				<label class="title">카테고리</label>
-				<span class="content">
-					<input type="checkbox" name="category" value="문학"/> 문학 &nbsp;
-					<input type="checkbox" name="category" value="교육도서"/> 교육도서 &nbsp;
-					<input type="checkbox" name="category" value="전공도서"/> 전공도서 &nbsp;
-					<input type="checkbox" name="category" value="만화"/> 만화 &nbsp;
-					<input type="checkbox" name="category" value="잡지"/> 잡지 &nbsp;
-					<input type="checkbox" name="category" value="역사"/> 역사 &nbsp;
-					<input type="checkbox" name="category" value="교양"/> 교양 &nbsp;
-					<input type="checkbox" name="category" value="SF/판타지"/> SF/판타지 &nbsp;
+			<div class="line" style="height:160px;">
+				<label class="title" style="height:160px;">카테고리</label>
+				<span class="content" style="height:160px;">
+					<input type="checkbox" name="category" value="문학"/> 문학<br/>
+					<input type="checkbox" name="category" value="교육도서"/> 교육도서 <br/>
+					<input type="checkbox" name="category" value="전공도서"/> 전공도서 <br/>
+					<input type="checkbox" name="category" value="만화"/> 만화 <br/>
+					<input type="checkbox" name="category" value="잡지"/> 잡지 <br/>
+					<input type="checkbox" name="category" value="역사"/> 역사 <br/>
+					<input type="checkbox" name="category" value="교양"/> 교양 <br/>
+					<input type="checkbox" name="category" value="SF/판타지"/> SF/판타지 <br/>
 					<input type="hidden" name="book_category"/>
 				</span>
 			</div>
@@ -129,12 +146,13 @@
 					<input type="file" name="book_preview_file3"/>
 				</span>
 			</div>
-			<div class="line" style="width:598px; border-width:2px; text-align:center;">
+			<div class="line" style="text-align:center;">
 				<input type="submit" value="도서등록"/>
 				<input type="reset" value="다시작성"/>
 				<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookStockList.do'"/>
 			</div>
 		</form>	
+	</div>
 	</div>
 </body>
 </html>

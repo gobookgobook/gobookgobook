@@ -8,8 +8,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
 </head>
 <body>
+	<div id="wrap">
+	<div id="header">
+		<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
+	</div>
+	
+	<div id="con1" align="left" style="height:300px;">
+	<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
+	<a href="">도서수정</a><br/>
+	<a href="${root}/bookManage/bookStockList.do">도서목록</a><br/>
+	<a href="">재고관리</a><br/>
+	<a href="">특가설정</a><br/>
+	<a href="">품절도서목록</a><br/>
+	<hr width="80px" align="left"/>
+	<a href="">재입고신청</a><br/>
+	<a href="">재입고현황</a><br/>
+	<hr width="80px" align="left"/>
+	<a href="">공동구매</a><br/>
+	<a href="">출간일정관리</a><br/>
+	</div>
+	
+	<div id="con2">
+		<b>도서등록</b>
+		<hr/>
 	<c:if test="${count==0}">
 	<div align="center">
 		<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
@@ -22,22 +46,22 @@
 	
 	<c:if test="${count>0}">
 	<div align="center">
-		<table class="mytable" style="border-collapse: collapse; width: 600px; height: 18px;">
+		<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
 			<tr>
-				<td class="mytable" align="center" height="18" width="50">도서번호</td>
-				<td class="mytable" align="center" height="18" width="250">도서명</td>
-				<td class="mytable" align="center" height="18" width="50">도서원가</td>
-				<td class="mytable" align="center" height="18" width="50">도서가격</td>
-				<td class="mytable" align="center" height="18" width="50">도서수량</td>
-				<td class="mytable" align="center" height="18" width="50">별점</td>
-				<td class="mytable" align="center" height="18" width="50">재입고요청</td>
-				<td class="mytable" align="center" height="18" width="50">공구요청</td>
+				<td class="mytable" align="center" height="18" width="80">도서번호</td>
+				<td class="mytable" align="center" height="18" width="240">도서명</td>
+				<td class="mytable" align="center" height="18" width="80">도서원가</td>
+				<td class="mytable" align="center" height="18" width="80">도서가격</td>
+				<td class="mytable" align="center" height="18" width="80">도서수량</td>
+				<td class="mytable" align="center" height="18" width="80">별점</td>
+				<td class="mytable" align="center" height="18" width="80">재입고요청</td>
+				<td class="mytable" align="center" height="18" width="80">공구요청</td>
 			</tr>
 		<c:forEach var="book" items="${bookList}">
 			<tr>
 				<td class="mytable" align="center" height="18">${book.book_num}</td>
-				<td class="mytable" align="left" height="18">>
-					<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}">${book.book_name}</a>
+				<td class="mytable" align="left" height="18">
+					<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
 				</td>
 				<td class="mytable" align="center" height="18">${book.book_cost}</td>
 				<td class="mytable" align="center" height="18">${book.book_price}</td>
@@ -78,5 +102,7 @@
 	</div>
 	
 	</c:if>
+	</div>
+	</div>
 </body>
 </html>
