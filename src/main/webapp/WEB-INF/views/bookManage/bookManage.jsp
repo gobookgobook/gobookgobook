@@ -21,11 +21,10 @@
 	
 		<div id="con1" align="left" style="height:300px;">
 			<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
-			<a href="">도서수정</a><br/>
 			<a href="${root}/bookManage/bookStockList.do">도서목록</a><br/>
 			<a href="">재고관리</a><br/>
 			<a href="">특가설정</a><br/>
-			<a href="">품절도서목록</a><br/>
+			<a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a><br/>
 			<hr width="80px" align="left"/>
 			<a href="">재입고신청</a><br/>
 			<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
@@ -36,7 +35,7 @@
 	
 		<div id="#con2" align="left">
 			<h3>재입고 요청</h3>
-			<a href="">재입고 요청 내역</a>
+			<a href="${root}/bookManage/bookReOrderCount.do">재입고 요청 내역</a>
 			<br/><br/><br/>
 			
 			<h3>공동구매 현황</h3>
@@ -46,7 +45,7 @@
 			<br/><br/><br/>
 			
 			<h3>공동구매 요청</h3>
-			<a href="">공동구매 요청 내역</a>
+			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매 요청 내역</a>
 			<br/><br/>
 		</div>
 	</div>

@@ -150,7 +150,7 @@ public class BookManageService implements IBookManageService {
 			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
-			bookList=iBookManageDao.bookSoldOutList(hMap);
+			bookList=iBookManageDao.bookList(hMap);
 		}
 		
 		mav.addObject("bookList", bookList);
@@ -202,7 +202,10 @@ public class BookManageService implements IBookManageService {
 		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
 		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
 		
-		if(bookDto.getBook_quantity()!=0) bookDto.setBook_state(1);
+		if(bookDto.getBook_quantity()!=0){
+			bookDto.setBook_state(1);
+			bookDto.setBook_reorder_count(0);
+		}
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
 		
 		mav.addObject("pageNumber", pageNumber);
@@ -230,7 +233,7 @@ public class BookManageService implements IBookManageService {
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
 		
-		int count=iBookManageDao.bookReOrderCount();
+		int count=iBookManageDao.bookReOrderListCount();
 		
 		List<BookReOrderDto> bookReorderList=null;
 		if(count>0){
@@ -248,6 +251,119 @@ public class BookManageService implements IBookManageService {
 		mav.setViewName("bookManage/bookReOrderList");
 		
 	}
-	
+
+	/**
+	 * @함수이름 : bookReOrderCount
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 재입고 요청 리스트
+	 */
+	@Override
+	public void bookReOrderCount(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookReOrderCount();
+		
+		List<BookDto> bookReOrderCountList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookReOrderCountList=iBookManageDao.bookReOrderCountList(hMap);
+		}
+		
+		mav.addObject("bookReOrderCountList", bookReOrderCountList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookReOrderCountList");
+		
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseCount
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 요청 리스트
+	 */
+	@Override
+	public void bookGroupPurchaseCount(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookGroupPurchaseCount();
+		
+		List<BookDto> bookGroupPurchaseCountList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookGroupPurchaseCountList=iBookManageDao.bookGroupPurchaseCountList(hMap);
+		}
+		
+		mav.addObject("bookGroupPurchaseCountList", bookGroupPurchaseCountList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseCountList");
+		
+	}
+
+	/**
+	 * @함수이름 : bookSoldOutList
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 품절 도서 목록
+	 */
+	@Override
+	public void bookSoldOutList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookSoldOutCount();
+		
+		List<BookDto> bookSoldOutList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookSoldOutList=iBookManageDao.bookSoldOutList(hMap);
+		}
+		
+		mav.addObject("bookSoldOutList", bookSoldOutList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookSoldOutList");
+		
+	}
 	
 }

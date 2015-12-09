@@ -37,9 +37,9 @@ public class BookManageDao implements IBookManageDao {
 	}
 
 	@Override
-	public List<BookDto> bookSoldOutList(HashMap<String, Integer> hMap) {
+	public List<BookDto> bookList(HashMap<String, Integer> hMap) {
 		
-		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookSoldOutList", hMap);
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookList", hMap);
 	}
 
 	@Override
@@ -69,6 +69,7 @@ public class BookManageDao implements IBookManageDao {
 					sqlSessionTemplate.insert("dao.bookmanageMapper.bookReOrderInsert", hMap);
 				}
 				sqlSessionTemplate.insert("dao.bookmanageMapper.salesMonthListInsert", hMap);
+				bookDto.setBook_reorder_count(0);
 			}
 			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
 			
@@ -81,15 +82,51 @@ public class BookManageDao implements IBookManageDao {
 	}
 	
 	@Override
-	public int bookReOrderCount() {
+	public int bookReOrderListCount() {
 		
-		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookReOrderCount");
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookReOrderListCount");
 	}
 
 	@Override
 	public List<BookReOrderDto> bookReOrderList(HashMap<String, Integer> hMap) {
 		
 		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookReOrderList", hMap);
+	}
+
+	@Override
+	public int bookReOrderCount() {
+
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookReOrderCount");
+	}
+
+	@Override
+	public List<BookDto> bookReOrderCountList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookReOrderCountList", hMap);
+	}
+
+	@Override
+	public int bookGroupPurchaseCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseCount");
+	}
+
+	@Override
+	public List<BookDto> bookGroupPurchaseCountList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookGroupPurchaseCountList", hMap);
+	}
+
+	@Override
+	public int bookSoldOutCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookSoldOutCount");
+	}
+
+	@Override
+	public List<BookDto> bookSoldOutList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookSoldOutList", hMap);
 	}
 	
 	

@@ -122,4 +122,49 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : bookReOrderCount
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 재입고 요청 리스트
+	 */
+	@RequestMapping(value="/bookManage/bookReOrderCount.do", method=RequestMethod.GET)
+	public ModelAndView bookReOrderCount(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookReOrderCount(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseCount
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 요청 리스트
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseCount.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchaseCount(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookGroupPurchaseCount(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookSoldOutList
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 품절 도서 목록
+	 */
+	@RequestMapping(value="/bookManage/bookSoldOutList.do", method=RequestMethod.GET)
+	public ModelAndView bookSoldOutList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookSoldOutList(mav);
+		
+		return mav;
+	}
 }

@@ -15,11 +15,11 @@
 		<div id="header">
 			<h1>GoBook!GoBook!</h1>
 		</div>
-		
+			
 		<div id="nav">
 			<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
 		</div>
-	
+		
 		<div id="con1" align="left" style="height:300px;">
 			<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
 			<a href="${root}/bookManage/bookStockList.do">도서목록</a><br/>
@@ -35,13 +35,13 @@
 		</div>
 		
 		<div id="con2">
-			<b>재입고 현황</b>
+			<b>공동구매 요청 내역</b>
 			<hr/>
 		<c:if test="${count==0}">
 		<div align="center">
 			<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
 				<tr>
-					<td align="center">등록된 재입고 현황이 없습니다.</td>
+					<td align="center">공동구매 요청 도서가 없습니다.</td>
 				</tr>
 			</table> 
 		</div>
@@ -51,21 +51,27 @@
 		<div align="center">
 			<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
 				<tr>
-					<td class="mytable" align="center" height="18" width="80">재입고번호</td>
 					<td class="mytable" align="center" height="18" width="80">도서번호</td>
 					<td class="mytable" align="center" height="18" width="240">도서명</td>
-					<td class="mytable" align="center" height="18" width="80">재입고수량</td>
-					<td class="mytable" align="center" height="18" width="80">재입고날짜</td>
-					<td class="mytable" align="center" height="18" width="80">재입고가격</td>
+					<td class="mytable" align="center" height="18" width="80">도서원가</td>
+					<td class="mytable" align="center" height="18" width="80">도서가격</td>
+					<td class="mytable" align="center" height="18" width="80">도서수량</td>
+					<td class="mytable" align="center" height="18" width="80">별점</td>
+					<td class="mytable" align="center" height="18" width="80">재입고요청</td>
+					<td class="mytable" align="center" height="18" width="80">공구요청</td>
 				</tr>
-			<c:forEach var="book" items="${bookReorderList}">
+			<c:forEach var="book" items="${bookGroupPurchaseCountList}">
 				<tr>
-					<td class="mytable" align="center" height="18">${book.reorder_num}</td>
 					<td class="mytable" align="center" height="18">${book.book_num}</td>
-					<td class="mytable" align="left" height="18">${book.book_name}</td>
-					<td class="mytable" align="center" height="18">${book.reorder_quantity}</td>
-					<td class="mytable" align="center" height="18"><fmt:formatDate value="${book.reorder_date}" pattern="yyyy/MM/dd"/></td>
-					<td class="mytable" align="center" height="18">${book.reorder_price}</td>
+					<td class="mytable" align="left" height="18">
+						<a href="${root}/bookManage/bookManage.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+					</td>
+					<td class="mytable" align="center" height="18">${book.book_cost}</td>
+					<td class="mytable" align="center" height="18">${book.book_price}</td>
+					<td class="mytable" align="center" height="18">${book.book_quantity}</td>
+					<td class="mytable" align="center" height="18">${book.book_star}</td>
+					<td class="mytable" align="center" height="18">${book.book_reorder_count}</td>
+					<td class="mytable" align="center" height="18">${book.book_group_purchase_count}</td>
 				</tr>
 			</c:forEach>
 			</table> 
@@ -83,18 +89,18 @@
 			</c:if>
 			
 			<c:if test="${startPage>pageBlock}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+				<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 			</c:if>
 			
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
 				<c:if test="${currentPage==i}">[${i}]</c:if>
 				<c:if test="${currentPage!=i}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${i}">[${i}]</a>
+				<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${i}">[${i}]</a>
 				</c:if>
 			</c:forEach>
 			
 			<c:if test="${endPage<pageCount}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+				<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 			</c:if>
 		</div>
 		

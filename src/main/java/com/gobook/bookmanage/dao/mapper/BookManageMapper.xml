@@ -12,7 +12,7 @@
 		select count(*) from book 
 	</select>
 	
-	<select id="bookSoldOutList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+	<select id="bookList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from
@@ -38,7 +38,7 @@
 		update book set book_name=#{book_name},book_writer=#{book_writer},book_publisher=#{book_publisher},book_publish_date=#{book_publish_date},book_cost=#{book_cost},book_price=#{book_price},book_quantity=#{book_quantity},book_index=#{book_index, jdbcType=VARCHAR},book_summary=#{book_summary, jdbcType=VARCHAR},book_category=#{book_category},book_cover_file_name=#{book_cover_file_name, jdbcType=VARCHAR},book_cover_file_path=#{book_cover_file_path, jdbcType=VARCHAR},book_cover_file_size=#{book_cover_file_size, jdbcType=INTEGER},book_preview_file_name1=#{book_preview_file_name1, jdbcType=VARCHAR},book_preview_file_path1=#{book_preview_file_path1, jdbcType=VARCHAR},book_preview_file_size1=#{book_preview_file_size1, jdbcType=INTEGER},book_preview_file_name2=#{book_preview_file_name2, jdbcType=VARCHAR},book_preview_file_path2=#{book_preview_file_path2, jdbcType=VARCHAR},book_preview_file_size2=#{book_preview_file_size2, jdbcType=INTEGER},book_preview_file_name3=#{book_preview_file_name3, jdbcType=VARCHAR},book_preview_file_path3=#{book_preview_file_path3, jdbcType=VARCHAR},book_preview_file_size3=#{book_preview_file_size3, jdbcType=INTEGER},book_state=#{book_state} where book_num=#{book_num}
 	</update>
 	
-	<select id="bookReOrderCount" resultType="int">
+	<select id="bookReOrderListCount" resultType="int">
 		select count(*) from BOOKREORDER
 	</select>
 	
@@ -50,4 +50,44 @@
 			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
+	
+	<select id="bookReOrderCount" resultType="int">
+		select count(*) from book where BOOK_REORDER_COUNT!=0
+	</select>
+	
+	<select id="bookReOrderCountList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from book order by BOOK_REORDER_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow} and BOOK_REORDER_COUNT!=0
+		]]>
+	</select>
+	
+	<select id="bookGroupPurchaseCount" resultType="int">
+		select count(*) from book where BOOK_GROUP_PURCHASE_COUNT!=0
+	</select>
+	
+	<select id="bookGroupPurchaseCountList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from book order by BOOK_GROUP_PURCHASE_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow} and BOOK_GROUP_PURCHASE_COUNT!=0
+		]]>
+	</select>
+	
+	<select id="bookSoldOutCount" resultType="int">
+		select count(*) from book where book_quantity=0
+	</select>
+	
+	<select id="bookSoldOutList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from book order by BOOK_REORDER_COUNT desc, BOOK_GROUP_PURCHASE_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow} and book_quantity=0
+		]]>
+	</select>
+	
 </mapper>
