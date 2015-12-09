@@ -52,4 +52,20 @@ public class MyBasketController {
 		
 		return null;
 	}
+	
+	/**
+	 * @함수이름 : myBasketUpdate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 황규성
+	 * @설명 : 장바구니 수정
+	 */
+	@RequestMapping(value="/myBasket/myBasketUpdate.do", method=RequestMethod.GET)
+	public ModelAndView myBasketUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		iMyBasketService.myBasketUpdate(mav);
+		
+		return null;
+	}
 }

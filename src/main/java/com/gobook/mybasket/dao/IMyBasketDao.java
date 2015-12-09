@@ -16,4 +16,6 @@ public interface IMyBasketDao {
 	public List<MyBasketDto> myBasketList(String member_id);
 	
 	public int myBasketDelete(int basket_num);
+	
+	public int myBasketUpdate(MyBasketDto myBasketDto);
 }

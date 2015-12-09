@@ -12,4 +12,6 @@ public interface IMyBasketService {
 	public void myBasketList(ModelAndView mav);
 	
 	public void myBasketDelete(ModelAndView mav);
+	
+	public void myBasketUpdate(ModelAndView mav);
 }

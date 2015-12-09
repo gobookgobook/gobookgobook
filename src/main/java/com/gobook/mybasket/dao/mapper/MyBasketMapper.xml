@@ -20,4 +20,8 @@
 	<delete id="myBasketDelete" parameterType="int">
 		delete from myBasket where basket_num=#{basket_num}
 	</delete>
+	
+	<update id="myBasketUpdate" parameterType="com.gobook.mybasket.dto.MyBasketDto">
+		update myBasket set basket_quantity=#{basket_quantity}, basket_total_price=#{basket_total_price} where basket_num=#{basket_num}
+	</update>
 </mapper>

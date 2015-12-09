@@ -84,4 +84,39 @@ public class MyBasketService implements IMyBasketService {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * @함수이름 : myBasketUpdate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 황규성
+	 * @설명 : 장바구니 수정
+	 */
+	@Override
+	public void myBasketUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
+		
+		int basket_num=Integer.parseInt(request.getParameter("basket_num"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_num:"+basket_num);
+		
+		int basket_book_price=Integer.parseInt(request.getParameter("basket_book_price"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_book_price:" + basket_book_price);
+		
+		int value=Integer.parseInt(request.getParameter("value"));
+		int basket_total_price=basket_book_price*value;
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "value:"+value +"," + "basket_total_price:"+basket_total_price);
+		
+		MyBasketDto myBasketDto=new MyBasketDto();
+		
+		myBasketDto.setBasket_num(basket_num);
+		myBasketDto.setBasket_quantity(value);
+		myBasketDto.setBasket_total_price(basket_total_price);
+		
+		int check=iMyBasketDao.myBasketUpdate(myBasketDto);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
+		
+		
+		
+	}
 }

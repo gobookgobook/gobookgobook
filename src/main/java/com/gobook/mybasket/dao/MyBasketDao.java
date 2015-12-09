@@ -51,4 +51,15 @@ public class MyBasketDao implements IMyBasketDao {
 	public int myBasketDelete(int basket_num) {
 		return sqlSessionTemplate.delete("dao.myBasketMapper.myBasketDelete", basket_num);
 	}
+
+	/**
+	 * @함수이름 : myBasketUpdate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 황규성
+	 * @설명 : 장바구니 수정
+	 */
+	@Override
+	public int myBasketUpdate(MyBasketDto myBasketDto) {
+		return sqlSessionTemplate.update("dao.myBasketMapper.myBasketUpdate", myBasketDto);
+	}
 }
