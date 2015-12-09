@@ -39,5 +39,17 @@
 		select * from member where member_id=#{id}
 	</select>
 	
-	
+	<update id="memberUpdate" parameterType="com.gobook.member.dto.MemberDto">
+		<![CDATA[
+			update member set member_password=#{member_password},
+							  member_zipcode=#{member_zipcode},
+							  member_address1=#{member_address1},
+							  member_address2=#{member_address2},
+							  member_phone=#{member_phone},
+							  member_interest=#{member_interest},
+							  member_birth=#{member_birth},
+							  member_email=#{member_email}
+			where member_id=#{member_id}
+		]]>
+	</update>
 </mapper>

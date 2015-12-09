@@ -124,4 +124,15 @@ public class MemberDao implements IMemberDao{
 		
 		return memberDto;
 	}
+
+	/**
+	 * @함수이름 : memberUpdate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 강주혁
+	 * @설명 : 회원정보 Update
+	 */
+	@Override
+	public int memberUpdate(MemberDto memberDto) {
+		return sqlSessionTemplate.update("dao.memberMapper.memberUpdate", memberDto);
+	}
 }

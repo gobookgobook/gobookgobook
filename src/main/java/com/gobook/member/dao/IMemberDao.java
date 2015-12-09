@@ -18,4 +18,5 @@ public interface IMemberDao {
 	public String memberLogin(String id, String password);
 	public int memberDelete(String id, String password);
 	public MemberDto memberSelect(String id);
+	public int memberUpdate(MemberDto memberDto);
 }

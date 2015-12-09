@@ -15,4 +15,5 @@ public interface IMemberService {
 	public void memberLogin(ModelAndView mav);
 	public void memberDeleteOk(ModelAndView mav);
 	public void memberUpdate(ModelAndView mav);
+	public void memberUpdateOk(ModelAndView mav);
 }

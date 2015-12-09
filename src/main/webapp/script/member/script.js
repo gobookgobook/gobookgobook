@@ -9,9 +9,33 @@
  * @설명 : 로그인 예외처리
  */
 function registerForm(form){
-	//alert("ok");
+	//아이디 유효성 검사
 	if(form.id_check.value==""){
 		alert("아이디를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	//아이디에 공백 사용하지 않기
+	if(form.id_check.value.indexOf(" ")>=0){
+		alert("아이디에 공백을 사용할 수 없습니다.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	//아이디 유효성 검사 (영문자, 숫자만 허용)
+	for(var i=0;i<form.id_check.value.length ;i++ ){
+		ch=form.id_check.value.charAt(i);
+		if (!(ch>='0' && ch<='9') && !(ch>='a' && ch<='z') && !(ch>='A' && ch<='Z')){
+			alert ("아이디는 영문자, 숫자만 입력해주세요.");
+			form.id_check.focus();
+			return false;
+		}
+	}
+
+	//아이디 길이 체크 (6~12자)
+	if (form.id_check.value.length<6 || form.id_check.value.length>12){
+		alert ("아이디를 6~12자까지 입력해주세요.");
 		form.id_check.focus();
 		return false;
 	}
@@ -22,8 +46,8 @@ function registerForm(form){
 		return false;
 	}
 	
-	if(form.member_password.value.length<6){
-		alert("패스워드는 6글자 이상입니다.");
+	if(form.member_password.value.length<6 || form.member_password.value.length>20){
+		alert("패스워드는 6글자 이상 20자 이하입니다.");
 		form.member_password.focus();
 		return false;
 	}
@@ -118,7 +142,6 @@ function registerForm(form){
 	if(strDate==""){
 		strDate="1800/01/01";
 	}
-	
 	form.member_birth.value=strDate;
 }
 

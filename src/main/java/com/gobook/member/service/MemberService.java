@@ -168,4 +168,24 @@ public class MemberService implements IMemberService {
 		
 		mav.setViewName("member/update");
 	}
+
+	/**
+	 * @함수이름 : memberUpdateOk
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 강주혁
+	 * @설명 : 
+	 */
+	@Override
+	public void memberUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		MemberDto memberDto=(MemberDto) map.get("memberDto");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + memberDto);
+		
+		int check=iMemberDao.memberUpdate(memberDto);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + check);
+		
+		mav.addObject("check", check);
+		
+		mav.setViewName("member/updateOk");
+	}
 }
