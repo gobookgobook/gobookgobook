@@ -181,7 +181,7 @@ public class MemberService implements IMemberService {
 	 * @함수이름 : memberUpdateOk
 	 * @작성일 : 2015. 12. 9.
 	 * @개발자 : 강주혁
-	 * @설명 : 
+	 * @설명 : 회원정보 수정
 	 */
 	@Override
 	public void memberUpdateOk(ModelAndView mav) {
