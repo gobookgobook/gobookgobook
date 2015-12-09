@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="wrap">
-	<div id="header">
+	<div id=nav>
 		<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
 	</div>
 	
@@ -26,7 +26,7 @@
 	<a href="">품절도서목록</a><br/>
 	<hr width="80px" align="left"/>
 	<a href="">재입고신청</a><br/>
-	<a href="">재입고현황</a><br/>
+	<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
 	<hr width="80px" align="left"/>
 	<a href="">공동구매</a><br/>
 	<a href="">출간일정관리</a><br/>

@@ -13,6 +13,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookReOrderDto;
 
 @Component
 public class BookManageDao implements IBookManageDao {
@@ -78,4 +79,18 @@ public class BookManageDao implements IBookManageDao {
 		}
 		return value;
 	}
+	
+	@Override
+	public int bookReOrderCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookReOrderCount");
+	}
+
+	@Override
+	public List<BookReOrderDto> bookReOrderList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookReOrderList", hMap);
+	}
+	
+	
 }

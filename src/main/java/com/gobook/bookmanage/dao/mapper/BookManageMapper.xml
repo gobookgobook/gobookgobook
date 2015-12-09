@@ -37,4 +37,17 @@
 	<update id="bookStockUpdate" parameterType="com.gobook.bookmanage.dto.BookDto">
 		update book set book_name=#{book_name},book_writer=#{book_writer},book_publisher=#{book_publisher},book_publish_date=#{book_publish_date},book_cost=#{book_cost},book_price=#{book_price},book_quantity=#{book_quantity},book_index=#{book_index, jdbcType=VARCHAR},book_summary=#{book_summary, jdbcType=VARCHAR},book_category=#{book_category},book_cover_file_name=#{book_cover_file_name, jdbcType=VARCHAR},book_cover_file_path=#{book_cover_file_path, jdbcType=VARCHAR},book_cover_file_size=#{book_cover_file_size, jdbcType=INTEGER},book_preview_file_name1=#{book_preview_file_name1, jdbcType=VARCHAR},book_preview_file_path1=#{book_preview_file_path1, jdbcType=VARCHAR},book_preview_file_size1=#{book_preview_file_size1, jdbcType=INTEGER},book_preview_file_name2=#{book_preview_file_name2, jdbcType=VARCHAR},book_preview_file_path2=#{book_preview_file_path2, jdbcType=VARCHAR},book_preview_file_size2=#{book_preview_file_size2, jdbcType=INTEGER},book_preview_file_name3=#{book_preview_file_name3, jdbcType=VARCHAR},book_preview_file_path3=#{book_preview_file_path3, jdbcType=VARCHAR},book_preview_file_size3=#{book_preview_file_size3, jdbcType=INTEGER},book_state=#{book_state} where book_num=#{book_num}
 	</update>
+	
+	<select id="bookReOrderCount" resultType="int">
+		select count(*) from BOOKREORDER
+	</select>
+	
+	<select id="bookReOrderList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookReOrderDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from BOOKREORDER order by REORDER_NUM desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
 </mapper>

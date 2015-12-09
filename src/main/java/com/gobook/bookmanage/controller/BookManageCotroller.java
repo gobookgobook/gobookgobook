@@ -19,6 +19,12 @@ public class BookManageCotroller {
 	@Autowired
 	private IBookManageService iBookManageService;
 	
+	/**
+	 * @함수이름 : bookManager
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서관리 메인페이지
+	 */
 	@RequestMapping(value="/bookManage/bookManage.do", method=RequestMethod.GET)
 	public ModelAndView bookManager(HttpServletRequest request, HttpServletResponse response){
 		
@@ -98,6 +104,21 @@ public class BookManageCotroller {
 		mav.addObject("request", request);
 		mav.addObject("bookDto", bookDto);
 		iBookManageService.bookStockUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookReOrderList
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 재입고 현황
+	 */
+	@RequestMapping(value="/bookManage/bookReOrderList.do", method=RequestMethod.GET)
+	public ModelAndView bookReOrderList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookReOrderList(mav);
 		
 		return mav;
 	}

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.bookmanage.dao.IBookManageDao;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookReOrderDto;
 
 /**
  * @클래스이름 : BookManageService
@@ -209,5 +210,44 @@ public class BookManageService implements IBookManageService {
 		
 		mav.setViewName("bookManage/bookStockUpdateOk");
 	}
+
+	/**
+	 * @함수이름 : bookReOrderList
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 성기훈
+	 * @설명 : 재입고 현황
+	 */
+	@Override
+	public void bookReOrderList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookReOrderCount();
+		
+		List<BookReOrderDto> bookReorderList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookReorderList=iBookManageDao.bookReOrderList(hMap);
+		}
+		
+		mav.addObject("bookReorderList", bookReorderList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookReOrderList");
+		
+	}
+	
 	
 }

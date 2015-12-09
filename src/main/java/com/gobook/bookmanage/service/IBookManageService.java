@@ -8,4 +8,5 @@ public interface IBookManageService {
 	public void bookStockList(ModelAndView mav);
 	public void bookStockUpdate(ModelAndView mav);
 	public void bookStockUpdateOk(ModelAndView mav);
+	public void bookReOrderList(ModelAndView mav);
 }
