@@ -25,7 +25,9 @@
 	<h3>myBasket</h3>
 	<a href="${root}/myBasket/myBasketList.do">장바구니목록</a>
 	<P>  The time on the server is ${serverTime}. </P>
-
+	
+	<h3>Location</h3>
+	<a href="${root}/location/locationWrite.do">지점등록</a>
 
 	<h2> test</h2>
 </body>
