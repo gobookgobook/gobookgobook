@@ -19,4 +19,6 @@ public interface IMemberDao {
 	public int memberDelete(String id, String password);
 	public MemberDto memberSelect(String id);
 	public int memberUpdate(MemberDto memberDto);
+	public int memberDeleteCouponDate(String loginId);
+	public int memberDeleteBasketDate(String loginId);
 }

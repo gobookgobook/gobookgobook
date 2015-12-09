@@ -119,6 +119,14 @@ public class MemberService implements IMemberService {
 		String loginId=iMemberDao.memberLogin(id,password);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + loginId);
 		
+		if(loginId!=null||loginId!=""){
+			int deleteCouponValue = iMemberDao.memberDeleteCouponDate(loginId);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "기간지난쿠폰 : " + deleteCouponValue);
+			
+			int deleteBasketValue = iMemberDao.memberDeleteBasketDate(loginId);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "기간지난장바구니 : " + deleteBasketValue);
+		}
+		
 		mav.addObject("loginId", loginId);
 		
 		mav.setViewName("member/loginOk");

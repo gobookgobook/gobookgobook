@@ -7,6 +7,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
@@ -65,7 +68,21 @@ public class MemberDao implements IMemberDao{
 	 */
 	@Override
 	public int memberInsert(MemberDto memberDto) {
-		return sqlSessionTemplate.insert("dao.memberMapper.memberInsert", memberDto);
+		int count=0;
+		
+		TransactionDefinition definition=new DefaultTransactionDefinition();
+		TransactionStatus status=transactionManager.getTransaction(definition);
+		
+		try{
+			count+=sqlSessionTemplate.insert("dao.memberMapper.memberInsert", memberDto);
+			count+=sqlSessionTemplate.insert("dao.memberMapper.memberNewCouponInsert", memberDto);
+			
+			transactionManager.commit(status);
+		}catch(Exception e){
+			transactionManager.rollback(status);
+		}	
+		
+		return count;
 	}
 
 	/**
@@ -134,5 +151,27 @@ public class MemberDao implements IMemberDao{
 	@Override
 	public int memberUpdate(MemberDto memberDto) {
 		return sqlSessionTemplate.update("dao.memberMapper.memberUpdate", memberDto);
+	}
+
+	/**
+	 * @함수이름 : memberDeleteCouponDate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 강주혁
+	 * @설명 : 기한이 지난 쿠폰 삭제
+	 */
+	@Override
+	public int memberDeleteCouponDate(String loginId) {
+		return sqlSessionTemplate.delete("dao.memberMapper.memberDeleteCouponDate",loginId);
+	}
+
+	/**
+	 * @함수이름 : memberDeleteBasketDate
+	 * @작성일 : 2015. 12. 9.
+	 * @개발자 : 강주혁
+	 * @설명 : 기한이 지난 장바구니 삭제
+	 */
+	@Override
+	public int memberDeleteBasketDate(String loginId) {
+		return sqlSessionTemplate.delete("dao.memberMapper.memberDeleteBasketDate",loginId);
 	}
 }

@@ -139,28 +139,30 @@
 					</select>
 					<input type="hidden" name="member_birth"/>
 					
-					<c:forTokens var="userBirth" items="${birth}" delims="/">
-						<script type="text/javascript">
-							
-							if(memberForm.member_birth_year.value!="년"){
-								if(memberForm.member_birth_month.value!="월"){
-									if(memberForm.member_birth_day.value=="일"){
-										memberForm.member_birth_day.value="${userBirth}";
+					<c:if test="${birth!='1800/01/01'}">
+						<c:forTokens var="userBirth" items="${birth}" delims="/">
+							<script type="text/javascript">
+								
+								if(memberForm.member_birth_year.value!="년"){
+									if(memberForm.member_birth_month.value!="월"){
+										if(memberForm.member_birth_day.value=="일"){
+											memberForm.member_birth_day.value="${userBirth}";
+										}
 									}
 								}
-							}
-							
-							if(memberForm.member_birth_year.value!="년"){
-								if(memberForm.member_birth_month.value=="월"){
-									memberForm.member_birth_month.value=parseInt("${userBirth}");
+								
+								if(memberForm.member_birth_year.value!="년"){
+									if(memberForm.member_birth_month.value=="월"){
+										memberForm.member_birth_month.value=parseInt("${userBirth}");
+									}
 								}
-							}
-						
-							if(memberForm.member_birth_year.value=="년"){
-								memberForm.member_birth_year.value="${userBirth}";
-							}
-						</script>
-					</c:forTokens>
+							
+								if(memberForm.member_birth_year.value=="년"){
+									memberForm.member_birth_year.value="${userBirth}";
+								}
+							</script>
+						</c:forTokens>
+					</c:if>
 				</span>
 			</div>
 			

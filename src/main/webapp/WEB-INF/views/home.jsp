@@ -14,7 +14,8 @@
 	<h3>bookOrderList</h3>
 	<a href="${root}/userOrder/userOrderList.do">주문현황</a>
 	<h3>member</h3>
-	<a href="${root}/member/register.do">회원가입</a>
+	<a href="${root}/member/register.do">회원가입</a><br/>
+	<a href="${root}/member/goBookMain.do">메인화면</a>
 	
 	<h3>mypage</h3>
 	<%-- <c:set var="member_id" value="${'11'}" scope="session"/> --%>

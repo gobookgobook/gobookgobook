@@ -148,7 +148,7 @@
 		</form>
 	</div>
 	
-	<c:if test="${check >0}">
+	<c:if test="${check >1}">
 		<script type="text/javascript">
 			alert("회원가입을 축하드립니다.\n회원으로 로그인하세요.");
 			location.href="${root}/member/login.do";
