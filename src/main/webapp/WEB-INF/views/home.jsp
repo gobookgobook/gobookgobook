@@ -26,7 +26,10 @@
 	<a href="${root}/myBasket/myBasketList.do">장바구니목록</a>
 	<P>  The time on the server is ${serverTime}. </P>
 
-
+	<h3>QnA</h3>
+	<a href="${root}/help/adminHelpQnAList.do">QnA목록으로</a><br/>
+	<a href="${root}/help/adminHelpQnAWrite.do">QnA등록하기</a>
+	
 	<h2> test</h2>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.AdminHelpMapper">
+	<select id="qnaboardCount" resultType="int">
+		select count(*) from helpqna
+	</select>
+	<select id="qnaboardList" resultType="int" parameterType="java.util.Map">
+			<![CDATA[
+			select * from
+			(select rownum rnum, a.* from 
+				(select * from helpqna order by group_number desc, 
+					sequence_number asc) a)
+			where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<insert id="qnaboardInsert" parameterType="com.gobook.help.dto.HelpQnADto">
+		insert into helpqna(helpqna_num,helpqna_subject,helpqna_content) values(helpqna_helpqna_num_seq.nextval, #{helpqna_subject}, #{helpqna_content})
+	</insert>
+</mapper>
