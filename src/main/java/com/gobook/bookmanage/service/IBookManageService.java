@@ -3,6 +3,7 @@ package com.gobook.bookmanage.service;
 import org.springframework.web.servlet.ModelAndView;
 
 public interface IBookManageService {
+	public void bookManager(ModelAndView mav);
 	public void bookInsert(ModelAndView mav);
 	public void bookInsertOk(ModelAndView mav);
 	public void bookStockList(ModelAndView mav);
@@ -12,4 +13,6 @@ public interface IBookManageService {
 	public void bookReOrderCount(ModelAndView mav);
 	public void bookGroupPurchaseCount(ModelAndView mav);
 	public void bookSoldOutList(ModelAndView mav);
+	public void bookGroupPurchaseInsert(ModelAndView mav);
+	public void bookGroupPurchaseInsertOk(ModelAndView mav);
 }

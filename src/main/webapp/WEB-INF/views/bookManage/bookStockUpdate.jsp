@@ -12,6 +12,9 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
 </head>
 <body>
+	<jsp:include page="../member/menu.jsp"/>
+	<br/><br/>
+	<c:if test="${id=='admin'}">
 	<div id="wrap">
 		<div id="header">
 			<h1>GoBook!GoBook!</h1>
@@ -30,7 +33,7 @@
 			<a href="">재입고신청</a><br/>
 			<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
 			<hr width="80px" align="left"/>
-			<a href="">공동구매</a><br/>
+			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매</a><br/>
 			<a href="">출간일정관리</a><br/>
 		</div>
 		
@@ -176,11 +179,18 @@
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="도서수정"/>
 					<input type="reset" value="다시작성"/>
-					<input type="button" value="공구등록" onclick="location.href='${root}/bookManage/bookManage.do'"/>
+					<input type="button" value="공구등록" onclick="location.href='${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${bookDto.book_num}'"/>
 					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookStockList.do'"/>
 				</div>
 			</form>	
 		</div>
 	</div>
+	</c:if>
+	<c:if test="${id!='admin'}">
+		<script type="text/javascript">
+			alert("관리자만 접근이 가능한 페이지 입니다");
+			location.href="${root}/member/goBookMain.do"
+		</script>
+	</c:if>
 </body>
 </html>

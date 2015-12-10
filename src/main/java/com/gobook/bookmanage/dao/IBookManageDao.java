@@ -19,4 +19,8 @@ public interface IBookManageDao {
 	public List<BookDto> bookGroupPurchaseCountList(HashMap<String, Integer> hMap);
 	public int bookSoldOutCount();
 	public List<BookDto> bookSoldOutList(HashMap<String, Integer> hMap);
+	public int bookGroupPurchaseInsert(BookGroupPurchaseDto bookGroupPurchaseDto);
+	public int gpCount();
+	public List<BookGroupPurchaseDto> gpList();
+	public List<BookDto> gpBookList();
 }

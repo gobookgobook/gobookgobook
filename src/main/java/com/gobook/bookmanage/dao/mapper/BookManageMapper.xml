@@ -35,7 +35,7 @@
 	</insert>
 	
 	<update id="bookStockUpdate" parameterType="com.gobook.bookmanage.dto.BookDto">
-		update book set book_name=#{book_name},book_writer=#{book_writer},book_publisher=#{book_publisher},book_publish_date=#{book_publish_date},book_cost=#{book_cost},book_price=#{book_price},book_quantity=#{book_quantity},book_index=#{book_index, jdbcType=VARCHAR},book_summary=#{book_summary, jdbcType=VARCHAR},book_category=#{book_category},book_cover_file_name=#{book_cover_file_name, jdbcType=VARCHAR},book_cover_file_path=#{book_cover_file_path, jdbcType=VARCHAR},book_cover_file_size=#{book_cover_file_size, jdbcType=INTEGER},book_preview_file_name1=#{book_preview_file_name1, jdbcType=VARCHAR},book_preview_file_path1=#{book_preview_file_path1, jdbcType=VARCHAR},book_preview_file_size1=#{book_preview_file_size1, jdbcType=INTEGER},book_preview_file_name2=#{book_preview_file_name2, jdbcType=VARCHAR},book_preview_file_path2=#{book_preview_file_path2, jdbcType=VARCHAR},book_preview_file_size2=#{book_preview_file_size2, jdbcType=INTEGER},book_preview_file_name3=#{book_preview_file_name3, jdbcType=VARCHAR},book_preview_file_path3=#{book_preview_file_path3, jdbcType=VARCHAR},book_preview_file_size3=#{book_preview_file_size3, jdbcType=INTEGER},book_state=#{book_state} where book_num=#{book_num}
+		update book set book_name=#{book_name},book_writer=#{book_writer},book_publisher=#{book_publisher},book_publish_date=#{book_publish_date},book_cost=#{book_cost},book_price=#{book_price},book_quantity=#{book_quantity},book_index=#{book_index, jdbcType=VARCHAR},book_summary=#{book_summary, jdbcType=VARCHAR},book_category=#{book_category},book_cover_file_name=#{book_cover_file_name, jdbcType=VARCHAR},book_cover_file_path=#{book_cover_file_path, jdbcType=VARCHAR},book_cover_file_size=#{book_cover_file_size, jdbcType=INTEGER},book_preview_file_name1=#{book_preview_file_name1, jdbcType=VARCHAR},book_preview_file_path1=#{book_preview_file_path1, jdbcType=VARCHAR},book_preview_file_size1=#{book_preview_file_size1, jdbcType=INTEGER},book_preview_file_name2=#{book_preview_file_name2, jdbcType=VARCHAR},book_preview_file_path2=#{book_preview_file_path2, jdbcType=VARCHAR},book_preview_file_size2=#{book_preview_file_size2, jdbcType=INTEGER},book_preview_file_name3=#{book_preview_file_name3, jdbcType=VARCHAR},book_preview_file_path3=#{book_preview_file_path3, jdbcType=VARCHAR},book_preview_file_size3=#{book_preview_file_size3, jdbcType=INTEGER},BOOK_REORDER_COUNT=#{book_reorder_count},book_state=#{book_state} where book_num=#{book_num}
 	</update>
 	
 	<select id="bookReOrderListCount" resultType="int">
@@ -90,4 +90,23 @@
 		]]>
 	</select>
 	
+	<update id="GroupPurchaseInit" parameterType="long">
+		update book set BOOK_GROUP_PURCHASE_COUNT=0, BOOK_STATE=3 where book_num=#{book_num}
+	</update>
+	
+	<insert id="bookGroupPurchaseInsert" parameterType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
+		insert into GROUPPURCHASE values(GROUPPURCHASE_GP_NUM_seq.nextval,#{book_num},#{book_name},#{group_purchase_price},#{group_purchase_min_count},#{group_purchase_max_count},0,#{group_purchase_date},1)
+	</insert>
+	
+	<select id="gpCount" resultType="int">
+		select count(*) from GROUPPURCHASE where GROUP_PURCHASE_STATE=1
+	</select>
+	
+	<select id="gpList" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
+		select * from GROUPPURCHASE where GROUP_PURCHASE_STATE=1
+	</select>
+	
+	<select id="gpBookList" resultType="com.gobook.bookmanage.dto.BookDto">
+		select * from book where BOOK_STATE=3
+	</select>
 </mapper>

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.bookmanage.service.IBookManageService;
 
 @Controller
@@ -27,8 +28,11 @@ public class BookManageCotroller {
 	 */
 	@RequestMapping(value="/bookManage/bookManage.do", method=RequestMethod.GET)
 	public ModelAndView bookManager(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookManager(mav);
 		
-		return new ModelAndView();
+		return mav;
 	}
 
 	/**
@@ -167,4 +171,35 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseInsert
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 등록
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseInsert.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchaseInsert(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookGroupPurchaseInsert(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseInsertOk
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 등록
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseInsert.do", method=RequestMethod.POST)
+	public ModelAndView bookGroupPurchaseInsertOk(HttpServletRequest request, HttpServletResponse response, BookGroupPurchaseDto bookGroupPurchaseDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("bookGroupPurchaseDto", bookGroupPurchaseDto);
+		iBookManageService.bookGroupPurchaseInsertOk(mav);
+		
+		return mav;
+	}
+	
 }

@@ -13,6 +13,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.bookmanage.dto.BookReOrderDto;
 
 @Component
@@ -69,8 +70,8 @@ public class BookManageDao implements IBookManageDao {
 					sqlSessionTemplate.insert("dao.bookmanageMapper.bookReOrderInsert", hMap);
 				}
 				sqlSessionTemplate.insert("dao.bookmanageMapper.salesMonthListInsert", hMap);
-				bookDto.setBook_reorder_count(0);
 			}
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "DAO bookDto.getBook_reorder_count : "+bookDto.getBook_reorder_count());
 			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
 			
 			transactionManager.commit(status);
@@ -127,6 +128,30 @@ public class BookManageDao implements IBookManageDao {
 	public List<BookDto> bookSoldOutList(HashMap<String, Integer> hMap) {
 		
 		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookSoldOutList", hMap);
+	}
+
+	@Override
+	public int bookGroupPurchaseInsert(BookGroupPurchaseDto bookGroupPurchaseDto) {
+		sqlSessionTemplate.update("dao.bookmanageMapper.GroupPurchaseInit", bookGroupPurchaseDto);
+		return sqlSessionTemplate.insert("dao.bookmanageMapper.bookGroupPurchaseInsert", bookGroupPurchaseDto);
+	}
+
+	@Override
+	public int gpCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.gpCount");
+	}
+
+	@Override
+	public List<BookGroupPurchaseDto> gpList() {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.gpList");
+	}
+
+	@Override
+	public List<BookDto> gpBookList() {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.gpBookList");
 	}
 	
 	

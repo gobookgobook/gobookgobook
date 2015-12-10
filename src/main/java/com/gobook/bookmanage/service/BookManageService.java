@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,9 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dao.IBookManageDao;
-import com.gobook.bookmanage.dto.BookDto;
-import com.gobook.bookmanage.dto.BookReOrderDto;
+import com.gobook.bookmanage.dto.*;
 
 /**
  * @클래스이름 : BookManageService
@@ -30,6 +31,24 @@ public class BookManageService implements IBookManageService {
 	private IBookManageDao iBookManageDao;
 	
 	/**
+	 * @함수이름 : bookManager
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서관리 홈
+	 */
+	@Override
+	public void bookManager(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.setViewName("bookManage/bookManage");
+	}
+	
+	/**
 	 * @함수이름 : bookInsert
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
@@ -37,8 +56,14 @@ public class BookManageService implements IBookManageService {
 	 */
 	@Override
 	public void bookInsert(ModelAndView mav) {
-		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.setViewName("bookManage/bookInsert");
 	}
 	
 	/**
@@ -116,7 +141,7 @@ public class BookManageService implements IBookManageService {
 		}
 		
 		int check=iBookManageDao.bookInsert(bookDto);
-		
+
 		mav.addObject("check", check);
 		
 		mav.setViewName("bookManage/bookInsertOk");
@@ -153,6 +178,10 @@ public class BookManageService implements IBookManageService {
 			bookList=iBookManageDao.bookList(hMap);
 		}
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("bookList", bookList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
@@ -179,6 +208,10 @@ public class BookManageService implements IBookManageService {
 		
 		BookDto bookDto=iBookManageDao.bookInfo(book_num);
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("bookDto", bookDto);
 		
@@ -200,12 +233,15 @@ public class BookManageService implements IBookManageService {
 		
 		String pageNumber=request.getParameter("pageNumber");
 		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "reorder_quantity : "+reorder_quantity);
 		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "getBook_quantity : "+bookDto.getBook_quantity());
 		
 		if(bookDto.getBook_quantity()!=0){
 			bookDto.setBook_state(1);
 			bookDto.setBook_reorder_count(0);
 		}
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "Book_reorder_count : "+bookDto.getBook_reorder_count());
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
 		
 		mav.addObject("pageNumber", pageNumber);
@@ -243,6 +279,10 @@ public class BookManageService implements IBookManageService {
 			bookReorderList=iBookManageDao.bookReOrderList(hMap);
 		}
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("bookReorderList", bookReorderList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
@@ -281,6 +321,10 @@ public class BookManageService implements IBookManageService {
 			bookReOrderCountList=iBookManageDao.bookReOrderCountList(hMap);
 		}
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("bookReOrderCountList", bookReOrderCountList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
@@ -319,10 +363,26 @@ public class BookManageService implements IBookManageService {
 			bookGroupPurchaseCountList=iBookManageDao.bookGroupPurchaseCountList(hMap);
 		}
 		
+		int gpCount=iBookManageDao.gpCount();
+		
+		List<BookGroupPurchaseDto> gpList=null;
+		List<BookDto> gpBookList=null;
+		if(count>0){
+			gpList=iBookManageDao.gpList();
+			gpBookList=iBookManageDao.gpBookList();
+		}
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("bookGroupPurchaseCountList", bookGroupPurchaseCountList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("count", count);
+		mav.addObject("gpCount", gpCount);
+		mav.addObject("gpList", gpList);
+		mav.addObject("gpBookList", gpBookList);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseCountList");
 		
@@ -357,6 +417,10 @@ public class BookManageService implements IBookManageService {
 			bookSoldOutList=iBookManageDao.bookSoldOutList(hMap);
 		}
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
 		mav.addObject("bookSoldOutList", bookSoldOutList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
@@ -364,6 +428,47 @@ public class BookManageService implements IBookManageService {
 		
 		mav.setViewName("bookManage/bookSoldOutList");
 		
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseInsert
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 등록
+	 */
+	@Override
+	public void bookGroupPurchaseInsert(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookDto", bookDto);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseInsert");
+		
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseInsertOk
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 등록
+	 */
+	@Override
+	public void bookGroupPurchaseInsertOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		BookGroupPurchaseDto bookGroupPurchaseDto=(BookGroupPurchaseDto)map.get("bookGroupPurchaseDto");
+		
+		int check=iBookManageDao.bookGroupPurchaseInsert(bookGroupPurchaseDto);
+		
+		mav.addObject("check", check);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseInsertOk");
 	}
 	
 }

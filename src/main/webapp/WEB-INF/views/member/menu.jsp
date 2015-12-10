@@ -24,7 +24,7 @@
 		<a href="${root}/myBasket/myBasketList.do">장바구니</a>
 		
 		<c:if test="${id == 'admin'}">
-			<a href="">관리자</a>
+			<a href="${root}/bookManage/bookManage.do">관리자</a>
 		</c:if>
 	</c:if>
 </body>
