@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gobook.location.dto.LocationDto;
 import com.gobook.location.service.ILocationService;
 
 /**
@@ -20,11 +21,47 @@ import com.gobook.location.service.ILocationService;
 @Controller
 public class LocationController {
 	@Autowired
-	private ILocationService IMemberService;
+	private ILocationService ILocationService;
 	
+	/**
+	 * @함수이름 : locationWrite
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점등록 페이지로 이동
+	 */
 	@RequestMapping(value="/location/locationWrite.do", method=RequestMethod.GET)
-	public ModelAndView memberRegister(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView locationWrite(HttpServletRequest request, HttpServletResponse response){
 		return new ModelAndView("/location/locationWrite");
 	}
 	
+	/**
+	 * @함수이름 : zipcode
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 강주혁
+	 * @설명 : 주소검색
+	 */
+	@RequestMapping(value="/location/zipcode.do", method={RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		ILocationService.zipcode(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : locationWriteOk
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점등록
+	 */
+	@RequestMapping(value="/location/locationWrite.do", method=RequestMethod.POST)
+	public ModelAndView locationWriteOk(HttpServletRequest request, HttpServletResponse response, LocationDto locationDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("locationDto", locationDto);
+		ILocationService.locationWrite(mav);
+		
+		return mav;
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -9,11 +10,8 @@
 <title>Insert title here</title>
 <link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/location/script.js"></script>
-<script type="text/javascript" src="${root}/script/jquery.js"></script>
-<script type="text/javascript" src="${root}/script/location/queryScript.js"></script>
-<script async defer	src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 </head>
-<body>
+<body>	
 	<jsp:include page="../member/menu.jsp"/>
 	<br/><br/>
 	<div>
@@ -42,12 +40,7 @@
 			<div class="line">
 				<label class="title">상세주소</label>
 				<span class="content">
-					*<input type="text" name="address2Disp" size="48" disabled="disabled" />
-					<input type="button" name="parsing_button" value="지도보기" onclick="locationWriteMapToServer('${root}',locationForm)"/>
-					<input type="hidden" name="location_address2"/>
-					<input type="hidden" name="latLng"/>
-					<input type="hidden" name="location_lat"/>
-					<input type="hidden" name="location_lng"/>
+					*<input type="text" name="location_address2" size="48" />
 				</span>
 			</div>
 			
@@ -67,10 +60,22 @@
 			
 			<div class="line" style="width:591px; border-width:2px; text-align:center;">
 				<input type="submit" value="매장등록" />
-				<input type="reset" value="취소" />
 			</div>
-			<div id="map"></div>
 		</form>
 	</div>
+	
+	<c:if test="${check >0}">
+		<script type="text/javascript">
+			alert("지점이 등록되었습니다.");
+			location.href="${root}/location/locationWrite.do";
+		</script>
+	</c:if>
+	
+	<c:if test="${check == 0 }">
+		<script type="text/javascript">
+			alert("지점등록에 실패하였습니다.");
+			location.href="${root}/location/locationWrite.do";
+		</script>
+	</c:if>
 </body>
 </html>
