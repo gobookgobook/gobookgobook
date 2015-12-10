@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
+import com.gobook.member.dto.UserCouponDto;
 import com.gobook.userorder.dao.IUserOrderDao;
 import com.gobook.userorder.dto.UserOrderDto;
 
@@ -62,6 +64,18 @@ public class UserOrderService implements IUserOrderService{
 		
 		mav.addObject("check", check);
 		mav.setViewName("userOrder/userOrderListOk");
+	}
+
+	@Override
+	public void userOrderCouponList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		HttpSession session=request.getSession();
+		String member_id=(String) session.getAttribute("member_id");
+		
+		List<UserCouponDto> couponSelect=iUserOrderDao.userOrderCouponListSelect(member_id);
+		
 	}
 
 }

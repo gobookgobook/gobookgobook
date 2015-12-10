@@ -2,6 +2,7 @@ package com.gobook.userorder.dao;
 
 import java.util.List;
 
+import com.gobook.member.dto.UserCouponDto;
 import com.gobook.userorder.dto.UserOrderDto;
 
 /**
@@ -18,4 +19,6 @@ public interface IUserOrderDao {
 	public List<UserOrderDto> userOrderList(String member_id);
 	
 	public int userOrderListOk(UserOrderDto userorderDto);
+	
+	public List<UserCouponDto> userOrderCouponListSelect(String member_id);
 }

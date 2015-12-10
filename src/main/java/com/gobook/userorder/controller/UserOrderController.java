@@ -41,7 +41,12 @@ public class UserOrderController {
 		
 	}   //주문완료, 사용자 쿠폰 사용
 	public void userOrderPay(){}     //주문(주문창)
-	public void userOrderCouponList(){} //주문시 쿠폰적용을위해 리스트를 가져온다.
+	public void userOrderCouponList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("request",request);
+		UserOrderService.userOrderCouponList(mav);
+		
+	} //주문시 쿠폰적용을위해 리스트를 가져온다.
 		
 	
 

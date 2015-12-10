@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.gobook.member.dto.UserCouponDto;
 import com.gobook.userorder.dto.UserOrderDto;
 
 /**
@@ -41,6 +42,12 @@ public class UserOrderDao implements IUserOrderDao{
 	public int userOrderListOk(UserOrderDto userorderDto) {
 		
 		return sqlSessionTemplate.insert("dao.UserOrderMapper.userOrderListOk", userorderDto);
+	}
+
+	@Override
+	public List<UserCouponDto> userOrderCouponListSelect(String member_id) {
+		
+		return sqlSessionTemplate.selectList("dao.UserOrderMapper.userOrderCouponListSelect", member_id);
 	}
 
 	

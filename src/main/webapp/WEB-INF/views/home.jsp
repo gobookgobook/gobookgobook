@@ -24,6 +24,9 @@
 	
 	<h3>myBasket</h3>
 	<a href="${root}/myBasket/myBasketList.do">장바구니목록</a>
+	
+	<h3>event</h3>
+	<a href="${root}/event/eventWrite.do">이벤트</a>
 
 	<h3>QnA</h3>
 	<a href="${root}/help/adminHelpQnAList.do">QnA목록으로</a><br/>
