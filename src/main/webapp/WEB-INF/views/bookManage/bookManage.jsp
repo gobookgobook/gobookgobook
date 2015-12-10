@@ -21,8 +21,7 @@
 	
 		<div id="con1" align="left" style="height:300px;">
 			<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
-			<a href="${root}/bookManage/bookStockList.do">도서목록</a><br/>
-			<a href="">재고관리</a><br/>
+			<a href="${root}/bookManage/bookStockList.do">재고관리</a><br/>
 			<a href="">특가설정</a><br/>
 			<a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a><br/>
 			<hr width="80px" align="left"/>

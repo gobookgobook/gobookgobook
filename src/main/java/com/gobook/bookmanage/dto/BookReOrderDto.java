@@ -6,7 +6,7 @@ public class BookReOrderDto {
 	private int reorder_num;
 	private String book_name;
 	private int reorder_quantity;
-	private int book_num;
+	private long book_num;
 	private Date reorder_date;
 	private int reorder_price;
 	
@@ -28,10 +28,10 @@ public class BookReOrderDto {
 	public void setReorder_quantity(int reorder_quantity) {
 		this.reorder_quantity = reorder_quantity;
 	}
-	public int getBook_num() {
+	public long getBook_num() {
 		return book_num;
 	}
-	public void setBook_num(int book_num) {
+	public void setBook_num(long book_num) {
 		this.book_num = book_num;
 	}
 	public Date getReorder_date() {

@@ -59,8 +59,8 @@
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from
-					(select * from book order by BOOK_REORDER_COUNT desc)a )
-			where rnum>=#{startRow} and rnum<=#{endRow} and BOOK_REORDER_COUNT!=0
+					(select * from book where BOOK_REORDER_COUNT!=0 order by BOOK_REORDER_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
 	
@@ -72,8 +72,8 @@
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from
-					(select * from book order by BOOK_GROUP_PURCHASE_COUNT desc)a )
-			where rnum>=#{startRow} and rnum<=#{endRow} and BOOK_GROUP_PURCHASE_COUNT!=0
+					(select * from book where BOOK_GROUP_PURCHASE_COUNT!=0 order by BOOK_GROUP_PURCHASE_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
 	
@@ -85,8 +85,8 @@
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from
-					(select * from book order by BOOK_REORDER_COUNT desc, BOOK_GROUP_PURCHASE_COUNT desc)a )
-			where rnum>=#{startRow} and rnum<=#{endRow} and book_quantity=0
+					(select * from book where book_quantity=0 order by BOOK_REORDER_COUNT desc, BOOK_GROUP_PURCHASE_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
 	
