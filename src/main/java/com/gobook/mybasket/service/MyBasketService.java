@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -38,9 +39,12 @@ public class MyBasketService implements IMyBasketService {
 	public void myBasketList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		String member_id="abc123"; /*request.getParameter("member_id");*/ 
-		// 원래 주석 처리된 코드가 들어가는 것이 맞음(로그인 된 회원의 아이디를 이용하여 장바구니 리스트 뿌리기)
 		
+		HttpSession session=request.getSession();
+		String member_id=(String) session.getAttribute("id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		
+		if(member_id !=null){
 		int count=iMyBasketDao.myBasketCount(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
 		
@@ -55,6 +59,7 @@ public class MyBasketService implements IMyBasketService {
 		mav.addObject("myBasketList", myBasketList);
 		mav.addObject("count", count);
 		mav.addObject("sum",sum);
+		}
 		mav.setViewName("myBasket/myBasketList");
 	}
 
@@ -76,10 +81,23 @@ public class MyBasketService implements IMyBasketService {
 		int value=iMyBasketDao.myBasketDelete(basket_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "value:" + value);
 		
+		String member_id=request.getParameter("member_id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "member_id:" + member_id);
+		
+		List<MyBasketDto> myBasketSelectList=iMyBasketDao.myBasketSelectList(member_id);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketDto:"+myBasketSelectList);
+		
+		int sum=0;
+		
+		for(int i=0;i<myBasketSelectList.size();i++){
+			sum+=myBasketSelectList.get(i).getBasket_total_price();
+		}
+		
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "sum:"+sum);
 		try{
 			response.setContentType("application/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
-			out.print(value);
+			out.print(sum);
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -98,25 +116,56 @@ public class MyBasketService implements IMyBasketService {
 		HttpServletResponse response=(HttpServletResponse) map.get("response");
 		
 		int basket_num=Integer.parseInt(request.getParameter("basket_num"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_num:"+basket_num);
 		
-		int basket_book_price=Integer.parseInt(request.getParameter("basket_book_price"));
+		int basket_quantity=Integer.parseInt(request.getParameter("value"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_num:"+basket_num + "," + "value:" + basket_quantity);
+		
+		/*int basket_book_price=Integer.parseInt(request.getParameter("basket_book_price"));
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_book_price:" + basket_book_price);
 		
-		int value=Integer.parseInt(request.getParameter("value"));
-		int basket_total_price=basket_book_price*value;
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "value:"+value +"," + "basket_total_price:"+basket_total_price);
+		//int basket_previous_quantity=Integer.parseInt(request.getParameter("basket_previous_quantity"));
 		
-		MyBasketDto myBasketDto=new MyBasketDto();
+		int basket_total_price=basket_book_price*basket_quantity;
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_quantity:"+basket_quantity +"," + "basket_total_price:"+basket_total_price);*/
 		
-		myBasketDto.setBasket_num(basket_num);
-		myBasketDto.setBasket_quantity(value);
+		MyBasketDto myBasketDto=iMyBasketDao.myBasketSelect(basket_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketDto:"+myBasketDto);
+		
+		int basket_book_price=myBasketDto.getBasket_book_price();
+		
+		int basket_total_price=basket_book_price*basket_quantity;
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "basket_book_price:" + basket_book_price + "," +basket_quantity+","+ "basket_total_price:"+basket_total_price);
+		
+		myBasketDto.setBasket_quantity(basket_quantity);
 		myBasketDto.setBasket_total_price(basket_total_price);
 		
 		int check=iMyBasketDao.myBasketUpdate(myBasketDto);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
 		
+		String member_id=myBasketDto.getMember_id();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "member_id:" + member_id);
 		
+		List<MyBasketDto> myBasketSelectList=iMyBasketDao.myBasketSelectList(member_id);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketDto:"+myBasketSelectList);
 		
+		int sum=0;
+		
+		for(int i=0;i<myBasketSelectList.size();i++){
+			sum+=myBasketSelectList.get(i).getBasket_total_price();
+		}
+		
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "sum:"+sum);
+		if(check > 0){
+			try{
+				String str=basket_num + "," + basket_quantity + "," + basket_total_price + "," + sum;
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "str:" + str);
+				
+				response.setContentType("application/html;charset=utf-8");
+				PrintWriter out=response.getWriter();
+				out.print(str);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 	}
 }

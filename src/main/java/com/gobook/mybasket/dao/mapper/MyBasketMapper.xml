@@ -21,7 +21,17 @@
 		delete from myBasket where basket_num=#{basket_num}
 	</delete>
 	
+	<select id="myBasketSelectList" parameterType="String" resultType="com.gobook.mybasket.dto.MyBasketDto">
+		<![CDATA[
+			select * from myBasket where member_id=#{member_id}
+		]]>
+	</select>
+	
 	<update id="myBasketUpdate" parameterType="com.gobook.mybasket.dto.MyBasketDto">
 		update myBasket set basket_quantity=#{basket_quantity}, basket_total_price=#{basket_total_price} where basket_num=#{basket_num}
 	</update>
+	
+	<select id="myBasketSelect" parameterType="int" resultType="com.gobook.mybasket.dto.MyBasketDto">
+		select * from myBasket where basket_num=#{basket_num}
+	</select>
 </mapper>
