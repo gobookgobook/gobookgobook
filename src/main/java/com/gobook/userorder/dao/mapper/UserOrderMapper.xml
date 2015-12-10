@@ -36,4 +36,8 @@
 			#{order_book_charge},
 			#{order_date})
 	</insert>
+	
+	<select resultType="com.gobook.member.dto.UserCouponDto" id="userOrderCouponListSelect" parameterType="java.lang.String"> 
+	select *from usercoupon where member_id=#{member_id} 
+	</select>
 </mapper>
