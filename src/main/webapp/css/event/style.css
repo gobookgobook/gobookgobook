@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#event_one{
+   border:0px solid #cccccc; display:inline-block;
+   width:800px; text-align:left; float:center; overflow:hidden; margin:0px auto;
+}
+
+#event_id{
+   border:0px solid #cccccc; display:inline-block; text-align:center;
+   width:300px; float:center; overflow:hidden; margin-left:90px; margin-bottom:100px;
+}

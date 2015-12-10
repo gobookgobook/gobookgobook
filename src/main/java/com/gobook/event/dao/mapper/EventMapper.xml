@@ -3,7 +3,27 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.eventMapper">
+<mapper namespace="dao.EventMapper">
 
-
+   
+    <insert id="eventWriteInsert" parameterType="com.gobook.event.dto.EventDto">
+       insert into event(event_bunho,event_name,event_start_period,event_end_period,event_Content)
+       values(event_event_bunho_seq.nextval,#{event_name},#{event_start_period},#{event_end_period},#{event_Content})
+    </insert>
+    
+    <insert id="eventWriteFileInsert" parameterType="com.gobook.event.dto.EventDto">
+       insert into event
+       values(event_event_bunho_seq.nextval,#{event_name},#{event_start_period},#{event_end_period},#{event_Content},#{event_file_name},#{event_file_path},#{event_file_size})
+    </insert>
+    
+    <select id="eventListSelect" resultType="com.gobook.event.dto.EventDto">
+    	<![CDATA[
+		SELECT * FROM(SELECT ROWNUM rnum, g.* FROM
+		(SELECT * FROM event) g) 
+		]]>
+    </select>
+    
+    <select id="eventRead" resultType="com.gobook.event.dto.EventDto" parameterType="int">
+     select * from event where event_bunho=#{event_bunho}
+    </select>
 </mapper>

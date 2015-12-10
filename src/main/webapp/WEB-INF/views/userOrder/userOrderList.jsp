@@ -7,12 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 <%-- <script type="text/javascript" src="${root}/script/userOrder/script.js"></script> --%>
 <script type="text/javascript">
@@ -58,16 +55,18 @@
 </head>
 <body>
 
+<jsp:include page="../member/menu.jsp"/>
+   <br/><br/>
 
 	  <div align="center">
-		<c:if test="${count==0}">
+<%-- 		<c:if test="${count==0}">
 			<div>
 				<h3>주문한 목록이 없습니다.</h3>
 			</div>
 		</c:if>
 		
 		
-		<c:if test="${count > 0}"> 
+		<c:if test="${count > 0}">  --%>
 	<form class="form_style" action="${root}/userOrder/userOrderList.do"
 		method="post" onsubmit="" enctype="multipart/form-data">
 		<input type="hidden" name="order_bunho" value="${order_bunho}" />
@@ -165,7 +164,7 @@
 					</div>
 					<div align="left">
 						<label class="title">포인트사용</label> <span class="content"> <input
-							type="text" name="point" /> <input type="text" name="point"
+							type="text" name="point"/> <input type="text" name="point"
 							value="10000" />
 
 						</span>
@@ -251,7 +250,7 @@
 			</div>
 		</div>
 	</form>
-	 </c:if> 
+	<%--  </c:if> --%> 
   </div>
 </body>
 </html>
