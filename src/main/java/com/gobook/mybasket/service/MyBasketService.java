@@ -53,7 +53,7 @@ public class MyBasketService implements IMyBasketService {
 		List<MyBasketDto> myBasketList=null;
 		if(count > 0){
 			myBasketList=iMyBasketDao.myBasketList(member_id);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketList Size:"+myBasketList.size());
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketList Size:"+myBasketList);
 		}
 		
 		mav.addObject("myBasketList", myBasketList);
