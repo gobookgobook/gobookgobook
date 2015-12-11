@@ -34,6 +34,7 @@
 	
 	<h3>Location</h3>
 	<a href="${root}/location/locationWrite.do">지점등록</a>
+	<a href="${root}/location/locationList.do">지점목록</a>
 
 	<h2> test</h2>
 </body>

@@ -64,4 +64,18 @@ public class LocationController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : locationWriteOk
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점목록
+	 */
+	@RequestMapping(value="/location/locationList.do", method=RequestMethod.GET)
+	public ModelAndView locationWriteOk(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		ILocationService.locationList(mav);
+		
+		return mav;
+	}
 }

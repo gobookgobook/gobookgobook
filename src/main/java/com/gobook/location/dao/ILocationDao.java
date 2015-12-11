@@ -14,4 +14,5 @@ import com.gobook.member.dto.ZipcodeDto;
 public interface ILocationDao {
 	public List<ZipcodeDto> zipcode(String dong);
 	public int locationWriteInsert(LocationDto locationDto);
+	public List<LocationDto> locationSelect();
 }

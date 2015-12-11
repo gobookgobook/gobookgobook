@@ -22,13 +22,36 @@ public class LocationDao implements ILocationDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	/**
+	 * @함수이름 : zipcode
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 주소검색
+	 */
 	@Override
 	public List<ZipcodeDto> zipcode(String dong) {
 		return sqlSessionTemplate.selectList("dao.locationMapper.locationZipcode", dong);
 	}
 
+	/**
+	 * @함수이름 : locationWriteInsert
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점등록
+	 */
 	@Override
 	public int locationWriteInsert(LocationDto locationDto) {
 		return sqlSessionTemplate.insert("dao.locationMapper.locationWriteInsert", locationDto);
+	}
+
+	/**
+	 * @함수이름 : locationSelect
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점목록
+	 */
+	@Override
+	public List<LocationDto> locationSelect() {
+		return sqlSessionTemplate.selectList("dao.locationMapper.locationSelectList");
 	}
 }

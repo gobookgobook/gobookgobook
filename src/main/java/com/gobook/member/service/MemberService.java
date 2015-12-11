@@ -119,7 +119,7 @@ public class MemberService implements IMemberService {
 		String loginId=iMemberDao.memberLogin(id,password);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + loginId);
 		
-		if(loginId!=null||loginId!=""){
+		if(loginId!=null&&loginId!=""){
 			int deleteCouponValue = iMemberDao.memberDeleteCouponDate(loginId);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "기간지난쿠폰 : " + deleteCouponValue);
 			

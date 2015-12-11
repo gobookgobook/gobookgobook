@@ -11,4 +11,5 @@ import org.springframework.web.servlet.ModelAndView;
 public interface ILocationService {
 	public void zipcode(ModelAndView mav);
 	public void locationWrite(ModelAndView mav);
+	public void locationList(ModelAndView mav);
 }

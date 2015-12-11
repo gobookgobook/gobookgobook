@@ -67,7 +67,7 @@
 	<c:if test="${check >0}">
 		<script type="text/javascript">
 			alert("지점이 등록되었습니다.");
-			location.href="${root}/location/locationWrite.do";
+			location.href="${root}/location/locationList.do";
 		</script>
 	</c:if>
 	

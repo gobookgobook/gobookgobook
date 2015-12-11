@@ -17,4 +17,8 @@
 			#{location_lat},
 			#{location_lng})
 	</insert>
+	
+	<select id="locationSelectList" resultType="com.gobook.location.dto.LocationDto">
+		select * from location
+	</select>
 </mapper>

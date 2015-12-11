@@ -50,6 +50,12 @@ public class LocationService implements ILocationService {
 		mav.setViewName("location/zipcode");
 	}
 
+	/**
+	 * @함수이름 : locationWrite
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점등록
+	 */
 	@Override
 	public void locationWrite(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -60,5 +66,22 @@ public class LocationService implements ILocationService {
 		
 		mav.addObject("check", check);
 		mav.setViewName("location/locationWriteOk");
+	}
+
+	/**
+	 * @함수이름 : locationList
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점목록
+	 */
+	@Override
+	public void locationList(ModelAndView mav) {
+		List<LocationDto> locationList = null;
+		locationList=iLocationDao.locationSelect();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + locationList.size());
+		
+		mav.addObject("locationList",locationList);
+		mav.addObject("count",locationList.size());
+		mav.setViewName("location/locationList");
 	}
 }

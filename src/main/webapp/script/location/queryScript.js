@@ -55,11 +55,12 @@ function process(data,locationForm){
 			 */
 				if (results[1]) {
 					fullAddress = results[1].formatted_address;
+					
 					locationForm.address2Disp.value=fullAddress;
 					locationForm.location_address2.value=fullAddress;
 					locationForm.latLng.value=event.latLng;
+					
 					addMarker(event.latLng);
-					//만약 반환된 결과값이 비어있지 않으면 innerHTML을 이용해 결과값을 출력합니다.
 				}
 			} else {
 				alert("Geocoder failed due to: "+ status);//만약 geocoder가 실패시 알림창을 출력합니다.
@@ -71,9 +72,8 @@ function process(data,locationForm){
 	  	});
 		
 	});
-	
-	
 	//클릭 했을때 이벤트 끝
+	
 	//인포윈도우의 생성
 	var infowindow = new google.maps.InfoWindow({
 		content : addTitle,
