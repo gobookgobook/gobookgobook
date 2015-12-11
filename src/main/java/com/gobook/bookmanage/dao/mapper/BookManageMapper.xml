@@ -117,4 +117,8 @@
 	<update id="bookGroupPurchaseUpdate" parameterType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
 		update GROUPPURCHASE set group_purchase_price=#{group_purchase_price},group_purchase_min_count=#{group_purchase_min_count},group_purchase_max_count=#{group_purchase_max_count},group_purchase_date=#{group_purchase_date} where gp_num=#{gp_num}
 	</update>
+	
+	<update id="bookGroupPurchaseDelete" parameterType="int">
+		update GROUPPURCHASE set GROUP_PURCHASE_STATE=3 where gp_num=#{gp_num}
+	</update>
 </mapper>

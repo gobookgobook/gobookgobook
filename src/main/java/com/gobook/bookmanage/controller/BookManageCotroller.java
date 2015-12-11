@@ -231,4 +231,19 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseDelete
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구등록 취소
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseDelete.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchaseDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookGroupPurchaseDelete(mav);
+		
+		return mav;
+	}
 }

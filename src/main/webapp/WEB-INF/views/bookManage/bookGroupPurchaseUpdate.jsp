@@ -115,7 +115,7 @@
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="공구수정"/>
 					<input type="reset" value="다시작성"/>
-					<input type="button" value="공구취소" onclick="location.href='${root}/bookManage/bookGroupPurchaseDelete.do?gp_num=${gpDto.gp_num}'"/>
+					<input type="button" value="공구취소" onclick="groupPurchaseDeleteFun('${root}','${gpDto.gp_num}')"/>
 					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookGroupPurchase.do'"/>
 				</div>
 			</form>	

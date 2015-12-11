@@ -46,3 +46,11 @@ function bookUpdateForm(upform){
 	
 	upform.book_category.value=str;
 }
+
+function groupPurchaseDeleteFun(root,gp_num){
+	var check=confirm("공동구매 진행을 취소하시겠습니까?");
+	if(check==true) {
+		location.href=root+"/bookManage/bookGroupPurchaseDelete.do?gp_num="+gp_num;
+	}
+	return check;
+}

@@ -513,5 +513,25 @@ public class BookManageService implements IBookManageService {
 		
 		mav.setViewName("bookManage/bookGroupPurchaseUpdateOk");
 	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseDelete
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구등록 취소
+	 */
+	@Override
+	public void bookGroupPurchaseDelete(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int gp_num=Integer.parseInt(request.getParameter("gp_num"));
+		
+		int check=iBookManageDao.bookGroupPurchaseDelete(gp_num);
+		
+		mav.addObject("check", check);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseDelete");
+	}
 	
 }
