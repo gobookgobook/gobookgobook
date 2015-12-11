@@ -246,4 +246,13 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/bookManage/bookScheduleSelect.do", method=RequestMethod.GET)
+	public ModelAndView bookScheduleSelect(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		//iBookManageService.bookScheduleSelect(mav);
+		
+		return mav;
+	}
 }

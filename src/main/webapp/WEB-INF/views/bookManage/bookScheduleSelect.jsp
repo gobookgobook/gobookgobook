@@ -28,31 +28,9 @@
 		</div>
 	
 		<div id="#con2" align="left">
-			<h3>재입고 요청</h3>
-			<c:if test="${bookReOrderCount!=0}">
-				<a href="${root}/bookManage/bookReOrderCount.do">재입고 요청 도서가 ${bookReOrderCount}권 있습니다.</a>
-			</c:if>
-			<c:if test="${bookReOrderCount==0}">
-				품절도서 재입고 요청이 없습니다.
-			</c:if>
-			<br/><br/><br/>
-			
-			<h3>공동구매 현황</h3>
-			<c:if test="${bookGroupPurchaseListCount!=0}">
-				<a href="${root}/bookManage/bookGroupPurchase.do">현재 공동구매가 ${bookGroupPurchaseListCount}건 진행되고 있습니다.</a>
-			</c:if>
-			<c:if test="${bookGroupPurchaseListCount==0}">
-				진행중인 공동구매가 없습니다.
-			</c:if>
-			<br/><br/><br/>
-			
-			<c:if test="${bookGroupPurchaseCount!=0}">
-				<a href="${root}/bookManage/bookGroupPurchase.do">공동구매 요청 도서가 ${bookGroupPurchaseCount}권 있습니다.</a>
-			</c:if>
-			<c:if test="${bookGroupPurchaseCount==0}">
-				공동구매 요청도서가 없습니다.
-			</c:if>
-			<br/>
+			<h3> 신간 도서 출간 일정</h3><br/>
+			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=Asia%2FSeoul" style="border-width:0" width="800" height="400" frameborder="0" scrolling="no"></iframe>
+			<!-- <iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=frogkh82%40gmail.com&amp;color=%2329527A&amp;src=ko.south_korea%23holiday%40group.v.calendar.google.com&amp;color=%23A32929&amp;ctz=Asia%2FSeoul" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
 		</div>
 	</div>
 	</c:if>

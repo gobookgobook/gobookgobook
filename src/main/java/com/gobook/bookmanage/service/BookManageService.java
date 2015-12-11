@@ -44,7 +44,15 @@ public class BookManageService implements IBookManageService {
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
+		int bookReOrderCount=iBookManageDao.bookReOrderCount();
+		int bookGroupPurchaseListCount=iBookManageDao.gpCount();
+		int bookGroupPurchaseCount=iBookManageDao.bookGroupPurchaseCount();
+		
+		
 		mav.addObject("id", id);
+		mav.addObject("bookReOrderCount", bookReOrderCount);
+		mav.addObject("bookGroupPurchaseListCount", bookGroupPurchaseListCount);
+		mav.addObject("bookGroupPurchaseCount", bookGroupPurchaseCount);
 		mav.setViewName("bookManage/bookManage");
 	}
 	
