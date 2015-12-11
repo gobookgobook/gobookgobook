@@ -10,10 +10,11 @@
 	
 	<select id="myBasketList" parameterType="String" resultType="com.gobook.mybasket.dto.MyBasketDto">
 		<![CDATA[
-			select * from
-				(select rownum rnum, a.* from 
-					(select * from myBasket) a)
-			where member_id=#{member_id}
+			SELECT myb.BASKET_NUM, m.member_id, b.book_num, b.BOOK_NAME basket_book_name, b.book_price basket_book_price, myb.BASKET_TOTAL_PRICE, myb.BASKET_QUANTITY, b.BOOK_STATE, myb.BASKET_DATE 
+				FROM myBasket myb, book b, MEMBER m 
+					WHERE myb.book_num=b.book_num AND 
+					myb.member_id=m.member_id AND 
+					m.member_id=#{member_id}
 		]]>
 	</select>
 	
@@ -32,6 +33,10 @@
 	</update>
 	
 	<select id="myBasketSelect" parameterType="int" resultType="com.gobook.mybasket.dto.MyBasketDto">
-		select * from myBasket where basket_num=#{basket_num}
+		SELECT myb.BASKET_NUM, m.member_id, b.book_num, b.BOOK_NAME basket_book_name, b.book_price basket_book_price, myb.BASKET_TOTAL_PRICE, myb.BASKET_QUANTITY, b.BOOK_STATE, myb.BASKET_DATE 
+				FROM myBasket myb, book b, MEMBER m 
+					WHERE myb.book_num=b.book_num AND 
+					myb.member_id=m.member_id AND 
+					myb.basket_num=#{basket_num}
 	</select>
 </mapper>

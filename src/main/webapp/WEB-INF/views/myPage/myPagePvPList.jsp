@@ -11,9 +11,6 @@
 </head>
 <body>	
 	<div>
-		<div class="title">
-		※마이페이지
-		</div>
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		1:1문의 내역
@@ -31,21 +28,27 @@
 					</div>
 				</div>
 				
-			<c:forEach var="myPagePvPList" items="${myPagePvPList}">	
-				<div class="pvpList_body">
-				<input type="hidden" value="${myPagePvPList.helppvp_num}" name="helppvp_num">
-				
-					<div class="pvpList_write_date">
-					<fmt:formatDate value="${myPagePvPList.helppvp_write_date}" pattern="yyyy-MM-dd"/>
+			<c:if test="${myPagePvPList.size() > 0}">	
+				<c:forEach var="myPagePvPList" items="${myPagePvPList}">	
+					<div class="pvpList_body">
+					<input type="hidden" value="${myPagePvPList.helppvp_num}" name="helppvp_num">
+						<div class="pvpList_write_date">
+						<fmt:formatDate value="${myPagePvPList.helppvp_write_date}" pattern="yyyy-MM-dd"/>
+						</div>
+						<div class="pvpList_user_name">
+						<a href="${root}/myPage/myPagePvPRead.do?helppvp_num=${myPagePvPList.helppvp_num}">${myPagePvPList.helppvp_user_subject}</a>
+						</div>
+						<div class="pvpList_user_read">
+						${myPagePvPList.helppvp_user_read}
+						</div>
 					</div>
-					<div class="pvpList_user_name">
-					<a href="${root}/myPage/myPagePvPRead.do?helppvp_num=${myPagePvPList.helppvp_num}">${myPagePvPList.helppvp_user_subject}</a>
-					</div>
-					<div class="pvpList_user_read">
-					${myPagePvPList.helppvp_user_read}
-					</div>
+				</c:forEach>	
+			</c:if>
+			<c:if test="${myPagePvPList.size()==0}">
+				<div class="pvpList_body" style="text-align: center; font-size: 20">
+				문의한 내용이 없습니다.
 				</div>
-			</c:forEach>	
+			</c:if>
 			</div>	
 		</div>
 	</div>

@@ -26,23 +26,34 @@
 		<![CDATA[
 		select *from
 			(select rownum rnum, u.*from
-				(select *from userorder order by order_bunho desc)u)
-					where rnum>=#{startRow} and rnum<=#{endRow} and member_id=#{member_id}
+				(select *from userorder where member_id=#{member_id} order by order_bunho desc)u)
+					where rnum>=#{startRow} and rnum<=#{endRow}
 		]]> 
 	</select>
 	
 	<!-- 쿠폰함 -->
 	<select id="myPageCouponSelect" parameterType="java.lang.String" resultType="com.gobook.member.dto.UserCouponDto">
-		select *from usercoupon where member_id=#{member_id}
+		<![CDATA[
+			SELECT ucoupon.user_coupon_num,
+					ucoupon.member_id,
+					mcoupon.manager_coupon_name user_coupon_name,
+					mcoupon.manager_coupon_field user_coupon_field,
+					mcoupon.manager_coupon_period user_coupon_period,
+					mcoupon.manager_coupon_content user_coupon_content,
+					mcoupon.manager_coupon_discount user_coupon_discount
+						FROM usercoupon ucoupon, managercoupon mcoupon
+							WHERE ucoupon.mcoupon_num=mcoupon.mcoupon_num
+								AND ucoupon.member_id=#{member_id}
+		]]>
 	</select>
 	
 	<!-- 포인트함 -->
 	<select id="myPagePointSelect" parameterType="java.lang.String" resultType="int">
 		select member_point from member where member_id=#{member_id}
 	</select>
-<!-- 	
-	1:1문의
-	<select id="myPagePvPListSelect" parameterType="java.lang.String" resultType="com.gobook.help.dto.HelpPvPDto">
+	
+	<!-- 1:1문의 -->
+<!-- 	<select id="myPagePvPListSelect" parameterType="java.lang.String" resultType="com.gobook.help.dto.HelpPvPDto">
 		<![CDATA[
 		SELECT * FROM
 			(SELECT ROWNUM rnum, A.* FROM

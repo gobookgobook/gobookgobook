@@ -30,7 +30,7 @@ div{
 }
 
 .user_coupon_name{
-	width:80px; height:50px;
+	width:100px; height:50px;
  	border: 1px solid yellow; 
 	float: left;
 }
@@ -41,20 +41,20 @@ div{
 	float: left;
 }
 
-.user_copoun_content{
-	width:210px; height:50px;
+.user_coupon_content{
+	width:230px; height:50px;
  	border: 1px solid yellow; 
 	float: left;
 }
 
-.user_copoun_field{
+.user_coupon_field{
 	width:100px; height:50px;
  	border: 1px solid yellow; 
 	float: left;
 }
 
-.user_copoun_discount{
-	width:100px; height:50px;
+.user_coupon_discount{
+	width:60px; height:50px;
  	border: 1px solid yellow; 
 	float: left;
 }

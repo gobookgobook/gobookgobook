@@ -18,8 +18,6 @@
 	<a href="${root}/member/goBookMain.do">메인화면</a>
 	
 	<h3>mypage</h3>
-	<%-- <c:set var="member_id" value="${'11'}" scope="session"/> --%>
-	<c:set var="root" value="${pageContext.request.contextPath }"/>
 	<a href="${root}/myPage/myPageOrderList.do">마이페이지</a>
 	
 	<h3>myBasket</h3>
@@ -34,7 +32,11 @@
 	
 	<h3>Location</h3>
 	<a href="${root}/location/locationWrite.do">지점등록</a>
-	<a href="${root}/location/locationList.do">지점목록</a>
+	
+	<h3>쿠폰</h3>
+	<a href="${root}/memberManager/memberManagerUpdate.do">관리자 회원관리</a>	
+	<a href="${root}/memberManager/memberManageCouponInsert.do">쿠폰추가</a>
+	
 
 	<h2> test</h2>
 </body>

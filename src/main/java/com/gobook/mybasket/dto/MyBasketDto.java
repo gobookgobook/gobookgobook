@@ -79,4 +79,14 @@ public class MyBasketDto {
 	public void setBasket_book_state(int basket_book_state) {
 		this.basket_book_state = basket_book_state;
 	}
+
+	@Override
+	public String toString() {
+		return "MyBasketDto [basket_num=" + basket_num + ", member_id=" + member_id + ", book_num=" + book_num
+				+ ", basket_book_name=" + basket_book_name + ", basket_book_price=" + basket_book_price
+				+ ", basket_total_price=" + basket_total_price + ", basket_quantity=" + basket_quantity
+				+ ", basket_book_state=" + basket_book_state + "]";
+	}
+	
+	
 }

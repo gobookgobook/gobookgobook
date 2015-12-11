@@ -22,6 +22,7 @@
 				<value>classpath:com/gobook/userorder/dao/mapper/UserOrderMapper.xml</value>
 				<value>classpath:com/gobook/event/dao/mapper/EventMapper.xml</value>
 				<value>classpath:com/gobook/location/dao/mapper/LocationMapper.xml</value>
+				<value>classpath:com/gobook/membermanage/dao/mapper/MemberManageMapper.xml</value>
 			</list>
 		</property>
 	</bean>

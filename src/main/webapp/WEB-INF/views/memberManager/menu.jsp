@@ -12,16 +12,15 @@
 		<jsp:include page="../member/menu.jsp"/>
    		<br/><br/>
 		<div class="title">
-		※마이페이지
+		※관리자정보 및 쿠폰 관리
 		</div>
 		<div class="category">
-		<a href="${root}/myPage/myPageOrderList.do">주문내역</a>
-		<a href="${root}/myPage/myPagePvPList.do">1:1문의내역</a>
-		<a href="${root}/myPage/myPageCoupon.do">쿠폰함</a>
-		<a href="${root}/myPage/myPagePoint.do">포인트함</a>
-		<a href="${root}/member/update.do">회원수정</a>
-		<a href="${root}/member/delete.do">회원탈퇴</a>
-		<a href="">메인</a>
+		<a href="${root}/memberManager/memberManageCouponList.do">쿠폰 목록</a>
+		<a href="${root}/memberManager/memberManageCouponInsert.do">쿠폰 생성</a>
+		<a href="${root}/memberManager/memberManagerUpdate.do">관리자 정보 수정</a>
+		<a href="${root }">메인</a>
 		</div>
+</body>
+</html>
 </body>
 </html>

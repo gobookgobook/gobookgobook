@@ -11,9 +11,6 @@
 </head>
 <body>
 	<div>
-		<div class="title">
-		※마이페이지
-		</div>
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		포인트 함
@@ -22,7 +19,12 @@
 				현재 보유중인 포인트
 			</div>
 			<div class="point_body">
-				${member_point}	
+				<c:if test="${member_point > 0 }">
+					${member_point}
+				</c:if>
+				<c:if test="${member_point == 0 || member_point ==null }">
+					현재 보유중인 포인트가 없습니다.
+				</c:if>	
 			</div>
 		</div>
 	</div>

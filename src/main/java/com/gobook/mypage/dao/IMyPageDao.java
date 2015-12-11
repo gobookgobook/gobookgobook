@@ -6,12 +6,6 @@ import java.util.List;
 import com.gobook.member.dto.UserCouponDto;
 import com.gobook.userorder.dto.UserOrderDto;
 
-/**
- * @클래스이름 : IMyPageDao
- * @날짜 : 2015. 12. 8.
- * @개발자 : 오주석
- * @설명 : 
- */
 public interface IMyPageDao {
 	public List<UserOrderDto> myPageOrderListSelect(String member_id);
 	public int myPageOrderCount(String member_id);

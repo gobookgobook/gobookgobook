@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.memberManageMapper">
+
+	<!-- 관리자 정보 수정 -->
+	<select id="memberManageSelect" parameterType="java.lang.String" resultType="com.gobook.member.dto.MemberDto">
+		select *from member where member_id=#{member_id}
+	</select>
+	
+	<select id="managerZipcode" parameterType="java.lang.String" resultType="com.gobook.member.dto.ZipcodeDto">
+		<![CDATA[
+		select *from zipcode where dong=#{dong}
+		]]>
+	</select>
+	
+	<update id="memberManageUpdate" parameterType="com.gobook.member.dto.MemberDto">
+		update member set member_password=#{member_password}, member_name=#{member_name}, member_zipcode=#{member_zipcode}, member_address1=#{member_address1}, member_address2=#{member_address2}, member_phone=#{member_phone} where member_id=#{member_id}
+	</update>
+	
+	<!-- 쿠폰 -->
+	<insert id="memberManageCouponInsert" parameterType="com.gobook.membermanage.dto.ManagerCouponDto">
+	<![CDATA[
+		insert into managercoupon values(managercoupon_mcoupon_num_seq.nextval, #{manager_coupon_name}, #{manager_coupon_field}, #{manager_coupon_period}, #{manager_coupon_content}, #{manager_coupon_discount})
+	]]>
+	</insert>
+	
+	<select id="memberManageCouponListSelect" resultType="com.gobook.membermanage.dto.ManagerCouponDto">
+		select * from managercoupon order by mcoupon_num desc
+	</select>
+	
+	<select id="memberManageCouponRead" parameterType="int" resultType="com.gobook.membermanage.dto.ManagerCouponDto">
+		select *from managercoupon where mcoupon_num=#{mcoupon_num}
+	</select>
+	
+	
+	<select id="userCouponSelect" parameterType="int" resultType="com.gobook.member.dto.UserCouponDto">
+		SELECT DISTINCT *FROM usercoupon WHERE mcoupon_num=#{mcoupon_num}
+	</select>
+	
+	<select id="memberIdList" resultType="com.gobook.member.dto.MemberDto">
+		select member_id from member where member_id!='admin'
+	</select>
+	
+	<insert id="memberManageCouponGiveUserInsert" parameterType="java.util.HashMap">
+		insert into usercoupon(user_coupon_num, member_id, mcoupon_num) values(usercoupon_user_coupon_num.nextval, #{id}, #{mcoupon_num})
+	</insert>
+
+</mapper>

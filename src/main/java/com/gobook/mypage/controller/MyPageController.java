@@ -14,9 +14,9 @@ import com.gobook.mypage.service.IMyPageService;
 
 /**
  * @클래스이름 : MyPageController
- * @날짜 : 2015. 12. 8.
+ * @날짜 : 2015. 12. 11.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 마이페이지 controller
  */
 @Controller
 public class MyPageController {
@@ -26,9 +26,9 @@ public class MyPageController {
 	
 	/**
 	 * @함수이름 : myPageOrderList
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 주문 내역
 	 */
 	@RequestMapping(value="/myPage/myPageOrderList.do", method=RequestMethod.GET)
 	public ModelAndView myPageOrderList(HttpServletRequest request, HttpServletResponse response){
@@ -42,9 +42,9 @@ public class MyPageController {
 	
 	/**
 	 * @함수이름 : myPageCoupon
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 쿠폰함
 	 */
 	@RequestMapping(value="/myPage/myPageCoupon.do", method=RequestMethod.GET)
 	public ModelAndView myPageCoupon(HttpServletRequest request, HttpServletResponse response){
@@ -58,9 +58,9 @@ public class MyPageController {
 	
 	/**
 	 * @함수이름 : myPagePoint
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 포인트함
 	 */
 	@RequestMapping(value="/myPage/myPagePoint.do", method=RequestMethod.GET)
 	public ModelAndView myPagePoint(HttpServletRequest request, HttpServletResponse response){
@@ -71,8 +71,14 @@ public class MyPageController {
 		
 		return mav;
 	}
-/*	
-	@RequestMapping(value="/myPage/myPagePvPList.do", method=RequestMethod.GET)
+	
+	/**
+	 * @함수이름 : myPagePvPList
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 1:1문의 내역
+	 */
+/*	@RequestMapping(value="/myPage/myPagePvPList.do", method=RequestMethod.GET)
 	public ModelAndView myPagePvPList(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav=new ModelAndView();
@@ -81,8 +87,14 @@ public class MyPageController {
 		
 		return mav;
 	}
-	
-	@RequestMapping(value="/myPage/myPagePvPRead.do", method=RequestMethod.GET)
+	*/
+	/**
+	 * @함수이름 : myPagePvPRead
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 1:1문의 확인
+	 */
+/*	@RequestMapping(value="/myPage/myPagePvPRead.do", method=RequestMethod.GET)
 	public ModelAndView myPagePvPRead(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav=new ModelAndView();
@@ -90,6 +102,6 @@ public class MyPageController {
 		iMyPageService.myPagePvPRead(mav);
 		
 		return mav;
-	}
-*/
+	}*/
+
 }
