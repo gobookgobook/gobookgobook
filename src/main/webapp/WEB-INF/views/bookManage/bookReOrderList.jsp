@@ -57,8 +57,9 @@
 					<td class="mytable" align="center" height="18" width="80">도서번호</td>
 					<td class="mytable" align="center" height="18" width="240">도서명</td>
 					<td class="mytable" align="center" height="18" width="80">재입고수량</td>
+					<td class="mytable" align="center" height="18" width="80">도서원가</td>
+					<td class="mytable" align="center" height="18" width="80">재입고총계</td>
 					<td class="mytable" align="center" height="18" width="80">재입고날짜</td>
-					<td class="mytable" align="center" height="18" width="80">재입고가격</td>
 				</tr>
 			<c:forEach var="book" items="${bookReorderList}">
 				<tr>
@@ -66,8 +67,9 @@
 					<td class="mytable" align="center" height="18">${book.book_num}</td>
 					<td class="mytable" align="left" height="18">${book.book_name}</td>
 					<td class="mytable" align="center" height="18">${book.reorder_quantity}</td>
+					<td class="mytable" align="center" height="18">${book.book_cost}</td>
+					<td class="mytable" align="center" height="18">${book.reorder_total_price}</td>
 					<td class="mytable" align="center" height="18"><fmt:formatDate value="${book.reorder_date}" pattern="yyyy/MM/dd"/></td>
-					<td class="mytable" align="center" height="18">${book.reorder_price}</td>
 				</tr>
 			</c:forEach>
 			</table> 

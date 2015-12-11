@@ -8,8 +8,15 @@ public class BookReOrderDto {
 	private int reorder_quantity;
 	private long book_num;
 	private Date reorder_date;
-	private int reorder_price;
+	private int book_cost;
+	private int reorder_total_price;
 	
+	public int getReorder_total_price() {
+		return reorder_total_price;
+	}
+	public void setReorder_total_price(int reorder_total_price) {
+		this.reorder_total_price = reorder_total_price;
+	}
 	public int getReorder_num() {
 		return reorder_num;
 	}
@@ -40,10 +47,10 @@ public class BookReOrderDto {
 	public void setReorder_date(Date reorder_date) {
 		this.reorder_date = reorder_date;
 	}
-	public int getReorder_price() {
-		return reorder_price;
+	public int getBook_cost() {
+		return book_cost;
 	}
-	public void setReorder_price(int reorder_price) {
-		this.reorder_price = reorder_price;
+	public void setBook_cost(int book_cost) {
+		this.book_cost = book_cost;
 	}
 }

@@ -66,14 +66,14 @@
 				<div class="line">
 					<label class="title2">도서원가</label>
 					<span class="content">
-						<input type="text" value="${bookDto.book_cost}" disabled="disabled"/>
+						<input type="text" value="${gpDto.book_cost}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title2">도서가격</label>
 					<span class="content">
-						<input type="text" value="${bookDto.book_price}" disabled="disabled"/>
+						<input type="text" value="${gpDto.book_price}" disabled="disabled"/>
 					</span>
 				</div>
 				
@@ -87,7 +87,7 @@
 				<div class="line">
 					<label class="title2">재고수량</label>
 					<span class="content">
-						<input type="text" value="${bookDto.book_quantity}" disabled="disabled"/>
+						<input type="text" value="${gpDto.book_quantity}" disabled="disabled"/>
 					</span>
 				</div>
 				

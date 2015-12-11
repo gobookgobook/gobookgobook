@@ -84,14 +84,12 @@ public class BookManageDao implements IBookManageDao {
 		TransactionDefinition definition=new DefaultTransactionDefinition();
 		TransactionStatus status = transactionManager.getTransaction(definition);
 		
-		int reorder_price=reorder_quantity*bookDto.getBook_cost();
+		int reorder_total_price=reorder_quantity*bookDto.getBook_cost();
 		
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("book_num", bookDto.getBook_num());
-		hMap.put("book_name", bookDto.getBook_name());
 		hMap.put("reorder_quantity", reorder_quantity);
-		hMap.put("book_cost", bookDto.getBook_cost());
-		hMap.put("reorder_price", reorder_price);
+		hMap.put("reorder_total_price", reorder_total_price);
 		
 		int value=0;
 		try{			
@@ -245,27 +243,15 @@ public class BookManageDao implements IBookManageDao {
 	}
 
 	/**
-	 * @함수이름 : gpBookList
-	 * @작성일 : 2015. 12. 11.
-	 * @개발자 : 성기훈
-	 * @설명 : 공동구매 들록 도서 목록
-	 */
-	@Override
-	public List<BookDto> gpBookList() {
-		
-		return sqlSessionTemplate.selectList("dao.bookmanageMapper.gpBookList");
-	}
-
-	/**
 	 * @함수이름 : gpRead
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
 	 * @설명 : 공동구매 세부정보
 	 */
 	@Override
-	public BookGroupPurchaseDto gpRead(int gp_num) {
+	public BookGroupPurchaseDto gpRead(long book_num) {
 		
-		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.BookGroupPurchaseDto", gp_num);
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.BookGroupPurchaseDto", book_num);
 	}
 
 	/**

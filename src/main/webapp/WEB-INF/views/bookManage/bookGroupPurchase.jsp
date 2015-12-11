@@ -54,24 +54,24 @@
 			<div align="center">
 				<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
 					<tr>
-						<td class="mytable" align="center" height="18" width="80">공구번호</td>
-						<td class="mytable" align="center" height="18" width="80">도서번호</td>
+						<td class="mytable" align="center" height="18" width="70">공구번호</td>
+						<td class="mytable" align="center" height="18" width="70">도서번호</td>
 						<td class="mytable" align="center" height="18" width="240">도서명</td>
-						
-						<td class="mytable" align="center" height="18" width="80">공구가격</td>
-						<td class="mytable" align="center" height="18" width="80">시작수량</td>
-						<td class="mytable" align="center" height="18" width="80">마감수량</td>
-						<td class="mytable" align="center" height="18" width="80">공구마감일</td>
-						<td class="mytable" align="center" height="18" width="80">공구희망자</td>
+						<td class="mytable" align="center" height="18" width="70">도서가격</td>
+						<td class="mytable" align="center" height="18" width="70">공구가격</td>
+						<td class="mytable" align="center" height="18" width="70">시작수량</td>
+						<td class="mytable" align="center" height="18" width="70">마감수량</td>
+						<td class="mytable" align="center" height="18" width="70">공구마감일</td>
+						<td class="mytable" align="center" height="18" width="70">공구희망자</td>
 					</tr>
 				<c:forEach var="gpList" items="${gpList}">
 					<tr>
 						<td class="mytable" align="center" height="18">${gpList.gp_num}</td>
 						<td class="mytable" align="center" height="18">${gpList.book_num}</td>
 						<td class="mytable" align="left" height="18">
-							<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?gp_num=${gpList.gp_num}" style="margin-left: 20px;">${gpList.book_name}</a>
+							<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}" style="margin-left: 20px;">${gpList.book_name}</a>
 						</td>
-						
+						<td class="mytable" align="center" height="18">${gpList.book_price}</td>
 						<td class="mytable" align="center" height="18">${gpList.group_purchase_price}</td>
 						<td class="mytable" align="center" height="18">${gpList.group_purchase_min_count}</td>
 						<td class="mytable" align="center" height="18">${gpList.group_purchase_max_count}</td>
@@ -114,7 +114,7 @@
 					<tr>
 						<td class="mytable" align="center" height="18">${book.book_num}</td>
 						<td class="mytable" align="left" height="18">
-							<a href="${root}/bookManage/bookManage.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+							<a href="${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
 						</td>
 						<td class="mytable" align="center" height="18">${book.book_cost}</td>
 						<td class="mytable" align="center" height="18">${book.book_price}</td>
@@ -139,18 +139,18 @@
 				</c:if>
 				
 				<c:if test="${startPage>pageBlock}">
-					<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+					<a href="${root}/bookManage/bookGroupPurchase.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 				</c:if>
 				
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage==i}">[${i}]</c:if>
 					<c:if test="${currentPage!=i}">
-					<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${i}">[${i}]</a>
+					<a href="${root}/bookManage/bookGroupPurchase.do?pageNumber=${i}">[${i}]</a>
 					</c:if>
 				</c:forEach>
 				
 				<c:if test="${endPage<pageCount}">
-					<a href="${root}/bookManage/bookGroupPurchaseCount.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+					<a href="${root}/bookManage/bookGroupPurchase.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 				</c:if>
 			</div>
 			

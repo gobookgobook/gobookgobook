@@ -12,6 +12,7 @@
 <body>
 	<jsp:include page="../member/menu.jsp"/>
 	<br/><br/>
+	<c:set var="id" value="admin" scope="session"/>
 	<c:if test="${id=='admin'}">
 	<div id="wrap">
 		<div id="header">

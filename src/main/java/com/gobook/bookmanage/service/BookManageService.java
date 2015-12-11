@@ -233,15 +233,14 @@ public class BookManageService implements IBookManageService {
 		
 		String pageNumber=request.getParameter("pageNumber");
 		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "reorder_quantity : "+reorder_quantity);
+		
 		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "getBook_quantity : "+bookDto.getBook_quantity());
 		
 		if(bookDto.getBook_quantity()!=0){
 			bookDto.setBook_state(1);
 			bookDto.setBook_reorder_count(0);
 		}
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "Book_reorder_count : "+bookDto.getBook_reorder_count());
+		
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
 		
 		mav.addObject("pageNumber", pageNumber);
@@ -366,11 +365,7 @@ public class BookManageService implements IBookManageService {
 		int gpCount=iBookManageDao.gpCount();
 		
 		List<BookGroupPurchaseDto> gpList=null;
-		List<BookDto> gpBookList=null;
-		if(count>0){
-			gpList=iBookManageDao.gpList();
-			gpBookList=iBookManageDao.gpBookList();
-		}
+		if(count>0) gpList=iBookManageDao.gpList();
 		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
@@ -382,7 +377,6 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("count", count);
 		mav.addObject("gpCount", gpCount);
 		mav.addObject("gpList", gpList);
-		mav.addObject("gpBookList", gpBookList);
 		
 		mav.setViewName("bookManage/bookGroupPurchase");
 		
@@ -482,16 +476,14 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		int gp_num=Integer.parseInt(request.getParameter("gp_num"));
-		BookGroupPurchaseDto gpDto=iBookManageDao.gpRead(gp_num);
-		BookDto bookDto=iBookManageDao.bookInfo(gpDto.getBook_num());
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		BookGroupPurchaseDto gpDto=iBookManageDao.gpRead(book_num);
 		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
 		mav.addObject("gpDto", gpDto);
-		mav.addObject("bookDto", bookDto);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseUpdate");
 	}

@@ -6,6 +6,9 @@ public class BookGroupPurchaseDto {
 	private int gp_num;
 	private long book_num;
 	private String book_name;
+	private int book_cost;
+	private int book_price;
+	private int book_quantity;
 	private int group_purchase_price;
 	private int group_purchase_min_count;
 	private int group_purchase_max_count;
@@ -13,6 +16,24 @@ public class BookGroupPurchaseDto {
 	private Date group_purchase_date;
 	private int group_purchase_state;
 	
+	public int getBook_cost() {
+		return book_cost;
+	}
+	public void setBook_cost(int book_cost) {
+		this.book_cost = book_cost;
+	}
+	public int getBook_price() {
+		return book_price;
+	}
+	public void setBook_price(int book_price) {
+		this.book_price = book_price;
+	}
+	public int getBook_quantity() {
+		return book_quantity;
+	}
+	public void setBook_quantity(int book_quantity) {
+		this.book_quantity = book_quantity;
+	}
 	public int getGp_num() {
 		return gp_num;
 	}
