@@ -1,5 +1,7 @@
 package com.gobook.location.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -80,6 +82,14 @@ public class LocationService implements ILocationService {
 		locationList=iLocationDao.locationSelect();
 		GoBookAspect.logger.info(GoBookAspect.logMsg + locationList.size());
 		
+		String latlng="";
+		for(int i=0; i<locationList.size();i++){
+			LocationDto temp = locationList.get(i);
+			latlng+=temp.getLocation_lat()+",";
+			latlng+=temp.getLocation_lng()+",";
+		}
+		
+		mav.addObject("latlng",latlng);
 		mav.addObject("locationList",locationList);
 		mav.addObject("count",locationList.size());
 		mav.setViewName("location/locationList");

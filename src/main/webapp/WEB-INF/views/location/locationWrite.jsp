@@ -10,7 +10,7 @@
 <link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/location/script.js"></script>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
-<script type="text/javascript" src="${root}/script/location/queryScript.js"></script>
+<script type="text/javascript" src="${root}/script/location/registeMapScript.js"></script>
 <script async defer	src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 </head>
 <body>

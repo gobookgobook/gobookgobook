@@ -31,7 +31,8 @@
 	<a href="${root}/help/adminHelpQnAWrite.do">QnA등록하기</a>
 	
 	<h3>Location</h3>
-	<a href="${root}/location/locationWrite.do">지점등록</a>
+	<a href="${root}/location/locationWrite.do">지점등록</a><br/>
+	<a href="${root}/location/locationList.do">지점목록</a>
 	
 	<h3>쿠폰</h3>
 	<a href="${root}/memberManager/memberManagerUpdate.do">관리자 회원관리</a>	

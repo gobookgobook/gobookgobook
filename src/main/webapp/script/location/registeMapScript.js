@@ -2,6 +2,12 @@
  * 
  */
 
+/**
+ * @함수이름 : locationWriteMapToServer
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 지도에 지점을 좌표와 주소로 반환시켜줄 Jquery의 Ajax
+ */
 function locationWriteMapToServer(root,locationForm){
 	var sendData=locationForm.location_address1.value;
 	var url ="https://maps.googleapis.com/maps/api/geocode/json?address="+sendData+ "&sensor=true";
@@ -23,6 +29,12 @@ function locationWriteMapToServer(root,locationForm){
 	
 }
 
+/**
+ * @함수이름 : process
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 지도의 선택한 지점을 좌표와 주소로 바꿔주는 함수
+ */
 function process(data,locationForm){
 	var obj = JSON.parse(data);
 	var getLat = obj.results[0].geometry.location.lat;
@@ -86,6 +98,12 @@ function process(data,locationForm){
 var map;
 var markers = [];
 
+/**
+ * @함수이름 : addMarker
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : Marker를 찍어주는 함수
+ */
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
 	var marker = new google.maps.Marker({
@@ -95,6 +113,12 @@ function addMarker(location) {
 	markers.push(marker);
 }
 
+/**
+ * @함수이름 : setMapOnAll
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 지도상의 모든 마커를 세팅
+ */
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
 	for (var i = 0; i < markers.length; i++) {
@@ -102,16 +126,34 @@ function setMapOnAll(map) {
 	}
 }
 
+/**
+ * @함수이름 : clearMarkers
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 모든마커를 지워버림
+ */
 // Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
 	setMapOnAll(null);
 }
 
+/**
+ * @함수이름 : showMarkers
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 모든마커를 보여줌
+ */
 // Shows any markers currently in the array.
 function showMarkers() {
 	setMapOnAll(map);
 }
 
+/**
+ * @함수이름 : deleteMarkers
+ * @작성일 : 2015. 12. 11.
+ * @개발자 : 강주혁
+ * @설명 : 모든마커를지움
+ */
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers() {
 	clearMarkers();
