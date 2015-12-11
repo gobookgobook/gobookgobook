@@ -13,9 +13,9 @@ import com.gobook.userorder.dto.UserOrderDto;
 
 /**
  * @클래스이름 : MyPageDao
- * @날짜 : 2015. 12. 8.
+ * @날짜 : 2015. 12. 11.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 마이페이지 Dao
  */
 @Component
 public class MyPageDao implements IMyPageDao {
@@ -25,7 +25,7 @@ public class MyPageDao implements IMyPageDao {
 
 	/**
 	 * @함수이름 : myPageOrderListSelect
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -37,7 +37,7 @@ public class MyPageDao implements IMyPageDao {
 
 	/**
 	 * @함수이름 : myPageOrderCount
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -49,7 +49,7 @@ public class MyPageDao implements IMyPageDao {
 
 	/**
 	 * @함수이름 : myPageHistoryListSelect
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -66,7 +66,7 @@ public class MyPageDao implements IMyPageDao {
 
 	/**
 	 * @함수이름 : myPageCouponSelect
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -78,7 +78,7 @@ public class MyPageDao implements IMyPageDao {
 
 	/**
 	 * @함수이름 : myPagePointSelect
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -87,14 +87,26 @@ public class MyPageDao implements IMyPageDao {
 
 		return sqlSessionTemplate.selectOne("dao.myPageMapper.myPagePointSelect", member_id);
 	}
-/*
-	@Override
+
+	/**
+	 * @함수이름 : myPagePvPListSelect
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+/*	@Override
 	public List<HelpPvPDto> myPagePvPListSelect(String member_id) {
 
 		return sqlSessionTemplate.selectList("dao.myPageMapper.myPagePvPListSelect", member_id);
-	}
+	}*/
 
-	@Override
+	/**
+	 * @함수이름 : myPagePvPRead
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+/*	@Override
 	public HelpPvPDto myPagePvPRead(int helppvp_num) {
 
 		return sqlSessionTemplate.selectOne("dao.myPageMapper.myPagePvPRead", helppvp_num);

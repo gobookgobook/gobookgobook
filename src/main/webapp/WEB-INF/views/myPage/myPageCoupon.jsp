@@ -11,9 +11,6 @@
 </head>
 <body>
 	<div>
-		<div class="title">
-		※마이페이지${couponSelect.size()}
-		</div>
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 			<div class="myPageCouponSelect">
@@ -24,16 +21,23 @@
 					<div class="user_coupon_field">사용범위</div>
 					<div class="user_coupon_period">유효기간</div>
 				</div>
-				
-			<c:forEach var="couponSelect" items="${couponSelect}">	
-				<div class="user_coupon_title">
-					<div class="user_coupon_name">${couponSelect.user_coupon_name}</div>
-					<div class="user_coupon_content">${couponSelect.user_coupon_content}</div>
-					<div class="user_coupon_discount">${couponSelect.user_coupon_discount}</div>
-					<div class="user_coupon_field">${couponSelect.user_coupon_field}</div>
-					<div class="user_coupon_period"><fmt:formatDate value="${couponSelect.user_coupon_period}" pattern="yyyy-MM-dd"/></div>
+			
+			<c:if test="${couponSelect.size() > 0}">	
+				<c:forEach var="couponSelect" items="${couponSelect}">	
+					<div class="user_coupon_title">
+						<div class="user_coupon_name">${couponSelect.user_coupon_name}</div>
+						<div class="user_coupon_content">${couponSelect.user_coupon_content}</div>
+						<div class="user_coupon_discount">${couponSelect.user_coupon_discount}</div>
+						<div class="user_coupon_field">${couponSelect.user_coupon_field}</div>
+						<div class="user_coupon_period"><fmt:formatDate value="${couponSelect.user_coupon_period}" pattern="yyyy-MM-dd"/></div>
+					</div>
+				</c:forEach>	
+			</c:if>
+			<c:if test="${couponSelect.size() == 0}">
+				<div class="user_coupon_title" style="text-align: center; font-size: 20">
+					현재 보유중인 쿠폰이 없습니다.
 				</div>
-			</c:forEach>	
+			</c:if>	
 			</div>	
 		</div>
 	</div>

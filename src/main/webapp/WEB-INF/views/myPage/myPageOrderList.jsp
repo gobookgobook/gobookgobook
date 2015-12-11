@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/orderList.css"/>
 </head>
 <body>
-${count}
 	<div>
 	<c:if test="${id==null}">
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
@@ -19,9 +18,6 @@ ${count}
 		</div>
 	</c:if>
 	<c:if test="${id != null }">
-		<div class="title">
-		※마이페이지
-		</div>
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		<!-- 주문내역 -->
@@ -38,8 +34,7 @@ ${count}
 				<c:forEach var="userOrderDto" items="${userOrderDto}">
 					<div class="orderbody">
 						<div class="order_bunho">${userOrderDto.order_bunho}</div>
-						<div class="order_date"><fmt:formatDate value="${userOrderDto.order_date}" pattern="yyyy-MM-dd"/>
-						</div>
+						<div class="order_date"><fmt:formatDate value="${userOrderDto.order_date}" pattern="yyyy-MM-dd"/></div>
 						<div class="order_book_name">${userOrderDto.order_book_name}</div>
 					<c:if test="${userOrderDto.order_book_state == 12}"> 
 						<div class="order_book_state">
@@ -51,7 +46,9 @@ ${count}
 			</c:if>
 		
 			<c:if test="${count ==0 }">
+			<div class="orderbody" style="text-align: center;">
 				최근 주문내역이 없습니다.
+			</div>
 			</c:if>
 		</div>
 		<!-- 구매 히스토리 -->
@@ -83,7 +80,9 @@ ${count}
 				</c:forEach>
 			</c:if>
 			<c:if test="${count==0 }">
-			주문내역이 없습니다.
+			<div class="orderbody" style="text-align: center;">
+				주문내역이 없습니다.
+			</div>
 			</c:if>
 				<div align="center">
 					<c:if test="${count > 0}">

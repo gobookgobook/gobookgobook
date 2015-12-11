@@ -11,9 +11,6 @@
 </head>
 <body>
 	<div>
-		<div class="title">
-		※마이페이지
-		</div>
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		1:1문의

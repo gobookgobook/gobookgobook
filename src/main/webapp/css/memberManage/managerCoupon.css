@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+
+div{
+	display: block;
+}
+
+span{
+	display: block;
+	float: left;
+}
+
+.managerCoupon{
+	width: 800px; height:700px;
+	border: 1px dotted blue;
+	margin: 0px auto;
+}
+
+.managerCouponBody{
+	width:86%; height:60%;
+	border: 1px dotted red;
+	float: left;
+}
+
+.managerCouponList{
+
+}
+
+.managerCouponListBody{
+	
+}
+
+.couponAllList{
+	width:90%; height:80%;
+	border: 1px dotted blue;
+	margin: 0px auto;
+}
+
+.couponList{
+	width:100%; height:13%;
+	border: 1px dotted red;
+}
+
+.couponTitle{
+	width:100%; height:10%;
+	border: 1px dotted black;
+}
+
+.mcoupon_num{
+	width: 12%; height:100%;
+	border: 1px solid red;
+}
+
+.manager_coupon_name{
+	width: 39.3%; height:100%;
+	border: 1px solid red;	
+}
+
+.manager_coupon_field{
+	width: 20%; height:100%;
+	border: 1px solid red;	
+	
+}
+
+.manager_coupon_period{
+	width: 15%; height:100%;
+	border: 1px solid red;	
+}
+
+.manager_coupon_discount{
+	width: 12%; height:100%;
+	border: 1px solid red;	
+}
+
+.couponReadAll{
+	width:90%; height:80%;
+	border: 1px dotted blue;
+	margin: 0px auto;
+}
+
+.read_num{
+	width: 12%; height:100%;
+	border: 1px solid red;
+}
+
+.read_name{
+	width: 39.3%; height:100%;
+	border: 1px solid red;	
+}
+
+.read_field{
+	width: 20%; height:100%;
+	border: 1px solid red;	
+	
+}
+
+.read_period{
+	width: 15%; height:100%;
+	border: 1px solid red;	
+}
+
+.read_discount{
+	width: 12%; height:100%;
+	border: 1px solid red;	
+}
+
+.read_title{
+	width:100%; height:13%;
+}
+
+.read_content{
+	width:100%; height:60%;
+	border: 1px	dotted red;
+}
+
+.manager_coupon_content{
+	width: 87.2%; height:97%;
+	border: 1px solid blue;
+}
+
+.content_title{
+	width: 12%; height:97%;
+	border: 1px solid red;
+	display: block;
+	float: left;
+}

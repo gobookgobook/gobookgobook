@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+div{
+	display: block;
+}
+
+.title{
+	width: 700px; height:30px;
+	border: 1px solid black;
+	margin-bottom: 3px; 
+}
+
+.body{
+	width: 700px; height:500px;
+	border: 1px solid blue;
+	display: block;
+	float: left;	
+}
+
+/* 문의 list*/
+.myPagePvPList{
+	width: 600px; height: 350px;
+	border: 1px solid yellow;
+	margin: 0px auto;
+}
+
+.pvpList_write_date{
+	width: 130px; height:40px;
+	border: 1px red dotted;
+	float: left;
+}
+
+.pvpList_user_name{
+	width: 364px; height:40px;
+	border: 1px black dotted;	
+	float: left;
+}
+
+.pvpList_user_read{
+	width: 100px; height:40px;
+	border: 1px blue dotted;
+	float: left;	
+}
+
+/* 문의 Read*/
+
+.myPagePvPRead{
+	width:500px; height:420px;
+	border: 1px dotted yellow;
+	margin: 0px auto;
+}
+
+.pvpRead_title{
+	width:400px; height:30px;
+	border: 1px solid black;
+	margin: 0px auto;
+}
+
+.pvpRead_user_subject{
+	width:400px; height:30px;
+	border: 1px solid blue;
+	margin: 0px auto;
+}
+
+.pvpRead_user_content{
+	width:400px; height:150px;
+	border: 1px solid red;
+	margin: 0px auto;
+}
+
+.pvpRead_admin_content{
+	width:400px; height:150px;
+	border: 1px solid red;
+	margin: 0px auto;
+}

@@ -20,22 +20,19 @@ import com.gobook.userorder.dto.UserOrderDto;
 
 /**
  * @클래스이름 : MyPageService
- * @날짜 : 2015. 12. 8.
+ * @날짜 : 2015. 12. 11.
  * @개발자 : 오주석
  * @설명 : 
  */
 @Component
 public class MyPageService implements IMyPageService {
 
-	/**
-	 * 
-	 */
 	@Autowired
 	private IMyPageDao iMyPageDao;
 
 	/**
 	 * @함수이름 : myPageOrderList
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -47,9 +44,7 @@ public class MyPageService implements IMyPageService {
 		HttpSession session=request.getSession();
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
-		
 
-		
 		if(member_id !=null){
 			
 		int count=iMyPageDao.myPageOrderCount(member_id);
@@ -60,7 +55,6 @@ public class MyPageService implements IMyPageService {
 			userOrderDto=iMyPageDao.myPageOrderListSelect(member_id);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + userOrderDto.toString());
 		}
-		
 		
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) pageNumber="1";
@@ -91,7 +85,7 @@ public class MyPageService implements IMyPageService {
 	
 	/**
 	 * @함수이름 : myPageCoupon
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -106,6 +100,7 @@ public class MyPageService implements IMyPageService {
 		
 		List<UserCouponDto> couponSelect=iMyPageDao.myPageCouponSelect(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect.size());
+		GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect);
 		
 		mav.addObject("couponSelect", couponSelect);
 		mav.setViewName("myPage/myPageCoupon");
@@ -114,7 +109,7 @@ public class MyPageService implements IMyPageService {
 
 	/**
 	 * @함수이름 : myPagePoint
-	 * @작성일 : 2015. 12. 8.
+	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
 	 * @설명 : 
 	 */
@@ -134,8 +129,14 @@ public class MyPageService implements IMyPageService {
 		mav.setViewName("myPage/myPagePoint");
 		
 	}
-/*
-	@Override
+
+	/**
+	 * @함수이름 : myPagePvPList
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+/*	@Override
 	public void myPagePvPList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
@@ -150,18 +151,22 @@ public class MyPageService implements IMyPageService {
 		mav.addObject("myPagePvPList", myPagePvPList);
 		mav.setViewName("myPage/myPagePvPList");
 		
-	}
+	}*/
 
 
-	@Override
+	/**
+	 * @함수이름 : myPagePvPRead
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+/*	@Override
 	public void myPagePvPRead(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		HttpSession session=request.getSession();
-		String member_id=(String) session.getAttribute("id");
 		int helppvp_num=Integer.parseInt(request.getParameter("helppvp_num"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id + "번호:" + helppvp_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "번호:" + helppvp_num);
 		
 		HelpPvPDto helpPvPDto=iMyPageDao.myPagePvPRead(helppvp_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + helpPvPDto);
