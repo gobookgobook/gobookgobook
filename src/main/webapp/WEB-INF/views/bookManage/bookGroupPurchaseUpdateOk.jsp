@@ -12,14 +12,14 @@
 	
 	<c:if test="${check>0}">
 	<script type="text/javascript">
-		alert("공동구매  등록이 완료 되었습니다.");
+		alert("공동구매 정보가 수정되었습니다.");
 		location.href="${root}/bookManage/bookGroupPurchase.do"
 	</script>
 	</c:if>
 	<c:if test="${check==0}">
 	<script type="text/javascript">
-		alert("공동구매 등록에 문제가 발생하였습니다.");
-		location.href="${root}/bookManage/bookGroupPurchaseInsert.do"
+		alert("공동구매 정보 수정에 문제가 발생하였습니다.");
+		location.href="${root}/bookManage/bookGroupPurchase.do"
 	</script>
 	</c:if>
 </body>

@@ -341,7 +341,7 @@ public class BookManageService implements IBookManageService {
 	 * @설명 : 공동구매 요청 리스트
 	 */
 	@Override
-	public void bookGroupPurchaseCount(ModelAndView mav) {
+	public void bookGroupPurchase(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
@@ -384,7 +384,7 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("gpList", gpList);
 		mav.addObject("gpBookList", gpBookList);
 		
-		mav.setViewName("bookManage/bookGroupPurchaseCountList");
+		mav.setViewName("bookManage/bookGroupPurchase");
 		
 	}
 
@@ -469,6 +469,49 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("check", check);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseInsertOk");
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseUpdate
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 수정
+	 */
+	@Override
+	public void bookGroupPurchaseUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int gp_num=Integer.parseInt(request.getParameter("gp_num"));
+		BookGroupPurchaseDto gpDto=iBookManageDao.gpRead(gp_num);
+		BookDto bookDto=iBookManageDao.bookInfo(gpDto.getBook_num());
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("gpDto", gpDto);
+		mav.addObject("bookDto", bookDto);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseUpdate");
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseUpdateOk
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 수정
+	 */
+	@Override
+	public void bookGroupPurchaseUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		BookGroupPurchaseDto bookGroupPurchaseDto=(BookGroupPurchaseDto)map.get("bookGroupPurchaseDto");
+		
+		int check=iBookManageDao.bookGroupPurchaseUpdate(bookGroupPurchaseDto);
+		
+		mav.addObject("check", check);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseUpdateOk");
 	}
 	
 }

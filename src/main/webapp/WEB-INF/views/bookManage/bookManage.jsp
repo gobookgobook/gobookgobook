@@ -31,7 +31,7 @@
 			<a href="">재입고신청</a><br/>
 			<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
 			<hr width="80px" align="left"/>
-			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매</a><br/>
+			<a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a><br/>
 			<a href="">출간일정관리</a><br/>
 		</div>
 	
@@ -41,11 +41,11 @@
 			<br/><br/><br/>
 			
 			<h3>공동구매 현황</h3>
-			<a href="${root}/bookManage/bookGroupPurchaseCount.do">현재 진행중인 공구</a>
+			<a href="${root}/bookManage/bookGroupPurchase.do">현재 진행중인 공구</a>
 			<br/><br/><br/>
 			
 			<h3>공동구매 요청</h3>
-			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매 요청 내역</a>
+			<a href="${root}/bookManage/bookGroupPurchase.do">공동구매 요청 내역</a>
 			<br/><br/>
 		</div>
 	</div>

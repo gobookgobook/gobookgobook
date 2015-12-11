@@ -40,20 +40,26 @@
 		<div id="#con2" align="left">
 			<b>공구 등록</b>
 			<hr/>
-			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchaseInsert(this)">				
+			<form class="form_style" name="bookGroupPurchaseUpdate" action="${root}/bookManage/bookGroupPurchaseUpdate.do" method="post" onsubmit="return groupPurchaseUpdate(this)">				
+				<div class="line">
+					<label class="title2">공구번호</label>
+					<span class="content">
+						<input type="hidden" name="gp_num" value="${gpDto.gp_num}"/>
+						<input type="text" value="${gpDto.gp_num}" disabled="disabled"/>
+					</span>
+				</div>
+				
 				<div class="line">
 					<label class="title2">도서번호</label>
 					<span class="content">
-						<input type="hidden" name="book_num" value="${bookDto.book_num}"/>
-						<input type="text" value="${bookDto.book_num}" disabled="disabled"/>
+						<input type="text" value="${gpDto.book_num}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title2">도서명</label>
 					<span class="content">
-						<input type="hidden" name="book_name" value="${bookDto.book_name}"/>
-						<input type="text" size="50" value="${bookDto.book_name}" disabled="disabled"/>
+						<input type="text" size="50" value="${gpDto.book_name}" disabled="disabled"/>
 					</span>
 				</div>
 				
@@ -74,7 +80,7 @@
 				<div class="line">
 					<label class="title2">공구가격</label>
 					<span class="content">
-						<input type="text" name="group_purchase_price"/>
+						<input type="text" name="group_purchase_price" value="${gpDto.group_purchase_price}" />
 					</span>
 				</div>
 				
@@ -88,28 +94,29 @@
 				<div class="line">
 					<label class="title2">공구 진행 최소 수량</label>
 					<span class="content">
-						<input type="text" name="group_purchase_min_count"/>
+						<input type="text" name="group_purchase_min_count" value="${gpDto.group_purchase_min_count}"/>
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title2">공구 마감 최대 수량</label>
 					<span class="content">
-						<input type="text" name="group_purchase_max_count"/>
+						<input type="text" name="group_purchase_max_count" value="${gpDto.group_purchase_max_count}"/>
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title2">공구 마감일</label>
 					<span class="content">
-						<input type="text" name="group_purchase_date"/>
+						<input type="text" name="group_purchase_date" value="<fmt:formatDate value='${gpDto.group_purchase_date}' pattern='yyyy/MM/dd'/>"/>
 					</span>
 				</div>
 				
 				<div class="line" style="text-align:center;">
-					<input type="submit" value="공구등록"/>
+					<input type="submit" value="공구수정"/>
 					<input type="reset" value="다시작성"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookStockList.do'"/>
+					<input type="button" value="공구취소" onclick="location.href='${root}/bookManage/bookGroupPurchaseDelete.do?gp_num=${gpDto.gp_num}'"/>
+					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookGroupPurchase.do'"/>
 				</div>
 			</form>	
 		</div>

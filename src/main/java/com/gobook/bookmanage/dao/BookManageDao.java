@@ -153,6 +153,18 @@ public class BookManageDao implements IBookManageDao {
 		
 		return sqlSessionTemplate.selectList("dao.bookmanageMapper.gpBookList");
 	}
+
+	@Override
+	public BookGroupPurchaseDto gpRead(int gp_num) {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.BookGroupPurchaseDto", gp_num);
+	}
+
+	@Override
+	public int bookGroupPurchaseUpdate(BookGroupPurchaseDto bookGroupPurchaseDto) {
+		
+		return sqlSessionTemplate.update("dao.bookmanageMapper.bookGroupPurchaseUpdate", bookGroupPurchaseDto);
+	}
 	
 	
 }

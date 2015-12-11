@@ -33,7 +33,7 @@
 			<a href="">재입고신청</a><br/>
 			<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
 			<hr width="80px" align="left"/>
-			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매</a><br/>
+			<a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a><br/>
 			<a href="">출간일정관리</a><br/>
 		</div>
 		
@@ -77,7 +77,7 @@
 				<div class="line">
 					<label class="title">출판일</label>
 					<span class="content">	
-						<input type="text" name="book_publish_date" value="<fmt:formatDate value="${bookDto.book_publish_date}" pattern="yyyy/MM/dd"/>"/>
+						<input type="text" name="book_publish_date" value="<fmt:formatDate value='${bookDto.book_publish_date}' pattern='yyyy/MM/dd'/>"/>
 					</span>
 				</div>
 				

@@ -23,4 +23,6 @@ public interface IBookManageDao {
 	public int gpCount();
 	public List<BookGroupPurchaseDto> gpList();
 	public List<BookDto> gpBookList();
+	public BookGroupPurchaseDto gpRead(int gp_num);
+	public int bookGroupPurchaseUpdate(BookGroupPurchaseDto bookGroupPurchaseDto);
 }

@@ -148,11 +148,11 @@ public class BookManageCotroller {
 	 * @개발자 : 성기훈
 	 * @설명 : 공동구매 요청 리스트
 	 */
-	@RequestMapping(value="/bookManage/bookGroupPurchaseCount.do", method=RequestMethod.GET)
-	public ModelAndView bookGroupPurchaseCount(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="/bookManage/bookGroupPurchase.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchase(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		iBookManageService.bookGroupPurchaseCount(mav);
+		iBookManageService.bookGroupPurchase(mav);
 		
 		return mav;
 	}
@@ -202,4 +202,33 @@ public class BookManageCotroller {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : bookGroupPurchaseUpdate
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 수정
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseUpdate.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchaseUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookGroupPurchaseUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseUpdate
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 수정 
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseUpdate.do", method=RequestMethod.POST)
+	public ModelAndView bookGroupPurchaseUpdateOk(HttpServletRequest request, HttpServletResponse response, BookGroupPurchaseDto bookGroupPurchaseDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("bookGroupPurchaseDto", bookGroupPurchaseDto);
+		iBookManageService.bookGroupPurchaseUpdateOk(mav);
+		
+		return mav;
+	}
 }

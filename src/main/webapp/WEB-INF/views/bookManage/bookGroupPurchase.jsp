@@ -32,7 +32,7 @@
 			<a href="">재입고신청</a><br/>
 			<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
 			<hr width="80px" align="left"/>
-			<a href="${root}/bookManage/bookGroupPurchaseCount.do">공동구매</a><br/>
+			<a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a><br/>
 			<a href="">출간일정관리</a><br/>
 		</div>
 		
@@ -69,7 +69,7 @@
 						<td class="mytable" align="center" height="18">${gpList.gp_num}</td>
 						<td class="mytable" align="center" height="18">${gpList.book_num}</td>
 						<td class="mytable" align="left" height="18">
-							<a href=""  style="margin-left: 20px;">${gpList.book_name}</a>
+							<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?gp_num=${gpList.gp_num}" style="margin-left: 20px;">${gpList.book_name}</a>
 						</td>
 						
 						<td class="mytable" align="center" height="18">${gpList.group_purchase_price}</td>
