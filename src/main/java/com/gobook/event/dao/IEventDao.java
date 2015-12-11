@@ -11,4 +11,10 @@ public interface IEventDao {
      public List<EventDto> eventListSelect();
      
      public EventDto eventRead(int event_bunho);
+     
+     public EventDto eventSelect(int event_bunho);
+     
+     public int eventUpdate(EventDto eventDto);
+     
+     public int eventDelete(int event_bunho);
 }

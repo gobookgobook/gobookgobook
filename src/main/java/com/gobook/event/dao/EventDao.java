@@ -1,6 +1,8 @@
 package com.gobook.event.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +40,32 @@ public class EventDao implements IEventDao {
 
 	@Override
 	public EventDto eventRead(int event_bunho) {
+		
+		return sqlSessionTemplate.selectOne("dao.EventMapper.eventRead",event_bunho);
+	}
+
+	@Override
+	public EventDto eventSelect(int event_bunho) {
+		
 		EventDto eventDto=null;
 		
-
-		return sqlSessionTemplate.selectOne("dao.eventMapper.eventRead",event_bunho);
+		eventDto=sqlSessionTemplate.selectOne("dao.EventMapper.eventSelect",event_bunho);
+		return eventDto;
 	}
+
+	@Override
+	public int eventUpdate(EventDto eventDto) {
+		
+		return sqlSessionTemplate.update("dao.EventMapper.eventUpdate",eventDto);
+	}
+
+	@Override
+	public int eventDelete(int event_bunho) {
+		
+		
+		return sqlSessionTemplate.delete("dao.EventMapper.eventDelete",event_bunho);
+	}
+
 	
 
 }

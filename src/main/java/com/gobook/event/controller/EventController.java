@@ -30,7 +30,6 @@ public class EventController {
 		mav.addObject("request",request);
 		mav.addObject("eventDto",eventDto);
 		iEventService.eventWriteOk(mav);
-		
 		return mav;
 	}
 	@RequestMapping(value="/event/eventList.do", method=RequestMethod.GET)
@@ -49,5 +48,31 @@ public class EventController {
 		iEventService.eventRead(mav);
 		return mav;
 	}
+	@RequestMapping(value="/event/eventUpdate.do", method=RequestMethod.GET)
+	public ModelAndView eventUpdate(HttpServletRequest request,HttpServletResponse response){
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("request",request);
+		iEventService.eventUpdate(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/event/eventUpdate.do", method=RequestMethod.POST)
+	public ModelAndView eventUpdateOk(HttpServletRequest request,HttpServletResponse response,EventDto eventDto)throws Exception{
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("eventDto",eventDto);
+		iEventService.eventUpdateOk(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/event/eventDelete.do", method=RequestMethod.GET)
+	public ModelAndView eventDelete(HttpServletRequest request,HttpServletResponse response,EventDto eventDto)throws Exception{
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("request",request);
+		iEventService.eventDelete(mav);
+		return mav;
+	}
+	
+	
 
 }

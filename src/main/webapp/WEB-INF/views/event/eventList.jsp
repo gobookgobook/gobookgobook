@@ -20,6 +20,12 @@
 <jsp:include page="../member/menu.jsp"/>
    <br/><br/>
    
+<div align="right">
+<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
+			<a href="${root}/event/eventWrite.do">이벤트 등록</a>
+</div>
+</div>
+   
      <div align="center">
         <div id="event_one">
         <c:forEach var="eventDto" items="${eventList}">
@@ -27,6 +33,8 @@
            <a href="javascript:readFun('${root}','${eventDto.event_bunho}')">
             <img src="http://localhost:8181/gobook/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="300" height="300"/>
            </a>
+            
+            <a href="javascript:readFun('${root}','${eventDto.event_bunho}')">${eventDto.event_name}</a> 
             </div>
             </c:forEach>
         </div>

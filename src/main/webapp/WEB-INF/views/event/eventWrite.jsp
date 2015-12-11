@@ -59,7 +59,7 @@ $(function(){
       </div><br/>
        <label class="title">이벤트사진</label>
        <span class="content">
-         <input type="file" name="file"/>
+         <input type="file" name="event_file"/>
          </span><br/><br/>
       
       <div class="line" style="width:598px; border-width:2px; text-align:center;">

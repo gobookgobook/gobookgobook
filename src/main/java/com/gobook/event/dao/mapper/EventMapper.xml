@@ -26,4 +26,16 @@
     <select id="eventRead" resultType="com.gobook.event.dto.EventDto" parameterType="int">
      select * from event where event_bunho=#{event_bunho}
     </select>
+    
+    <select id="eventSelect" resultType="com.gobook.event.dto.EventDto" parameterType="com.gobook.event.dto.EventDto">
+      select * from event where event_bunho=#{event_bunho}
+    </select>
+    
+    <update id="eventUpdate" parameterType="com.gobook.event.dto.EventDto">
+      update event set event_name=#{event_name}, event_start_period=#{event_start_period},event_end_period= #{event_end_period},event_Content= #{event_Content}
+    </update>
+    
+    <delete id="eventDelete" parameterType="int">
+      delete from event where event_bunho=#{event_bunho}
+    </delete>
 </mapper>
