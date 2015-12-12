@@ -31,26 +31,28 @@
 	<c:if test="${id!=null}">
 		<ul>
 			<li>
-				<a href="http://localhost:8181/gobook/">Test홈</a>
+				<a href="http://localhost:8181/gobook/">Test홈&nbsp;&nbsp;&nbsp;</a>
 			</li>
 			<li>
-				<a href="${root}/member/update.do">회원수정</a>
+				<a href="${root}/member/update.do">회원수정&nbsp;&nbsp;&nbsp;</a>
 			</li>
 			<li>
-				<a href="${root}/member/delete.do">회원탈퇴</a>
+				<a href="${root}/member/delete.do">회원탈퇴&nbsp;&nbsp;&nbsp;</a>
 			</li>
 			<li>
-				<a href="${root}/member/logout.do">로그아웃</a>
+				<a href="${root}/member/logout.do">로그아웃&nbsp;&nbsp;&nbsp;</a>
 			</li>
 			<li>
-				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
+				<a href="${root}/myPage/myPageOrderList.do">myPage&nbsp;&nbsp;&nbsp;</a>
 			</li>
 			<li>
-				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
+				<a href="${root}/myBasket/myBasketList.do">장바구니&nbsp;&nbsp;&nbsp;</a>
 			</li>
 		</ul>
 		<c:if test="${id == 'admin'}">
-			<a href="${root}/member/adminMain.do">관리자</a>
+		<ul>
+			<li><a href="${root}/member/adminMain.do">관리자&nbsp;&nbsp;&nbsp;</a></li>
+		</ul>
 		</c:if>
 	</c:if>
 </body>
