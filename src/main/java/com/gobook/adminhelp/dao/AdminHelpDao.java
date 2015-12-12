@@ -13,25 +13,46 @@ import com.gobook.help.dto.HelpQnADto;
 @Component
 public class AdminHelpDao implements IAdminHelpDao {
 	@Autowired
-	private SqlSessionTemplate sessionTemplate;
+	private SqlSessionTemplate sqlSessionTemplate;
 	@Autowired
 	private PlatformTransactionManager transactionManager;
+	
 	@Override
-	public int getqnaBoardCount() {
+	public int adminHelpQnACount() {
 		
-		return sessionTemplate.selectOne("dao.AdminHelpMapper.qnaboardCount");
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpQnACount");
 	}
 	@Override
-	public List<Integer> getqnaBoardList(int startRow, int endRow) {
+	public List<HelpQnADto> adminHelpQnAListSelect(int startRow, int endRow) {
 		Map<String, Integer> hmap=new HashMap<String, Integer>();
 		hmap.put("startRow", startRow);
 		hmap.put("endRow", endRow);
-		return sessionTemplate.selectList("dao.AdminHelpMapper.qnaboardList", hmap);
+		return sqlSessionTemplate.selectList("dao.AdminHelpMapper.adminHelpQnAListSelect", hmap);
 	}
 	@Override
-	public int qnaboardInsert(HelpQnADto helpQnADto) {
+	public int adminHelpQnAWriteInsert(HelpQnADto helpQnADto) {
 		
-		return sessionTemplate.insert("dao.AdminHelpMapper.qnaboardInsert", helpQnADto) ;
+		return sqlSessionTemplate.insert("dao.AdminHelpMapper.adminHelpQnAWriteInsert", helpQnADto) ;
 	}
-
+	@Override
+	public HelpQnADto adminHelpQnARead(int helpqna_num) {
+		
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpQnARead",helpqna_num);
+	}
+	@Override
+	public int adminHelpQnADelete(int helpqna_num) {
+		
+		return sqlSessionTemplate.delete("dao.AdminHelpMapper.adminHelpQnADelete",helpqna_num);
+	}
+	@Override
+	public HelpQnADto adminHelpQnASelect(int helpqna_num) {
+		
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpQnASelect",helpqna_num);
+	}
+	@Override
+	public int adminHelpQnAUpdateOk(HelpQnADto helpQnADto) {
+		
+		return sqlSessionTemplate.update("dao.AdminHelpMapper.adminHelpQnAUpdateOk",helpQnADto);
+	}
+	
 }
