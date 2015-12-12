@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="${root}/js/memberManage/memberManager.js"></script>
+<script type="text/javascript" src="${root}/script/memberManage/memberManager.js"></script>
 </head>
 <body>
 	<form action="${root}/memberManage/managerZipcode.do" method="get">

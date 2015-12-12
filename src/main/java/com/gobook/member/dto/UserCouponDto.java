@@ -11,6 +11,7 @@ import java.sql.Date;
 public class UserCouponDto {
 	private int user_coupon_num;			//쿠폰 고유 번호 
 	private String member_id;				//쿠폰 사용자 아이디
+	private int mcoupon_num;				//관리자 쿠폰 번호
 	private String user_coupon_name;		//쿠폰 이름
 	private int user_coupon_discount;		//쿠폰 할인율(100이하이면 자동으로 퍼센트 계산 100이상이면 원으로 계산)
 	private Date user_coupon_period;		//쿠폰 사용기간
@@ -28,6 +29,12 @@ public class UserCouponDto {
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
+	}
+	public int getMcoupon_num() {
+		return mcoupon_num;
+	}
+	public void setMcoupon_num(int mcoupon_num) {
+		this.mcoupon_num = mcoupon_num;
 	}
 	public String getUser_coupon_name() {
 		return user_coupon_name;

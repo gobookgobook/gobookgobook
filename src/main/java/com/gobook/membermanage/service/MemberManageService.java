@@ -184,12 +184,14 @@ public class MemberManageService implements IMemberManageSerivce {
 			List<MemberDto> member_id=iMemberManageDao.memberIdList();
 			GoBookAspect.logger.info(GoBookAspect.logMsg + member_id.size());
 			
-			int value=0;
+	/*		int value=0;
 			for(int i=0;i<member_id.size();i++){
 				String id=member_id.get(i).getMember_id();
 				value=iMemberManageDao.memberManageCouponGiveUserInsert(id, mcoupon_num);
-			}
+			}*/
 			
+			
+			int value=iMemberManageDao.memberManageCouponGiveUserInsert(member_id, mcoupon_num);
 			mav.addObject("value", value);
 			mav.addObject("mcoupon_num", mcoupon_num);
 		}

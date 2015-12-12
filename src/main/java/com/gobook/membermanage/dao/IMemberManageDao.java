@@ -18,6 +18,6 @@ public interface IMemberManageDao {
 	public ManagerCouponDto memberManageCouponRead(int mcoupon_num);
 	public List<UserCouponDto> userCouponSelect(int mcoupon_num);
 	public List<MemberDto> memberIdList();
-	public int memberManageCouponGiveUserInsert(String id, int mcoupon_num);
+	public int memberManageCouponGiveUserInsert(List<MemberDto> member_id, int mcoupon_num);
 
 }

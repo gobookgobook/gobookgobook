@@ -29,7 +29,7 @@
 	
 	<insert id="memberNewCouponInsert" parameterType="com.gobook.member.dto.MemberDto">
 		Insert into userCoupon values(userCoupon_user_coupon_num_seq.nextval,
-		#{member_id},'회원가입쿠폰','10','2016/01/01','문학','회원가입기념 문학작품 10%할인쿠폰')
+		#{member_id}, '1')
 	</insert>
 	
 	<select id="memberLogin" resultType="String" parameterType="java.util.HashMap">
@@ -38,7 +38,13 @@
 	
 	<delete id="memberDeleteCouponDate" parameterType="String">
 		<![CDATA[
-			delete from userCoupon where user_coupon_period < sysdate AND member_id=#{loginId}
+			DELETE FROM usercoupon
+				where mcoupon_num=(
+					SELECT	ucoupon.mcoupon_num
+						FROM usercoupon ucoupon, managercoupon mcoupon
+							WHERE ucoupon.mcoupon_num=mcoupon.mcoupon_num
+							AND mcoupon.manager_coupon_period < SYSDATE
+							AND member_id=#{loginId})
 		]]>
 	</delete>
 	

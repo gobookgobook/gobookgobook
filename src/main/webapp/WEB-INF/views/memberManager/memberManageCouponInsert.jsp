@@ -14,16 +14,19 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="${root}/js/memberManage/managerCoupon.js"></script>
+<script type="text/javascript" src="${root}/script/memberManage/managerCoupon.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#date').datepicker({
 		dateFormat:"yy/mm/dd",
+	    changeMonth: true,
+	   	changeYear: true,
 		monthNames: ["1월", "2월", "3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
 		dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
  		showOn:"button",
-		buttonImage:"${root}/js/img/apple.gif", 
+		buttonImage:"${root}/js/img/calendar.gif", 
 		buttonImageOnly:true
+
 	});
 	
 	$('#percent').click(function(){
@@ -46,14 +49,14 @@ $(function(){
 		<hr>
 			<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
 				<div>
-					<label>쿠폰이름</label>
-					<span>
+					<label class="coupon_title">쿠폰이름</label>
+					<span class="coupon_content">
 						<input type="text" name="manager_coupon_name">
 					</span>
 				</div>
 				<div>
-					<label>쿠폰사용장르</label>
-					<span>
+					<label class="coupon_title">쿠폰사용장르</label>
+					<span class="coupon_content">
 						<input type="checkbox" name="manager_coupon_field_value" value="문학"/>문학
 						<input type="checkbox" name="manager_coupon_field_value" value="교육도서"/>교육도서
 						<input type="checkbox" name="manager_coupon_field_value" value="전공도서"/>전공도서
@@ -66,23 +69,23 @@ $(function(){
 					</span>
 				</div>
 				<div>
-					<label>쿠폰 사용기간</label>
-					<span>
+					<label class="coupon_title">쿠폰 사용기간</label>
+					<span class="coupon_content">
 						<input type="text" id="date" name="manager_coupon_period_value" disabled="disabled"/>
 						<input type="hidden" name="manager_coupon_period">
 						<%-- <input type="button" id="date" onsubmit="javascript:period('${root}')"/> --%>
 					</span>
 				</div>
 				<div>
-					<label>쿠폰 내용</label>
-					<span>
+					<label class="coupon_title">쿠폰 내용</label>
+					<span class="coupon_content">
 						<input type="text" name="manager_coupon_content"/>
 					</span>
 				</div>
 				<div>
-					<label>쿠폰 할인율</label>
+					<label class="coupon_title">쿠폰 할인율</label>
 					<div>
-						<span>
+						<span class="coupon_content">
 							<input type="radio" name="discount" id="percent"/>%
 							<input type="radio" name="discount" id="won"/>원
 						</span>

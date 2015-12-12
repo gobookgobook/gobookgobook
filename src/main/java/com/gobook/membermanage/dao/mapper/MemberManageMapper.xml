@@ -45,7 +45,19 @@
 	</select>
 	
 	<insert id="memberManageCouponGiveUserInsert" parameterType="java.util.HashMap">
-		insert into usercoupon(user_coupon_num, member_id, mcoupon_num) values(usercoupon_user_coupon_num.nextval, #{id}, #{mcoupon_num})
+		<!-- insert into usercoupon(user_coupon_num, member_id, mcoupon_num) values(usercoupon_user_coupon_num.nextval, #{id}, #{mcoupon_num}) -->
+		<![CDATA[
+		INSERT
+    		into usercoupon (user_coupon_num, member_id, mcoupon_num)
+		    	SELECT 
+				usercoupon_user_coupon_num.nextval,
+					m.member_id member_id,	
+					mc.mcoupon_num user_coupon_num
+		    			FROM MEMBER m, managercoupon mc
+		    				WHERE m.member_id !='admin'
+		    					and mc.mcoupon_num=#{mcoupon_num}
+		]]>
+		
 	</insert>
 
 </mapper>

@@ -115,10 +115,10 @@ public class MemberManageDao implements IMemberManageDao {
 	 * @설명 : 쿠폰 제작
 	 */
 	@Override
-	public int memberManageCouponGiveUserInsert(String id, int mcoupon_num) {
+	public int memberManageCouponGiveUserInsert(List<MemberDto> member_id, int mcoupon_num) {
 		
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
-		hMap.put("id", id);
+		hMap.put("member_id", member_id);
 		hMap.put("mcoupon_num", mcoupon_num);
 	
 		return sqlSessionTemplate.insert("dao.memberManageMapper.memberManageCouponGiveUserInsert", hMap);
@@ -135,4 +135,7 @@ public class MemberManageDao implements IMemberManageDao {
 
 		return sqlSessionTemplate.selectList("dao.memberManageMapper.userCouponSelect", mcoupon_num);
 	}
+
+
+
 }

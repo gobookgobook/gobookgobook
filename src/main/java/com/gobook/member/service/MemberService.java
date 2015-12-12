@@ -44,7 +44,7 @@ public class MemberService implements IMemberService {
 			GoBookAspect.logger.info(GoBookAspect.logMsg + dong);
 			
 			List<ZipcodeDto> zipcode=iMemberDao.zipcode(dong);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + zipcode.size());
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "zipcode" + zipcode.size());
 			mav.addObject("zipcode", zipcode);
 		}
 		
@@ -66,7 +66,7 @@ public class MemberService implements IMemberService {
 		GoBookAspect.logger.info(GoBookAspect.logMsg + id);
 		
 		int check=iMemberDao.memberIdCheck(id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + check);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
 		
 		if(id.equals("")){
 			check=-1;
@@ -94,7 +94,7 @@ public class MemberService implements IMemberService {
 		//System.out.println(memberDto.getMember_birth());
 		
 		int check=iMemberDao.memberInsert(memberDto);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + check);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "insert" +check);
 		
 		mav.addObject("check", check);
 		mav.setViewName("member/registerOk");
