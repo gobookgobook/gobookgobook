@@ -35,52 +35,7 @@
   <dl id="util_menu">
      <dt class="hide">유틸 메뉴</dt>
      <dd class="util_first">
-        <ul>
-           <li class="login_wrap">
-        
-             <!-- 로그인 폼 -->
-             <form action="#" method="post" name="log_f" id="login_f">
-               <fieldset>
-                 <legend>로그인</legend>
-                 <p class="user_id">
-                    <label for="user_id">
-                      <img src="${root}/images/login_title_id.gif" alt="아이디" />
-                    </label>
-                    <input type="text" name="user_id" id="user_id" />
-                 </p>
-                 <p class="user_pw">
-                    <label for="user_pw">
-                      <img src="${root}/images/login_title_pw.gif" alt="아이디" />
-                    </label>
-                    <input type="password" name="user_pw" id="user_pw" /></p>
-                 <p class="log_btn">
-                    <input type="image" src="${root}/images/login_btn.gif" alt="로그인버튼" />
-                 </p>
-                 <p class="join_btn_wrap">
-                     <a href="${root}/member/register.do">회원가입</a>
-
-                 </p>
-                 <p class="login_close_btn">
-                     <a href="#">
-                     <img src="${root}/images/login_close_btn.gif" alt="닫기버튼" />
-                     </a>
-                 </p>
-               </fieldset>
-             </form>
-           </li>
-           <li>
-            <a href="${root}/member/register.do">회원가입</a>
-           </li>
-           <li>
-            <a href="${root}/member/login.do">로그인</a>
-           </li>
-           <li>
-            <a href="${root}/myBasket/myBasketList.do">장바구니</a>
-           </li>
-           <li>
-            <a href="${root}/myPage/myPageOrderList.do">MyPage</a>
-           </li>
-        </ul>
+	<jsp:include page="../member/menu.jsp"/>
      </dd>
   </dl>
   <form action="#" method="get" name="sch_f" id="sch_f">

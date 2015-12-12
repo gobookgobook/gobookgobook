@@ -10,21 +10,45 @@
 </head>
 <body>
 	<c:if test="${id==null}">
-		<a href="http://localhost:8181/gobook/">Test홈</a>
-		<a href="${root}/member/register.do">회원가입</a>
-		<a href="${root}/member/login.do">로그인</a>
-		<a href="${root}/myPage/myPageOrderList.do">myPage</a>
-		<a href="${root}/myBasket/myBasketList.do">장바구니</a>
+		<ul>
+			<li>
+				<a href="http://localhost:8181/gobook/">Test홈</a>
+			</li>
+			<li>
+				<a href="${root}/member/register.do">회원가입</a>
+			</li>
+			<li>
+				<a href="${root}/member/login.do">로그인</a>
+			</li>
+			<li>
+				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
+			</li>
+			<li>
+				<a href="${root}/myPage/myPageOrderList.do">MyPage</a>
+			</li>
+        </ul>
 	</c:if>
-	
 	<c:if test="${id!=null}">
-		<a href="http://localhost:8181/gobook/">Test홈</a>
-		<a href="${root}/member/update.do">회원수정</a>
-		<a href="${root}/member/delete.do">회원탈퇴</a>
-		<a href="${root}/member/logout.do">로그아웃</a>
-		<a href="${root}/myPage/myPageOrderList.do">myPage</a>
-		<a href="${root}/myBasket/myBasketList.do">장바구니</a>
-		
+		<ul>
+			<li>
+				<a href="http://localhost:8181/gobook/">Test홈</a>
+			</li>
+			<li>
+				<a href="${root}/member/update.do">회원수정</a>
+			</li>
+			<li>
+				<a href="${root}/member/delete.do">회원탈퇴</a>
+			</li>
+			<li>
+				<a href="${root}/member/logout.do">로그아웃</a>
+			</li>
+			<li>
+				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
+			</li>
+			<li>
+				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
+			</li>
+		</ul>
 		<c:if test="${id == 'admin'}">
 			<a href="${root}/member/adminMain.do">관리자</a>
 		</c:if>
