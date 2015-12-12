@@ -13,6 +13,7 @@ public interface IMemberService {
 	public void memberIdCheck(ModelAndView mav);
 	public void memberInsert(ModelAndView mav);
 	public void memberLogin(ModelAndView mav);
+	public void goBookMain(ModelAndView mav);
 	public void memberDeleteOk(ModelAndView mav);
 	public void memberUpdate(ModelAndView mav);
 	public void memberUpdateOk(ModelAndView mav);

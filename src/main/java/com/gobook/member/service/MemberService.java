@@ -196,4 +196,26 @@ public class MemberService implements IMemberService {
 		
 		mav.setViewName("member/updateOk");
 	}
+
+	/**
+	 * @함수이름 : goBookMain
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 성기훈
+	 * @설명 : 메인페이지(사용자, 관리자 구분)
+	 */
+	@Override
+	public void goBookMain(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		
+		try{
+			if(id.equals("admin")) mav.setViewName("member/adminMain");
+			else mav.setViewName("member/goBookMain");
+		}catch(Exception e){}
+	}
 }

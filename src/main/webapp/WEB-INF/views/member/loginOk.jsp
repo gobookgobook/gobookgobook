@@ -15,7 +15,7 @@
 	<br/><br/>
 	
 	<div align="center" >
-		<form action="${root}/member/login.do" method="post">
+		<form action="${root}/member/login.do" method="post" name="loginOk">
 			<table class="mytable" style="border-collapse:collapse; width:300px;">
 				<tr>
 					<td class="mytable" >회원ID</td>

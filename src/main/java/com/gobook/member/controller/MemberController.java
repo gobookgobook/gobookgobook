@@ -112,10 +112,27 @@ public class MemberController {
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 강주혁
 	 * @설명 : 메인화면
+	 * @수정 : 성기훈(로그인시 관리자 페이지 이동)
 	 */
 	@RequestMapping(value="/member/goBookMain.do", method=RequestMethod.GET)
 	public ModelAndView goBookMain(HttpServletRequest request, HttpServletResponse response){
-		return new ModelAndView("member/goBookMain");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iMemberService.goBookMain(mav);
+		
+		return mav;
+		// return new ModelAndView("member/goBookMain");
+	}
+	
+	/**
+	 * @함수이름 : adminMain
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 성기훈
+	 * @설명 : 관리자 메인화면
+	 */
+	@RequestMapping(value="/member/adminMain.do", method=RequestMethod.GET)
+	public ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response){
+		return new ModelAndView("member/adminMain");
 	}
 	
 	/**
