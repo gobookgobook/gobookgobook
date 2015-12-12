@@ -48,7 +48,7 @@
 		<!-- insert into usercoupon(user_coupon_num, member_id, mcoupon_num) values(usercoupon_user_coupon_num.nextval, #{id}, #{mcoupon_num}) -->
 		<![CDATA[
 		INSERT
-    		into usercoupon (user_coupon_num_seq, member_id, mcoupon_num)
+    		into usercoupon (user_coupon_num, member_id, mcoupon_num)
 		    	SELECT 
 				usercoupon_user_coupon_num_seq.nextval,
 					m.member_id member_id,	

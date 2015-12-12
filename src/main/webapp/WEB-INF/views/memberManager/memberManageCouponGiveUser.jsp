@@ -20,5 +20,11 @@
 		location.href="${root}/memberManager/memberManageCouponRead.do?mcoupon_num="+${mcoupon_num};
 		</script>
 	</c:if>
+	<c:if test="${userCouponDto.size() > 0 }">
+		<script type="text/javascript">
+		alert("이미 뿌림");
+		location.href="${root}/memberManager/memberManageCouponList.do";
+		</script>
+	</c:if>
 </body>
 </html>

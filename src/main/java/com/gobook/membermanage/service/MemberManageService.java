@@ -195,6 +195,7 @@ public class MemberManageService implements IMemberManageSerivce {
 			mav.addObject("value", value);
 			mav.addObject("mcoupon_num", mcoupon_num);
 		}
+		
 		mav.addObject("userCouponDto", userCouponDto);
 		mav.setViewName("memberManager/memberManageCouponGiveUser");
 	}
