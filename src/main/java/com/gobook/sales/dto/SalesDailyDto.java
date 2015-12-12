@@ -5,7 +5,7 @@ import java.util.Date;
 public class SalesDailyDto {
 	
 	private int salesdaily_num;	         //일일매출관리번호(자동증가번호)
-	private int salesdaily_book_num;     //도서 번호
+	private long book_num;     //도서 번호
 	private int order_bunho;	         //주문번호
 	private String member_id;	         //회원 아이디
 	private Date salesdaily_date;	     //결제일
@@ -14,6 +14,7 @@ public class SalesDailyDto {
 	private long salesdaily_book_price;	 //판매가
 	private int salesdaily_quantity;	 //수량
 	private int salesdaily_total;	     //판매총액(price*quantity)
+	private int salesdaily_pay;			 //결제액
 	private int salesdaily_profit;	     //순이익
 	
 	public int getSalesdaily_num() {
@@ -24,12 +25,12 @@ public class SalesDailyDto {
 		this.salesdaily_num = salesdaily_num;
 	}
 	
-	public int getSalesdaily_book_num() {
-		return salesdaily_book_num;
+	public long getBook_num() {
+		return book_num;
 	}
 	
-	public void setSalesdaily_book_num(int salesdaily_book_num) {
-		this.salesdaily_book_num = salesdaily_book_num;
+	public void setBook_num(long book_num) {
+		this.book_num = book_num;
 	}
 	
 	public int getOrder_bunho() {
@@ -103,8 +104,23 @@ public class SalesDailyDto {
 	public void setSalesdaily_profit(int salesdaily_profit) {
 		this.salesdaily_profit = salesdaily_profit;
 	}
-	
-	
 
+	public int getSalesdaily_pay() {
+		return salesdaily_pay;
+	}
+
+	public void setSalesdaily_pay(int salesdaily_pay) {
+		this.salesdaily_pay = salesdaily_pay;
+	}
+
+	@Override
+	public String toString() {
+		return "SalesDailyDto [salesdaily_num=" + salesdaily_num + ", book_num=" + book_num + ", order_bunho="
+				+ order_bunho + ", member_id=" + member_id + ", salesdaily_date=" + salesdaily_date
+				+ ", salesdaily_book_name=" + salesdaily_book_name + ", salesdaily_book_cost=" + salesdaily_book_cost
+				+ ", salesdaily_book_price=" + salesdaily_book_price + ", salesdaily_quantity=" + salesdaily_quantity
+				+ ", salesdaily_total=" + salesdaily_total + ", salesdaily_pay=" + salesdaily_pay
+				+ ", salesdaily_profit=" + salesdaily_profit + "]";
+	}
 
 }

@@ -38,7 +38,10 @@
 	<a href="${root}/memberManager/memberManagerUpdate.do">관리자 회원관리</a>	
 	<a href="${root}/memberManager/memberManageCouponInsert.do">쿠폰추가</a>
 	
-
+	<h3>매출관리</h3>
+	<a href="${root}/sales/salesDailyList.do">일일매출</a>
+	
+	
 	<h2> test</h2>
 </body>
 </html>

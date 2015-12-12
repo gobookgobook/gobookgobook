@@ -4,5 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.salesMapper">
-
+	<select id="salesDailyCount" resultType="int">
+		select count(*) from salesdaily
+	</select>
+	
+	<select id="salesDailyList" resultType="com.gobook.sales.dto.SalesDailyDto">
+		SELECT dsale.salesdaily_num, uo.order_date salesdaily_date, b.book_num, b.BOOK_NAME salesdaily_book_name, b.book_cost salesdaily_book_cost, b.book_price salesdaily_book_price, uo.order_book_count salesdaily_quantity, b.book_price*uo.order_book_count salesdaily_total, uo.order_total_price salesdaily_pay, uo.order_total_price-(b.book_cost*uo.order_book_count) salesdaily_profit 
+			FROM salesdaily dsale, book b, userorder uo
+				WHERE dsale.order_bunho=uo.order_bunho AND 
+				uo.book_num=b.book_num
+	</select>
 </mapper>
