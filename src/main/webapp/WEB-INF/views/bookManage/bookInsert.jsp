@@ -32,6 +32,7 @@
 				<b>도서등록</b>
 				<hr/>
 				
+				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 				<div class="line">
 					<label class="title">도서번호</label>
 					<span class="content">

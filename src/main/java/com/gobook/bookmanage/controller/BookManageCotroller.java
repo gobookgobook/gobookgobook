@@ -247,11 +247,17 @@ public class BookManageCotroller {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : bookScheduleSelect
+	 * @작성일 : 2015. 12. 14.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 출간 일정
+	 */
 	@RequestMapping(value="/bookManage/bookScheduleSelect.do", method=RequestMethod.GET)
 	public ModelAndView bookScheduleSelect(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		//iBookManageService.bookScheduleSelect(mav);
+		iBookManageService.bookScheduleSelect(mav);
 		
 		return mav;
 	}

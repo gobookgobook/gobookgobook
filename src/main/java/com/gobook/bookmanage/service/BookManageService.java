@@ -1,6 +1,7 @@
 package com.gobook.bookmanage.service;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dao.IBookManageDao;
 import com.gobook.bookmanage.dto.*;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * @클래스이름 : BookManageService
@@ -67,10 +71,13 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber.equals(null)) pageNumber="1";
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
+		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("bookManage/bookInsert");
 	}
 	
@@ -84,6 +91,7 @@ public class BookManageService implements IBookManageService {
 	public void bookInsertOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
 		BookDto bookDto=(BookDto)map.get("bookDto");
 		
 		if(bookDto.getBook_quantity()!=0) bookDto.setBook_state(1);
@@ -151,6 +159,7 @@ public class BookManageService implements IBookManageService {
 		int check=iBookManageDao.bookInsert(bookDto);
 
 		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
 		
 		mav.setViewName("bookManage/bookInsertOk");
 		
@@ -214,6 +223,8 @@ public class BookManageService implements IBookManageService {
 		String pageNumber=request.getParameter("pageNumber");
 		long book_num=Long.parseLong(request.getParameter("book_num"));
 		
+		if(pageNumber==null) pageNumber="0";
+		
 		BookDto bookDto=iBookManageDao.bookInfo(book_num);
 		
 		HttpSession session=request.getSession();
@@ -250,7 +261,7 @@ public class BookManageService implements IBookManageService {
 		}
 		
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
-		
+		GoBookAspect.logger.info(GoBookAspect.logMsg + pageNumber);
 		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("check", check);
 		
@@ -532,6 +543,53 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("check", check);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseDelete");
+	}
+
+	/**
+	 * @함수이름 : bookScheduleSelect
+	 * @작성일 : 2015. 12. 14.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 출간 일정
+	 */
+	@Override
+	public void bookScheduleSelect(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int count=iBookManageDao.bookStockCount();
+		
+		List<BookDto> bookList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", 1);
+			hMap.put("endRow", count);
+			bookList=iBookManageDao.bookList(hMap);
+		}
+		
+		// JSONObject jsonObject = new JSONObject();		// JSONObject 생성
+		JSONArray bsList = new JSONArray();				// JSONObject list 를 넣을 JSONArray
+		BookDto bookDto=null;
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String root=request.getContextPath();
+		for(int i=0; i<bookList.size(); i++) {			// 루프를 돌려 list에 담긴 데이터를 DTO에 주입
+			bookDto = (BookDto)bookList.get(i);			// 이제 data 에는 객체들이 차례로 담겼음
+			JSONObject obj = new JSONObject();			// 다시 한번 JSONObject로 감싸기 위해 객체 선언
+			obj.put( "title" , bookDto.getBook_name());	// obj에 객체의 데이터를 꺼내 차례로 담는다. (key ,value) 형식
+			obj.put( "start" , sdf.format(bookDto.getBook_publish_date()));
+			obj.put( "url" , (root+"/bookManage/bookStockUpdate.do?book_num="+bookDto.getBook_num()));
+			bsList.add(obj); // 아까 만들어진 cell Array객체에 VO담은 객체를 주입
+		}
+		// jsonObject.put("rows", bsList); // 마지막으로 JSON객체에 JSONArray 객체를 넣으면 끝!
+		
+		// GoBookAspect.logger.info(GoBookAspect.logMsg + bsList);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bsList", bsList);
+		
+		mav.setViewName("bookManage/bookScheduleSelect");
 	}
 	
 }
