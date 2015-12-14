@@ -23,3 +23,10 @@ function selectToServer(salesdaily_date, root){
 		}
 	});*/
 }
+
+function salesMonthlyInsert(daily_sum, daily_profit, root){
+	var url=root+"/sales/salesMonthlyInsert.do?daily_sum="+daily_sum+"&daily_profit="+daily_profit;
+	// alert(url);
+	
+	location.href=url;
+}

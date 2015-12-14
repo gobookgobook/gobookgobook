@@ -1,8 +1,6 @@
 package com.gobook.sales.service;
 
 import java.util.Date;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -123,8 +121,28 @@ public class SalesService implements ISalesService {
 				mav.addObject("dailySum", dailySum);
 				mav.addObject("dailyProfit", dailyProfit);*/
 			}
-			
 		}
 		mav.setViewName("sales/salesDailyList");
+	}
+
+	/**
+	 * @함수이름 : salesMonthlyInsert
+	 * @작성일 : 2015. 12. 14.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 삽입
+	 */
+	@Override
+	public void salesMonthlyInsert(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		// GoBookAspect.logger.info(GoBookAspect.logMsg + "OK");
+
+		int daily_sum=Integer.parseInt(request.getParameter("daily_sum"));
+		int daily_profit=Integer.parseInt(request.getParameter("daily_profit"));
+		int count=iSalesDao.salesMonthlyInsert(daily_sum, daily_profit);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" + count);
+		
+		mav.addObject("count", count);
+		mav.setViewName("sales/salesMonthlyInsert");
 	}
 }

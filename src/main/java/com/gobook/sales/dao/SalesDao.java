@@ -56,6 +56,21 @@ public class SalesDao implements ISalesDao {
 		
 		return sqlSessionTemplate.selectList("dao.salesMapper.salesDailyList", hMap);
 	}
+
+	/**
+	 * @함수이름 : salesMonthlyInsert
+	 * @작성일 : 2015. 12. 14.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 삽입
+	 */
+	@Override
+	public int salesMonthlyInsert(int daily_sum, int daily_profit) {
+		HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+		hMap.put("daily_sum", daily_sum);
+		hMap.put("daily_profit", daily_profit);
+		
+		return sqlSessionTemplate.insert("dao.salesMapper.salesMonthlyInsert", hMap);
+	}
 	
 	
 }

@@ -14,4 +14,6 @@ public interface ISalesDao {
 	public int salesDailyCount(String salesdaily_date, String next_date);
 	
 	public List<SalesDailyDto> salesDailyList(String salesdaily_date, String next_date);
+	
+	public int salesMonthlyInsert(int daily_sum, int daily_profit);
 }

@@ -135,8 +135,9 @@
 						
 						<hr width="70%" color="blue"/>
 						<div align="left" id="order" style="width:75%">
-							<span id="point_sum">일일 매출액:<fmt:formatNumber value="${dailySum}" pattern="#"/>원</span>&nbsp;&nbsp;&nbsp;
-							<span id="sum">일일 순이익:${dailyProfit}원</span>
+							<span id="daily_sum">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+							<span id="daily_profit">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${root}')"/>
 						</div>
 					</c:if>
 				</div>

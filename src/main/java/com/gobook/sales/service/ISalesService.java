@@ -10,4 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public interface ISalesService {
 	public void salesDailyList(ModelAndView mav);
+	
+	public void salesMonthlyInsert(ModelAndView mav);
 }

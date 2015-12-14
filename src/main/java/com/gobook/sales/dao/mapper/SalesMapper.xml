@@ -15,4 +15,8 @@
 				uo.book_num=b.book_num AND
 				uo.order_date between to_date(#{salesdaily_date}, 'yy/mm/dd hh24:mi:ss') and to_date(#{next_date}, 'yy/mm/dd hh24:mi:ss')
 	</select>
+	
+	<insert id="salesMonthlyInsert" parameterType="java.util.HashMap">
+		insert into salesmonthly(salesm_num, salesmonthly_daily_sale, salesmonthly_daily_profit) values(salesm_num_seq.nextval, #{daily_sum}, #{daily_profit})
+	</insert>
 </mapper>
