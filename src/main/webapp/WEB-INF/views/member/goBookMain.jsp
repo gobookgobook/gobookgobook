@@ -36,7 +36,7 @@
      <dt class="hide">유틸 메뉴</dt>
      <dd class="util_first">
 	<jsp:include page="../member/menu.jsp"/>
-     </dd>
+     </dd>	
   </dl>
   <form action="#" method="get" name="sch_f" id="sch_f">
      <fieldset>

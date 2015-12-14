@@ -19,18 +19,23 @@
 	
 	function updateFun(root, helpqna_num, pageNumber){
 		var url=root+"/help/adminHelpQnAUpdate.do?helpqna_num="+helpqna_num+"&pageNumber="+pageNumber;
-		alert(url);
+		//alert(url);
 		location.href=url;
 	}
 </script>
 </head>
 <body>
 	<div>
-		<div>	
-			<span>${HelpQnADto.helpqna_content}</span>
+		<div>
+			<table>
+				<tr>	
+					<td>${HelpQnADto.helpqna_content}</td>
+				</tr>
+			</table>
 		</div>
 		<input type="button" value="글삭제" onclick="deleteFun('${root}', '${HelpQnADto.helpqna_num}')"/>
 		<input type="button" value="글수정" onclick="updateFun('${root}', '${HelpQnADto.helpqna_num}', '${pageNumber}')"/>
+		<input type="button" value="목록으로" onclick="location.href='${root}/help/adminHelpQnAList.do?pageNumber=${pageNumber}'"/>
 	</div>
 </body>
 </html>

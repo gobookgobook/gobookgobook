@@ -41,6 +41,9 @@
 	<h3>매출관리</h3>
 	<a href="${root}/sales/salesDailyList.do">일일매출</a>
 	
+	<h3>공지사항</h3>
+	<a href="${root}/help/adminHelpNoticeWrite.do">공지사항등록하기</a><br/>
+	<a href="${root}/help/adminHelpNoticeList.do">공지사항목록으로</a><br/>
 	
 	<h2> test</h2>
 </body>

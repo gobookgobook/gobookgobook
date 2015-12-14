@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.adminhelp.service.IAdminHelpService;
+import com.gobook.help.dto.HelpNoticeDto;
 import com.gobook.help.dto.HelpQnADto;
 @Controller
 public class AdminHelpController {
@@ -73,7 +74,69 @@ public class AdminHelpController {
 		mav.addObject("request",request);
 		mav.addObject("helpQnADto", helpQnADto);
 		iAdminHelpService.adminHelpQnAUpdateOk(mav);
+		return mav;	
+	}
+	@RequestMapping(value="/help/adminHelpNoticeWrite.do", method=RequestMethod.GET)
+	public ModelAndView adminHelpNoticeWrite(HttpServletRequest request, HttpServletResponse response){
+		
+		//System.out.println("ok2");
+		return new ModelAndView("help/adminHelpNoticeWrite");
+	}
+	
+	@RequestMapping(value="/help/adminHelpNoticeWrite.do", method=RequestMethod.POST)
+	public ModelAndView adminHelpNoticeWriteOk(HttpServletRequest request, HttpServletResponse response, HelpNoticeDto helpNoticeDto){
+		//System.out.println("OK");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		iAdminHelpService.adminHelpNoticeWriteOk(mav);
+		return mav;
+	}
+	@RequestMapping(value="/help/adminHelpNoticeList.do", method=RequestMethod.GET)
+	public ModelAndView adminHelpNoticeList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		
+		mav.addObject("request", request);
+		
+		iAdminHelpService.adminHelpNoticeList(mav);
 		return mav;
 		
 	}
+	@RequestMapping(value="/help/adminHelpNoticeRead.do", method=RequestMethod.GET)
+	public ModelAndView adminHelpNoticeRead(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		
+		mav.addObject("request", request);
+		
+		iAdminHelpService.adminHelpNoticeRead(mav);
+		
+		return mav;	
+	}
+	@RequestMapping(value="/help/adminHelpNoticeDelete.do", method=RequestMethod.GET)
+	public ModelAndView adminHelpNoticeDelete(HttpServletRequest request, HttpServletResponse response){
+		//System.out.println("OK");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		iAdminHelpService.adminHelpNoticeDelete(mav);
+		return mav;
+	}
+	@RequestMapping(value="/help/adminHelpNoticeUpdate.do", method=RequestMethod.GET)
+	public ModelAndView adminHelpNoticeUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		iAdminHelpService.adminHelpNoticeUpdate(mav);
+		return mav;
+	}
+	@RequestMapping(value="/help/adminHelpNoticeUpdate.do", method=RequestMethod.POST)
+	public ModelAndView adminHelpNoticeUpdateOk(HttpServletRequest request, HttpServletResponse response, HelpNoticeDto helpNoticeDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		
+		iAdminHelpService.adminHelpNoticeUpdateOk(mav);
+		return mav;	
+	}
+	
 }

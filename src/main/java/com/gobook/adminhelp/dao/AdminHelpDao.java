@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.gobook.help.dto.HelpNoticeDto;
+//import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
 @Component
 public class AdminHelpDao implements IAdminHelpDao {
@@ -53,6 +55,41 @@ public class AdminHelpDao implements IAdminHelpDao {
 	public int adminHelpQnAUpdateOk(HelpQnADto helpQnADto) {
 		
 		return sqlSessionTemplate.update("dao.AdminHelpMapper.adminHelpQnAUpdateOk",helpQnADto);
+	}
+	@Override
+	public int adminHelpNoticeWriteInsert(HelpNoticeDto helpNoticeDto) {
+		
+		return sqlSessionTemplate.insert("dao.AdminHelpMapper.adminHelpNoticeWriteInsert",helpNoticeDto);
+	}
+	@Override
+	public int adminHelpNoticeCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpNoticeCount");
+	}
+	@Override
+	public List<HelpNoticeDto> adminHelpNoticeListSelect(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.AdminHelpMapper.adminHelpNoticeListSelect",hMap);
+	}
+	@Override
+	public HelpNoticeDto adminHelpNoticeRead(int helpnotice_num) {
+		
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpNoticeRead", helpnotice_num);
+	}
+	@Override
+	public int adminHelpNoticeDelete(int helpnotice_num) {
+		
+		return sqlSessionTemplate.delete("dao.AdminHelpMapper.adminHelpNoticeDelete", helpnotice_num);
+	}
+	@Override
+	public HelpNoticeDto adminHelpNoticeSelect(int helpnotice_num) {
+		
+		return sqlSessionTemplate.selectOne("dao.AdminHelpMapper.adminHelpNoticeSelect", helpnotice_num);
+	}
+	@Override
+	public int adminHelpNoticeUpdateOk(HelpNoticeDto helpNoticeDto) {
+		
+		return sqlSessionTemplate.update("dao.AdminHelpMapper.adminHelpNoticeUpdateOk", helpNoticeDto);
 	}
 	
 }

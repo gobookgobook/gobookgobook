@@ -16,22 +16,39 @@
 	
 		<h3>QnA등록</h3>
 		<hr>
-		<div>
-			<a href="${root}/help/adminHelpPvPList.do">1:1문의</a>
-			<a href="${root}/help/adminHelpQnAList.do">QnA</a>
-			<a href="${root}/help/adminHelpNoticeList.do">공지사항</a>
-		</div><br/><br/>
+		<table>
+			<tr>
+				<td>
+					<a href="${root}/help/adminHelpPvPList.do">1:1문의</a>
+					<a href="${root}/help/adminHelpQnAList.do">QnA</a>
+					<a href="${root}/help/adminHelpNoticeList.do">공지사항</a>
+				</td>
+			</tr>
+		</table><br/><br/>
 			<form action="${root}/help/adminHelpQnAWrite.do" method="post" onsubmit="return adminHelpQnAWrite(this)">
-			<div class="line">
+			<div>
 				<label class="title">질문</label>
-					<span><input type="text" size="50" name="helpqna_subject"/></span>
+					<table>
+						<tr>
+							<td>
+								<span><input type="text" size="50" name="helpqna_subject"/></span>
+							</td>
+						</tr>
+					</table>
 			</div><br/><br/>
 		
 			<div style="height:230px;">
 				<label>내용</label>
+					
+					<table>
+					<tr>
+					<td>
 					<span style="height:230px;">
 						<textarea rows="14" cols="67" name="helpqna_content"></textarea>
 					</span>
+					</td>
+					</tr>
+					</table>
 			</div><br/><br/>
 		
 			<div>

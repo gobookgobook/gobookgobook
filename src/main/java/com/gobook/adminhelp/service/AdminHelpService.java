@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.adminhelp.dao.IAdminHelpDao;
 import com.gobook.aop.GoBookAspect;
+import com.gobook.help.dto.HelpNoticeDto;
+//import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
 @Component
 public class AdminHelpService implements IAdminHelpService {
@@ -127,7 +129,7 @@ public class AdminHelpService implements IAdminHelpService {
 		GoBookAspect.logger.info(GoBookAspect.logMsg+ "helpqna_num:" + helpqna_num + "pageNumber:"+ pageNumber );
 		
 		HelpQnADto helpQnADto=iAdminHelpDao.adminHelpQnASelect(helpqna_num);
-		GoBookAspect.logger.info(GoBookAspect.logMsg+ "helpQnADto:" + helpQnADto );
+		GoBookAspect.logger.info(GoBookAspect.logMsg+ "helpQnADto:" + helpQnADto);
 	
 		mav.addObject("helpQnADto",helpQnADto);
 		mav.addObject("pageNumber", pageNumber);
@@ -153,8 +155,136 @@ public class AdminHelpService implements IAdminHelpService {
 		mav.addObject("check", check);
 		
 		mav.setViewName("/help/adminHelpQnAUpdateOk");
-	}	
-}	
+	}
+
+	@Override
+	public void adminHelpNoticeWriteOk(ModelAndView mav) {
+		Map<String, Object> hmap=mav.getModelMap();
+		HelpNoticeDto helpNoticeDto=(HelpNoticeDto) hmap.get("helpNoticeDto");
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		
+		int check=iAdminHelpDao.adminHelpNoticeWriteInsert(helpNoticeDto);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
+		
+		
+		
+		mav.addObject("check", check);
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		
+		mav.setViewName("help/adminHelpNoticeWriteOk");
+			
+	}
+
+	@Override
+	public void adminHelpNoticeList(ModelAndView mav) {
+		Map<String, Object> hmap=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		
+		int boardSize=5;
+		String pageNumber=request.getParameter("pageNumber");
+		
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iAdminHelpDao.adminHelpNoticeCount();
+		GoBookAspect.logger.info(GoBookAspect.logMsg+ "count:" + count);
+
+		List<HelpNoticeDto> adminHelpNoticeListSelect=null;
+		if(count > 0){
+//			System.out.println("OK");
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			adminHelpNoticeListSelect=iAdminHelpDao.adminHelpNoticeListSelect(hMap);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpNoticeListSelect.size());
+			
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("count", count);
+			mav.addObject("boardSize", boardSize);
+			mav.addObject("adminHelpNoticeListSelect", adminHelpNoticeListSelect);
+			
+			mav.setViewName("help/adminHelpNoticeList");
+			
+			
+		}
+	}
+
+	@Override
+	public void adminHelpNoticeRead(ModelAndView mav) {
+		Map<String, Object> hmap=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		
+		int helpnotice_num=Integer.parseInt(request.getParameter("helpnotice_num"));
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "helpnotice_num:" + helpnotice_num +"\t"+ "pageNumber:"+ pageNumber);
+		
+		HelpNoticeDto helpNoticeDto=iAdminHelpDao.adminHelpNoticeRead(helpnotice_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "helpNoticeDto:" + helpNoticeDto);
+		
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("help/adminHelpNoticeRead");
+		
+	}
+
+	@Override
+	public void adminHelpNoticeDelete(ModelAndView mav) {
+		System.out.println("OK2");
+		Map<String, Object> hmap=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		
+		int helpnotice_num=Integer.parseInt(request.getParameter("helpnotice_num"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "helpnotice_num:" + helpnotice_num);
+		
+		int check=iAdminHelpDao.adminHelpNoticeDelete(helpnotice_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "check" + check);
+		
+		mav.addObject("check", check);
+		
+		mav.setViewName("help/adminHelpNoticeDelete");
+		
+	}
+
+	@Override
+	public void adminHelpNoticeUpdate(ModelAndView mav) {
+		Map<String, Object> hmap=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		
+		int helpnotice_num=Integer.parseInt(request.getParameter("helpnotice_num"));
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "helpnotice_num:" + helpnotice_num +"\t" + "pageNumber:" + pageNumber);
+		
+		HelpNoticeDto helpNoticeDto=iAdminHelpDao.adminHelpNoticeSelect(helpnotice_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "helpNoticeDto:" + helpNoticeDto);
+		
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("help/adminHelpNoticeUpdate");
+	}
+
+	@Override
+	public void adminHelpNoticeUpdateOk(ModelAndView mav) {
+		Map<String, Object> hmap=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
+		HelpNoticeDto helpNoticeDto=(HelpNoticeDto) hmap.get("helpNoticeDto");
+		GoBookAspect.logger.info(GoBookAspect.logMsg +"helpNoticeDto:" + helpNoticeDto.getHelpnotice_subject());
+		GoBookAspect.logger.info(GoBookAspect.logMsg +"helpNoticeDto:" + helpNoticeDto.getHelpnotice_num());
+		GoBookAspect.logger.info(GoBookAspect.logMsg +"helpNoticeDto:" + helpNoticeDto.getHelpnotice_content());
+		
+		int check=iAdminHelpDao.adminHelpNoticeUpdateOk(helpNoticeDto);
+		GoBookAspect.logger.info(GoBookAspect.logMsg +"check:" + check);
+		
+		mav.addObject("helpNoticeDto", helpNoticeDto);
+		mav.addObject("check", check);
+		
+		mav.setViewName("help/adminHelpNoticeUpdateOk");	
+	}
+
+}		
 
 
 

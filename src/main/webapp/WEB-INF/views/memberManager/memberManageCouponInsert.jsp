@@ -8,12 +8,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/memberManage/managerCoupon.css"/>
 <script type="text/javascript" src="${root}/js/memberManage/managerCoupon.js"></script>
-<%-- <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
-<script type="text/javascript" src="${root}/js/jquery-ui.js"></script>
-<script type="text/javascript" src="${root}/js/jquery.js"></script> --%>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/script/event/start/jquery.js"></script>
+<script type="text/javascript" src="${root}/script/event/start/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/script/event/start/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/script/memberManage/managerCoupon.js"></script>
 <script type="text/javascript">
 $(function(){

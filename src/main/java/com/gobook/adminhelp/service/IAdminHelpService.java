@@ -11,4 +11,11 @@ public interface IAdminHelpService {
 	public void adminHelpQnAUpdate(ModelAndView mav);
 	public void adminHelpQnAUpdateOk(ModelAndView mav);
 	
+	public void adminHelpNoticeWriteOk(ModelAndView mav);
+	public void adminHelpNoticeList(ModelAndView mav);
+	public void adminHelpNoticeRead(ModelAndView mav);
+	public void adminHelpNoticeDelete(ModelAndView mav);
+	public void adminHelpNoticeUpdate(ModelAndView mav);
+	public void adminHelpNoticeUpdateOk(ModelAndView mav);
+	
 }

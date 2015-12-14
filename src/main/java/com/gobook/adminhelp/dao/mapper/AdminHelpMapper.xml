@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="adminHelpQnAWriteInsert" parameterType="com.gobook.help.dto.HelpQnADto">
-		insert into helpqna values(helpqna_helpqna_num_seq.nextval, #{helpqna_subject, jdbcType=VARCHAR}, #{helpqna_content, jdbcType=VARCHAR})
+		insert into helpqna values(helpqna_helpqna_num_seq.nextval, #{helpqna_subject}, #{helpqna_content})
 	</insert>
 	
 	<select id="adminHelpQnARead" resultType="com.gobook.help.dto.HelpQnADto" parameterType="int">
@@ -33,6 +33,40 @@
 	
 	<update id="adminHelpQnAUpdateOk" parameterType="com.gobook.help.dto.HelpQnADto">
 		update helpqna set helpqna_subject=#{helpqna_subject}, helpqna_content=#{helpqna_content} where helpqna_num=#{helpqna_num}
+	</update>
+	
+	
+	
+	<insert id="adminHelpNoticeWriteInsert" parameterType="com.gobook.help.dto.HelpNoticeDto">
+		insert into helpnotice values(helpnotice_helpnotice_num_seq.nextval, #{helpnotice_subject}, #{helpnotice_content}, sysdate)
+	</insert>
+	
+	<select id="adminHelpNoticeCount" resultType="int">
+		select count(*) from helpnotice
+	</select>
+	
+	<select id="adminHelpNoticeListSelect" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="java.util.HashMap">
+		<![CDATA[
+			select * from
+			(select rownum rnum, a.* from 
+				(select * from helpnotice order by helpnotice_num desc) a)
+			where rnum >= #{startRow} and rnum <= #{endRow}
+		]]> 
+	</select>
+	<select id="adminHelpNoticeRead" parameterType="int" resultType="com.gobook.help.dto.HelpNoticeDto">
+		select * from helpnotice where helpnotice_num=#{helpnotice_num}
+	</select>
+	
+	<delete id="adminHelpNoticeDelete" parameterType="int">
+		delete from helpnotice where helpnotice_num=#{helpnotice_num}
+	</delete>
+	
+	<select id="adminHelpNoticeSelect" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="int">
+		select * from helpnotice where helpnotice_num=#{helpnotice_num}
+	</select>
+	
+	<update id="adminHelpNoticeUpdateOk" parameterType="com.gobook.help.dto.HelpNoticeDto">
+		update helpnotice set helpnotice_subject=#{helpnotice_subject}, helpnotice_content=#{helpnotice_content} where helpnotice_num=#{helpnotice_num}
 	</update>
 	
 </mapper>
