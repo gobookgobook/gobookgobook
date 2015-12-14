@@ -11,9 +11,10 @@
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 </head>
 <body>
-	<jsp:include page="menu.jsp"/>
+	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
-	
+<div id="contents"><br/><br/><br/><br/>	
+
 	<div align="center" >
 		<form action="${root}/member/login.do" method="post">
 			<table class="mytable" style="border-collapse:collapse; width:300px;">
@@ -36,5 +37,8 @@
 			</table>
 		</form>
 	</div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>		
 </body>
 </html>

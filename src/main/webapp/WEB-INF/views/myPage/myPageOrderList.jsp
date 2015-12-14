@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/orderList.css"/>
 </head>
 <body>
+<jsp:include page="../main-top.jsp"/>
+	<br/><br/>
+<div id="contents"><br/><br/><br/><br/>	
 	<div>
 	<c:if test="${id==null}">
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
@@ -116,5 +119,9 @@
 		</div>
 	</c:if>
 	</div> 
+
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>		
 </body>
 </html>

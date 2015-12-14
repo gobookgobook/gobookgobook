@@ -16,8 +16,9 @@
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 </head>
 <body>
-<jsp:include page="menu.jsp"/>
+	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
+<div id="contents" style="height:600px;"><br/><br/><br/><br/>	
 	
 	<div align="center">
 		<form class="form_style" name="memberForm" action="${root}/member/update.do" 
@@ -179,5 +180,9 @@
 			</div>
 		</form>
 	</div>
+
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>		
 </body>
 </html>

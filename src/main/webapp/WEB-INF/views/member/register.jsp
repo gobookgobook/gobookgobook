@@ -15,8 +15,10 @@
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 </head>
 <body>	
-	<jsp:include page="menu.jsp"/>
+	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
+
+<div id="contents" style="height:600px;"><br/><br/><br/><br/>
 	<div align="center">
 		<font size="2"><b>회원가입(*필수입력사항입니다.)</b></font>
 	</div>
@@ -147,5 +149,9 @@
 			</div>
 		</form>
 	</div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>
+
 </body>
 </html>
