@@ -32,6 +32,7 @@ public class SalesController {
 	public ModelAndView salesDailyList(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("response", response);
 		iSalesService.salesDailyList(mav);
 		
 		return mav;

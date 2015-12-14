@@ -11,7 +11,7 @@ import com.gobook.sales.dto.SalesDailyDto;
  * @설명 : 매출 Dao 인터페이스
  */
 public interface ISalesDao {
-	public int salesDailyCount();
+	public int salesDailyCount(String salesdaily_date, String next_date);
 	
-	public List<SalesDailyDto> salesDailyList();
+	public List<SalesDailyDto> salesDailyList(String salesdaily_date, String next_date);
 }

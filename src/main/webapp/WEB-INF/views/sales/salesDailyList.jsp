@@ -25,7 +25,9 @@
 			 dayNamesMin:["일","월","화","수","목","금","토"]
 		 });
 		
-		$("#dailyTable").hide();
+		$("#clickDate").click(function(){
+			$("#dailyTable").show();
+		});
 	});
 </script>
 </head>
@@ -56,16 +58,16 @@
 	
 		<div id="#con2" align="left" >
 			<h3>일일매출</h3>
-			<div align="center" style="border:1 solid red">
+			<div align="center" style="border:0 solid red">
 				<form name="dayChoice" method="post">
 					<label>날짜선택:</label>
 					<input type="text" id="date" name="selectDate"/>
 					<c:set var="salesdaily_date" value="selectDate.value"/>
-					<input type="button" class="btn btn-success btn-sm" value="조회" onclick="selectToServer(${salesdaily_date}, '${root}')"/>
+					<input type="button" id="clickDate" class="btn btn-success btn-sm" value="조회" onclick="selectToServer(${salesdaily_date}, '${root}')"/>
 				</form>
 				
 				<div id="dailyTable">
-					<c:if test="${count==0}">
+					<c:if test="${count == 0}">
 						<div class="container" style="width:85%">
 							<table class="table table-bordered">
 								<thead>
@@ -90,7 +92,7 @@
 					
 					<c:if test="${count > 0}">
 						
-						<div class="container" style="width:85%; border:1px solid red; margin:0 auto">
+						<div class="container" style="width:85%; border:0px solid red; margin:0 auto">
 							<table class="table table-bordered" style="line-height: 100px">
 								<thead>
 									<tr class="success" align="center" style="color:#1DDB16">
@@ -115,7 +117,7 @@
 									
 									<c:forEach var="salesDaily" items="${salesDailyList}">
 										<tr class="success" id="${salesDaily.salesdaily_num}">
-											<td>${salesDaily.salesdaily_date}</td>
+											<td><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
 											<td>${salesDaily.book_num}</td>
 											<td>${salesDaily.salesdaily_book_name}</td>
 											<td><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
@@ -127,7 +129,6 @@
 										</tr>
 									</c:forEach>
 									
-									<c:set var="point_sum" value="${sum*0.03}"/>
 								</tbody>
 							</table>
 						</div>
