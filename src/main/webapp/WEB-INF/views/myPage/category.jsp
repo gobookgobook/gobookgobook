@@ -22,7 +22,8 @@
 		<a href="${root}/member/update.do">회원수정</a>
 		<a href="${root}/member/delete.do">회원탈퇴</a>
 		<a href="${root}">메인</a>
-
+		<a href="${root}/userBook/userBookRead.do">책 보기</a>
+		<a href="${root}/userBook/userBookList.do?category=${3}">전공도서</a>
 		</div>
 </body>
 </html>

@@ -25,6 +25,7 @@
 		<a href="${root}/userBook/userBookList.do?category=${7}">SF/판타지</a>
 		<a href="${root}/userBook/userBookList.do?category=${8}">교양도서</a>
 		<a href="${root}">메인</a>
+		<a href="${root}/userBook/userBookInterestReading.do">관심도서</a>
 	</div>
 </body>
 </html>

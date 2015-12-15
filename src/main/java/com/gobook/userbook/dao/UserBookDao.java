@@ -68,8 +68,8 @@ public class UserBookDao implements IUserBookDao {
 	}
 
 	@Override
-	public int userBookListCount(String list) {
-		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookListCount", list);
+	public int userBookListCount(String category) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookListCount", category);
 	}
 
 	@Override
@@ -87,6 +87,16 @@ public class UserBookDao implements IUserBookDao {
 	public List<BookDto> bookSerchList(HashMap<String, Object> hMap) {
 		
 		return sqlSessionTemplate.selectList("dao.userBookMapper.bookSerchList", hMap);
+	}
+
+	@Override
+	public String interestSelect(String member_id) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.interestSelect", member_id);
+	}
+
+	@Override
+	public List<BookDto> userBookInterestReadingSelect(String interest) {
+		return sqlSessionTemplate.selectList("dao.userBookMapper.userBookInterestReadingSelect", interest);
 	}
 	
 }

@@ -26,7 +26,7 @@ ${category},${bookDto.size()}
 				<c:forEach var="userBook" items="${bookDto}">
 					<div class="">
 						<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
-							<img src="http://localhost:8181/C:/goBook/bookimg/${userBook.book_cover_file_name}" alt="준비중">
+							<img src="http://localhost:8181/goBook/bookimg/${userBook.book_cover_file_name}" alt="준비중">
 						</a>
 						<div>
 							${userBook.book_num}

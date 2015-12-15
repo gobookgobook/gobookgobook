@@ -2,9 +2,11 @@ package com.gobook.userbook.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -197,30 +199,10 @@ public class UserBookService implements IUserBookService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		int category=Integer.parseInt(request.getParameter("category"));
+		String category=request.getParameter("category");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + category);
 		
-		String list=null;
-		if(category == 1){
-			list="문학";
-		}else if(category == 2){
-			list="교육도서";
-		}else if(category == 3){
-			list="전공도서";
-		}else if(category == 4){
-			list="만화";
-		}else if(category == 5){
-			list="잡지";
-		}else if(category == 6){
-			list="역사";
-		}else if(category == 7){
-			list="SF/판타지";
-		}else if(category == 8){
-			list="교양도서";
-		}
-		GoBookAspect.logger.info(GoBookAspect.logMsg + list);
-		
-		int bookDtoCount=iUserBookDao.userBookListCount(list);
+		int bookDtoCount=iUserBookDao.userBookListCount(category);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDtoCount);
 		
 		String pageNumber=request.getParameter("pageNumber");
@@ -235,7 +217,7 @@ public class UserBookService implements IUserBookService {
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("startRow", startRow);
 		hMap.put("endRow", endRow);
-		hMap.put("list", list);
+		hMap.put("category", category);
 		
 		List<BookDto> bookDto=null;
 		if(bookDtoCount > 0){
@@ -290,6 +272,38 @@ public class UserBookService implements IUserBookService {
 		mav.addObject("count", count);
 		
 		mav.setViewName("userBook/userBookSerch");
+	}
+
+	@Override
+	public void userBookInterestReading(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		HttpSession session=request.getSession();
+		String member_id=(String) session.getAttribute("id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		
+		String member_interest=iUserBookDao.interestSelect(member_id);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
+		
+		StringTokenizer stok2=new StringTokenizer(member_interest, ",");
+		
+		String interest=null;
+		List<BookDto> interestBook=null;
+		List<BookDto> book=new ArrayList<BookDto>();
+		while(stok2.hasMoreTokens()){
+			interest=stok2.nextToken();
+			GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+			
+			interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
+			book.addAll(interestBook);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+			
+		}
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book);
+		mav.addObject("book", book);
+		mav.setViewName("userBook/userBookInterestRead");
 	}
 	
 }

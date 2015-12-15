@@ -51,19 +51,19 @@
 	
 	<!-- 목록 -->
 	<select id="userBookListCount" parameterType="java.lang.String" resultType="int">
-		select count(*) from book where book_category like '%' || #{list} || '%'
+		select count(*) from book where book_category like '%' || #{category} || '%'
 	</select>
 	
 	<select id="userBookListSelect" parameterType="java.util.HashMap" resultType="com.gobook.bookmanage.dto.BookDto">
 		<![CDATA[
 		SELECT *FROM
 			(SELECT ROWNUM rnum, b.*FROM
-				(SELECT *FROM book WHERE book_category LIKE '%' || #{list} || '%')b)
+				(SELECT *FROM book WHERE book_category LIKE '%' || #{category} || '%')b)
 					where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
 	
-	<select id="bookSerchCount" parameterType="String" resultType="int">
+	<select id="bookSerchCount" parameterType="java.lang.String" resultType="int">
 		select count(*) from book where book_name like '%' || #{keyword} || '%'
 	</select>
 	
@@ -75,5 +75,22 @@
 					(select * from book where book_name like '%' || #{keyword} || '%')a)
 			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
+	</select>
+	
+	
+	<!-- 관심분야 -->
+	<select id="interestSelect" parameterType="java.lang.String" resultType="java.lang.String">
+		select member_interest from member where member_id=#{member_id}
+	</select>
+	
+	<select id="userBookInterestReadingSelect" parameterType="java.lang.String" resultType="com.gobook.bookmanage.dto.BookDto">
+	<![CDATA[
+		SELECT *FROM
+			book WHERE book_publish_date in(SELECT book_publish_date FROM
+				(SELECT ROWNUM rnum, A.*FROM
+					(SELECT *FROM book WHERE book_category LIKE '%' || #{interest} || '%'
+						ORDER BY book_publish_date DESC)A)
+							where rnum>=1 and rnum<=3)
+	]]>				
 	</select>
 </mapper>

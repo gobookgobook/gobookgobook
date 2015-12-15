@@ -34,7 +34,7 @@ public class UserBookController {
 	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookRead.do", method=RequestMethod.GET)
-	public ModelAndView userBookRead(HttpServletRequest request, HttpServletResponse servletResponse){
+	public ModelAndView userBookRead(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
@@ -121,4 +121,16 @@ public class UserBookController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/userBook/userBookInterestReading.do", method=RequestMethod.GET)
+	public ModelAndView userBookInterestReading(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookInterestReading(mav);
+		
+		return mav;
+		
+	}
+		
 }

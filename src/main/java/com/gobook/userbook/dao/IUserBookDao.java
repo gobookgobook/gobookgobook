@@ -20,8 +20,10 @@ public interface IUserBookDao {
 	public int userbookstarSelect(int book_num);
 	public int userbookstarCount(int book_num);
 	public int bookStarUpdate(HashMap<String, Object> starMap);
-	public int userBookListCount(String list);
+	public int userBookListCount(String category);
 	public List<BookDto> userBookListSelect(HashMap<String, Object> hMap);
 	public int bookSerchCount(String keyword);
 	public List<BookDto> bookSerchList(HashMap<String, Object> hMap);
+	public String interestSelect(String member_id);
+	public List<BookDto> userBookInterestReadingSelect(String interest);
 }
