@@ -31,26 +31,16 @@ public class UserBookService implements IUserBookService {
 	public void userBookRead(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		HttpSession session=request.getSession();
-		String member_id=(String) session.getAttribute("id");
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
-		
+
 //		long book_num=1;
-		long book_num=Long.parseLong(request.getParameter("book_num"));
+		long book_num=Integer.parseInt(request.getParameter("book_num"));//나중에 주석지움
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
 		
 		BookDto bookDto=iUserBookDao.userBookRead(book_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto);
 		
-		HashMap<String, Object> orderMap=new HashMap<String, Object>();
-		orderMap.put("book_num", book_num);
-		orderMap.put("member_id", member_id);
-		
-		int order_bunho=iUserBookDao.userOrderSelect(orderMap);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + order_bunho);
 		
 		mav.addObject("bookDto", bookDto);
-		mav.addObject("order_bunho", order_bunho);
 		mav.setViewName("userBook/userBookRead");
 		
 	}
@@ -160,7 +150,6 @@ public class UserBookService implements IUserBookService {
 		int userbookstar_star=Integer.parseInt(request.getParameter("userbookstar_star"));
 		int book_num=Integer.parseInt(request.getParameter("book_num"));
 		
-
 		int starDto=iUserBookDao.starSelect(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "starDto:" +starDto);
 		
@@ -200,6 +189,66 @@ public class UserBookService implements IUserBookService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+	}
+
+	@Override
+	public void userBookList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int category=Integer.parseInt(request.getParameter("category"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + category);
+		
+		String list=null;
+		if(category == 1){
+			list="문학";
+		}else if(category == 2){
+			list="교육도서";
+		}else if(category == 3){
+			list="전공도서";
+		}else if(category == 4){
+			list="만화";
+		}else if(category == 5){
+			list="잡지";
+		}else if(category == 6){
+			list="역사";
+		}else if(category == 7){
+			list="SF/판타지";
+		}else if(category == 8){
+			list="교양도서";
+		}
+		GoBookAspect.logger.info(GoBookAspect.logMsg + list);
+		
+		int bookDtoCount=iUserBookDao.userBookListCount(list);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDtoCount);
+		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int boardSize=3;
+		
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("startRow", startRow);
+		hMap.put("endRow", endRow);
+		hMap.put("list", list);
+		
+		List<BookDto> bookDto=null;
+		if(bookDtoCount > 0){
+			bookDto=iUserBookDao.userBookListSelect(hMap);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto.size());
+		}
+		
+		mav.addObject("bookDto", bookDto);
+		mav.addObject("bookDtoCount", bookDtoCount);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("category", category);
+		mav.addObject("currentPage", currentPage);
+		mav.setViewName("userBook/userBookList");
 		
 	}
 	

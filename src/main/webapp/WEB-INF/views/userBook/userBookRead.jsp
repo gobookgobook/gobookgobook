@@ -58,14 +58,13 @@
 			<div>
 				<div id="star"></div>
 		        <div style="padding-top:20px;">
-		            <label>Value : </label><span id="displayStarRating" style="padding-left:20px;">${bookDto.book_star}</span>
+		            <label>별점 : </label><span id="displayStarRating" style="padding-left:20px;">${bookDto.book_star}</span>
 		        </div>
-		     
-		     <c:if test="${order_bunho > 0}">   
+			<c:if test="${id !=null }">		   
 		        <div id="inputstar"></div>
 		        <span id="userstar"></span>
 		        <input type="button" value="전송" onclick="userbookstar_star('${root}', '${bookDto.book_num}')"/>
-		     </c:if>
+		    </c:if>
 			</div>
 		</div>
 		<div class="book_info">

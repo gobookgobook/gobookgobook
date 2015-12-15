@@ -93,14 +93,14 @@
    <ul id="gnb">
      <li><a href="#"><img src="${root}/images/gnb_1_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
-           <li><a href="#">문학</a></li>
-           <li><a href="#">교육도서</a></li>
-           <li><a href="#">전공도서</a></li>
-           <li><a href="#">만화</a></li>
-           <li><a href="#">잡지</a></li>
-           <li><a href="#">역사</a></li>
-           <li><a href="#">SF/판타지</a></li>
-           <li><a href="#">교양</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${1}">문학</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${2}">교육도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${3}">전공도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${4}">만화</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${5}">잡지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${6}">역사</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${7}">SF/판타지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${8}">교양도서</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_2_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>

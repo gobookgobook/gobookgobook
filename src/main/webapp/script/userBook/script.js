@@ -6,7 +6,7 @@
  * @함수이름 : soldOutAsk
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 재입고 신청
+ * @설명 : 
  */
 function soldOutAsk(root, book_num){
 	var url=root+"/userBook/userBookSoldOutAsk.do?book_num="+book_num;
@@ -35,7 +35,7 @@ function soldOutAsk(root, book_num){
  * @함수이름 : myBasket
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 장바구니 담기
+ * @설명 : 
  */
 function myBasket(root, book_num, book_name, book_price){
 	
@@ -110,10 +110,11 @@ function groupPurchaseAsk(root, book_num){
 function userbookstar_star(root, book_num){
 	
 	var star=$('#userstar').html();
-//	alert(star);
+	alert(star);
 	
 	var url=root+"/userBook/userBookStarInsert.do?book_num="+book_num;
 	url+="&userbookstar_star="+star;
+	alert(url);
 	
 	if(star == ""){
 		alert("하나는 선택해주세요.");

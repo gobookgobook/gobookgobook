@@ -1,6 +1,7 @@
 package com.gobook.userbook.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,6 @@ public class UserBookDao implements IUserBookDao {
 	@Override
 	public BookDto userBookRead(long book_num) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookRead", book_num);
-	}
-
-	@Override
-	public int userOrderSelect(HashMap<String, Object> orderMap) {
-		return sqlSessionTemplate.selectOne("dao.userBookMapper.userOrderSelect", orderMap);
 	}
 	
 	@Override
@@ -71,5 +67,14 @@ public class UserBookDao implements IUserBookDao {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.starSelect", member_id);
 	}
 
+	@Override
+	public int userBookListCount(String list) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookListCount", list);
+	}
+
+	@Override
+	public List<BookDto> userBookListSelect(HashMap<String, Object> hMap) {
+		return sqlSessionTemplate.selectList("dao.userBookMapper.userBookListSelect", hMap);
+	}
 	
 }

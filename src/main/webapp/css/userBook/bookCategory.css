@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+div{
+	display: block;
+}
+
+.title{
+	width: 700px; height:30px;
+	border: 1px solid black;
+	margin-bottom: 3px; 
+}
+
+.category{
+	width: 13%; height:200px;
+	border: 1px solid black;
+	display: block;
+	float: left;	
+}
+
+.category > a{
+	display: block;
+}
+
+a:link {
+	text-decoration:none;
+	color:blue;
+}
+
+a:visited {
+	text-decoration:none;
+	color:red;
+}
+
+a:hover {
+	text-decoration:underline;
+	color:black;
+}

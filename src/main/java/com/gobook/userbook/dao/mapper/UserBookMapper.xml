@@ -8,11 +8,7 @@
 	<select id="userBookRead" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookDto">
 		select * from book where book_num=#{book_num}
 	</select>
-	
-	<select id="userOrderSelect" parameterType="java.util.HashMap" resultType="int">
-		select count(order_bunho) from userorder where member_id=#{member_id} and book_num=#{book_num}
-	</select>
-	
+
 	<!-- 장바구니 -->
 	<select id="myBasketSelect" parameterType="java.lang.Long" resultType="com.gobook.mybasket.dto.MyBasketDto">
 		select *from mybasket where book_num=#{book_num}
@@ -52,5 +48,19 @@
 	<update id="bookStarUpdate" parameterType="java.util.HashMap">
 		update book set book_star=#{avgStar} where book_num=#{book_num}
 	</update>
+	
+	<!-- 목록 -->
+	<select id="userBookListCount" parameterType="java.lang.String" resultType="int">
+		select count(*) from book where book_category like '%' || #{list} || '%'
+	</select>
+	
+	<select id="userBookListSelect" parameterType="java.util.HashMap" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+		SELECT *FROM
+			(SELECT ROWNUM rnum, b.*FROM
+				(SELECT *FROM book WHERE book_category LIKE '%' || #{list} || '%')b)
+					where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
 	
 </mapper>

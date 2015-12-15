@@ -17,10 +17,25 @@ public class UserBookController {
 	@Autowired
 	private IUserBookService iUserBookService;
 	
+	@RequestMapping(value="/userBook/userBookList.do", method=RequestMethod.GET)
+	public ModelAndView userBookList(HttpServletRequest request, HttpServletResponse servletResponse){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : userBookRead
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/userBook/userBookRead.do", method=RequestMethod.GET)
 	public ModelAndView userBookRead(HttpServletRequest request, HttpServletResponse servletResponse){
 		
-		System.out.println("ok");
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		iUserBookService.userBookRead(mav);
@@ -28,6 +43,12 @@ public class UserBookController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : userBookBasketInsert
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/userBook/userBookBasketInsert.do", method=RequestMethod.GET)
 	public ModelAndView userBookBasketInsert(HttpServletRequest request, HttpServletResponse response){
 		
@@ -40,6 +61,12 @@ public class UserBookController {
 		
 	}
 	
+	/**
+	 * @함수이름 : userBookSoldOutAsk
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/userBook/userBookSoldOutAsk.do", method=RequestMethod.GET)
 	public ModelAndView userBookSoldOutAsk(HttpServletRequest request, HttpServletResponse response){
 		
@@ -51,6 +78,12 @@ public class UserBookController {
 		return null;
 	}
 	
+	/**
+	 * @함수이름 : userBookGroupPurchaseAsk
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/userBook/userBookGroupPurchaseAsk.do", method=RequestMethod.GET)
 	public ModelAndView userBookGroupPurchaseAsk(HttpServletRequest request, HttpServletResponse response){
 		
@@ -62,6 +95,12 @@ public class UserBookController {
 		return null;
 	}
 	
+	/**
+	 * @함수이름 : userBookStarInsert
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@RequestMapping(value="/userBook/userBookStarInsert.do", method=RequestMethod.GET)
 	public ModelAndView userBookStarInsert(HttpServletRequest request, HttpServletResponse response){
 		
@@ -69,15 +108,6 @@ public class UserBookController {
 		mav.addObject("request", request);
 		mav.addObject("response", response);
 		iUserBookService.userBookStarInsert(mav);
-		
-		return null;
-	}
-	
-	@RequestMapping(value="/userBook/userBookSearch.do", method=RequestMethod.GET)
-	public ModelAndView userBookSearch(HttpServletRequest request, HttpServletResponse response){
-		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("request", request);
 		
 		return null;
 	}
