@@ -20,7 +20,7 @@
 			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
 		</div>
 	</c:if>
-	<c:if test="${id != null }">
+	<c:if test="${id != null && id!='admin'}">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		<!-- 주문내역 -->

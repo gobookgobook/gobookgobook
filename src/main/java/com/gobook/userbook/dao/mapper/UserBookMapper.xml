@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.userBookMapper">
+
+	<select id="userBookRead" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookDto">
+		select * from book where book_num=#{book_num}
+	</select>
+	
+	<select id="userOrderSelect" parameterType="java.util.HashMap" resultType="int">
+		select count(order_bunho) from userorder where member_id=#{member_id} and book_num=#{book_num}
+	</select>
+	
+	<!-- 장바구니 -->
+	<select id="myBasketSelect" parameterType="java.lang.Long" resultType="com.gobook.mybasket.dto.MyBasketDto">
+		select *from mybasket where book_num=#{book_num}
+	</select>
+	
+	<insert id="userBookBasketInsert" parameterType="java.util.HashMap">
+		insert into myBasket values(mybasket_basket_num_seq.nextval, #{member_id}, #{book_num}, #{basket_total_price}, #{book_quantity}, sysdate)
+	</insert>
+	
+	<!-- 재입고 신청 -->
+	<update id="userBookSoldOutAskUpdate" parameterType="java.lang.Long">
+		update book set book_reorder_count=book_reorder_count+1 where book_num=#{book_num}
+	</update>	
+	
+	<!-- 공구 신청 -->
+	<update id="userBookGroupPurchaseAskUpdate" parameterType="java.lang.Long">
+		update book set book_group_purchase_count=book_group_purchase_count+1 where book_num=#{book_num}
+	</update>
+	
+	<!-- 별점 -->
+	<select id="starSelect" parameterType="java.lang.String" resultType="int">
+		select count(*)from userBookStar where member_id=#{member_id}
+	</select>
+	
+	<insert id="userBookStarInsert" parameterType="java.util.HashMap">
+		insert into userBookStar values(userBookStar_userstar_num_seq.nextval, #{member_id}, #{book_num}, #{userbookstar_star})
+	</insert>
+	
+	<select id="userbookstarSelect" parameterType="int" resultType="int">
+		select sum(userbookstar_star) from userBookStar where book_num=#{book_num}
+	</select>
+	
+	<select id="userbookstarCount" parameterType="int" resultType="int">
+		select count(userbookstar_star) from userBookStar where book_num=#{book_num}
+	</select>
+	
+	<update id="bookStarUpdate" parameterType="java.util.HashMap">
+		update book set book_star=#{avgStar} where book_num=#{book_num}
+	</update>
+	
+</mapper>

@@ -21,7 +21,8 @@
 		<a href="${root}/myPage/myPagePoint.do">포인트함</a>
 		<a href="${root}/member/update.do">회원수정</a>
 		<a href="${root}/member/delete.do">회원탈퇴</a>
-		<a href="">메인</a>
+		<a href="${root}">메인</a>
+		<a href="${root}/userBook/userBookRead.do">책 보기</a>
 		</div>
 </body>
 </html>

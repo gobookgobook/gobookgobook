@@ -18,7 +18,7 @@
 		<a href="${root}/memberManager/memberManageCouponList.do">쿠폰 목록</a>
 		<a href="${root}/memberManager/memberManageCouponInsert.do">쿠폰 생성</a>
 		<a href="${root}/memberManager/memberManagerUpdate.do">관리자 정보 수정</a>
-		<a href="${root }">메인</a>
+		<a href="${root}">메인</a>
 		</div>
 </body>
 </html>
