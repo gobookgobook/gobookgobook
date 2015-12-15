@@ -76,5 +76,17 @@ public class UserBookDao implements IUserBookDao {
 	public List<BookDto> userBookListSelect(HashMap<String, Object> hMap) {
 		return sqlSessionTemplate.selectList("dao.userBookMapper.userBookListSelect", hMap);
 	}
+
+	@Override
+	public int bookSerchCount(String keyword) {
+		
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.bookSerchCount", keyword);
+	}
+
+	@Override
+	public List<BookDto> bookSerchList(HashMap<String, Object> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.userBookMapper.bookSerchList", hMap);
+	}
 	
 }

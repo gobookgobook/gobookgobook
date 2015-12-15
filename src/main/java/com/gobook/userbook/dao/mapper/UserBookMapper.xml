@@ -63,4 +63,17 @@
 		]]>
 	</select>
 	
+	<select id="bookSerchCount" parameterType="String" resultType="int">
+		select count(*) from book where book_name like '%' || #{keyword} || '%'
+	</select>
+	
+	
+	<select id="bookSerchList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from 
+				(select rownum rnum, a.* from 
+					(select * from book where book_name like '%' || #{keyword} || '%')a)
+			where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
 </mapper>

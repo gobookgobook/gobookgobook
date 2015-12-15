@@ -33,7 +33,7 @@ public class UserBookService implements IUserBookService {
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 
 //		long book_num=1;
-		long book_num=Integer.parseInt(request.getParameter("book_num"));//나중에 주석지움
+		long book_num=Long.parseLong(request.getParameter("book_num"));//나중에 주석지움
 		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
 		
 		BookDto bookDto=iUserBookDao.userBookRead(book_num);
@@ -250,6 +250,46 @@ public class UserBookService implements IUserBookService {
 		mav.addObject("currentPage", currentPage);
 		mav.setViewName("userBook/userBookList");
 		
+	}
+
+	/**
+	 * @함수이름 : userBookSerch
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서검색
+	 */
+	@Override
+	public void userBookSerch(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String keyword=request.getParameter("keyword");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iUserBookDao.bookSerchCount(keyword);
+		
+		List<BookDto> bookSerchList=null;
+		if(count>0){
+			HashMap<String, Object> hMap=new HashMap<String, Object>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			hMap.put("keyword", keyword);
+			bookSerchList=iUserBookDao.bookSerchList(hMap);
+		}
+		
+		mav.addObject("bookSerchList", bookSerchList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("userBook/userBookSerch");
 	}
 	
 }

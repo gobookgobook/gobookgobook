@@ -111,4 +111,14 @@ public class UserBookController {
 		
 		return null;
 	}
+	
+	@RequestMapping(value="/userBook/userBookSerch.do", method=RequestMethod.GET)
+	public ModelAndView userBookSerch(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookSerch(mav);
+		
+		return mav;
+	}
 }

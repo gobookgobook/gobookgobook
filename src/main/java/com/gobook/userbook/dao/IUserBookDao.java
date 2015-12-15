@@ -22,4 +22,6 @@ public interface IUserBookDao {
 	public int bookStarUpdate(HashMap<String, Object> starMap);
 	public int userBookListCount(String list);
 	public List<BookDto> userBookListSelect(HashMap<String, Object> hMap);
+	public int bookSerchCount(String keyword);
+	public List<BookDto> bookSerchList(HashMap<String, Object> hMap);
 }
