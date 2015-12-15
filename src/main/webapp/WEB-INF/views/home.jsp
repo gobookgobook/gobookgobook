@@ -85,7 +85,7 @@
         <legend>검색폼</legend>
         <p>
            <input type="text" name="keyword" id="keyword" title="검색어입력" />
-           <input type="image" src="${root}/images/search.png" alt="검색" />
+           <input type="image" src="${root}/images/search.png" alt="검색" onclink="location.href='${root}/userBook/userBookSearch.do?keyword=${keyword}'"/>
         </p>
      </fieldset>
   </form>

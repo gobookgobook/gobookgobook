@@ -72,7 +72,9 @@ public class BookManageService implements IBookManageService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		String pageNumber=request.getParameter("pageNumber");
-		if(pageNumber.equals(null)) pageNumber="1";
+		try{
+			if(pageNumber.equals(null)) pageNumber="1";
+		}catch(Exception e){}
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
@@ -552,7 +554,7 @@ public class BookManageService implements IBookManageService {
 	 * @설명 : 도서 출간 일정
 	 */
 	@Override
-	public void bookScheduleSelect(ModelAndView mav) {
+	public void bookSchedule(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
@@ -589,7 +591,7 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("id", id);
 		mav.addObject("bsList", bsList);
 		
-		mav.setViewName("bookManage/bookScheduleSelect");
+		mav.setViewName("bookManage/bookSchedule");
 	}
 	
 }

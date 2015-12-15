@@ -143,7 +143,7 @@ public class BookManageCotroller {
 	}
 	
 	/**
-	 * @함수이름 : bookGroupPurchaseCount
+	 * @함수이름 : bookGroupPurchase
 	 * @작성일 : 2015. 12. 9.
 	 * @개발자 : 성기훈
 	 * @설명 : 공동구매 요청 리스트
@@ -218,7 +218,7 @@ public class BookManageCotroller {
 	}
 	
 	/**
-	 * @함수이름 : bookGroupPurchaseUpdate
+	 * @함수이름 : bookGroupPurchaseUpdateOk
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
 	 * @설명 : 공동구매 수정 
@@ -248,16 +248,16 @@ public class BookManageCotroller {
 	}
 	
 	/**
-	 * @함수이름 : bookScheduleSelect
+	 * @함수이름 : bookSchedule
 	 * @작성일 : 2015. 12. 14.
 	 * @개발자 : 성기훈
 	 * @설명 : 도서 출간 일정
 	 */
-	@RequestMapping(value="/bookManage/bookScheduleSelect.do", method=RequestMethod.GET)
-	public ModelAndView bookScheduleSelect(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="/bookManage/bookSchedule.do", method=RequestMethod.GET)
+	public ModelAndView bookSchedule(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		iBookManageService.bookScheduleSelect(mav);
+		iBookManageService.bookSchedule(mav);
 		
 		return mav;
 	}

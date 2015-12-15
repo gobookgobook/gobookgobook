@@ -162,7 +162,7 @@ public class BookManageDao implements IBookManageDao {
 	 * @함수이름 : bookGroupPurchaseCount
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
-	 * @설명 : 공동구매 목록 페이지 카운트
+	 * @설명 : 공동구매 요청 목록 페이지 카운트
 	 */
 	@Override
 	public int bookGroupPurchaseCount() {
@@ -174,7 +174,7 @@ public class BookManageDao implements IBookManageDao {
 	 * @함수이름 : bookGroupPurchaseCountList
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
-	 * @설명 : 공동구매 목록
+	 * @설명 : 공동구매 요청 목록
 	 */
 	@Override
 	public List<BookDto> bookGroupPurchaseCountList(HashMap<String, Integer> hMap) {

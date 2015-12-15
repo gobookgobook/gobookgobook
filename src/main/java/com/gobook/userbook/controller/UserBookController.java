@@ -72,4 +72,13 @@ public class UserBookController {
 		
 		return null;
 	}
+	
+	@RequestMapping(value="/userBook/userBookSearch.do", method=RequestMethod.GET)
+	public ModelAndView userBookSearch(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		return null;
+	}
 }

@@ -20,6 +20,6 @@
 	<hr width="80px" align="left"/>
 	<a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a><br/>
 	<hr width="80px" align="left"/>
-	<a href="${root}/bookManage/bookScheduleSelect.do">출간일정관리</a><br/>
+	<a href="${root}/bookManage/bookSchedule.do">출간일정관리</a><br/>
 </body>
 </html>
