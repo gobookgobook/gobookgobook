@@ -1,22 +1,16 @@
 package com.gobook.event.service;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
@@ -29,7 +23,12 @@ public class EventService implements IEventService {
 	@Autowired
 	private IEventDao iEventDao;
 	
-
+	/**
+	 * @클래스이름 : eventWriteOk
+	 * @날짜 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 등록 완료
+	 */
 	@Override
 	public void eventWriteOk(ModelAndView mav) {
 		Map<String,Object> map= mav.getModelMap();
@@ -66,10 +65,14 @@ public class EventService implements IEventService {
 	    mav.setViewName("event/eventWriteOk");  
 	}
 
+	/**
+	 * @클래스이름 : eventList
+	 * @날짜 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 목록
+	 */
 	@Override
 	public void eventList(ModelAndView mav) {
-		Map<String, Object>map= mav.getModelMap();
-		HttpServletRequest request= (HttpServletRequest)  map.get("request");
 		
 		List<EventDto> eventList=null;
 		eventList= iEventDao.eventListSelect();
@@ -78,6 +81,12 @@ public class EventService implements IEventService {
 		mav.setViewName("event/eventList");
 	}
 
+	/**
+	 * @클래스이름 : eventRead
+	 * @날짜 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 읽기
+	 */
 	@Override
 	public void eventRead(ModelAndView mav) {
 		Map<String,Object>map= mav.getModelMap();
@@ -97,6 +106,12 @@ public class EventService implements IEventService {
 		mav.setViewName("event/eventRead");
 	}
 
+	/**
+	 * @클래스이름 : eventUpdate
+	 * @날짜 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정
+	 */
 	@Override
 	public void eventUpdate(ModelAndView mav) {
 		Map<String, Object> map= mav.getModelMap();
@@ -119,6 +134,12 @@ public class EventService implements IEventService {
 		mav.setViewName("event/eventUpdate");
 	}
 
+	/**
+	 * @클래스이름 : eventUpdateOk
+	 * @날짜 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정 완료
+	 */
 	@Override
 	public void eventUpdateOk(ModelAndView mav){
 		Map<String, Object> map= mav.getModelMap();
@@ -154,6 +175,12 @@ public class EventService implements IEventService {
       mav.setViewName("event/eventUpdateOk");
     }
 
+	/**
+	 * @클래스이름 : eventDelete
+	 * @날짜 : 2015. 12. 11.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 삭제
+	 */
 	@Override
 	public void eventDelete(ModelAndView mav) {
 		Map<String, Object> map= mav.getModelMap();

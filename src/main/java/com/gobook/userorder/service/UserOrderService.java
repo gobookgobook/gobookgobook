@@ -15,12 +15,6 @@ import com.gobook.member.dto.UserCouponDto;
 import com.gobook.userorder.dao.IUserOrderDao;
 import com.gobook.userorder.dto.UserOrderDto;
 
-/**
- * @클래스이름 : UserOrderService
- * @날짜 : 2015-12-08
- * @개발자 : 김재석
- * @설명 : 
- */
 
 @Component
 public class UserOrderService implements IUserOrderService{
@@ -28,6 +22,13 @@ public class UserOrderService implements IUserOrderService{
 	@Autowired
 	private IUserOrderDao iUserOrderDao;
 
+
+	/**
+	 * @클래스이름 : UserOrderList
+	 * @날짜 : 2015. 12. 8.
+	 * @개발자 : 김재석
+	 * @설명 : 주문 리스트
+	 */
 	@Override
 	public void userOrderList(ModelAndView mav) {
 		Map<String, Object> map= mav.getModelMap();
@@ -53,6 +54,13 @@ public class UserOrderService implements IUserOrderService{
 		mav.setViewName("userOrder/userOrderList");
 	}
 
+	
+	/**
+	 * @클래스이름 : UserOrderPay
+	 * @날짜 : 2015. 12. 8.
+	 * @개발자 : 김재석
+	 * @설명 : 주문 결제
+	 */
 	@Override
 	public void userOrderPay(ModelAndView mav) {
 		Map<String,Object> map= mav.getModelMap();
@@ -66,6 +74,12 @@ public class UserOrderService implements IUserOrderService{
 		mav.setViewName("userOrder/userOrderListOk");
 	}
 
+	/**
+	 * @클래스이름 : UserOrderCouponList
+	 * @날짜 : 2015. 12. 9.
+	 * @개발자 : 김재석
+	 * @설명 : 사용자 주문시 쿠폰적용 리스트
+	 */
 	@Override
 	public void userOrderCouponList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();

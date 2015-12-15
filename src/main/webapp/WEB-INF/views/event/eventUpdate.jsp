@@ -8,6 +8,21 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 수정</title>
+<script type="text/javascript" src="${root}/script/event/start/jquery.js"></script>
+<script type="text/javascript" src="${root}/script/event/start/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/script/event/start/jquery-ui.css"/>
+<script type="text/javascript" src="${root}/script/event/script.js"></script>
+<script type="text/javascript">
+$(function(){
+	 
+	 $("#date1,#date2").datepicker({
+		 dateFormat:"yy/mm/dd",
+		 monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+		 dayNamesMin:["일","월","화","수","목","금","토"],
+		
+	 });
+ });
+</script>
 </head>
 <body>
 

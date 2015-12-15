@@ -28,7 +28,10 @@
 <body>
 <jsp:include page="../member/menu.jsp"/>
    <br/><br/>
-   
+<div align="right">
+<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
+			<a href="${root}/event/eventList.do">이벤트 목록</a></div>  
+</div>			 
 <div align="right">
 <div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
        

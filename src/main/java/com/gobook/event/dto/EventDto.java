@@ -1,7 +1,7 @@
 package com.gobook.event.dto;
 
 import java.util.Date;
-import java.util.HashMap;
+
 
 public class EventDto {
 	
@@ -78,9 +78,4 @@ public class EventDto {
 		this.event_file_size = event_file_size;
 	}
 
-	
-
-	
-	
-	
 }

@@ -139,9 +139,9 @@
 <div id="visual">
  <div id="mySwipe"  class='swipe'>
     <ul class="touch_banner swipe-wrap"> <!-- 배너 목록 -->
-      <li><a href="#"><img src="${root}/images/이벤트7.jpg" alt=""/></a></li>
-      <li><a href="#"><img src="${root}/images/이벤트8.jpg" alt=""/></a></li>
-      <li><a href="#"><img src="${root}/images/이벤트9.jpg" alt=""/></a></li>
+      <li style="margin-left:-10px;"><a href="${root}/event/eventRead.do?event_bunho=27"><img src="${root}/images/이벤트7.jpg" alt=""/></a></li>
+      <li><a href="${root}/event/eventRead.do?event_bunho=28"><img src="${root}/images/이벤트8.jpg" alt=""/></a></li>
+      <li><a href="${root}/event/eventRead.do?event_bunho=29"><img src="${root}/images/이벤트9.jpg" alt=""/></a></li>
    </ul>
   </div>
   <ul class="touch_bullet"> <!-- 배너 위치 표시 -->

@@ -1,15 +1,13 @@
 package com.gobook.event.dao;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
+
 
 import com.gobook.event.dto.EventDto;
 
@@ -19,6 +17,13 @@ public class EventDao implements IEventDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
+	
+	/**
+	 * @함수이름 : eventWriteInsert
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 등록
+	 */
 	@Override
 	public int eventWriteInsert(EventDto eventDto) {
 		
@@ -32,18 +37,36 @@ public class EventDao implements IEventDao {
 		
 	}
 
+	/**
+	 * @함수이름 : eventListSelect
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 목록
+	 */
 	@Override
 	public List<EventDto> eventListSelect() {
 		
 		return sqlSessionTemplate.selectList("dao.EventMapper.eventListSelect");
 	}
 
+	/**
+	 * @함수이름 : eventRead
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 읽기
+	 */
 	@Override
 	public EventDto eventRead(int event_bunho) {
 		
 		return sqlSessionTemplate.selectOne("dao.EventMapper.eventRead",event_bunho);
 	}
 
+	/**
+	 * @함수이름 : eventSelect
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정
+	 */
 	@Override
 	public EventDto eventSelect(int event_bunho) {
 		
@@ -53,12 +76,24 @@ public class EventDao implements IEventDao {
 		return eventDto;
 	}
 
+	/**
+	 * @함수이름 : eventUpdate
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정 완료
+	 */
 	@Override
 	public int eventUpdate(EventDto eventDto) {
 		
 		return sqlSessionTemplate.update("dao.EventMapper.eventUpdate",eventDto);
 	}
 
+	/**
+	 * @함수이름 : eventDelete
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 삭제
+	 */
 	@Override
 	public int eventDelete(int event_bunho) {
 		

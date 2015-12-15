@@ -19,11 +19,23 @@ public class EventController {
 	@Autowired
 	private IEventService iEventService;
 	
+	/**
+	 * @함수이름 : eventWrite
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 등록
+	 */
 	@RequestMapping(value="/event/eventWrite.do", method=RequestMethod.GET)
 	public ModelAndView eventWrite(HttpServletRequest request, HttpServletResponse response){	
 		return new ModelAndView("event/eventWrite");
 	}
 	
+	/**
+	 * @함수이름 : eventWriteOk
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 등록완료
+	 */
 	@RequestMapping(value="/event/eventWrite.do", method=RequestMethod.POST)
 	public ModelAndView eventWriteOk(HttpServletRequest request, HttpServletResponse response, EventDto eventDto){
 		ModelAndView mav= new ModelAndView();
@@ -32,6 +44,13 @@ public class EventController {
 		iEventService.eventWriteOk(mav);
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : eventList
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 목록
+	 */
 	@RequestMapping(value="/event/eventList.do", method=RequestMethod.GET)
 	public ModelAndView eventList(HttpServletRequest request,HttpServletResponse response){
 		
@@ -41,6 +60,12 @@ public class EventController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : eventRead
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 읽기
+	 */
 	@RequestMapping(value="/event/eventRead.do", method=RequestMethod.GET)
 	public ModelAndView eventRead(HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mav= new ModelAndView();
@@ -48,6 +73,13 @@ public class EventController {
 		iEventService.eventRead(mav);
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : eventUpdate
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정
+	 */
 	@RequestMapping(value="/event/eventUpdate.do", method=RequestMethod.GET)
 	public ModelAndView eventUpdate(HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mav= new ModelAndView();
@@ -55,7 +87,12 @@ public class EventController {
 		iEventService.eventUpdate(mav);
 		return mav;
 	}
-	
+	/**
+	 * @함수이름 : eventUpdateOk
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 수정완료
+	 */
 	@RequestMapping(value="/event/eventUpdate.do", method=RequestMethod.POST)
 	public ModelAndView eventUpdateOk(HttpServletRequest request,HttpServletResponse response,EventDto eventDto)throws Exception{
 		ModelAndView mav= new ModelAndView();
@@ -65,6 +102,12 @@ public class EventController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : eventDelete
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 김재석
+	 * @설명 : 이벤트 삭제
+	 */
 	@RequestMapping(value="/event/eventDelete.do", method=RequestMethod.GET)
 	public ModelAndView eventDelete(HttpServletRequest request,HttpServletResponse response,EventDto eventDto)throws Exception{
 		ModelAndView mav= new ModelAndView();
