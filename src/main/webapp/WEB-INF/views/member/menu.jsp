@@ -48,6 +48,9 @@
 			<li>
 				<a href="${root}/myBasket/myBasketList.do">장바구니&nbsp;&nbsp;&nbsp;</a>
 			</li>
+			<li>
+				<a href="${root}/sales/salesDailyList.do">매출관리&nbsp;&nbsp;&nbsp;</a>
+			</li>
 		</ul>
 		<c:if test="${id == 'admin'}">
 		<ul>

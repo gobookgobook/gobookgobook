@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gobook.aop.GoBookAspect;
 import com.gobook.sales.dao.ISalesDao;
 import com.gobook.sales.dto.SalesDailyDto;
+import com.gobook.sales.dto.SalesMonthlyDto;
 
 /**
  * @클래스이름 : SalesService
@@ -35,8 +36,6 @@ public class SalesService implements ISalesService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		HttpServletResponse response=(HttpServletResponse) map.get("response");
-		
-		//GoBookAspect.logger.info(GoBookAspect.logMsg + "OK");
 		
 		HttpSession session=request.getSession();
 		String member_id="admin";			// 원래는 세션에 있는 아이디를 받아서 admin인지 파악해야 하지만 테스트 편의상 admin을 넣어놓음
@@ -74,6 +73,9 @@ public class SalesService implements ISalesService {
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "After_salesdaily_date:"+(sdf2.format(salesdaily_date)));
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "next_date:"+(sdf2.format(next_date)));
 				
+				int calculCount=iSalesDao.salesCalculCount(sdf.format(salesdaily_date));
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "calculCount:"+calculCount);
+				
 				int count=iSalesDao.salesDailyCount(sdf2.format(salesdaily_date), sdf2.format(next_date));
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
 				
@@ -93,6 +95,7 @@ public class SalesService implements ISalesService {
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "dailyProfit:"+dailyProfit);
 					
 					mav.addObject("salesDailyList", salesDailyList);
+					mav.addObject("calculCount", calculCount);
 					mav.addObject("count", count);
 					mav.addObject("dailySum", dailySum);
 					mav.addObject("dailyProfit", dailyProfit);
@@ -108,6 +111,7 @@ public class SalesService implements ISalesService {
 					}*/
 				}else{
 					mav.addObject("count", count);
+					mav.addObject("calculCount", calculCount);
 				}
 			}else{
 				/*List<SalesDailyDto> salesDailyList=null;
@@ -139,10 +143,78 @@ public class SalesService implements ISalesService {
 
 		int daily_sum=Integer.parseInt(request.getParameter("daily_sum"));
 		int daily_profit=Integer.parseInt(request.getParameter("daily_profit"));
-		int count=iSalesDao.salesMonthlyInsert(daily_sum, daily_profit);
+		String salesmonthly_date=request.getParameter("salesmonthly_date");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "salesmonthly_date:" + salesmonthly_date);
+		int count=iSalesDao.salesMonthlyInsert(daily_sum, daily_profit, salesmonthly_date);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" + count);
 		
 		mav.addObject("count", count);
 		mav.setViewName("sales/salesMonthlyInsert");
+	}
+
+	/**
+	 * @함수이름 : salesMonthlyList
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 내역
+	 */
+	@Override
+	public void salesMonthlyList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		
+		HttpSession session=request.getSession();
+		String member_id="admin";			// 원래는 세션에 있는 아이디를 받아서 admin인지 파악해야 하지만 테스트 편의상 admin을 넣어놓음
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		
+		if(member_id =="admin"){
+			try{
+				int year=Integer.parseInt(request.getParameter("monthly_year"));
+				int month=Integer.parseInt(request.getParameter("monthly_month"));
+				
+				String start=year+"/"+month+"/01";
+				String end=null;
+				
+				if(month==4 || month==6 || month==9 || month==11){
+					end=year+"/"+month+"/30";
+				}else if(month==2 && year%100!=0 && year%4==0){
+					end=year+"/"+month+"/29";
+				}else{
+					end=year+"/"+month+"/31";
+				}
+				
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "start:"+start);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "end:"+end);
+				
+				int count=iSalesDao.salesMonthlyCount(start, end);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
+				
+				List<SalesMonthlyDto> salesMonthlyList=null;
+				if(count > 0){
+					salesMonthlyList=iSalesDao.salesMonthlyList(start, end);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + "salesMonthlyList:"+salesMonthlyList.size());
+					
+					int monthlySum=0;			// 월별매출총합
+					int monthlyProfit=0;		// 월별순이익총합
+					int monthlyOrderSum=0;		// 월별입고총합
+					for(int i=0;i<salesMonthlyList.size();i++){
+						monthlySum+=salesMonthlyList.get(i).getSalesmonthly_daily_sale();
+						monthlyProfit+=salesMonthlyList.get(i).getSalesmonthly_daily_profit();
+						monthlyOrderSum+=salesMonthlyList.get(i).getSalesmonthly_order_totalprice();
+					}
+					
+					GoBookAspect.logger.info(GoBookAspect.logMsg + "monthlySum:"+monthlySum);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + "monthlyProfit:"+monthlyProfit);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + "monthlyOrderSum:"+monthlyOrderSum);
+					
+					mav.addObject("salesMonthlyList", salesMonthlyList);
+					mav.addObject("count", count);
+				}else{
+					mav.addObject("count", count);
+				}
+			}catch(Exception e){}
+		}
+		mav.setViewName("sales/salesMonthlyList");
 	}
 }

@@ -12,4 +12,6 @@ public interface ISalesService {
 	public void salesDailyList(ModelAndView mav);
 	
 	public void salesMonthlyInsert(ModelAndView mav);
+	
+	public void salesMonthlyList(ModelAndView mav);
 }

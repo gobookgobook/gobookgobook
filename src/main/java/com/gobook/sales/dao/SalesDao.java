@@ -11,6 +11,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.sales.dto.SalesDailyDto;
+import com.gobook.sales.dto.SalesMonthlyDto;
 
 /**
  * @클래스이름 : SalesDao
@@ -27,6 +28,17 @@ public class SalesDao implements ISalesDao {
 	@Autowired
 	private PlatformTransactionManager transactionManager;
 
+	/**
+	 * @함수이름 : salesCalculCount
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 황규성
+	 * @설명 : 정산 여부 확인을 위한 count
+	 */
+	@Override
+	public int salesCalculCount(String salesdaily_date) {
+		return sqlSessionTemplate.selectOne("dao.salesMapper.salesCalculCount", salesdaily_date);
+	}
+	
 	/**
 	 * @함수이름 : salesCount
 	 * @작성일 : 2015. 12. 12.
@@ -64,13 +76,43 @@ public class SalesDao implements ISalesDao {
 	 * @설명 : 월별매출 삽입
 	 */
 	@Override
-	public int salesMonthlyInsert(int daily_sum, int daily_profit) {
-		HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+	public int salesMonthlyInsert(int daily_sum, int daily_profit, String salesmonthly_date) {
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("daily_sum", daily_sum);
 		hMap.put("daily_profit", daily_profit);
+		hMap.put("salesmonthly_date", salesmonthly_date);
 		
 		return sqlSessionTemplate.insert("dao.salesMapper.salesMonthlyInsert", hMap);
 	}
-	
+
+	/**
+	 * @함수이름 : salesMonthlyCount
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 DB 리스트 개수
+	 */
+	@Override
+	public int salesMonthlyCount(String start, String end) {
+		HashMap<String, String> hMap=new HashMap<String, String>();
+		hMap.put("start", start);
+		hMap.put("end", end);
+		
+		return sqlSessionTemplate.selectOne("dao.salesMapper.salesMonthlyCount", hMap);
+	}
+
+	/**
+	 * @함수이름 : salesMonthlyList
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 내역
+	 */
+	@Override
+	public List<SalesMonthlyDto> salesMonthlyList(String start, String end) {
+		HashMap<String, String> hMap=new HashMap<String, String>();
+		hMap.put("start", start);
+		hMap.put("end", end);
+		
+		return sqlSessionTemplate.selectList("dao.salesMapper.salesMonthlyList", hMap);
+	}
 	
 }

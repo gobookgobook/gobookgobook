@@ -52,4 +52,19 @@ public class SalesController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : salesMonthlyList
+	 * @작성일 : 2015. 12. 15.
+	 * @개발자 : 황규성
+	 * @설명 : 월별매출 내역
+	 */
+	@RequestMapping(value="/sales/salesMonthlyList.do", method=RequestMethod.GET)
+	public ModelAndView salesMonthlyList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iSalesService.salesMonthlyList(mav);
+		
+		return mav;
+	}
 }

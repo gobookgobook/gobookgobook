@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.salesMapper">
+	<select id="salesCalculCount" resultType="int" parameterType="String">
+		SELECT count(*) FROM salesmonthly WHERE SALESMONTHLY_DATE = #{salesdaily_date}
+		and book_num is null
+	</select>
+	
 	<select id="salesDailyCount" resultType="int" parameterType="java.util.HashMap">
 		SELECT count(*) FROM salesdaily dsale, userorder uo WHERE dsale.order_bunho=uo.order_bunho AND uo.order_date BETWEEN to_date(#{salesdaily_date}, 'yy/mm/dd hh24:mi:ss') AND to_date(#{next_date}, 'yy/mm/dd hh24:mi:ss')
 	</select>
@@ -17,6 +22,18 @@
 	</select>
 	
 	<insert id="salesMonthlyInsert" parameterType="java.util.HashMap">
-		insert into salesmonthly(salesm_num, salesmonthly_daily_sale, salesmonthly_daily_profit) values(salesm_num_seq.nextval, #{daily_sum}, #{daily_profit})
+		insert into salesmonthly(salesm_num, salesmonthly_daily_sale, salesmonthly_daily_profit, salesmonthly_date) values(salesm_num_seq.nextval, #{daily_sum}, #{daily_profit}, #{salesmonthly_date})
 	</insert>
+	
+	<select id="salesMonthlyCount" resultType="int" parameterType="java.util.HashMap">
+		<![CDATA[
+			select count(*) from salesmonthly where salesmonthly_date >=#{start} and salesmonthly_date <=#{end}
+		]]>
+	</select>
+	
+	<select id="salesMonthlyList" resultType="com.gobook.sales.dto.SalesMonthlyDto" parameterType="java.util.HashMap">
+		<![CDATA[
+			select * from salesmonthly where salesmonthly_date >=#{start} and salesmonthly_date <=#{end} order by 1 asc
+		]]>
+	</select>
 </mapper>

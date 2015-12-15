@@ -24,10 +24,6 @@
 			 monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
 			 dayNamesMin:["일","월","화","수","목","금","토"]
 		 });
-		
-		$("#clickDate").click(function(){
-			$("#dailyTable").show();
-		});
 	});
 </script>
 </head>
@@ -91,7 +87,14 @@
 					</c:if>
 					
 					<c:if test="${count > 0}">
-						
+						<c:if test="${calculCount > 0}">
+							<script type="text/javascript">
+								$(function(){
+									$("#calculBtn").hide();
+									$("<h3>정산완료</h3>").insertBefore("#calculBtn");
+								});
+							</script>
+						</c:if>
 						<div class="container" style="width:85%; border:0px solid red; margin:0 auto">
 							<table class="table table-bordered" style="line-height: 100px">
 								<thead>
@@ -113,7 +116,10 @@
 									<c:forEach var="salesDaily_total" items="${salesDailyList}">
 										<c:set var="dailySum" value="${dailySum+salesDaily_total.salesdaily_total}"/>
 										<c:set var="dailyProfit" value="${dailyProfit+salesDaily_total.salesdaily_profit}"/>
+										<c:set var="dailyDate" value="${salesDaily_total.salesdaily_date}"/>
 									</c:forEach>
+									
+									<fmt:formatDate value="${dailyDate}" type="date" pattern="yy/MM/dd" var="dailyUpdate"/>	<!-- date를 원하는 형태의 String으로 변환 -->
 									
 									<c:forEach var="salesDaily" items="${salesDailyList}">
 										<tr class="success" id="${salesDaily.salesdaily_num}">
@@ -137,7 +143,7 @@
 						<div align="left" id="order" style="width:75%">
 							<span id="daily_sum">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 							<span id="daily_profit">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${root}')"/>
+							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${dailyUpdate}', '${root}')"/>
 						</div>
 					</c:if>
 				</div>

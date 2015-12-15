@@ -27,7 +27,8 @@
 			<a href="${root}/memberManager/memberManagerUpdate.do">관리자정보수정</a><br/>
 			<a href="${root}/memberManager/memberManagerUpdate.do">쿠폰관리</a><br/>
 			<a href="${root}/location/locationWrite.do">지점등록</a><br/>
-			<a href="${root}/help/adminHelpQnAWrite.do">QnA등록</a>
+			<a href="${root}/help/adminHelpQnAWrite.do">QnA등록</a><br/>
+			<a href="${root}/sales/salesDailyList.do">매출관리</a>
 		</div>
 	
 		<div id="#con2" align="left">
