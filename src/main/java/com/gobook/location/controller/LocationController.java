@@ -35,22 +35,6 @@ public class LocationController {
 	}
 	
 	/**
-	 * @함수이름 : zipcode
-	 * @작성일 : 2015. 12. 10.
-	 * @개발자 : 강주혁
-	 * @설명 : 주소검색
-	 */
-	@RequestMapping(value="/location/zipcode.do", method={RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response){
-		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("request", request);
-		ILocationService.zipcode(mav);
-		
-		return mav;
-	}
-	
-	/**
 	 * @함수이름 : locationWriteOk
 	 * @작성일 : 2015. 12. 10.
 	 * @개발자 : 강주혁

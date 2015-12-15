@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
  * @설명 : 지점관리 Service Interface
  */
 public interface ILocationService {
-	public void zipcode(ModelAndView mav);
 	public void locationWrite(ModelAndView mav);
 	public void locationList(ModelAndView mav);
 }

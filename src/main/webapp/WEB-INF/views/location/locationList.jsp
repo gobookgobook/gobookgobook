@@ -12,16 +12,16 @@
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/location/listMapScript.js"></script>
 <script async defer
-	src="https://maps.googleapis.com/maps/api/js?sensor=true">
+	src="https://maps.googleapis.com/maps/api/js?sensor=true&signed_in=true">
 </script>
 <style type="text/css">
 	#map {
 		height: 600px;
-		width: 550px;
+		width: 600px;
 	}
 </style>
 </head>
-<body onload="initMap('${latlng}')">
+<body onload="initMap('${count}')">
 	<div align="center" id="map"></div><br/><br/>
 	<div align="center">
 		<table >
@@ -41,22 +41,29 @@
 		<c:if test="${count > 0}">
 			<table border="1">
 				<tr>
-					<td width="250" align="center">지점명</td>
-					<td width="250" align="center">지점주소</td>
-					<td width="250" align="center">전화번호</td>
+					<td width="100" align="center">지점명</td>
+					<td width="500" align="center">지점주소</td>
+					<td width="100" align="center">지점장</td>
+					<td width="150" align="center">전화번호</td>
 				</tr>
 				
+				<c:set var="i" value="0"/>
 				<c:forEach var="location" items="${locationList}">
 					<tr>
-						<td>꼬부꼬북</td>
-						<td>
-							<a href="${root}/location/locationRead.do?location_num='${location.location_num}'">${location.location_address1}</a>
-						</td>
-						<td>${location.location_phone}</td>
+						<td align="center">꼬부꼬북</td>
+						<td align="center">${location.location_address}</td>
+						<td align="center">${location.location_admin}</td>
+						<td align="center">${location.location_phone}</td>
 					</tr>
+					
+					<input type="hidden" value="${location.location_address}" id="add_${i}"/>
+					<c:set var="i" value="${i+1}"/>
+					
 				</c:forEach>
 			</table>
 		</c:if>
+		
+		<input type="hidden" value="123456" id="123"/>
 		
 		<input type="button" value="지점등록" onclick="javascript:location.href='${root}/location/locationWrite.do'"/>
 	</div>

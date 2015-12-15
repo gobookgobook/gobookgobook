@@ -11,7 +11,6 @@
 <script type="text/javascript" src="${root}/script/location/script.js"></script>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/location/registeMapScript.js"></script>
-<script async defer	src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 </head>
 <body>
 	<jsp:include page="../member/menu.jsp"/>
@@ -33,21 +32,7 @@
 			<div class="line">
 				<label class="title">지점 주소</label>
 				<span class="content">
-					*<input type="text" name="address1Disp" size="48" disabled="disabled"/>
-					<input type="button" name="locationBtn" value="주소검색" onclick="locationRead('${root}')"/>
-					<input type="hidden" name="location_address1"/>
-				</span>
-			</div>
-			
-			<div class="line">
-				<label class="title">상세주소</label>
-				<span class="content">
-					*<input type="text" name="address2Disp" size="48" disabled="disabled" />
-					<input type="button" name="parsing_button" value="지도보기" onclick="locationWriteMapToServer('${root}',locationForm)"/>
-					<input type="hidden" name="location_address2"/>
-					<input type="hidden" name="latLng"/>
-					<input type="hidden" name="location_lat"/>
-					<input type="hidden" name="location_lng"/>
+					*<input type="text" name="location_address" size="48"/>
 				</span>
 			</div>
 			

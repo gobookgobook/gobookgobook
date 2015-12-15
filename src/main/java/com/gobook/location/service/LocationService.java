@@ -29,30 +29,6 @@ public class LocationService implements ILocationService {
 	private ILocationDao iLocationDao;
 
 	/**
-	 * @함수이름 : zipcode
-	 * @작성일 : 2015. 12. 10.
-	 * @개발자 : 강주혁
-	 * @설명 : 주소검색
-	 */
-	@Override
-	public void zipcode(ModelAndView mav) {
-		Map<String, Object> map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		String dong=request.getParameter("dong");
-		
-		if(dong !=null && dong !=""){
-			GoBookAspect.logger.info(GoBookAspect.logMsg + dong);
-			
-			List<ZipcodeDto> zipcode=iLocationDao.zipcode(dong);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + zipcode.size());
-			mav.addObject("zipcode", zipcode);
-		}
-		
-		mav.setViewName("location/zipcode");
-	}
-
-	/**
 	 * @함수이름 : locationWrite
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 강주혁
@@ -82,14 +58,6 @@ public class LocationService implements ILocationService {
 		locationList=iLocationDao.locationSelect();
 		GoBookAspect.logger.info(GoBookAspect.logMsg + locationList.size());
 		
-		String latlng="";
-		for(int i=0; i<locationList.size();i++){
-			LocationDto temp = locationList.get(i);
-			latlng+=temp.getLocation_lat()+",";
-			latlng+=temp.getLocation_lng()+",";
-		}
-		
-		mav.addObject("latlng",latlng);
 		mav.addObject("locationList",locationList);
 		mav.addObject("count",locationList.size());
 		mav.setViewName("location/locationList");

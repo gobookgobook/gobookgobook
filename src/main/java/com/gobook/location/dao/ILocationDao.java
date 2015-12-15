@@ -12,7 +12,6 @@ import com.gobook.member.dto.ZipcodeDto;
  * @설명 : 지점관리 Dao Interface
  */
 public interface ILocationDao {
-	public List<ZipcodeDto> zipcode(String dong);
 	public int locationWriteInsert(LocationDto locationDto);
 	public List<LocationDto> locationSelect();
 }
