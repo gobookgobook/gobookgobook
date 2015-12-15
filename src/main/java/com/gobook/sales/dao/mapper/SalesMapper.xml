@@ -33,7 +33,7 @@
 	
 	<select id="salesMonthlyList" resultType="com.gobook.sales.dto.SalesMonthlyDto" parameterType="java.util.HashMap">
 		<![CDATA[
-			select * from salesmonthly where salesmonthly_date >=#{start} and salesmonthly_date <=#{end} order by 1 asc
+			select * from salesmonthly where salesmonthly_date >=#{start} and salesmonthly_date <=#{end} order by salesmonthly_date asc
 		]]>
 	</select>
 </mapper>

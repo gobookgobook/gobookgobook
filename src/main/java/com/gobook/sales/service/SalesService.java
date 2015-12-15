@@ -180,6 +180,8 @@ public class SalesService implements ISalesService {
 					end=year+"/"+month+"/30";
 				}else if(month==2 && year%100!=0 && year%4==0){
 					end=year+"/"+month+"/29";
+				}else if(month==2){
+					end=year+"/"+month+"/28";
 				}else{
 					end=year+"/"+month+"/31";
 				}
