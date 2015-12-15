@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../main-top.jsp"/>
 		<div align="center">
 			<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
 				<tr>

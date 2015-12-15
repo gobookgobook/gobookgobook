@@ -79,7 +79,7 @@
         </ul>
      </dd>
   </dl>
-  <form action="#" method="get" name="sch_f" id="sch_f">
+  <form action="${root}/userBook/userBookSerch.do" method="get" name="sch_f" id="sch_f">
      <fieldset>
         <legend>검색폼</legend>
         <p>
