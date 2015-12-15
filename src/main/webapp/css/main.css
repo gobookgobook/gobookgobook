@@ -51,24 +51,30 @@
 
 
 #bestbook_zone{
-	margin-bottom:40px;overflow:hidden;
+	margin-bottom:60px;
+	overflow:hidden;
+	
 }
-#bestbook_zone h3{margin-bottom:10px;}
+#bestbook_zone h3{margin:10px;}
 #best_bg{
-	width:963px;height:243px;
+	width:940px;height:270px;
 	padding-top:18px;
 	background:url("../images/bestbook_bg.gif") 0 0 no-repeat;
-	position:relative;
-	
+	position:absolute;
+	left:30px;
+
 }
 #best_bg span, #best_bg span strong{
 	display:block;text-align:center;
+	
+	
 }
 #best_bg span strong{
 	color:#88332e;font-weight:bold;
 }
 #best_bg span{
-	padding-top:18px;	
+	padding-top:18px;
+	margin-top:-10px;	
 }
 
 #best_bg .prev_btn{
@@ -77,7 +83,15 @@
 #best_bg .next_btn{
 	position:absolute;top:98px;right:50px;
 }
-
+#best_bg ul{
+	width:960px;
+	
+}
+#best_bg ul li a img{
+	width:100px; 
+	height:160px; 
+	margin:10px;
+}
 
 
 #pop_wrap{
@@ -95,6 +109,8 @@
   overflow: hidden;
   visibility: hidden;
   position: relative;
+  border:0px solid red;
+  height:260px;
 
 }
 .swipe-wrap {
@@ -108,4 +124,4 @@
 }
 
 /* END required styles */
-#mySwipe img{width:100%; max-width:100%; height:290px;}
+#mySwipe img{width:100%; max-width:100%; height:260px;}

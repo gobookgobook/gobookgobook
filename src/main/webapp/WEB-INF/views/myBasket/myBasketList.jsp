@@ -37,7 +37,7 @@
 <body>
 	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
-<div id="contents"><br/><br/><br/><br/>	
+<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 
     
     <c:if test="${id==null}">

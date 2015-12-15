@@ -18,7 +18,7 @@
 	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
 
-<div id="contents" style="height:600px;"><br/><br/><br/><br/>
+<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div align="center">
 		<font size="2"><b>회원가입(*필수입력사항입니다.)</b></font>
 	</div>

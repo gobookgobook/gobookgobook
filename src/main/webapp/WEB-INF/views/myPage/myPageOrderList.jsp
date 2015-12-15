@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="../main-top.jsp"/>
 	<br/><br/>
-<div id="contents"><br/><br/><br/><br/>	
+<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 	<div>
 	<c:if test="${id==null}">
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>

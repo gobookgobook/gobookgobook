@@ -83,13 +83,13 @@
         <legend>검색폼</legend>
         <p>
            <input type="text" name="keyword" id="keyword" title="검색어입력" />
-           <input type="image" src="${root}/images/search.png" alt="검색" />
+           <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
         </p>
      </fieldset>
   </form>
   <h2 class="hide">메인메뉴</h2>
    <ul id="gnb">
-     <li><a href="#"><img src="${root}/images/gnb_1_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
            <li><a href="#">문학</a></li>
            <li><a href="#">교육도서</a></li>
@@ -101,7 +101,7 @@
            <li><a href="#">교양</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_2_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
            <li><a href="${root}/member/update.do">회원수정</a></li>
            <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
@@ -112,9 +112,9 @@
            <li><a href="#">장바구니</a></li>
         </ul>
      </li>
-     <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_out.png" alt="장바구니" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_out.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
            <li><a href="#">Q&A</a></li>
@@ -122,9 +122,9 @@
            <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_5_out.png" alt="공동구매" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_6_out.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
   </ul> 
   <p id="date_wrap">
