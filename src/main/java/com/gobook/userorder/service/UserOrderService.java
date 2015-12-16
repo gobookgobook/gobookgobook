@@ -4,14 +4,20 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
+import com.gobook.member.dao.IMemberDao;
+import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.UserCouponDto;
+import com.gobook.mybasket.dao.IMyBasketDao;
+import com.gobook.mybasket.dto.MyBasketDto;
 import com.gobook.userorder.dao.IUserOrderDao;
 import com.gobook.userorder.dto.UserOrderDto;
 
@@ -21,6 +27,12 @@ public class UserOrderService implements IUserOrderService{
 	
 	@Autowired
 	private IUserOrderDao iUserOrderDao;
+	
+	@Autowired
+	private IMyBasketDao iMyBasketDao;
+	
+	@Autowired
+	private IMemberDao iMemberDao;
 
 
 	/**
@@ -38,23 +50,36 @@ public class UserOrderService implements IUserOrderService{
 		String member_id=(String) idSession.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
-		/*//원래 주석 처리된 코드가 들어가는 것이 맞으 (로그인 된 회원의 아이디를 이용하여 주문 리스트 뿌리기)
-		
-		int count =iUserOrderDao.userOrderCount(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" +count);
-		
-		int sum=0;
-		
-		List<UserOrderDto> userOrderList=null;
-		if(count >0){
-			userOrderList=iUserOrderDao.userOrderList(member_id);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + "userOrderList Size:"+userOrderList.size());
+		if(member_id !=null){
+			HttpSession basketSession=request.getSession();
+			
+			basketSession.setAttribute("purchase", "basket");
+			basketSession.setMaxInactiveInterval(60*60);	// 세션 시간:1시간
+			
+			String purchase=(String) basketSession.getAttribute("purchase");
+			GoBookAspect.logger.info(GoBookAspect.logMsg + purchase);
+			
+			int basketOrderCount=iMyBasketDao.myBasketCount(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "basketOrderCount:" +basketOrderCount);
+			
+			int sum=0;
+			
+			List<MyBasketDto> myBasketOrderList=null;
+			if(basketOrderCount > 0){
+				myBasketOrderList=iMyBasketDao.myBasketList(member_id);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketOrderList:"+myBasketOrderList);
+			}
+			
+			MemberDto memberDto=iMemberDao.memberSelect(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + memberDto);
+			
+			mav.addObject("memberDto", memberDto);
+			mav.addObject("myBasketOrderList", myBasketOrderList);
+			mav.addObject("basketOrderCount", basketOrderCount);
+			mav.addObject("sum",sum);
 		}
-		
-		mav.addObject("userOrderList", userOrderList);
-		mav.addObject("count", count);
-		mav.addObject("sum",sum);
-		mav.setViewName("userOrder/userOrderList");*/
+
+		mav.setViewName("userOrder/userOrderList");
 	}
 
 	

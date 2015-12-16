@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <html>
@@ -14,7 +15,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
-<%-- <script type="text/javascript" src="${root}/script/userOrder/script.js"></script> --%>
+<script type="text/javascript" src="${root}/script/userOrder/script.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#bank").hide();
@@ -52,205 +53,254 @@
 			$("#old").show();
 		});
 	});
+	
+	function authPhone(){
+		alert("휴대폰 인증이 정상적으로 처리되었습니다.");
+		$(function(){
+			$("#authPhoneNum").attr("disabled", true);
+		});
+	}
 </script>
 <title>Insert title here</title>
 </head>
 <body>
-
-
-	  <div align="center">
-		<c:if test="${count==0}">
-			<div>
-				<h3>주문한 목록이 없습니다.</h3>
+	<jsp:include page="../main-top.jsp"/>
+	<br/><br/><br/><br/><br/><br/>
+	
+	<div align="center">
+		<c:if test="${id==null}">		<!-- 비회원이 책 즉시구매를 눌렀을 경우 -->
+			<h3 align="center">회원만 주문이 가능합니다.</h3>
+			<div align="center">
+				<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
 			</div>
 		</c:if>
 		
-		
-		<c:if test="${count > 0}"> 
-	<form class="form_style" action="${root}/userOrder/userOrderList.do"
-		method="post" onsubmit="" enctype="multipart/form-data">
-		<input type="hidden" name="order_bunho" value="${order_bunho}" />
-
-		<div align="left" style="width:50%">
-			<label class="title">1. 주문 상품 목록</label>
-
-			<div class="container" style="width:100%">
-				<table class="table table-bordered">
-					<thead>
-						<tr class="info">
-							<th>책제목</th>
-							<th>수량</th>
-							<th>판매가</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="info">
-							<td>정보처리기사2015</td>
-							<td>3</td>
-							<td>18000원</td>
-						</tr>
-						<tr class="info">
-							<td>나의 라임 오렌지 나무</td>
-							<td>1</td>
-							<td>7000원</td>
-						</tr>
-						<tr class="info">
-							<td>꼬북꼬북</td>
-							<td>5</td>
-							<td>50000원</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div align="left" style="width:50%">
-			<label class="title">2. 배송지 정보</label>
-
-			<div class="container" style="width: 100%">
-				<div class="alert alert-success">
-					<div align="left">
-						<div class="form-group">
-							<label for="addr">배송지 주소</label>
-							<div align="center">
-							<span class="content"> 
-								<label><input type="radio" name="address" value="old" id="o" checked>기존 배송지</label>&nbsp;&nbsp;&nbsp; 
-								<label><input type="radio" name="address" value="new" id="n" >새로 입력</label>&nbsp;&nbsp;&nbsp;
-								</span>
-								
-						<div id="new">		
-							<div class="line">
-								<label class="title">우편번호</label> 
-								<span class="content">
-									<input type="text" name="zipcode" /> 
-									<input type="button" value="우편번호검색" onclick="zipcodeRead('${root}')" />
-									<input type="text" class="form-control" id="usr">
-								</span>
-							</div>
+		<c:if test="${id!=null}">
+			<c:if test="${purchase!='basket' && purchase!='book_num'}">	<!-- 회원이 주문을 안누른 상태로 주문내역에 들어왔을 경우 -->	
+				<div class="container" style="width:100%">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="info">
+								<th>책제목</th>
+								<th>판매가</th>
+								<th>수량</th>
+								<th>합계</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<h3>주문한 목록이 없습니다.</h3>
+				</div>
+			</c:if>
+			
+			<c:if test="${purchase=='basket'}">			<!-- 장바구니에서 주문했을 경우 뿌려주는 주문 리스트 -->
+				<form class="form_style" name="memberForm" action="${root}/userOrder/userOrderPay.do" method="post" onsubmit="">
+					<div align="left" style="width:50%">
+						<label class="title">1. 주문 상품 목록</label>
 						
-						<label for="phone">전화번호</label> 
-						<input type="text" class="form-control" id="hphone" value="">
+						<div class="container" style="width:100%">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="info">
+										<th>책제목</th>
+										<th>판매가</th>
+										<th>수량</th>
+										<th>합계</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:set var="sum" value="0"/>
+									<c:forEach var="myBasketOrder_total" items="${myBasketOrderList}">
+										<c:set var="sum" value="${sum+myBasketOrder_total.basket_total_price}"/>
+									</c:forEach>
+									
+									<c:forEach var="myBasketOrder" items="${myBasketOrderList}">
+									<c:set var="point" value="${myBasketOrder.basket_book_price*0.03}"/>	
+										<tr class="info" id="${myBasketOrder.basket_num}">
+											<td>${myBasketOrder.basket_book_name}</td>
+											<td>
+												<fmt:formatNumber value="${myBasketOrder.basket_book_price}" groupingUsed="true"/>원
+												 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
+											</td>
+											<td>${myBasketOrder.basket_quantity}</td>
+											<td id="totalPrice${myBasketOrder.basket_num}"><fmt:formatNumber value="${myBasketOrder.basket_total_price}" groupingUsed="true"/>원</td>
+										</tr>
+									</c:forEach>
+									
+									<c:set var="point_sum" value="${sum*0.03}"/>
+								</tbody>
+							</table>
 						</div>
 						
-						<div id="old">		
-							<div class="line">
-								<label class="title">우편번호</label> 
-								<span class="content">
-									<input type="text" name="zipcode" /> 
-									<input type="button" value="우편번호검색" onclick="zipcodeRead('${root}')" />
-									<input type="text" class="form-control" id="usr" value="경기도 성남시 분당구 금곡동">
-								</span>
-							</div>
-						
-						<label for="phone">전화번호</label> 
-						<input type="text" class="form-control" id="hphone" value="010-4166-5338">
+						<hr width="50%" color="blue"/>
+						<div align="right" id="order" style="width:98%">
+							<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+							<span id="sum" style="font-size: 20px">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-      </div>
-     </div> 
-		<div align="left" style="width:50%">
-			<label class="title">3. 할인/적립 혜택</label>
-
-
-			<div class="container" style="width: 100%">
-				<div class="alert alert-warning">
-					<div align="left">
-						<label class="title">쿠폰</label> <span class="content"> <input
-							type="text" name="zipcode" /> <input type="button" value="쿠폰적용"
-							onclick="couponRead('${root}')" /><br /> <br />
-						</span>
-					</div>
-					<div align="left">
-						<label class="title">포인트사용</label> <span class="content"> <input
-							type="text" name="point" /> <input type="text" name="point"
-							value="10000" />
-
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div align="left" style="width:50%">
-			<label class="title">4. 결제정보</label>
-			<div class="container" style="width: 100%">
-				<div class="alert alert-danger">
-					<div align="left">
-						<label class="title">결제수단</label>
-						<div align="center">
-							<span class="content"> 
-								<label><input type="radio" name="pay" value="credit" id="c" checked>신용카드</label>&nbsp;&nbsp;&nbsp; 
-								<label><input type="radio" name="pay" value="bank" id="b" >무통장입금</label>&nbsp;&nbsp;&nbsp;
-								<label><input type="radio" name="pay" value="phone" id="p">휴대폰결제</label>&nbsp;&nbsp;&nbsp;
-							</span>
-						</div>
-
-						<div class="container">
-							<div id="card" >
-								<label class="title">카드선택</label>
-								<div class="dropdown">
-									<button class="btn btn-primary dropdown-toggle"
-										data-toggle="dropdown">
-										카드사선택 <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#">국민카드</a></li>
-										<li><a href="#">삼성카드</a></li>
-										<li><a href="#">현대카드</a></li>
-										<li><a href="#">신한카드</a></li>
-									</ul>
-								</div>
-								<label class="title">할부기간</label>
-								<div class="dropdown">
-									<button class="btn btn-primary dropdown-toggle"
-										data-toggle="dropdown">
-										일시불 <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#">일시불</a></li>
-									</ul>
+					
+					<div align="left" style="width:50%">
+						<label class="title">2. 배송지 정보</label>
+			
+						<div class="container" style="width: 100%">
+							<div class="alert alert-info">
+								<div align="left">
+									<div class="form-group">
+										<label for="addr">배송지 주소</label>
+										<div align="center">
+											<span class="content"> 
+												<label><input type="radio" name="address" value="old" id="o" checked>기존 배송지</label>&nbsp;&nbsp;&nbsp; 
+												<label><input type="radio" name="address" value="new" id="n" >새로 입력</label>&nbsp;&nbsp;&nbsp;
+											</span>
+											
+											<div id="new">		
+												<div class="line">
+													<label class="title">우편번호</label>
+													<span class="content">
+														<input type="text" name="zipcodeDisp" disabled="disabled"/>
+														<input type="hidden" name="member_zipcode"/>
+														<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
+													</span>
+											  	</div>
+												
+												<div class="line">
+													<span class="content">
+														<input type="text" class="form-control" name="address1Disp" size="48" disabled="disabled"/>
+														<input type="hidden" name="member_address1"/>
+													</span>
+												</div>
+												
+												<div class="line">
+													<span class="content">
+														<input type="text" class="form-control" name="member_address2" size="48" />
+													</span>
+												</div>
+										
+												<label for="phone">전화번호</label> 
+												<input type="text" class="form-control" id="hphone" value="">
+											</div>
+									
+											<div id="old">		
+												<div class="line">
+													<label class="title">우편번호</label>
+													<span class="content">
+														<input type="text" name="oldZipcodeDisp" value="${memberDto.member_zipcode}" disabled="disabled"/>
+														<input type="hidden" name="oldMember_zipcode" value="${memberDto.member_zipcode}"/>
+													</span>
+											  	</div>
+												
+												<div class="line">
+													<span class="content">
+														<input type="text" class="form-control" name="oldAddress1Disp" size="48" value="${memberDto.member_address1}" disabled="disabled"/>
+														<input type="hidden" name="oldMember_address1" value="${memberDto.member_address1}"/>
+													</span>
+												</div>
+												
+												<div class="line">
+													<span class="content">
+														<input type="text" class="form-control" name="oldMember_address2" value="${memberDto.member_address2}" size="48" />
+													</span>
+												</div>
+											
+												<label for="phone">전화번호</label> 
+												<input type="text" class="form-control" id="oldHphone" value="${memberDto.member_phone}">
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-							
-							<div id="bank" >
-								<label class="title">무통장선택</label>
-								<div class="dropdown">
-									<button class="btn btn-primary dropdown-toggle"
-										data-toggle="dropdown">
-										은행선택 <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#">국민은행 490302-04-052974 꼬북(강주혁)</a></li>
-										<li><a href="#">우리은행 953455-07-388721 꼬북(강주혁)</a></li>
-										<li><a href="#">농협 785591-38-421142 꼬북(강주혁)</a></li>
-									</ul>
-								  </div>
+			     		</div>
+			    	</div> 
+					<div align="left" style="width:50%">
+						<label class="title">3. 할인/적립 혜택</label>
+			
+						<div class="container" style="width: 100%">
+							<div class="alert alert-info">
+								<div align="left">
+									<label class="title">쿠폰</label> 
+									<span class="content"> 
+										<input type="text" name="zipcode" /> 
+										<input type="button" value="쿠폰적용" onclick="couponRead('${root}')"/><br/><br/>
+									</span>
 								</div>
-								
-							 <div id="phone" >
-								<label class="title">휴대폰결제</label>
-								   <span class="content">
-									<input type="text" name="zipcode" /> 
-									<input type="button" value="휴대폰인증" onclick="zipcodeRead('${root}')" /> 
-								</span>
-								</div>	
-							</div>		
+								<div align="left">
+									<label class="title">포인트사용</label> 
+									<span class="content"> 
+										<input type="text" id="point" name="point"/> 
+										<input type="text" name="equipPoint" value="${memberDto.member_point}" disabled="disabled"/>
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		
-		<div align="center">
-			<div class="line"
-				style="width: 498px; border-width: 2px; text-align: center;">
-				<input type="submit" value="주문" />
-
-			</div>
-		</div>
-	</form>
-	 </c:if> 
+			
+					<div align="left" style="width:50%">
+						<label class="title">4. 결제정보</label>
+						<div class="container" style="width: 100%">
+							<div class="alert alert-info">
+								<div align="left">
+									<label class="title">결제수단</label>
+									<div align="center">
+										<span class="content"> 
+											<label><input type="radio" name="pay" value="credit" id="c" checked>신용카드</label>&nbsp;&nbsp;&nbsp; 
+											<label><input type="radio" name="pay" value="bank" id="b" >무통장입금</label>&nbsp;&nbsp;&nbsp;
+											<label><input type="radio" name="pay" value="phone" id="p">휴대폰결제</label>&nbsp;&nbsp;&nbsp;
+										</span>
+									</div>
+									
+									<div class="container" style="width: 100%">
+										<form role="form">
+											<div id="card" class="form-group">
+												<label class="title" for="cardSel1">카드선택</label>
+												<select class="form-control" id="cardSel1">
+													<option>국민카드</option>
+													<option>삼성카드</option>
+													<option>현대카드</option>
+													<option>신한카드</option>
+												</select><br/>
+												<label class="title" for="cardSel2">할부기간</label>
+												<select class="form-control" id="cardSel2">
+													<option>일시불</option>
+												</select>
+											</div>
+											
+											<div id="bank">
+												<label class="title" for="bankSel">계좌선택</label>
+												<select class="form-control" id="bankSel">
+													<option>국민은행 490302-04-052974 꼬북(강주혁)</option>
+													<option>우리은행 953455-07-388721 꼬북(강주혁)</option>
+													<option>농협 785591-38-421142 꼬북(강주혁)</option>
+												</select>
+										
+											</div>
+												
+											 <div id="phone">
+												<label class="title">휴대폰결제</label>
+												   <span class="content">
+													<input type="text" name="authPhoneNum" id="authPhoneNum"/> 
+													<input type="button" value="휴대폰인증" onclick="authPhone()" /> 
+												</span>
+											</div>	
+										</form>
+									</div>		
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div align="center">
+						<div class="line" style="width: 498px; border-width: 2px; text-align: center;">
+							<input type="submit" class="btn btn-primary" value="주문" />
+						</div>
+					</div>
+				</form>
+			</c:if>
+			
+			<c:if test="${purchase=='book_num'}">	<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
+				
+			</c:if>
+		</c:if>
   </div>
 </body>
 </html>

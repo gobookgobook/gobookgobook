@@ -73,12 +73,3 @@ function updateToServer(basket_num, value, root){
 		}
 	});
 }
-
-function gotoUserOrder(myBasketList, sum, point_sum, root){
-	// alert("sum:"+sum + ",point_sum:"+point_sum);
-	// alert("myBasketList:"+myBasketList);
-	var url=root+"/userOrder/userOrderList.do?myBasketList="+myBasketList+"&sum="+sum+"&point_sum="+point_sum;
-	//alert(url);
-	location.href=url;
-	
-}

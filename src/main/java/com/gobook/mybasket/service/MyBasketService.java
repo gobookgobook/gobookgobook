@@ -45,20 +45,20 @@ public class MyBasketService implements IMyBasketService {
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
 		if(member_id !=null){
-		int count=iMyBasketDao.myBasketCount(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
-		
-		int sum=0;
-		
-		List<MyBasketDto> myBasketList=null;
-		if(count > 0){
-			myBasketList=iMyBasketDao.myBasketList(member_id);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketList Size:"+myBasketList);
-		}
-		
-		mav.addObject("myBasketList", myBasketList);
-		mav.addObject("count", count);
-		mav.addObject("sum",sum);
+			int count=iMyBasketDao.myBasketCount(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "count:"+count);
+			
+			int sum=0;
+			
+			List<MyBasketDto> myBasketList=null;
+			if(count > 0){
+				myBasketList=iMyBasketDao.myBasketList(member_id);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "myBasketList Size:"+myBasketList);
+			}
+			
+			mav.addObject("myBasketList", myBasketList);
+			mav.addObject("count", count);
+			mav.addObject("sum",sum);
 		}
 		mav.setViewName("myBasket/myBasketList");
 	}

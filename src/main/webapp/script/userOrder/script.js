@@ -1,6 +1,12 @@
 /**
  * 
  */
+function zipcodeRead(root){
+	var url =root+"/member/zipcode.do";
+	//alert(url);
+	
+	window.open(url,"","width=400, height=400, scrollbars=yes");
+}
 
 /*function payToServer(root, order_bunho){
 	

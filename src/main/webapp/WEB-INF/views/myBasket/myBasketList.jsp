@@ -37,7 +37,7 @@
 <body>
 	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
-<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
+	<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 
     
     <c:if test="${id==null}">
@@ -95,7 +95,7 @@
 									<td>${myBasket.basket_book_name}</td>
 									<td>
 										<fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원
-										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
+										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true"/> &nbsp;P)
 									</td>
 									<td>
 										<form name="quantity_update" method="post">
@@ -121,8 +121,8 @@
 				
 				<hr width="50%" color="blue"/>
 				<div align="right" id="order" style="width:50%">
-					<span id="point_sum">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-					<span id="sum">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
+					<span id="point_sum">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" pattern="#"/>원</span>&nbsp;&nbsp;&nbsp;
+					<span id="sum">상품 총 금액:<fmt:formatNumber value="${sum}" pattern="#"/>원</span>
 					<input type="button" class="btn btn-primary" value="주문하기" onclick="javascript:location.href='${root}/userOrder/userOrderList.do'"/>
 				</div>
 			</c:if>
