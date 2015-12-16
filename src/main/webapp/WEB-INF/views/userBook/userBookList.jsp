@@ -37,9 +37,6 @@ ${category},${bookDto.size()}
 					</div>
 				</c:forEach>
 			</c:if>
-			<c:if test="${bookDtoCount==0 }">
-				등록된 도서가 없습니다.
-			</c:if>
 		</div>
 		<div align="center">
 			<c:if test="${bookDtoCount > 0}">

@@ -35,8 +35,8 @@
 					</tr>
 				</c:forEach>
 				</table>
-	</c:if>
-	<input type="button" onclick="location.href='${root}/help/adminHelpQnAWrite.do'" value="등록">		
+		</c:if>
+			
 	<div>
 		<c:set var="pageBlock" value="${2}"/>
 		<fmt:parseNumber var="rs" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
