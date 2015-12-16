@@ -26,4 +26,5 @@ public interface IUserBookDao {
 	public List<BookDto> bookSerchList(HashMap<String, Object> hMap);
 	public String interestSelect(String member_id);
 	public List<BookDto> userBookInterestReadingSelect(String interest);
+	public List<String> sujestBookList(String value);
 }

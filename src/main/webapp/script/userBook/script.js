@@ -161,98 +161,42 @@ function userbookstar_star(root, book_num){
 	
 }
 
+
 /**
- * @함수이름 : startSuggest 이하 hide 까지
- * @작성일 : 2015. 12. 15.
+ * @함수이름 : startSuggest
+ * @작성일 : 2015. 12. 16.
  * @개발자 : 성기훈
  * @설명 : 도서검색 suggest
  */
-
-var checkFirst = false;
-var lastKeyword = '';
-var loopSendKeyword = false;
 var rt="";
 function startSuggest(root){
 	rt=root;
-	if (checkFirst == false) {
-		setTimeout("sendKeyword();", 500); //0.5초 후에 sendKeyword() 호출
-		loopSendKeyword = true;
-	}
-	checkFirst = true;
-}
-
-function sendKeyword() {
-	if (loopSendKeyword == false) return;
-		  
-	var keyword = document.getElementById("keyword").value;
-	if (keyword == '') {
-		lastKeyword = '';
-		hide('suggest');
-	} else if (keyword != lastKeyword) {
-		lastKeyword = keyword;
-		   
-		if (keyword != '') {
-			var params = "keyword="+encodeURIComponent(keyword);
-			$(function(){
-				$.ajax({
-					url:rt+"/userBook/suggest.do",
-					type:"post",
-					data:params,
-					contentType:"application/x-www-form-urlencoded;charset=utf-8",
-					dataType:"text",
-					success:displayResult
-				});			
-			})
-		} else {
-			hide('suggest');
-		}
-	}
-	setTimeout("sendKeyword();", 500);
-}
-
-function displayResult() {
-	if (xhr.readyState == 4) {					//4 : 데이터를 전부 받은 상태
-		if (xhr.status == 200) {				//200 : 서버로 부터의 요청이 성공하면
-			var resultText = xhr.responseText;	//응답 text값을 가져온다.
-			var result = resultText.split('|');
-			var count = parseInt(result[0]);
-			var keywordList = null;
-			if (count > 0) {
-				keywordList = result[1].split(',');
-				var html = '';
-				for (var i = 0 ; i < keywordList.length ; i++) {
-					html += "<a href=\"javascript:select('"+keywordList[i]+"')\">"+keywordList[i]+"</a><br/>";
-				}
-				var listView = document.getElementById('suggestList');
-				listView.innerHTML = html;
-			     
-				show('suggest');
-			} else {
-				hide('suggest');
+	$(function(){
+		$("#keyword").autocomplete({
+			source : function( request, response ) {
+			     $.ajax({
+			       	    type: 'post',
+			            url: rt+"/userBook/suggest.do",
+			            dataType: "json",
+			            data: { value : request.term },	//request.term = $("#autocomplete").val()
+			            success: function(data) {
+			            	//서버에서 json 데이터 response 후 목록에 뿌려주기 위함
+			                response( 
+			                	$.map(data, function(item) {
+			               			return {
+			               				label: item.data,
+			               				value: item.data
+			              			}
+			              		})
+			              	);
+			            }
+			       });
+		        },
+			//조회를 위한 최소글자수
+			minLength: 1,
+			select: function( event, ui ) {
+				// 만약 검색리스트에서 선택하였을때 선택한 데이터에 의한 이벤트발생
 			}
-		} else {
-			alert("에러 발생: "+xhr.status);
-		}
-	}
-}
-
-function select(selectedKeyword) {
-	document.getElementById("keyword").value = selectedKeyword;
-	loopSendKeyword = false;
-	checkFirst = false;
-	hide('suggest');
-}
-
-function show(elementId) {
-	var element = document.getElementById(elementId);
-	if (element) {
-		element.style.display = '';
-	}
-}
-
-function hide(elementId) {
-	var element = document.getElementById(elementId);
-	if (element) {
-		element.style.display = 'none';
-	}
+		});
+	});
 }

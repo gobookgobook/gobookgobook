@@ -98,5 +98,17 @@ public class UserBookDao implements IUserBookDao {
 	public List<BookDto> userBookInterestReadingSelect(String interest) {
 		return sqlSessionTemplate.selectList("dao.userBookMapper.userBookInterestReadingSelect", interest);
 	}
+
+	/**
+	 * @함수이름 : sujestBookList
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서검색 suggest
+	 */
+	@Override
+	public List<String> sujestBookList(String value) {
+		
+		return sqlSessionTemplate.selectList("dao.userBookMapper.sujestBookList", value);
+	}
 	
 }

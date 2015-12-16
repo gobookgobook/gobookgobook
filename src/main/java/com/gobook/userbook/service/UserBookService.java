@@ -24,6 +24,9 @@ import com.gobook.userbook.dao.IUserBookDao;
 import com.gobook.userbook.dto.UserBookStarDto;
 import com.gobook.userorder.dto.UserOrderDto;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 @Component
 public class UserBookService implements IUserBookService {
 
@@ -337,10 +340,41 @@ public class UserBookService implements IUserBookService {
 		mav.setViewName("userBook/userBookInterestRead");
 	}
 
+	/**
+	 * @함수이름 : suggest
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서검색 suggest
+	 */
 	@Override
 	public void suggest(ModelAndView mav) {
-		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
 		
+		String value = request.getParameter("value");
+		JSONArray sujestList = new JSONArray();
+	    JSONObject obj = null;
+	    List<String> sujestBookList=iUserBookDao.sujestBookList(value);
+	    
+	    for(int i=0; i<sujestBookList.size(); i++) {
+	    	obj=new JSONObject();
+	    	obj.put("data", sujestBookList.get(i));
+	    	sujestList.add(obj);
+	    }
+	    
+	    PrintWriter pw=null;
+	    response.setContentType("application/html;charset=utf-8");
+		try {
+			pw = response.getWriter();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    pw.print(sujestList);
+	    pw.flush();
+	    pw.close();
 	}
 	
 }

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
 	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
-	
+	<script type="text/javascript" src="${root}/script/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="${root}/css/style.css" /><!-- 터치 슬라이드 스타일(CSS) 연동 -->
 	<script type="text/javascript" src="${root}/js/swipe.js"></script> <!-- 터치 슬라이드 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/jquery.bxslider.min.js"></script>  <!-- bxSlider 플러그인 연동 -->
@@ -20,6 +20,9 @@
 	<script type="text/javascript" src="${root}/js/common.js"></script>
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 	<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="wrap">

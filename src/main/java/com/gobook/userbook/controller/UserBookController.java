@@ -137,12 +137,13 @@ public class UserBookController {
 	 * @함수이름 : suggest
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서검색 서제스트
+	 * @설명 : 도서검색 suggest
 	 */
 	@RequestMapping(value="/userBook/suggest.do", method=RequestMethod.POST)
 	public ModelAndView suggest(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("response", response);
 		iUserBookService.suggest(mav);
 		
 		return null;
