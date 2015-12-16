@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.gobook.help.dto.HelpNoticeDto;
 import com.gobook.help.dto.HelpQnADto;
+import com.gobook.location.dto.LocationDto;
 
 
 
@@ -18,4 +19,6 @@ public interface IUserHelpDao {
 	public int userHelpNoticeCount();
 	public List<HelpNoticeDto> userHelpNoticeSelect(int startRow, int endRow);
 	public HelpNoticeDto userHelpNoticeRead(int helpnotice_num);
+	
+	public List<LocationDto> userHelpLocation();
 }

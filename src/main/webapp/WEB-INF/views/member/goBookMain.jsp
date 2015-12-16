@@ -150,7 +150,7 @@
            <li><a href="#">1:1문의</a></li>
            <li><a href="${root}/help/userHelpQnA.do">Q&A</a></li>
            <li><a href="${root}/help/userHelpNotice.do">공지사항</a></li>
-           <li><a href="#">지점 확인</a></li>
+           <li><a href="${root}/help/userHelpLocation.do">지점 확인</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>

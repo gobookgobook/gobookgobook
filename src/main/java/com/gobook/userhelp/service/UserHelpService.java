@@ -15,6 +15,7 @@ import com.gobook.aop.GoBookAspect;
 import com.gobook.help.dto.HelpNoticeDto;
 import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
+import com.gobook.location.dto.LocationDto;
 import com.gobook.userhelp.dao.IUserHelpDao;
 @Component
 public class UserHelpService implements IUserHelpService {
@@ -151,5 +152,22 @@ public class UserHelpService implements IUserHelpService {
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("userHelp/userHelpNoticeRead");
 		
+	}
+
+	/**
+	 * @함수이름 : userHelpLocation
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 오프라인 지점 안내
+	 */
+	@Override
+	public void userHelpLocation(ModelAndView mav) {
+		List<LocationDto> locationList = null;
+		locationList=iUserHelpDao.userHelpLocation();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + locationList.size());
+		
+		mav.addObject("locationList",locationList);
+		mav.addObject("count",locationList.size());
+		mav.setViewName("userHelp/userHelpLocation");
 	}
 }

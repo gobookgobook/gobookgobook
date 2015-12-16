@@ -65,4 +65,18 @@ public class UserHelpController {
 		return mav;
 		
 	}
+	
+	/**
+	 * @함수이름 : userHelpLocation
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 오프라인 지점 가져오기
+	 */
+	@RequestMapping(value="help/userHelpLocation.do",method=RequestMethod.GET)
+	public ModelAndView userHelpLocation(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		iUserHelpService.userHelpLocation(mav);
+		
+		return mav;
+	}
 }

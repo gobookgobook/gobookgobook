@@ -10,4 +10,6 @@ public interface IUserHelpService {
 	
 	public void userHelpNoticeList(ModelAndView mav);
 	public void userHelpNoticeRead(ModelAndView mav);
+	
+	public void userHelpLocation(ModelAndView mav);
 }

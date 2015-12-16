@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.gobook.help.dto.HelpNoticeDto;
 import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
+import com.gobook.location.dto.LocationDto;
 @Component
 public class UserHelpDao implements IUserHelpDao {
 	@Autowired
@@ -61,6 +62,17 @@ public class UserHelpDao implements IUserHelpDao {
 	public HelpNoticeDto userHelpNoticeRead(int helpnotice_num) {
 		
 		return sqlSessionTemplate.selectOne("dao.UserHelpMapper.userHelpNoticeRead",helpnotice_num);
+	}
+
+	/**
+	 * @함수이름 : userHelpLocation
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 오프라인 지점 안내
+	 */
+	@Override
+	public List<LocationDto> userHelpLocation() {
+		return sqlSessionTemplate.selectList("dao.UserHelpMapper.userHelpLocation");
 	}
 
 

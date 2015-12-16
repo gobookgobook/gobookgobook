@@ -5,10 +5,8 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import com.gobook.location.dto.LocationDto;
-import com.gobook.member.dto.ZipcodeDto;
 
 /**
  * @클래스이름 : LocationDao

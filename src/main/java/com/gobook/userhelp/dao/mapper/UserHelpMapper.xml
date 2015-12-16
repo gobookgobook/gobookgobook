@@ -6,9 +6,11 @@
 	<insert id="userHelpPvPInsert" parameterType="com.gobook.help.dto.HelpPvPDto">
 		insert into helppvp(helppvp_num, member_id, helppvp_user_subject, helppvp_user_content, helppvp_write_date) values(helppvp_helppvp_num_seq.nextval, #{member_id, jdbcType=VARCHAR}, #{helppvp_user_subject, jdbcType=VARCHAR}, #{helppvp_user_content, jdbcType=VARCHAR}, sysdate)
 	</insert>
+	
 	<select id="userHelpQnACount" resultType="int">
 		select count(*) from helpqna
 	</select>
+	
 	<select id="userHelpQnASelect" resultType="com.gobook.help.dto.HelpQnADto" parameterType="java.util.HashMap">
 		<![CDATA[
 			select * from
@@ -26,6 +28,7 @@
 	<select id="userHelpNoticeCount" resultType="int">
 		select count(*) from helpnotice
 	</select>
+	
 	<select id="userHelpNoticeSelect" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="java.util.HashMap">
 		<![CDATA[
 			select * from
@@ -34,7 +37,12 @@
 			where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 	</select>
+	
 	<select id="userHelpNoticeRead" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="int">
 		select * from helpnotice where helpnotice_num=#{helpnotice_num}
+	</select>
+	
+	<select id="userHelpLocation" resultType="com.gobook.location.dto.LocationDto">
+		select * from location
 	</select>
 </mapper>
