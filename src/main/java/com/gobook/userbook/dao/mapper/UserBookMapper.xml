@@ -95,6 +95,6 @@
 	</select>
 	
 	<select id="sujestBookList" parameterType="String" resultType="String">
-		select book_name from book where book_name like '%' || #{keyword} || '%'
+		select book_name from book where book_name like '%' || #{value} || '%'
 	</select>
 </mapper>
