@@ -14,14 +14,14 @@
 	<br/><br/>
 	<c:if test="${id=='admin'}">
 	<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
+		<div id="header" style="height: 227px">
+			<jsp:include page="../main-top.jsp"/>
 		</div>
 		
 		<div id="nav">
 			<a href="${root}/member/adminMain.do"><b> 관리자 페이지 </b></a><br/>
 		</div>
-		
+		<div id="contents" style="height:600px; background:white; border:1px solid black">
 		<div id="con1" align="left" style="height:300px;">
 			<a href="${root}/bookManage/bookManage.do">도서관리</a><br/>
 			<a href="${root}/memberManager/memberManagerUpdate.do">관리자정보수정</a><br/>
@@ -37,6 +37,10 @@
 	
 		<div id="#con2" align="left">
 			
+		</div>
+		</div>
+		<div id="footer" style="height: 195px">
+			<jsp:include page="../main-bottom.jsp"/>
 		</div>
 	</div>
 	</c:if>
