@@ -54,7 +54,6 @@
 	});
 </script>
 <title>Insert title here</title>
-
 </head>
 <body>
 
@@ -72,10 +71,10 @@
 		method="post" onsubmit="" enctype="multipart/form-data">
 		<input type="hidden" name="order_bunho" value="${order_bunho}" />
 
-		<div align="left">
+		<div align="left" style="width:50%">
 			<label class="title">1. 주문 상품 목록</label>
 
-			<div class="container" style="width: 50%">
+			<div class="container" style="width:100%">
 				<table class="table table-bordered">
 					<thead>
 						<tr class="info">
@@ -104,10 +103,10 @@
 				</table>
 			</div>
 		</div>
-		<div align="left">
+		<div align="left" style="width:50%">
 			<label class="title">2. 배송지 정보</label>
 
-			<div class="container" style="width: 50%">
+			<div class="container" style="width: 100%">
 				<div class="alert alert-success">
 					<div align="left">
 						<div class="form-group">
@@ -151,11 +150,11 @@
 		</div>
       </div>
      </div> 
-		<div align="left">
+		<div align="left" style="width:50%">
 			<label class="title">3. 할인/적립 혜택</label>
 
 
-			<div class="container" style="width: 50%">
+			<div class="container" style="width: 100%">
 				<div class="alert alert-warning">
 					<div align="left">
 						<label class="title">쿠폰</label> <span class="content"> <input
@@ -174,9 +173,9 @@
 			</div>
 		</div>
 
-		<div align="left">
+		<div align="left" style="width:50%">
 			<label class="title">4. 결제정보</label>
-			<div class="container" style="width: 50%">
+			<div class="container" style="width: 100%">
 				<div class="alert alert-danger">
 					<div align="left">
 						<label class="title">결제수단</label>
@@ -193,7 +192,7 @@
 								<label class="title">카드선택</label>
 								<div class="dropdown">
 									<button class="btn btn-primary dropdown-toggle"
-										data-toggle="drop	down">
+										data-toggle="dropdown">
 										카드사선택 <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">

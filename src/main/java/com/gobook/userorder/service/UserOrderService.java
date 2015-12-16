@@ -33,9 +33,12 @@ public class UserOrderService implements IUserOrderService{
 	public void userOrderList(ModelAndView mav) {
 		Map<String, Object> map= mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		String member_id="abc123"; /*request.getParameter("member_id");*/
 		
-		//원래 주석 처리된 코드가 들어가는 것이 맞으 (로그인 된 회원의 아이디를 이용하여 주문 리스트 뿌리기)
+		HttpSession idSession=request.getSession();
+		String member_id=(String) idSession.getAttribute("id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		
+		/*//원래 주석 처리된 코드가 들어가는 것이 맞으 (로그인 된 회원의 아이디를 이용하여 주문 리스트 뿌리기)
 		
 		int count =iUserOrderDao.userOrderCount(member_id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" +count);
@@ -51,7 +54,7 @@ public class UserOrderService implements IUserOrderService{
 		mav.addObject("userOrderList", userOrderList);
 		mav.addObject("count", count);
 		mav.addObject("sum",sum);
-		mav.setViewName("userOrder/userOrderList");
+		mav.setViewName("userOrder/userOrderList");*/
 	}
 
 	
