@@ -28,7 +28,10 @@
 			<a href="${root}/memberManager/memberManagerUpdate.do">쿠폰관리</a><br/>
 			<a href="${root}/location/locationWrite.do">지점등록</a><br/>
 			<a href="${root}/help/adminHelpQnAWrite.do">QnA등록</a><br/>
-			<a href="${root}/sales/salesDailyList.do">매출관리</a>
+			<a href="${root}/help/adminHelpQnAList.do">QnA목록으로</a><br/>
+			<a href="${root}/sales/salesDailyList.do">매출관리</a><br/>
+			<a href="${root}/help/adminHelpNoticeWrite.do">공지사항등록하기</a><br/>
+			<a href="${root}/help/adminHelpNoticeList.do">공지사항목록으로</a><br/>
 		</div>
 	
 		<div id="#con2" align="left">

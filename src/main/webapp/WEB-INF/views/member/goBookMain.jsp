@@ -147,8 +147,8 @@
      <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
-           <li><a href="#">Q&A</a></li>
-           <li><a href="#">공지사항</a></li>
+           <li><a href="${root}/help/userHelpQnA.do">Q&A</a></li>
+           <li><a href="${root}/help/userHelpNotice.do">공지사항</a></li>
            <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
