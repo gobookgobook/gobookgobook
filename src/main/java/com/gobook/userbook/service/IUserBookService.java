@@ -12,4 +12,5 @@ public interface IUserBookService {
 	public void userBookList(ModelAndView mav);
 	public void userBookSerch(ModelAndView mav);
 	public void userBookInterestReading(ModelAndView mav);
+	public void suggest(ModelAndView mav);
 }

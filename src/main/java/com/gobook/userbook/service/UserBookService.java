@@ -305,5 +305,17 @@ public class UserBookService implements IUserBookService {
 		mav.addObject("book", book);
 		mav.setViewName("userBook/userBookInterestRead");
 	}
+
+	/**
+	 * @함수이름 : suggest
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서검색 suggest
+	 */
+	@Override
+	public void suggest(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

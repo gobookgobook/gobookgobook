@@ -109,7 +109,7 @@
      <fieldset>
         <legend>검색폼</legend>
         <p>
-           <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest()"/>
+           <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest('${root}')"/>
            <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
         </p>
         <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">

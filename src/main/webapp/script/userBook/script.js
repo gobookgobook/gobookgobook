@@ -148,3 +148,99 @@ function userbookstar_star(root, book_num){
 	});
 	
 }
+
+/**
+ * @함수이름 : startSuggest 이하 hide 까지
+ * @작성일 : 2015. 12. 15.
+ * @개발자 : 성기훈
+ * @설명 : 도서검색 suggest
+ */
+
+var checkFirst = false;
+var lastKeyword = '';
+var loopSendKeyword = false;
+var rt="";
+function startSuggest(root){
+	rt=root;
+	if (checkFirst == false) {
+		setTimeout("sendKeyword();", 500); //0.5초 후에 sendKeyword() 호출
+		loopSendKeyword = true;
+	}
+	checkFirst = true;
+}
+
+function sendKeyword() {
+	if (loopSendKeyword == false) return;
+		  
+	var keyword = document.getElementById("keyword").value;
+	if (keyword == '') {
+		lastKeyword = '';
+		hide('suggest');
+	} else if (keyword != lastKeyword) {
+		lastKeyword = keyword;
+		   
+		if (keyword != '') {
+			var params = "keyword="+encodeURIComponent(keyword);
+			$(function(){
+				$.ajax({
+					url:rt+"/userBook/suggest.do",
+					type:"post",
+					data:params,
+					contentType:"application/x-www-form-urlencoded;charset=utf-8",
+					dataType:"text",
+					success:displayResult
+				});			
+			})
+		} else {
+			hide('suggest');
+		}
+	}
+	setTimeout("sendKeyword();", 500);
+}
+
+function displayResult() {
+	if (xhr.readyState == 4) {					//4 : 데이터를 전부 받은 상태
+		if (xhr.status == 200) {				//200 : 서버로 부터의 요청이 성공하면
+			var resultText = xhr.responseText;	//응답 text값을 가져온다.
+			var result = resultText.split('|');
+			var count = parseInt(result[0]);
+			var keywordList = null;
+			if (count > 0) {
+				keywordList = result[1].split(',');
+				var html = '';
+				for (var i = 0 ; i < keywordList.length ; i++) {
+					html += "<a href=\"javascript:select('"+keywordList[i]+"')\">"+keywordList[i]+"</a><br/>";
+				}
+				var listView = document.getElementById('suggestList');
+				listView.innerHTML = html;
+			     
+				show('suggest');
+			} else {
+				hide('suggest');
+			}
+		} else {
+			alert("에러 발생: "+xhr.status);
+		}
+	}
+}
+
+function select(selectedKeyword) {
+	document.getElementById("keyword").value = selectedKeyword;
+	loopSendKeyword = false;
+	checkFirst = false;
+	hide('suggest');
+}
+
+function show(elementId) {
+	var element = document.getElementById(elementId);
+	if (element) {
+		element.style.display = '';
+	}
+}
+
+function hide(elementId) {
+	var element = document.getElementById(elementId);
+	if (element) {
+		element.style.display = 'none';
+	}
+}
