@@ -16,16 +16,15 @@
 		※도서 목록
 	</div>
 	<div class="category">
-		<a href="${root}/userBook/userBookList.do?category=${1}">문학</a>
-		<a href="${root}/userBook/userBookList.do?category=${2}">교육도서</a>
-		<a href="${root}/userBook/userBookList.do?category=${3}">전공도서</a>
-		<a href="${root}/userBook/userBookList.do?category=${4}">만화</a>
-		<a href="${root}/userBook/userBookList.do?category=${5}">잡지</a>
-		<a href="${root}/userBook/userBookList.do?category=${6}">역사</a>
-		<a href="${root}/userBook/userBookList.do?category=${7}">SF/판타지</a>
-		<a href="${root}/userBook/userBookList.do?category=${8}">교양도서</a>
+		<a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a>
+		<a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a>
+		<a href="${root}/userBook/userBookList.do?category=${'전공도서'}">전공도서</a>
+		<a href="${root}/userBook/userBookList.do?category=${'만화'}">만화</a>
+		<a href="${root}/userBook/userBookList.do?category=${'잡지'}">잡지</a>
+		<a href="${root}/userBook/userBookList.do?category=${'역사'}">역사</a>
+		<a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a>
+		<a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a>
 		<a href="${root}">메인</a>
-		<a href="${root}/userBook/userBookInterestReading.do">관심도서</a>
 	</div>
 </body>
 </html>

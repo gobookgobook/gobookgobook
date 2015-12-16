@@ -6,18 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>QnA목록</title>
+<title>사용자 공지사항목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link href="${root}/css/help/style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-   <br/><br/>
-   
-   <h2>QnA</h2>
-	<hr>
-	<br/><br/>
-	
+	<h2>공지사항</h2>
+	<hr><br/><br/>
 	
 	<c:if test="${count==0}">
 		<h3>작성된 게시물이 없습니다.</h3>
@@ -26,17 +20,17 @@
 	<c:if test="${count > 0}">
 				<table>
 				<tr><td>사용자가 자주 묻는 질문</td></tr>
-				<c:forEach var="help" items="${adminHelpQnAListSelect}">	<%-- 서비스에서 넘겨준 boardList --%>
+				<c:forEach var="help" items="${userHelpNoticeList}">	<%-- 서비스에서 넘겨준 boardList --%>
 					<tr>
-						<td>${help.helpqna_num}</td>
 						<td>
-							<a href="${root}/help/adminHelpQnARead.do?helpqna_num=${help.helpqna_num}&pageNumber=${currentPage}">${help.helpqna_subject}</a>
+							<a href="${root}/help/userHelpNoticeRead.do?helpnotice_num=${help.helpnotice_num}&pageNumber=${currentPage}">${help.helpnotice_subject}</a>
 						</td>
+						<td><fmt:formatDate value="${help.helpnotice_writeDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					</tr>
 				</c:forEach>
 				</table>
 	</c:if>
-	<input type="button" onclick="location.href='${root}/help/adminHelpQnAWrite.do'" value="등록">		
+			
 	<div>
 		<c:set var="pageBlock" value="${2}"/>
 		<fmt:parseNumber var="rs" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
@@ -49,15 +43,15 @@
 		</c:if>
 		
 		<c:if test="${startPage>pageBlock}">
-			<a href="${root}/help/adminHelpQnAList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+			<a href="${root}/help/userHelpNotice.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 		</c:if>
 		
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href="${root}/help/adminHelpQnAList.do?pageNumber=${i}">[${i}]</a>
+			<a href="${root}/help/userHelpNotice.do?pageNumber=${i}">[${i}]</a>
 		</c:forEach>
 		
 		<c:if test="${endPage<pageCount}">
-			<a href="${root}/help/adminHelpQnAList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+			<a href="${root}/help/userHelpNotice.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 		</c:if>
 	</div>
 </body>

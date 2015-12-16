@@ -61,10 +61,7 @@ public class UserBookService implements IUserBookService {
 		int book_price=Integer.parseInt(request.getParameter("book_price"));
 		int book_quantity=Integer.parseInt(request.getParameter("book_quantity"));
 		int basket_total_price=book_price*book_quantity;
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_price);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_quantity);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + basket_total_price);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num + "," + book_price+","+book_quantity+","+basket_total_price);
 		
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("member_id", member_id);					//id
@@ -283,26 +280,30 @@ public class UserBookService implements IUserBookService {
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
-		String member_interest=iUserBookDao.interestSelect(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
-		
-		StringTokenizer stok2=new StringTokenizer(member_interest, ",");
-		
-		String interest=null;
-		List<BookDto> interestBook=null;
-		List<BookDto> book=new ArrayList<BookDto>();
-		while(stok2.hasMoreTokens()){
-			interest=stok2.nextToken();
-			GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+		if(member_id !=null){
+			String member_interest=iUserBookDao.interestSelect(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
 			
-			interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
-			book.addAll(interestBook);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+			StringTokenizer stok2=new StringTokenizer(member_interest, ",");
 			
+			String interest=null;
+			List<BookDto> interestBook=null;
+			List<BookDto> book=new ArrayList<BookDto>();
+				while(stok2.hasMoreTokens()){
+					interest=stok2.nextToken();
+					GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+					
+					interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
+					book.addAll(interestBook);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+					
+				}
+			
+			GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
+			GoBookAspect.logger.info(GoBookAspect.logMsg + book);
+			mav.addObject("book", book);
 		}
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book);
-		mav.addObject("book", book);
+		
 		mav.setViewName("userBook/userBookInterestRead");
 	}
 	

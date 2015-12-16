@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserHelpMapper">
+	<insert id="userHelpPvPInsert" parameterType="com.gobook.help.dto.HelpPvPDto">
+		insert into helppvp(helppvp_num, member_id, helppvp_user_subject, helppvp_user_content, helppvp_write_date) values(helppvp_helppvp_num_seq.nextval, #{member_id, jdbcType=VARCHAR}, #{helppvp_user_subject, jdbcType=VARCHAR}, #{helppvp_user_content, jdbcType=VARCHAR}, sysdate)
+	</insert>
+	<select id="userHelpQnACount" resultType="int">
+		select count(*) from helpqna
+	</select>
+	<select id="userHelpQnASelect" resultType="com.gobook.help.dto.HelpQnADto" parameterType="java.util.HashMap">
+		<![CDATA[
+			select * from
+			(select rownum rnum, a.* from 
+				(select * from helpqna order by helpqna_num desc) a)
+			where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="userHelpQnARead" resultType="com.gobook.help.dto.HelpQnADto" parameterType="int">
+		select * from helpqna where helpqna_num=#{helpqna_num}
+	</select>
+	
+	
+	<select id="userHelpNoticeCount" resultType="int">
+		select count(*) from helpnotice
+	</select>
+	<select id="userHelpNoticeSelect" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="java.util.HashMap">
+		<![CDATA[
+			select * from
+			(select rownum rnum, a.* from 
+				(select * from helpnotice order by helpnotice_num desc) a)
+			where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	<select id="userHelpNoticeRead" resultType="com.gobook.help.dto.HelpNoticeDto" parameterType="int">
+		select * from helpnotice where helpnotice_num=#{helpnotice_num}
+	</select>
+</mapper>
