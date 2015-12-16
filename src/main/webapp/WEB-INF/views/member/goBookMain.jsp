@@ -121,14 +121,14 @@
    <ul id="gnb">
      <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
-           <li><a href="#">문학</a></li>
-           <li><a href="#">교육도서</a></li>
-           <li><a href="#">전공도서</a></li>
-           <li><a href="#">만화</a></li>
-           <li><a href="#">잡지</a></li>
-           <li><a href="#">역사</a></li>
-           <li><a href="#">SF/판타지</a></li>
-           <li><a href="#">교양</a></li>
+           	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'전공도서'}">전공도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'만화'}">만화</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'잡지'}">잡지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'역사'}">역사</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
@@ -154,7 +154,7 @@
      </li>
      <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
   </ul> 
   <p id="date_wrap">

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tools.ant.taskdefs.Replace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,7 +42,8 @@ public class UserBookService implements IUserBookService {
 		BookDto bookDto=iUserBookDao.userBookRead(book_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto);
 		
-		
+		bookDto.setBook_index(bookDto.getBook_index().replace("\r\n", "<br/>"));
+		bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
 		mav.addObject("bookDto", bookDto);
 		mav.setViewName("userBook/userBookRead");
 		
@@ -139,6 +141,12 @@ public class UserBookService implements IUserBookService {
 		}		
 	}
 
+	/**
+	 * @함수이름 : userBookStarInsert
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 별점 추가
+	 */
 	@Override
 	public void userBookStarInsert(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -150,9 +158,12 @@ public class UserBookService implements IUserBookService {
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
 		int userbookstar_star=Integer.parseInt(request.getParameter("userbookstar_star"));
-		int book_num=Integer.parseInt(request.getParameter("book_num"));
+		long book_num=Long.parseLong(request.getParameter("book_num"));
 		
-		int starDto=iUserBookDao.starSelect(member_id);
+		HashMap<String, Object> userStarMap=new HashMap<String, Object>();
+		userStarMap.put("book_num", book_num);
+		userStarMap.put("member_id", member_id);
+		int starDto=iUserBookDao.starSelect(userStarMap);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "starDto:" +starDto);
 		
 		float avgStar=0;
@@ -194,6 +205,12 @@ public class UserBookService implements IUserBookService {
 		
 	}
 
+	/**
+	 * @함수이름 : userBookList
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 장바구니 담기
+	 */
 	@Override
 	public void userBookList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -274,6 +291,12 @@ public class UserBookService implements IUserBookService {
 		mav.setViewName("userBook/userBookSerch");
 	}
 
+	/**
+	 * @함수이름 : userBookInterestReading
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 관심도서 추천
+	 */
 	@Override
 	public void userBookInterestReading(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -283,35 +306,37 @@ public class UserBookService implements IUserBookService {
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
-		String member_interest=iUserBookDao.interestSelect(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
-		
-		StringTokenizer stok2=new StringTokenizer(member_interest, ",");
-		
-		String interest=null;
-		List<BookDto> interestBook=null;
 		List<BookDto> book=new ArrayList<BookDto>();
-		while(stok2.hasMoreTokens()){
-			interest=stok2.nextToken();
-			GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+		if(member_id !=null){
 			
-			interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
-			book.addAll(interestBook);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+			String member_interest=iUserBookDao.interestSelect(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
 			
+			StringTokenizer stok2=new StringTokenizer(member_interest, ",");
+		
+			String interest=null;
+			List<BookDto> interestBook=null;
+				
+			while(stok2.hasMoreTokens()){
+				
+				interest=stok2.nextToken();
+				GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+				
+				interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
+				book.addAll(interestBook);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+				
+				}
+				
+				GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
+				GoBookAspect.logger.info(GoBookAspect.logMsg + book);
+
 		}
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book);
 		mav.addObject("book", book);
+		mav.addObject("member_id", member_id);
 		mav.setViewName("userBook/userBookInterestRead");
 	}
 
-	/**
-	 * @함수이름 : suggest
-	 * @작성일 : 2015. 12. 16.
-	 * @개발자 : 성기훈
-	 * @설명 : 도서검색 suggest
-	 */
 	@Override
 	public void suggest(ModelAndView mav) {
 		// TODO Auto-generated method stub

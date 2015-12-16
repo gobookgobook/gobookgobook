@@ -92,19 +92,26 @@
 			<div class="info">
 				<label class="book_title">수량 : </label>
 				<span class="book_content">
+			<c:if test="${bookDto.book_quantity>0}">
 				<select id="book_quantity">
 					<c:forEach var="i" begin="1" end="${bookDto.book_quantity}">
 						<option value="${i}" id="quantity">${i}</option>
 					</c:forEach>
 				</select>
+			</c:if>
+			<c:if test="${bookDto.book_quantity==0}">
+				<label>품절</label>
+			</c:if>
 				/${bookDto.book_quantity}</span>
 			</div>
 			<div>
-			<c:if test="${id !='admin' }">
+			<c:if test="${id !='admin' && id !=null}">
 				<input type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
 				<input type="button" value="구매" onclick="" />
 			<!-- 수량 없을때 if문 처리 해주자-->	
+			<c:if test="${bookDto.book_quantity==0}">
 				<input type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
+			</c:if>
 				<input type="button" value="공동구매" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
 			</c:if>
 			<c:if test="${id =='admin' }">

@@ -29,19 +29,19 @@
 	</update>
 	
 	<!-- 별점 -->
-	<select id="starSelect" parameterType="java.lang.String" resultType="int">
-		select count(*)from userBookStar where member_id=#{member_id}
+	<select id="starSelect" parameterType="java.util.HashMap" resultType="int">
+		select count(*)from userBookStar where member_id=#{member_id} and book_num=#{book_num}
 	</select>
 	
 	<insert id="userBookStarInsert" parameterType="java.util.HashMap">
 		insert into userBookStar values(userBookStar_userstar_num_seq.nextval, #{member_id}, #{book_num}, #{userbookstar_star})
 	</insert>
 	
-	<select id="userbookstarSelect" parameterType="int" resultType="int">
+	<select id="userbookstarSelect" parameterType="java.lang.Long" resultType="int">
 		select sum(userbookstar_star) from userBookStar where book_num=#{book_num}
 	</select>
 	
-	<select id="userbookstarCount" parameterType="int" resultType="int">
+	<select id="userbookstarCount" parameterType="java.lang.Long" resultType="int">
 		select count(userbookstar_star) from userBookStar where book_num=#{book_num}
 	</select>
 	

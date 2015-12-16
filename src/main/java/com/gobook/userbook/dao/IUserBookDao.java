@@ -15,10 +15,10 @@ public interface IUserBookDao {
 	public int userBookBasketInsert(HashMap<String, Object> hMap);
 	public int userBookSoldOutAskUpdate(long book_num);
 	public int userBookGroupPurchaseAskUpdate(long book_num);
-	public int starSelect(String member_id);
+	public int starSelect(HashMap<String, Object> userStarMap);
 	public int userBookStarInsert(HashMap<String, Object> hMap);
-	public int userbookstarSelect(int book_num);
-	public int userbookstarCount(int book_num);
+	public int userbookstarSelect(long book_num);
+	public int userbookstarCount(long book_num);
 	public int bookStarUpdate(HashMap<String, Object> starMap);
 	public int userBookListCount(String category);
 	public List<BookDto> userBookListSelect(HashMap<String, Object> hMap);

@@ -49,13 +49,13 @@
 
 /* 목차 */
 .book_index{
-	width:100%; height:28%;
+	width:100%;
 	border: 1px dotted blue;
 }
 
 /* 줄거리 */
 .book_summary{
-	width:100%; height:28%;
+	width:100%;
 	border: 1px dotted blue;
 }
 

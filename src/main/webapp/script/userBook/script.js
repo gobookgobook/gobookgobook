@@ -3,6 +3,18 @@
  */
 
 /**
+ * @함수이름 : userBookRead
+ * @작성일 : 2015. 12. 16.
+ * @개발자 : 오주석
+ * @설명 : 
+ */
+function userBookRead(root, book_num){
+	var url =root +"/userBook/userBookRead.do?book_num="+book_num;
+	alert(url);
+	
+	location.href=url;
+}
+/**
  * @함수이름 : soldOutAsk
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석

@@ -48,12 +48,12 @@ public class UserBookDao implements IUserBookDao {
 	}
 
 	@Override
-	public int userbookstarSelect(int book_num) {
+	public int userbookstarSelect(long book_num) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userbookstarSelect", book_num);
 	}
 
 	@Override
-	public int userbookstarCount(int book_num) {
+	public int userbookstarCount(long book_num) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userbookstarCount", book_num);
 	}
 
@@ -63,8 +63,8 @@ public class UserBookDao implements IUserBookDao {
 	}
 
 	@Override
-	public int starSelect(String member_id) {
-		return sqlSessionTemplate.selectOne("dao.userBookMapper.starSelect", member_id);
+	public int starSelect(HashMap<String, Object> userStarMap) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.starSelect", userStarMap);
 	}
 
 	@Override

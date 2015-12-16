@@ -8,14 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookList.css"/>
-<script type="text/javascript">
-	function userBookRead(root, book_num){
-		var url =root +"/userBook/userBookRead.do?book_num="+book_num;
-		alert(url);
-		
-		location.href=url;
-	}
-</script>
+<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
 </head>
 <body>
 ${category},${bookDto.size()}
@@ -36,6 +29,9 @@ ${category},${bookDto.size()}
 						</div>
 					</div>
 				</c:forEach>
+			</c:if>
+			<c:if test="${bookDtoCount==0 }">
+				도서 준비중입니다.
 			</c:if>
 		</div>
 		<div align="center">
