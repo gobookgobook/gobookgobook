@@ -22,7 +22,8 @@
 </style>
 </head>
 <body onload="initMap('${count}')">
-	<div align="center" id="map"></div><br/><br/>
+	<div align="center"><div id="map"></div></div>
+	<br/><br/>
 	<div align="center">
 		<table >
 			<tr>
@@ -54,6 +55,10 @@
 						<td align="center">${location.location_address}</td>
 						<td align="center">${location.location_admin}</td>
 						<td align="center">${location.location_phone}</td>
+						<td>
+							<input type="button" value="수정" onclick="javascript:location.href='${root}/location/locationUpdate.do?locationNum=${location.location_num}'"/>
+							<input type="button" value="삭제" onclick="javascript:deleteCheck('${root}','${location.location_num}')"/>
+						</td>
 					</tr>
 					
 					<input type="hidden" value="${location.location_address}" id="add_${i}"/>
@@ -62,9 +67,6 @@
 				</c:forEach>
 			</table>
 		</c:if>
-		
-		<input type="hidden" value="123456" id="123"/>
-		
 		<input type="button" value="지점등록" onclick="javascript:location.href='${root}/location/locationWrite.do'"/>
 	</div>
 </body>

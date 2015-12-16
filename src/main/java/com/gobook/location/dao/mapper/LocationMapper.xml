@@ -15,4 +15,19 @@
 	<select id="locationSelectList" resultType="com.gobook.location.dto.LocationDto">
 		select * from location
 	</select>
+	
+	<select id="locationUpSelect" parameterType="int" resultType="com.gobook.location.dto.LocationDto">
+		select * from location where location_num=#{location_num}
+	</select>
+	
+	<update id="locationUpdate" parameterType="com.gobook.location.dto.LocationDto">
+		update location set location_address=#{location_address},
+							location_admin=#{location_admin},
+							location_phone=#{location_phone}
+		where location_num=#{location_num}
+	</update>
+	
+	<delete id="locationDelete" parameterType="int">
+		delete from location where location_num=#{location_num}
+	</delete>
 </mapper>

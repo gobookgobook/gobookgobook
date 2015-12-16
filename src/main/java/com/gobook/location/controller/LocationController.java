@@ -62,4 +62,49 @@ public class LocationController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : locationUpdate
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점 정보가져오기
+	 */
+	@RequestMapping(value="/location/locationUpdate.do", method=RequestMethod.GET)
+	public ModelAndView locationUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		ILocationService.locationUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : locationUpdateOk
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점 정보 수정
+	 */
+	@RequestMapping(value="/location/locationUpdate.do", method=RequestMethod.POST)
+	public ModelAndView locationUpdateOk(HttpServletRequest request, HttpServletResponse response, LocationDto locationDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("locationDto", locationDto);
+		ILocationService.locationUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : locationDelete
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점삭제
+	 */
+	@RequestMapping(value="/location/locationDelete.do", method=RequestMethod.GET)
+	public ModelAndView locationDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		ILocationService.locationDelete(mav);
+		
+		return mav;
+	}
 }

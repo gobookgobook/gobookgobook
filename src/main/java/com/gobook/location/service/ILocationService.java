@@ -11,4 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public interface ILocationService {
 	public void locationWrite(ModelAndView mav);
 	public void locationList(ModelAndView mav);
+	public void locationUpdate(ModelAndView mav);
+	public void locationUpdateOk(ModelAndView mav);
+	public void locationDelete(ModelAndView mav);
 }

@@ -3,7 +3,6 @@ package com.gobook.location.dao;
 import java.util.List;
 
 import com.gobook.location.dto.LocationDto;
-import com.gobook.member.dto.ZipcodeDto;
 
 /**
  * @클래스이름 : ILocationDao
@@ -14,4 +13,7 @@ import com.gobook.member.dto.ZipcodeDto;
 public interface ILocationDao {
 	public int locationWriteInsert(LocationDto locationDto);
 	public List<LocationDto> locationSelect();
+	public LocationDto locationUpSelect(int locationNum);
+	public int locationUpdate(LocationDto locationDto);
+	public int locationDelete(int locationNum);
 }

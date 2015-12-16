@@ -43,4 +43,37 @@ public class LocationDao implements ILocationDao {
 	public List<LocationDto> locationSelect() {
 		return sqlSessionTemplate.selectList("dao.locationMapper.locationSelectList");
 	}
+
+	/**
+	 * @함수이름 : locationUpSelect
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점 정보가져오기
+	 */
+	@Override
+	public LocationDto locationUpSelect(int locationNum) {
+		return sqlSessionTemplate.selectOne("dao.locationMapper.locationUpSelect", locationNum);
+	}
+
+	/**
+	 * @함수이름 : locationUpdate
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점 정보 수정
+	 */
+	@Override
+	public int locationUpdate(LocationDto locationDto) {
+		return sqlSessionTemplate.update("dao.locationMapper.locationUpdate",locationDto);
+	}
+
+	/**
+	 * @함수이름 : locationDelete
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 강주혁
+	 * @설명 : 지점 삭제
+	 */
+	@Override
+	public int locationDelete(int locationNum) {
+		return sqlSessionTemplate.delete("dao.locationMapper.locationDelete",locationNum);
+	}
 }
