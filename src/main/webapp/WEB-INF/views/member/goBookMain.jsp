@@ -6,9 +6,8 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="google-translate-customization" content="6f1073ba568f1202-9c8990a4b3025b3e-ga74e3ea243d3f01d-14"></meta> <!-- 세계 언어 선택 메타 태그 -->
-	<title> 이지스퍼블리싱 </title>
-	
+	<title>GoBookGoBook </title>
+	<link rel="SHORTCUT ICON" href="http://www.mydomain.com/myicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
 	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
@@ -20,9 +19,7 @@
 	<script type="text/javascript" src="${root}/js/jquery.cookie.js"></script>  <!-- 쿠키 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/common.js"></script>
 	<script type="text/javascript" src="${root}/js/main.js"></script>
-	
-	<link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
-	<script type="text/javascript" src="${root}/script/member/script.js"></script>
+	<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -31,25 +28,98 @@
  <dd><a href="#container">본문 바로가기</a></dd>
 </dl>
 <div id="header">
-  <h1><a href="#"><img src="${root}/images/logo.png" alt="로고" /></a></h1>
+  <h1><a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" /></a></h1>
   <dl id="util_menu">
      <dt class="hide">유틸 메뉴</dt>
      <dd class="util_first">
-	<jsp:include page="../member/menu.jsp"/>
-     </dd>	
+        <ul>
+           <li class="login_wrap">
+        
+             <!-- 로그인 폼 -->
+			
+             <form action="#" method="post" name="log_f" id="login_f">
+               <fieldset>
+                 <legend>로그인</legend>
+                 <p class="user_id">
+                    <label for="user_id">
+                      <img src="${root}/images/login_title_id.gif" alt="아이디" />
+                    </label>
+                    <input type="text" name="user_id" id="user_id" />
+                 </p>
+                 <p class="user_pw">
+                    <label for="user_pw">
+                      <img src="${root}/images/login_title_pw.gif" alt="아이디" />
+                    </label>
+                    <input type="password" name="user_pw" id="user_pw" /></p>
+                 <p class="log_btn">
+                    <input type="image" src="${root}/images/login_btn.gif" alt="로그인버튼" />
+                 </p>
+                 <p class="join_btn_wrap">
+                     <a href="${root}/member/register.do">회원가입</a>
+
+                 </p>
+                 <p class="login_close_btn">
+                     <a href="#">
+                     <img src="${root}/images/login_close_btn.gif" alt="닫기버튼" />
+                     </a>
+                 </p>
+               </fieldset>
+             </form>
+           </li>
+           
+           <c:if test="${id==null}">
+           <li>
+            <a href="${root}/member/register.do">회원가입</a>
+           </li>
+           <li>
+            <a href="${root}/member/login.do">로그인</a>
+           </li>
+           <li>
+            <a href="${root}/myBasket/myBasketList.do">장바구니</a>
+           </li>
+           <li>
+            <a href="${root}/myPage/myPageOrderList.do">MyPage</a>
+           </li>
+           </c:if>
+           
+           <c:if test="${id!=null}">
+          <li>
+				<a href="${root}/member/update.do">회원수정</a>
+			</li>
+			<li>
+				<a href="${root}/member/delete.do">회원탈퇴</a>
+			</li>
+			<li>
+				<a href="${root}/member/logout.do">로그아웃</a>
+			</li>
+			<li>
+				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
+			</li>
+			<li>
+				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
+			</li>
+				<c:if test="${id=='admin'}">
+					<li><a href="${root}/member/adminMain.do">관리자&nbsp;&nbsp;&nbsp;</a></li>
+				</c:if>
+           </c:if>
+        </ul>
+     </dd>
   </dl>
-  <form action="#" method="get" name="sch_f" id="sch_f">
+  <form action="${root}/userBook/userBookSerch.do" method="get" name="sch_f" id="sch_f">
      <fieldset>
         <legend>검색폼</legend>
         <p>
-           <input type="text" name="keyword" id="keyword" title="검색어입력" />
-           <input type="image" src="${root}/images/search.png" alt="검색" />
+           <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest()"/>
+           <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
         </p>
+        <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">
+			<div id="suggestList"></div>
+		</div>
      </fieldset>
   </form>
   <h2 class="hide">메인메뉴</h2>
    <ul id="gnb">
-     <li><a href="#"><img src="${root}/images/gnb_1_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
            <li><a href="#">문학</a></li>
            <li><a href="#">교육도서</a></li>
@@ -61,20 +131,20 @@
            <li><a href="#">교양</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_2_out.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
-           <li><a href="#">회원수정</a></li>
-           <li><a href="#">회원탈퇴</a></li>
-           <li><a href="#">쿠폰함</a></li>
+           <li><a href="${root}/member/update.do">회원수정</a></li>
+           <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
+           <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
            <li><a href="#">포인트함</a></li>
            <li><a href="#">주문내역</a></li>
            <li><a href="#">1:1문의내역</a></li>
            <li><a href="#">장바구니</a></li>
         </ul>
      </li>
-     <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_out.png" alt="장바구니" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_out.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
            <li><a href="#">Q&A</a></li>
@@ -82,21 +152,9 @@
            <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_5_out.png" alt="공동구매" style="width:100px; height:40px;"/></a>
-        <ul class="sub5">
-           <li><a href="#">고객문의</a></li>
-           <li><a href="#">저자문의</a></li>
-           <li><a href="#">자료요청</a></li>
-           <li><a href="#">자주묻는 질문</a></li>
-        </ul>
+     <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_6_out.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
-        <ul class="sub6">
-           <li><a href="#">고객문의</a></li>
-           <li><a href="#">저자문의</a></li>
-           <li><a href="#">자료요청</a></li>
-           <li><a href="#">자주묻는 질문</a></li>
-        </ul>
+     <li><a href="#"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
   </ul> 
   <p id="date_wrap">
@@ -109,9 +167,9 @@
 <div id="visual">
  <div id="mySwipe"  class='swipe'>
     <ul class="touch_banner swipe-wrap"> <!-- 배너 목록 -->
-      <li><a href="#"><img src="${root}/images/visual_img_1.jpg" alt="" /></a></li>
-      <li><a href="#"><img src="${root}/images/visual_img_2.jpg" alt="" /></a></li>
-      <li><a href="#"><img src="${root}/images/visual_img_3.jpg" alt="" /></a></li>
+      <li style="margin-left:-10px;"><a href="${root}/event/eventRead.do?event_bunho=27"><img src="${root}/images/이벤트7.jpg" alt=""/></a></li>
+      <li><a href="${root}/event/eventRead.do?event_bunho=28"><img src="${root}/images/이벤트8.jpg" alt=""/></a></li>
+      <li><a href="${root}/event/eventRead.do?event_bunho=29"><img src="${root}/images/이벤트9.jpg" alt=""/></a></li>
    </ul>
   </div>
   <ul class="touch_bullet"> <!-- 배너 위치 표시 -->
@@ -185,14 +243,16 @@
  </div> <!-- close of bestbook_zone -->
  
  
- <div id="quick_menu">
+ <div id="quick_menu" >
    <h3><span>최근 본 도서</span></h3>
    <ul>
-     <li><a href="#"><img src="${root}/images/bestbook_list_1.PNG" alt="" /></a></li>
-     <li><a href="#"><img src="${root}/images/bestbook_list_2.PNG" alt="" /></a></li>
-     <li><a href="#"><img src="${root}/images/bestbook_list_3.PNG" alt="" /></a></li>
+     <li><img src="${root}/images/bestbook_list_1.PNG" alt="" /></li>
+     <li><img src="${root}/images/bestbook_list_2.PNG" alt="" /></li>
+     <li><img src="${root}/images/bestbook_list_3.PNG" alt="" /></li>    
+     <li><a href="#"><img src="${root}/images/quick_top_btn.png" alt="상단으로 이동" /></a></li>
    </ul>
  </div>
+
  <p id="pop_wrap">
   <img src="${root}/images/popup.jpg" alt="검색이 잘 되는 키워드는 따로 있다!" usemap="#pop" />
   <map name="pop" id="pop">
@@ -206,7 +266,7 @@
 <div id="footer_wrap">
 <div id="inner_footer">
  <h3 class="footer_logo">
-    <a href="#"><img src="${root}/images/logo.png" alt="로고" /></a>
+    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>
  </h3>
  <br/><br/>
  <div id="relSite_wrap">
