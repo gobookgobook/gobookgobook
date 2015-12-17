@@ -17,6 +17,7 @@ $(function(){
 	$('#date').datepicker({
 		dateFormat:"yy/mm/dd",
 	    changeMonth: true,
+	    monthNamesShort: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 	   	changeYear: true,
 		monthNames: ["1월", "2월", "3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
 		dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
@@ -37,8 +38,11 @@ $(function(){
 });
 
 </script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
+	<br/><br/>
+<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="managerCoupon">
 		<jsp:include page="menu.jsp"/>
 		<div class="managerCouponBody">
@@ -49,20 +53,6 @@ $(function(){
 					<label class="coupon_title">쿠폰이름</label>
 					<span class="coupon_content">
 						<input type="text" name="manager_coupon_name">
-					</span>
-				</div>
-				<div>
-					<label class="coupon_title">쿠폰사용장르</label>
-					<span class="coupon_content">
-						<input type="checkbox" name="manager_coupon_field_value" value="문학"/>문학
-						<input type="checkbox" name="manager_coupon_field_value" value="교육도서"/>교육도서
-						<input type="checkbox" name="manager_coupon_field_value" value="전공도서"/>전공도서
-						<input type="checkbox" name="manager_coupon_field_value" value="만화"/>만화
-						<input type="checkbox" name="manager_coupon_field_value" value="잡지"/>잡지
-						<input type="checkbox" name="manager_coupon_field_value" value="역사"/>역사
-						<input type="checkbox" name="manager_coupon_field_value" value="SF/판타지"/>SF/판타지
-						<input type="checkbox" name="manager_coupon_field_value" value="교양"/>교양
-						<input type="hidden" name="manager_coupon_field"/>
 					</span>
 				</div>
 				<div>
@@ -99,5 +89,8 @@ $(function(){
 			</form>
 		</div>
 	</div>
+</div>
+<%-- <jsp:include page="../main-bottom.jsp"/>
+	<br/><br/> --%>
 </body>
 </html>

@@ -148,4 +148,49 @@ public class UserBookController {
 		
 		return null;
 	}
+	
+	/**
+	 * @함수이름 : userBookGroupPurchaseList
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@RequestMapping(value="/userBook/userBookGroupPurchaseList.do", method=RequestMethod.GET)
+	public ModelAndView userBookGroupPurchaseList(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookGroupPurchaseList(mav);
+		
+		return mav;
+		
+	}
+	
+	/**
+	 * @함수이름 : userBookGroupPurchaseRead
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 진행중인 공동구매 신청
+	 */
+	@RequestMapping(value="/userBook/userBookGroupPurchaseRead.do", method=RequestMethod.GET)
+	public ModelAndView userBookGroupPurchaseRead(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookGroupPurchaseRead(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/userBook/userBookGroupPurchaseInsert.do", method=RequestMethod.GET)
+	public ModelAndView userBookGroupPurchaseInsert(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		iUserBookService.userBookGroupPurchaseInsert(mav);
+		
+		return null;
+	}
+	
 }

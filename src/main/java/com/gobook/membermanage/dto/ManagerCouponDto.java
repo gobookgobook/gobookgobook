@@ -6,7 +6,6 @@ public class ManagerCouponDto {
 	private int mcoupon_num;			//관리자 쿠폰 고유 번호
 	private String member_manager_id;		//관리자 아이디
 	private String manager_coupon_name;		//쿠폰 이름
-	private String manager_coupon_field;	//쿠폰 사용 범위(장르)
 	private Date manager_coupon_period;	//쿠폰 사용기간
 	private String manager_coupon_content;	//쿠폰 내용
 	private int manager_coupon_discount;	//쿠폰 할인율(100이하이면 자동으로 퍼센트 계산 100이상이면 원으로 계산)
@@ -28,12 +27,6 @@ public class ManagerCouponDto {
 	}
 	public void setManager_coupon_name(String manager_coupon_name) {
 		this.manager_coupon_name = manager_coupon_name;
-	}
-	public String getManager_coupon_field() {
-		return manager_coupon_field;
-	}
-	public void setManager_coupon_field(String manager_coupon_field) {
-		this.manager_coupon_field = manager_coupon_field;
 	}
 
 	public Date getManager_coupon_period() {

@@ -1,11 +1,12 @@
 @CHARSET "UTF-8";
 
-div{
-	display: block;
-}
 
+.all{
+	width:800px;
+	margin: 0px auto;
+}
 .body{
-	width: 700px; height:600px;
+	width: 690px; height:600px;
 	border: 1px solid blue;
 	display: block;
 	float: left;	

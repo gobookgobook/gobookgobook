@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.mybasket.dto.MyBasketDto;
 import com.gobook.userbook.dto.UserBookStarDto;
 import com.gobook.userorder.dto.UserOrderDto;
@@ -27,4 +28,9 @@ public interface IUserBookDao {
 	public String interestSelect(String member_id);
 	public List<BookDto> userBookInterestReadingSelect(String interest);
 	public List<String> sujestBookList(String value);
+	public List<BookGroupPurchaseDto> userBookGroupPurchaseList();
+	public BookGroupPurchaseDto userBookGroupPurchaseRead(long book_num);
+	public int userBookGroupPurchaseSelect(HashMap<String, Object> userMap);
+	public int userBookGroupPurchaseInsert(HashMap<String, Object> hMap);
+	public int userBookGroupPurchaseUpdate(int group_purchase_num);
 }

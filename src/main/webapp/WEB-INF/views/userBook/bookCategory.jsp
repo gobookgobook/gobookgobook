@@ -9,9 +9,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/bookCategory.css"/>
 </head>
 <body>
-<jsp:include page="../member/menu.jsp"/>
-   <br/><br/>
-   
 	<div class="title">
 		※도서 목록
 	</div>
@@ -25,6 +22,7 @@
 		<a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a>
 		<a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a>
 		<a href="${root}">메인</a>
+		<a href="${root}/userBook/userBookGroupPurchaseList.do">공구목록</a>
 	</div>
 </body>
 </html>

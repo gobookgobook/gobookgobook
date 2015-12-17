@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.mybasket.dto.MyBasketDto;
 import com.gobook.userbook.dao.IUserBookDao;
 import com.gobook.userbook.dto.UserBookStarDto;
@@ -33,6 +34,12 @@ public class UserBookService implements IUserBookService {
 	@Autowired
 	private IUserBookDao iUserBookDao;
 
+	/**
+	 * @함수이름 : userBookRead
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 오주석
+	 * @설명 : 도서 상세 보기
+	 */
 	@Override
 	public void userBookRead(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -52,6 +59,12 @@ public class UserBookService implements IUserBookService {
 		
 	}
 
+	/**
+	 * @함수이름 : userBookBasketInsert
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 오주석
+	 * @설명 : 장바구니 담기
+	 */
 	@Override
 	public void userBookBasketInsert(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -96,6 +109,12 @@ public class UserBookService implements IUserBookService {
 	
 	}
 
+	/**
+	 * @함수이름 : userBookSoldOutAsk
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 오주석
+	 * @설명 : 품절시 재입고 요청
+	 */
 	@Override
 	public void userBookSoldOutAsk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -120,6 +139,12 @@ public class UserBookService implements IUserBookService {
 		
 	}
 
+	/**
+	 * @함수이름 : userBookGroupPurchaseAsk
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 오주석
+	 * @설명 : 희망 공동구매 요청
+	 */
 	@Override
 	public void userBookGroupPurchaseAsk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -212,7 +237,7 @@ public class UserBookService implements IUserBookService {
 	 * @함수이름 : userBookList
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 오주석
-	 * @설명 : 장바구니 담기
+	 * @설명 : 도서 목록
 	 */
 	@Override
 	public void userBookList(ModelAndView mav) {
@@ -229,7 +254,7 @@ public class UserBookService implements IUserBookService {
 		if(pageNumber==null) pageNumber="1";
 		
 		int currentPage=Integer.parseInt(pageNumber);
-		int boardSize=3;
+		int boardSize=9;
 		
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
@@ -377,4 +402,94 @@ public class UserBookService implements IUserBookService {
 	    pw.close();
 	}
 	
+	/**
+	 * @함수이름 : userBookGroupPurchaseList
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@Override
+	public void userBookGroupPurchaseList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		List<BookGroupPurchaseDto> groupList=iUserBookDao.userBookGroupPurchaseList();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + groupList.size());
+		
+		mav.addObject("groupList", groupList);
+		mav.setViewName("userBook/userBookGroupPurchaseList");
+		
+	}
+	
+	/**
+	 * @함수이름 : userBookGroupPurchaseRead
+	 * @작성일 : 2015. 12. 16.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@Override
+	public void userBookGroupPurchaseRead(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+			
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
+		
+		BookGroupPurchaseDto bookGroupPurchaseDto=iUserBookDao.userBookGroupPurchaseRead(book_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + bookGroupPurchaseDto);
+		
+		mav.addObject("bookGroupPurchaseDto", bookGroupPurchaseDto);
+		mav.setViewName("userBook/userBookGroupPurchaseRead");
+	}
+
+	@Override
+	public void userBookGroupPurchaseInsert(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
+		
+		HttpSession session=request.getSession();
+		String member_id=(String) session.getAttribute("id");
+		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		
+		if(member_id !=null){
+			long book_num=Long.parseLong(request.getParameter("book_num"));
+			int group_purchase_num=Integer.parseInt(request.getParameter("gp_num"));
+			GoBookAspect.logger.info(GoBookAspect.logMsg + book_num+","+group_purchase_num);
+			
+			HashMap<String, Object> userMap=new HashMap<String, Object>();
+			userMap.put("book_num", book_num);
+			userMap.put("member_id", member_id);
+			
+			int count=iUserBookDao.userBookGroupPurchaseSelect(userMap);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + count);
+			
+			HashMap<String, Object> hMap=new HashMap<String, Object>();
+			hMap.put("book_num", book_num);
+			hMap.put("group_purchase_num", group_purchase_num);
+			hMap.put("member_id", member_id);			
+				
+			int check = 0;
+			int value = 0;
+			if(count ==0){
+				value=iUserBookDao.userBookGroupPurchaseInsert(hMap);
+				GoBookAspect.logger.info(GoBookAspect.logMsg + value);
+			
+				if(value >0){
+					check=iUserBookDao.userBookGroupPurchaseUpdate(group_purchase_num);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + check);
+				}
+			}
+			
+			String str=value + "," + count;
+			try {
+				response.setContentType("application/html;charset=utf-8");
+				PrintWriter out=response.getWriter();
+				out.print(str);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+	}
 }

@@ -4,6 +4,10 @@ div{
 	display: block;
 }
 
+.all{
+	width:810px;
+	margin: 0px auto;
+}
 .title{
 	width: 700px; height:30px;
 	border: 1px solid black;

@@ -9,20 +9,24 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookList.css"/>
 <script type="text/javascript" src="${root}/script/userBook/script.js"></script>
-</head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<jsp:include page="../main-top.jsp"/>
+</head> 	
 <body>
-${category},${bookDto.size()}
+	<br/><br/>
+<div id="contents" style="height:800px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="userBookList">
 		<jsp:include page="bookCategory.jsp"/>
 		<div class="userBookBody">
 			<c:if test="${bookDtoCount>0 }">
 				<c:forEach var="userBook" items="${bookDto}">
-					<div class="">
+					<div class="bookList">
 						<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
-							<img src="http://localhost:8181/goBook/bookimg/${userBook.book_cover_file_name}" alt="준비중">
+							<img src="http://localhost:8181/goBook/bookimg/${userBook.book_cover_file_name}" alt="준비중" width="90%" height="80%">
 						</a>
 						<div>
-							${userBook.book_num}
 							<span>${userBook.book_name}</span>
 							<span>${userBook.book_star}</span>
 							<span>${userBook.book_writer}</span>
@@ -63,5 +67,8 @@ ${category},${bookDto.size()}
 			</c:if>  
 		</div>
 	</div>
+</div>
+<%-- <jsp:include page="../main-bottom.jsp"/> --%>
+	<br/><br/>	
 </body>
 </html>

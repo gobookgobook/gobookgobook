@@ -23,7 +23,7 @@
 	<!-- 쿠폰 -->
 	<insert id="memberManageCouponInsert" parameterType="com.gobook.membermanage.dto.ManagerCouponDto">
 	<![CDATA[
-		insert into managercoupon values(managercoupon_mcoupon_num_seq.nextval, #{manager_coupon_name}, #{manager_coupon_field}, #{manager_coupon_period}, #{manager_coupon_content}, #{manager_coupon_discount})
+		insert into managercoupon values(managercoupon_mcoupon_num_seq.nextval, #{manager_coupon_name}, #{manager_coupon_period}, #{manager_coupon_content}, #{manager_coupon_discount})
 	]]>
 	</insert>
 	

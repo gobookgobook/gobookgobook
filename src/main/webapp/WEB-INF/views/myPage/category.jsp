@@ -9,8 +9,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/category.css"/>
 </head>
 <body>
-		<jsp:include page="../member/menu.jsp"/>
-   		<br/><br/>
 		<div class="title">
 		※마이페이지
 		</div>

@@ -8,8 +8,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/memberManage/memberManage.css"/>
 <script type="text/javascript" src="${root}/script/memberManage/memberManager.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
+	<br/><br/>
+<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="memberManagerUpdate">
 		<jsp:include page="menu.jsp"/>
 		<div class="memberMangerBody">
@@ -35,7 +41,7 @@
 						<input type="text" name="member_name" value="${memberDto.member_name}"/>
 					</span>
 				</div>
-				<div class="managerLine">
+<%-- 				<div class="managerLine">
 					<label class="managertitle">우편번호</label>
 					<span class="managercontent">
 						<input type="text" name="member_zipcode_view" value="${memberDto.member_zipcode}" size="10" disabled="disabled"/>
@@ -55,7 +61,7 @@
 					<span class="managercontent">
 						<input type="text" name="member_address2" value="${memberDto.member_address2}"/>
 					</span>
-				</div>
+				</div> --%>
 				<div class="managerLine">
 					<label class="managertitle">전화번호</label>
 					<span class="managercontent">
@@ -69,5 +75,10 @@
 			</form>
 		</div>
 	</div>
+</div>
+<div style="margin-top: -200px;">
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>
+</div>
 </body>
 </html>

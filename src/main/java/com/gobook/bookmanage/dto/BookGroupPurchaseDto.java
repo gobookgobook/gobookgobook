@@ -15,7 +15,42 @@ public class BookGroupPurchaseDto {
 	private int group_purchase_count;
 	private Date group_purchase_date;
 	private int group_purchase_state;
+	private String book_writer;
+	private String book_publisher;
+	private Date book_publish_date;
+	private String book_index;
+	private String book_summary;
 	
+	public String getBook_writer() {
+		return book_writer;
+	}
+	public void setBook_writer(String book_writer) {
+		this.book_writer = book_writer;
+	}
+	public String getBook_publisher() {
+		return book_publisher;
+	}
+	public void setBook_publisher(String book_publisher) {
+		this.book_publisher = book_publisher;
+	}
+	public Date getBook_publish_date() {
+		return book_publish_date;
+	}
+	public void setBook_publish_date(Date book_publish_date) {
+		this.book_publish_date = book_publish_date;
+	}
+	public String getBook_index() {
+		return book_index;
+	}
+	public void setBook_index(String book_index) {
+		this.book_index = book_index;
+	}
+	public String getBook_summary() {
+		return book_summary;
+	}
+	public void setBook_summary(String book_summary) {
+		this.book_summary = book_summary;
+	}
 	public int getBook_cost() {
 		return book_cost;
 	}

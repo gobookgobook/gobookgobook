@@ -7,15 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/myPage/orderList.css"/>
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="height:350px; background:white; border:1px solid black"><br/><br/><br/><br/>	
-	<div>
+<div id="contents" style="height:750px; background:white; border:1px solid black"><br/><br/><br/><br/>	
+<div class="all">
 	<c:if test="${id==null}">
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
 		<div align="center">
@@ -120,10 +118,10 @@
 			</div>	
 		</div>
 	</c:if>
-	</div> 
+</div> 
 
 </div>
-<jsp:include page="../main-bottom.jsp"/>
+<%-- <jsp:include page="../main-bottom.jsp"/> --%>
 	<br/><br/>		
 </body>
 </html>

@@ -94,7 +94,40 @@
 	]]>				
 	</select>
 	
+	<!-- 검색 -->
 	<select id="sujestBookList" parameterType="String" resultType="String">
 		select book_name from book where book_name like '%' || #{value} || '%'
 	</select>
+	
+			
+	<!-- 공동구매 -->
+	<select id="userBookGroupPurchaseList" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
+		<![CDATA[
+		select gp.group_purchase_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity
+			from grouppurchase gp, book
+				WHERE gp.book_num=book.book_num
+					and gp.group_purchase_state=1
+		]]>
+	</select>
+	
+	<select id="userBookGroupPurchaseRead" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
+		<![CDATA[
+			select gp.group_purchase_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity, book.book_writer, book.book_publisher, book.book_publish_date, book.book_index, book.book_summary
+				from grouppurchase gp, book
+					WHERE gp.book_num=book.book_num
+						and gp.book_num=#{book_num}
+		]]>
+	</select>
+	
+	<select id="userBookGroupPurchaseSelect" parameterType="java.util.HashMap" resultType="int">
+		select count(*) from usergp where book_num=#{book_num} and member_id=#{member_id}
+	</select>
+	
+	<insert id="userBookGroupPurchaseInsert" parameterType="java.util.HashMap">
+		insert into userGP values(usergp_user_gp_num_seq.nextval, #{group_purchase_num}, #{book_num}, #{member_id})
+	</insert>
+	
+	<update id="userBookGroupPurchaseUpdate" parameterType="int">
+		update grouppurchase set group_purchase_count=group_purchase_count+1 where group_purchase_num=#{group_purchase_num}
+	</update>
 </mapper>

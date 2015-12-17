@@ -8,9 +8,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/point.css"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<div>
+	<br/><br/>
+
+<div id="contents" style="height:500px; background:white; border:1px solid black"><br/><br/><br/><br/>
+	<div class="all">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		포인트 함
@@ -28,5 +32,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+<%-- <jsp:include page="../main-bottom.jsp"/> --%>
+	<br/><br/>
 </body>
 </html>

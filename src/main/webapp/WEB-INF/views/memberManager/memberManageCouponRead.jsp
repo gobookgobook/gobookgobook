@@ -9,8 +9,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/memberManage/managerCoupon.css"/>
 <script type="text/javascript" src="${root}/script/memberManage/managerCoupon.js"></script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
+	<br/><br/>
+
+<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
 <div class="managerCoupon">
 	<jsp:include page="menu.jsp"/>
 		<div class="managerCouponBody">
@@ -20,14 +24,12 @@
 				<div class="read_title">
 					<span class="read_num">쿠폰번호</span>
 					<span class="read_name">쿠폰이름</span>
-					<span class="read_field">사용범위</span>
 					<span class="read_period">사용기간</span>
 					<span class="read_discount">할인율</span>
 				</div>
 				<div class="read_title">
 					<span class="read_num">${managerCouponDto.mcoupon_num}</span>
 					<span class="read_name">${managerCouponDto.manager_coupon_name}</span>
-					<span class="read_field">${managerCouponDto.manager_coupon_field}</span>
 					<span class="read_period"><fmt:formatDate value="${managerCouponDto.manager_coupon_period}" pattern="yyyy-MM-dd"/></span>
 					<span class="read_discount">${managerCouponDto.manager_coupon_discount}</span>
 				</div>
@@ -43,5 +45,8 @@
 			</div>
 		</div>
 </div>
+</div>
+<%-- <jsp:include page="../main-bottom.jsp"/> --%>
+	<br/><br/>
 </body>
 </html>

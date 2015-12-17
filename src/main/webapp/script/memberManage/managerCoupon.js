@@ -34,7 +34,7 @@ function insertForm(couponForm){
 		couponForm.manager_coupon_discount.focus();
 		return false;
 	}
-	
+/*	
 	var str="";
 	var check=false;
 	var count=0;
@@ -59,7 +59,7 @@ function insertForm(couponForm){
 	}
 	
 	couponForm.manager_coupon_field.value=str;
-	
+	*/
 	var period=couponForm.manager_coupon_period_value.value;
 	couponForm.manager_coupon_period.value=period;
 	

@@ -8,9 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/coupon.css"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<div>
+<div id="contents" style="height:750px; background:white; border:1px solid black"><br/><br/><br/><br/>
+	<div class="all">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 			<div class="myPageCouponSelect">
@@ -41,5 +43,8 @@
 			</div>	
 		</div>
 	</div>
+</div>
+<%-- <jsp:include page="../main-bottom.jsp"/> --%>
+	<br/><br/>	
 </body>
 </html>
