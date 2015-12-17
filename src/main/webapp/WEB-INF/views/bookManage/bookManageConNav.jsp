@@ -2,24 +2,41 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
 </head>
-<body>
-	<c:set var="root" value="${pageContext.request.contextPath}"/>
-	
-	<a href="${root}/bookManage/bookInsert.do">도서등록</a><br/>
-	<a href="${root}/bookManage/bookStockList.do">재고관리</a><br/>
-	<a href="">특가설정</a><br/>
-	<a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a><br/>
-	<hr width="80px" align="left"/>
-	<a href="">재입고신청</a><br/>
-	<a href="${root}/bookManage/bookReOrderList.do">재입고현황</a><br/>
-	<hr width="80px" align="left"/>
-	<a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a><br/>
-	<hr width="80px" align="left"/>
-	<a href="${root}/bookManage/bookSchedule.do">출간일정관리</a><br/>
+<body>	
+	<table class="table table-bordered">
+		<tr>
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookInsert.do" >도서등록</a></td>
+		</tr>
+		
+		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookStockList.do">재고관리</a></td>
+		</tr>
+		
+		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></td>
+		</tr>
+		
+		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookReOrderList.do">재입고현황</a></td>
+		</tr>
+		
+		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookGroupPurchase.do">공동구매</a></td>
+		</tr>
+		
+		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookSchedule.do">출간일정관리</a></td>
+		</tr>
+	</table>
 </body>
 </html>
