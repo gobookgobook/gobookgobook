@@ -7,21 +7,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
 	<br/><br/>
+<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-	<div id="wrap">
-		<div id="header" style="height: 227px">
-			<jsp:include page="../main-top.jsp"/>
-		</div>
 		
-		<div id="nav">
-			<a href="${root}/member/adminMain.do"><b> 관리자 페이지 </b></a><br/>
+		<div id="nav" style="padding: 10px 0px 0px 50px;">
+			<a href="${root}/member/adminMain.do"><b style="font-size: 18px;"> 관리자 페이지 </b></a><br/>
 		</div>
-		<div id="contents" style="height:600px; background:white; border:1px solid black">
+		<div id="contents" style="height:600px; background:white; border:0px solid black">
 		<div id="con1" align="left" style="height:300px;">
 			<a href="${root}/bookManage/bookManage.do">도서관리</a><br/>
 			<a href="${root}/memberManager/memberManagerUpdate.do">관리자정보수정</a><br/>
@@ -39,10 +39,7 @@
 			
 		</div>
 		</div>
-		<div id="footer" style="height: 195px">
-			<jsp:include page="../main-bottom.jsp"/>
-		</div>
-	</div>
+		
 	</c:if>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
@@ -50,5 +47,8 @@
 			location.href="${root}/member/goBookMain.do"
 		</script>
 	</c:if>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>
 </body>
 </html>
