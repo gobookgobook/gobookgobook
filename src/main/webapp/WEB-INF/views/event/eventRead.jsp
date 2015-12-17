@@ -24,10 +24,11 @@
    }
    
 </script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<jsp:include page="../member/menu.jsp"/>
    <br/><br/>
+<div id="contents" style="height:900px; background:white; border:1px solid black"><br/><br/><br/><br/>
 <div align="right">
 <div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 			<a href="${root}/event/eventList.do">이벤트 목록</a></div>  
@@ -64,5 +65,8 @@
          </div>
 </div>
 </div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>
 </body>
 </html>

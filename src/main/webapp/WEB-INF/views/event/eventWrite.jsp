@@ -22,12 +22,11 @@ $(function(){
 	 });
  });
 </script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-
-<jsp:include page="../member/menu.jsp"/>
    <br/><br/>
-   
+<div id="contents" style="height:500px; background:white; border:1px solid black"><br/><br/><br/><br/>      
 <form class="form_style" action="${root}/event/eventWrite.do" method="post" onsubmit="return eventForm(this)" enctype="multipart/form-data">
 
 <div align="right">
@@ -69,5 +68,8 @@ $(function(){
    </div>
  </div>
 </form>
+	</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>
 </body>
 </html>

@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/orderList.css"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
 <div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 	<div>

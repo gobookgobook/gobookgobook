@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>GoBookGoBook </title>
+	<link rel="Shortcut Icon" href="${root}/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
 	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
-	
+	<script type="text/javascript" src="${root}/script/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="${root}/css/style.css" /><!-- 터치 슬라이드 스타일(CSS) 연동 -->
 	<script type="text/javascript" src="${root}/js/swipe.js"></script> <!-- 터치 슬라이드 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/jquery.bxslider.min.js"></script>  <!-- bxSlider 플러그인 연동 -->
@@ -18,6 +19,8 @@
 	<script type="text/javascript" src="${root}/js/jquery.cookie.js"></script>  <!-- 쿠키 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/common.js"></script>
 	<script type="text/javascript" src="${root}/js/main.js"></script>
+	<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
 <div id="wrap">
@@ -34,6 +37,7 @@
            <li class="login_wrap">
         
              <!-- 로그인 폼 -->
+			
              <form action="#" method="post" name="log_f" id="login_f">
                <fieldset>
                  <legend>로그인</legend>
@@ -102,27 +106,30 @@
         </ul>
      </dd>
   </dl>
-  <form action="#" method="get" name="sch_f" id="sch_f">
+  <form action="${root}/userBook/userBookSerch.do" method="get" name="sch_f" id="sch_f">
      <fieldset>
         <legend>검색폼</legend>
         <p>
-           <input type="text" name="keyword" id="keyword" title="검색어입력" />
+           <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest('${root}')"/>
            <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
         </p>
+        <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">
+			<div id="suggestList"></div>
+		</div>
      </fieldset>
   </form>
   <h2 class="hide">메인메뉴</h2>
    <ul id="gnb">
      <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
-           <li><a href="#">문학</a></li>
-           <li><a href="#">교육도서</a></li>
-           <li><a href="#">전공도서</a></li>
-           <li><a href="#">만화</a></li>
-           <li><a href="#">잡지</a></li>
-           <li><a href="#">역사</a></li>
-           <li><a href="#">SF/판타지</a></li>
-           <li><a href="#">교양</a></li>
+           	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'전공도서'}">전공도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'만화'}">만화</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'잡지'}">잡지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'역사'}">역사</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
@@ -141,14 +148,14 @@
      <li><a href="${root}/help/adminHelpQnAList.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
-           <li><a href="#">Q&A</a></li>
-           <li><a href="#">공지사항</a></li>
+           <li><a href="${root}/help/userHelpQnA.do">Q&A</a></li>
+           <li><a href="${root}/help/userHelpNotice.do">공지사항</a></li>
            <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
   </ul> 
   <p id="date_wrap">

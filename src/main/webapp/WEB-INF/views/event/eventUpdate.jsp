@@ -23,9 +23,11 @@ $(function(){
 	 });
  });
 </script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-
+<br/><br/>
+<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div align="center">
 		<form class="form_style" action="${root}/event/eventUpdate.do"
 			method="post" onsubmit="return eventForm(this)"
@@ -81,5 +83,8 @@ $(function(){
          </div>
 		</form>
 	</div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>	
 </body>
 </html>

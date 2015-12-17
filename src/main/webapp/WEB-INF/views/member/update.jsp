@@ -14,9 +14,9 @@
 <title>회원정보수정</title>
 <link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../main-top.jsp"/>
 	<br/><br/>
 <div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>	
 	
