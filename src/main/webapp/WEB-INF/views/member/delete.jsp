@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
-<link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 <jsp:include page="../main-top.jsp"/>
 </head>

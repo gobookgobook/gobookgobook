@@ -9,8 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
-	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
-	
+	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->	
 	<link rel="stylesheet" type="text/css" href="${root}/css/style.css" /><!-- 터치 슬라이드 스타일(CSS) 연동 -->
 	<script type="text/javascript" src="${root}/js/swipe.js"></script> <!-- 터치 슬라이드 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/jquery.bxslider.min.js"></script>  <!-- bxSlider 플러그인 연동 -->
@@ -20,8 +19,8 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap">
-<div id="inner_footer">
+<div id="footer_wrap"  style="border:2px solid #37415A;  width:1350px;height:250px; position:absolute; bottom:-300px; padding:20px">
+<div id="inner_footer" style="position:absolute; left:150px">
  <h3 class="footer_logo">
     <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>
  </h3>
@@ -42,7 +41,7 @@
  </div>
  <address>
 
- <label style="font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
+ <label style="border:0px solid red; width:500px;font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
  2015-2016 꼬북꼬북. All Rights Reserved</label>
  
  </address>

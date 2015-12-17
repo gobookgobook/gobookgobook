@@ -12,13 +12,15 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
-<link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>	
+<div id="contents" style="height:400px; background:white; border:1px solid black"><br/><br/><br/><br/>	
 	
 	<div align="center">
 		<form class="form_style" name="memberForm" action="${root}/member/update.do" 
