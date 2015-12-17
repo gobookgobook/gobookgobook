@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>GoBookGoBook </title>
-	<link rel="SHORTCUT ICON" href="http://www.mydomain.com/myicon.ico"/>
+	<link rel="Shortcut Icon" href="${root}/images/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
 	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
