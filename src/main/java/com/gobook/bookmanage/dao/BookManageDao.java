@@ -100,7 +100,24 @@ public class BookManageDao implements IBookManageDao {
 				sqlSessionTemplate.insert("dao.bookmanageMapper.salesMonthListInsert", hMap);
 			}
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "DAO bookDto.getBook_reorder_count : "+bookDto.getBook_reorder_count());
-			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
+			
+			if(bookDto.getBook_cover_file_name()==null){
+				value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
+			}else{
+				value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdateCoverFile", bookDto);	
+			}
+			
+			if(bookDto.getBook_preview_file_name1()!=null){
+				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileOne", bookDto);
+			}
+			
+			if(bookDto.getBook_preview_file_name2()!=null){
+				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileTwo", bookDto);
+			}
+			
+			if(bookDto.getBook_preview_file_name3()!=null){
+				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileThree", bookDto);
+			}
 			
 			transactionManager.commit(status);
 		}catch(Exception e){

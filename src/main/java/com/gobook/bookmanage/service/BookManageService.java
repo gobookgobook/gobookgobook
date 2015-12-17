@@ -73,7 +73,7 @@ public class BookManageService implements IBookManageService {
 		
 		String pageNumber=request.getParameter("pageNumber");
 		try{
-			if(pageNumber.equals(null)) pageNumber="1";
+			if(pageNumber.equals(null)||pageNumber.equals("")) pageNumber="1";
 		}catch(Exception e){}
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
@@ -93,7 +93,11 @@ public class BookManageService implements IBookManageService {
 	public void bookInsertOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
-		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		String tempPageNumber=request.getParameter("pageNumber");
+		if(tempPageNumber.equals(null)||tempPageNumber.equals("")) tempPageNumber="1";
+		
+		int pageNumber=Integer.parseInt(tempPageNumber);
+		
 		BookDto bookDto=(BookDto)map.get("bookDto");
 		
 		if(bookDto.getBook_quantity()!=0) bookDto.setBook_state(1);
@@ -251,16 +255,80 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
 		BookDto bookDto=(BookDto)map.get("bookDto");
-		
 		String pageNumber=request.getParameter("pageNumber");
-		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
 		
+		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
+		int oldBook_quantity=bookDto.getBook_quantity();
 		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
 		
-		if(bookDto.getBook_quantity()!=0){
+		if(bookDto.getBook_quantity()!=oldBook_quantity){
 			bookDto.setBook_state(1);
 			bookDto.setBook_reorder_count(0);
 		}
+		
+		MultipartFile book_cover_file=request.getFile("book_cover_file");
+		String book_cover_file_name=book_cover_file.getOriginalFilename();
+		long book_cover_file_size=book_cover_file.getSize();
+		
+		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto.getBook_cover_file_name());
+				
+		if(book_cover_file_size!=0){
+			System.out.println("잘옴?");
+			MultipartFile book_preview_file1=request.getFile("book_preview_file1");
+			MultipartFile book_preview_file2=request.getFile("book_preview_file2");
+			MultipartFile book_preview_file3=request.getFile("book_preview_file3");
+			
+			String book_preview_file_name1=book_preview_file1.getOriginalFilename();
+			String book_preview_file_name2=book_preview_file2.getOriginalFilename();
+			String book_preview_file_name3=book_preview_file3.getOriginalFilename();
+			
+			long book_preview_file_size1=book_preview_file1.getSize();
+			long book_preview_file_size2=book_preview_file2.getSize();
+			long book_preview_file_size3=book_preview_file3.getSize();
+			
+			File path=new File("C:/gobook/bookimg/");
+			path.mkdirs();
+			
+			if(path.exists() && path.isDirectory()){
+				File cover_file=new File(path, book_cover_file_name);
+				try{
+					book_cover_file.transferTo(cover_file);
+					
+					bookDto.setBook_cover_file_name(book_cover_file_name);
+					bookDto.setBook_cover_file_path(cover_file.getAbsolutePath());
+					bookDto.setBook_cover_file_size(book_cover_file_size);
+					
+					if(book_preview_file_size1!=0){
+						File preview_file1=new File(path, book_preview_file_name1);
+						File preview_file2=new File(path, book_preview_file_name2);
+						File preview_file3=new File(path, book_preview_file_name3);
+						try{
+							book_preview_file1.transferTo(preview_file1);
+							book_preview_file2.transferTo(preview_file2);
+							book_preview_file3.transferTo(preview_file3);
+							
+							bookDto.setBook_preview_file_name1(book_preview_file_name1);
+							bookDto.setBook_preview_file_name2(book_preview_file_name2);
+							bookDto.setBook_preview_file_name3(book_preview_file_name3);
+							
+							bookDto.setBook_preview_file_path1(preview_file1.getAbsolutePath());
+							bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
+							bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
+							
+							bookDto.setBook_preview_file_size1(book_preview_file_size1);
+							bookDto.setBook_preview_file_size2(book_preview_file_size2);
+							bookDto.setBook_preview_file_size3(book_preview_file_size3);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
 		
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + pageNumber);

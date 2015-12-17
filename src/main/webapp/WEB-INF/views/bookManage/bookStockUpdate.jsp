@@ -139,33 +139,81 @@
 					</span>
 				</div>
 				
-				<div class="line">
+				<c:if test="${bookDto.book_cover_file_name !=null}">
+					<div class="line">
 					<label class="title">도서표지</label>
 					<span class="content">
-						<input type="file" name="${book_cover_file}"/>
+						${bookDto.book_cover_file_name}
+						<input type="file" name="book_cover_file" />
 					</span>
 				</div>
+				</c:if>
 				
-				<div class="line">
-					<label class="title">미리보기1</label>
-					<span class="content">
-						<input type="file" name="${book_preview_file1}"/>
-					</span>
-				</div>
+				<c:if test="${bookDto.book_cover_file_name ==null}">
+					<div class="line">
+						<label class="title">도서표지</label>
+						<span class="content">
+							<input type="file" name="book_cover_file"/>
+						</span>
+					</div>
+				</c:if>
 				
-				<div class="line">
-					<label class="title">미리보기2</label>
-					<span class="content">
-						<input type="file" name="${book_preview_file2}"/>
-					</span>
-				</div>
+				<c:if test="${bookDto.book_preview_file_name1!=null}">
+					<div class="line">
+						<label class="title">미리보기1</label>
+						<span class="content">
+							${bookDto.book_preview_file_name1}
+							<input type="file" name="book_preview_file1"/>
+						</span>
+					</div>				
+				</c:if>
 				
-				<div class="line">
-					<label class="title">미리보기3</label>
-					<span class="content">
-						<input type="file" name="${book_preview_file3}"/>
-					</span>
-				</div>
+				<c:if test="${bookDto.book_preview_file_name1==null}">
+					<div class="line">
+						<label class="title">미리보기1</label>
+						<span class="content">
+							<input type="file" name="book_preview_file1"/>
+						</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${bookDto.book_preview_file_name2!=null}">
+					<div class="line">
+						<label class="title">미리보기2</label>
+						<span class="content">
+							${bookDto.book_preview_file_name2}
+							<input type="file" name="book_preview_file2"/>
+						</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${bookDto.book_preview_file_name2==null}">
+					<div class="line">
+						<label class="title">미리보기2</label>
+						<span class="content">
+							<input type="file" name="book_preview_file2"/>
+						</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${bookDto.book_preview_file_name3!=null}">
+					<div class="line">
+						<label class="title">미리보기3</label>
+						<span class="content">
+							${bookDto.book_preview_file_name3}
+							<input type="file" name="book_preview_file3"/>
+						</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${bookDto.book_preview_file_name3==null}">
+					<div class="line">
+						<label class="title">미리보기3</label>
+						<span class="content">
+							<input type="file" name="book_preview_file3"/>
+						</span>
+					</div>
+				</c:if>
 				
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="도서수정"/>
