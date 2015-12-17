@@ -14,7 +14,6 @@
 <div id="contents" style="height:750px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="all">
 		<jsp:include page="category.jsp"/>
-		<c:if test="${id !=null}">
 		<div class="body">
 			<div class="myPageCouponSelect">
 				<div class="user_coupon_title">
@@ -43,10 +42,6 @@
 			</c:if>	
 			</div>	
 		</div>
-		</c:if>
-		<c:if test=${id ==null }>
-			로그인후 이용가능합니다.
-		</c:if>
 	</div>
 </div>
 <%-- <jsp:include page="../main-bottom.jsp"/> --%>

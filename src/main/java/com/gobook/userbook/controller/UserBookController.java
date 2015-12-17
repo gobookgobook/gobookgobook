@@ -17,12 +17,6 @@ public class UserBookController {
 	@Autowired
 	private IUserBookService iUserBookService;
 	
-	/**
-	 * @함수이름 : userBookList
-	 * @작성일 : 2015. 12. 17.
-	 * @개발자 : 오주석
-	 * @설명 : 도서 목록
-	 */
 	@RequestMapping(value="/userBook/userBookList.do", method=RequestMethod.GET)
 	public ModelAndView userBookList(HttpServletRequest request, HttpServletResponse servletResponse){
 		
@@ -37,14 +31,13 @@ public class UserBookController {
 	 * @함수이름 : userBookRead
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 오주석
-	 * @설명 : 도서 상세확인
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookRead.do", method=RequestMethod.GET)
 	public ModelAndView userBookRead(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		mav.addObject("response", response);
 		iUserBookService.userBookRead(mav);
 		
 		return mav;
@@ -54,7 +47,7 @@ public class UserBookController {
 	 * @함수이름 : userBookBasketInsert
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 오주석
-	 * @설명 : 장바구니 담기
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookBasketInsert.do", method=RequestMethod.GET)
 	public ModelAndView userBookBasketInsert(HttpServletRequest request, HttpServletResponse response){
@@ -72,7 +65,7 @@ public class UserBookController {
 	 * @함수이름 : userBookSoldOutAsk
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 오주석
-	 * @설명 : 재입고 요청
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookSoldOutAsk.do", method=RequestMethod.GET)
 	public ModelAndView userBookSoldOutAsk(HttpServletRequest request, HttpServletResponse response){
@@ -89,7 +82,7 @@ public class UserBookController {
 	 * @함수이름 : userBookGroupPurchaseAsk
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 오주석
-	 * @설명 : 공동구매 요청
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookGroupPurchaseAsk.do", method=RequestMethod.GET)
 	public ModelAndView userBookGroupPurchaseAsk(HttpServletRequest request, HttpServletResponse response){
@@ -106,7 +99,7 @@ public class UserBookController {
 	 * @함수이름 : userBookStarInsert
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 오주석
-	 * @설명 : 별점 주기
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookStarInsert.do", method=RequestMethod.GET)
 	public ModelAndView userBookStarInsert(HttpServletRequest request, HttpServletResponse response){
@@ -129,12 +122,6 @@ public class UserBookController {
 		return mav;
 	}
 	
-	/**
-	 * @함수이름 : userBookInterestReading
-	 * @작성일 : 2015. 12. 17.
-	 * @개발자 : 오주석
-	 * @설명 : 관심분야 추천
-	 */
 	@RequestMapping(value="/userBook/userBookInterestReading.do", method=RequestMethod.GET)
 	public ModelAndView userBookInterestReading(HttpServletRequest request, HttpServletResponse response){
 		
@@ -166,7 +153,7 @@ public class UserBookController {
 	 * @함수이름 : userBookGroupPurchaseList
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 오주석
-	 * @설명 : 진행중인 공동구매 목록
+	 * @설명 : 
 	 */
 	@RequestMapping(value="/userBook/userBookGroupPurchaseList.do", method=RequestMethod.GET)
 	public ModelAndView userBookGroupPurchaseList(HttpServletRequest request, HttpServletResponse response){
@@ -183,7 +170,7 @@ public class UserBookController {
 	 * @함수이름 : userBookGroupPurchaseRead
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 오주석
-	 * @설명 : 진행중인 공동구매 상세확인
+	 * @설명 : 진행중인 공동구매 신청
 	 */
 	@RequestMapping(value="/userBook/userBookGroupPurchaseRead.do", method=RequestMethod.GET)
 	public ModelAndView userBookGroupPurchaseRead(HttpServletRequest request, HttpServletResponse response){
@@ -195,12 +182,6 @@ public class UserBookController {
 		return mav;
 	}
 	
-	/**
-	 * @함수이름 : userBookGroupPurchaseInsert
-	 * @작성일 : 2015. 12. 17.
-	 * @개발자 : 오주석
-	 * @설명 : 진행중인 공동구매 신청
-	 */
 	@RequestMapping(value="/userBook/userBookGroupPurchaseInsert.do", method=RequestMethod.GET)
 	public ModelAndView userBookGroupPurchaseInsert(HttpServletRequest request, HttpServletResponse response){
 		

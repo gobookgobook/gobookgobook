@@ -10,15 +10,7 @@
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	
-	<table class="table table-bordered">
-	<tr>
-		<td style="background:#41AF39"><a href="${root}/sales/salesDailyList.do">일일매출</a></td>
-	</tr>
-	
-	<tr style="color:white">
-		<td style="background:#41AF39"><a href="${root}/sales/salesMonthlyList.do">월별매출</a></td>
-	</tr>
-	</table>
-	
+	<a href="${root}/sales/salesDailyList.do">일일매출</a><br/>
+	<a href="${root}/sales/salesMonthlyList.do">월별매출</a><br/>
 </body>
 </html>

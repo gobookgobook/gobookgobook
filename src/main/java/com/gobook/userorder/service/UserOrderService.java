@@ -82,50 +82,6 @@ public class UserOrderService implements IUserOrderService{
 		mav.setViewName("userOrder/userOrderList");
 	}
 
-
-	@Override
-	public void userOrder(ModelAndView mav) {
-		Map<String, Object> map= mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		HttpSession idSession=request.getSession();
-		String member_id=(String) idSession.getAttribute("id");
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
-		long book_num=Long.parseLong(request.getParameter("book_num"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
-		int book_quantity=Integer.parseInt(request.getParameter("book_quantity"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_quantity);
-		int book_price=Integer.parseInt(request.getParameter("book_price"));
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_price);
-		String book_name=request.getParameter("book_name");
-		GoBookAspect.logger.info(GoBookAspect.logMsg + book_name);
-		
-		
-		if(member_id !=null){
-			HttpSession basketSession=request.getSession();
-			
-			basketSession.setAttribute("purchase", "book_num");
-			basketSession.setMaxInactiveInterval(60*60);	// 세션 시간:1시간
-			
-			String purchase=(String) basketSession.getAttribute("purchase");
-			GoBookAspect.logger.info(GoBookAspect.logMsg + purchase);
-			
-			MemberDto memberDto=iMemberDao.memberSelect(member_id);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + memberDto);
-			
-			int sum=book_price*book_quantity;
-			
-			mav.addObject("memberDto", memberDto);
-			mav.addObject("book_num", book_num);
-			mav.addObject("book_quantity", book_quantity);
-			mav.addObject("book_price", book_price);
-			mav.addObject("book_name", book_name);
-			mav.addObject("sum", sum);
-		}
-		
-		mav.setViewName("userOrder/userOrderList");
-	}
-
 	
 	/**
 	 * @클래스이름 : UserOrderPay
@@ -163,7 +119,5 @@ public class UserOrderService implements IUserOrderService{
 		List<UserCouponDto> couponSelect=iUserOrderDao.userOrderCouponListSelect(member_id);
 		
 	}
-
-
 
 }

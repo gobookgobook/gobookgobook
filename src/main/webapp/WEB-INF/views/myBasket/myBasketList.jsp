@@ -37,7 +37,7 @@
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="background:white; border:1px solid black; position: static;"><br/><br/><br/><br/>	
+<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 
     
     <c:if test="${id==null}">
@@ -129,9 +129,7 @@
 		</div>
 	</c:if>
 </div>
-
 <jsp:include page="../main-bottom.jsp"/>
-	<br/><br/>
-	
+	<br/><br/>		
 </body>
 </html>

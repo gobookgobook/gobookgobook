@@ -15,13 +15,6 @@
 
 <div id="contents" style="height:500px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="all">
-	<c:if test="${id==null}">
-		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
-		<div align="center">
-			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
-		</div>
-	</c:if>
-	<c:if test="${id !=null }">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		포인트 함
@@ -38,7 +31,6 @@
 				</c:if>	
 			</div>
 		</div>
-		</c:if>
 	</div>
 </div>
 <%-- <jsp:include page="../main-bottom.jsp"/> --%>

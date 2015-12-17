@@ -48,7 +48,6 @@
 </script>
 </head>
 <body>
-${cookie.size()}
 	<br/><br/>
 <div id="contents" style="height:900px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="book_read">
@@ -113,7 +112,7 @@ ${cookie.size()}
 				<div>
 				<c:if test="${id !='admin' && id !=null}">
 					<input type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
-					<input type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
+					<input type="button" value="구매" onclick="" />
 				<!-- 수량 없을때 if문 처리 해주자-->	
 				<c:if test="${bookDto.book_quantity==0}">
 					<input type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
@@ -128,11 +127,11 @@ ${cookie.size()}
 		</div>
 		
 		<div class="book_index">
-		<c:if test="${bookDto.book_index !=null}">
-			${bookDto.book_index}
+		<c:if test="${bookDto.book_summary !=null}">
+			${bookDto.book_summary}
 		</c:if>
-		<c:if test="${bookDto.book_index ==null}">
-			목차가 없습니다.	
+		<c:if test="${bookDto.book_summary ==null}">
+			줄거리가없습니다.	
 		</c:if>
 		</div>
 		

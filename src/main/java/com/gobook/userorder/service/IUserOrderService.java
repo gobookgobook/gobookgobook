@@ -12,8 +12,6 @@ public interface IUserOrderService {
 	
 	public void userOrderList(ModelAndView mav);
 	
-	public void userOrder(ModelAndView mav);
-	
 	public void userOrderPay(ModelAndView mav);
 	
 	public void userOrderCouponList(ModelAndView mav);

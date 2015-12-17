@@ -31,16 +31,7 @@ public class UserOrderController {
 		UserOrderService.userOrderList(mav);
 		return mav;
 		
-	}
-	
-	@RequestMapping(value="/userOrder/userOrder.do", method=RequestMethod.GET)
-	public ModelAndView userOrder(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav= new ModelAndView();
-		mav.addObject("request",request);
-		UserOrderService.userOrder(mav);
-		return mav;
-		
-	}
+	}  
 	
 	/**
 	 * @클래스이름 : userOrderPayOk
