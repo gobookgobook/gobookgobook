@@ -62,9 +62,10 @@
 	}
 </script>
 <title>Insert title here</title>
+	<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../main-top.jsp"/>
+	
 	<br/><br/><br/><br/><br/><br/>
 	
 	<div align="center">
@@ -186,25 +187,25 @@
 													<label class="title">우편번호</label>
 													<span class="content">
 														<input type="text" name="oldZipcodeDisp" value="${memberDto.member_zipcode}" disabled="disabled"/>
-														<input type="hidden" name="oldMember_zipcode" value="${memberDto.member_zipcode}"/>
+														<input type="hidden" name="order_zipcode" value="${memberDto.member_zipcode}"/>
 													</span>
 											  	</div>
 												
 												<div class="line">
 													<span class="content">
 														<input type="text" class="form-control" name="oldAddress1Disp" size="48" value="${memberDto.member_address1}" disabled="disabled"/>
-														<input type="hidden" name="oldMember_address1" value="${memberDto.member_address1}"/>
+														<input type="hidden" name="order_book_user_address1" value="${memberDto.member_address1}"/>
 													</span>
 												</div>
 												
 												<div class="line">
 													<span class="content">
-														<input type="text" class="form-control" name="oldMember_address2" value="${memberDto.member_address2}" size="48" />
+														<input type="text" class="form-control" name="order_book_user_address2" value="${memberDto.member_address2}" size="48" />
 													</span>
 												</div>
 											
 												<label for="phone">전화번호</label> 
-												<input type="text" class="form-control" id="oldHphone" value="${memberDto.member_phone}">
+												<input type="text" class="form-control" id="oldHphone" name="order_book_user_number" value="${memberDto.member_phone}">
 											</div>
 										</div>
 									</div>
@@ -220,15 +221,25 @@
 								<div align="left">
 									<label class="title">쿠폰</label> 
 									<span class="content"> 
-										<input type="text" name="zipcode" /> 
+										<input type="hidden" name="order_user_coupon_num"/>
+									</span>
+									<span class="content"> 
+										<input type="text" name="couponNameDisp" disabled="disabled"/>
+										<input type="hidden" name="order_user_coupon_name"/>
+									</span>
+									<span class="content">
+										<label>할인율:</label>
+										<input type="text" name="couponDiscountDisp" value="0" size="5" disabled="disabled"/>%
+										<input type="hidden" name="coupon_discount"/> 
 										<input type="button" value="쿠폰적용" onclick="couponRead('${root}')"/><br/><br/>
 									</span>
 								</div>
 								<div align="left">
 									<label class="title">포인트사용</label> 
 									<span class="content"> 
-										<input type="text" id="point" name="point"/> 
-										<input type="text" name="equipPoint" value="${memberDto.member_point}" disabled="disabled"/>
+										<input type="text" size="10" id="point" value="0" name="order_book_point"/> 
+										<input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled"/>
+										<input type="button" name="payPoint" value="포인트적용" onclick=""/>
 									</span>
 								</div>
 							</div>
@@ -243,13 +254,13 @@
 									<label class="title">결제수단</label>
 									<div align="center">
 										<span class="content"> 
-											<label><input type="radio" name="pay" value="credit" id="c" checked>신용카드</label>&nbsp;&nbsp;&nbsp; 
-											<label><input type="radio" name="pay" value="bank" id="b" >무통장입금</label>&nbsp;&nbsp;&nbsp;
-											<label><input type="radio" name="pay" value="phone" id="p">휴대폰결제</label>&nbsp;&nbsp;&nbsp;
+											<label><input type="radio" name="order_book_charge" value="신용카드" id="c" checked>신용카드</label>&nbsp;&nbsp;&nbsp; 
+											<label><input type="radio" name="order_book_charge" value="무통장입금" id="b" >무통장입금</label>&nbsp;&nbsp;&nbsp;
+											<label><input type="radio" name="order_book_charge" value="휴대폰결제" id="p">휴대폰결제</label>&nbsp;&nbsp;&nbsp;<br/><br/>
 										</span>
 									</div>
 									
-									<div class="container" style="width: 100%">
+									<div class="container" style="width: 50%">
 										<form role="form">
 											<div id="card" class="form-group">
 												<label class="title" for="cardSel1">카드선택</label>
@@ -287,12 +298,12 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					
-					<div align="center">
+						
 						<div class="line" style="width: 498px; border-width: 2px; text-align: center;">
 							<input type="submit" class="btn btn-primary" value="주문" />
 						</div>
+						
+						<br/><br/>
 					</div>
 				</form>
 			</c:if>

@@ -6,13 +6,14 @@ import java.util.Date;
  * @클래스이름 : UserOrderDto
  * @날짜 : 2015-12-08
  * @개발자 : 김재석
- * @설명 : 
+ * @설명 : 주문 Dto
  */
 
 public class UserOrderDto {
 	
 	private int order_bunho;	            //주문번호
 	private String member_id;	            //주문한 사람 ID
+	private long book_num;					//책번호
 	private String order_book_name;	        //책이름
 	private int order_book_price;	        //책가격
 	private int order_book_count;	        //수량
@@ -26,6 +27,7 @@ public class UserOrderDto {
 	private int order_book_state; 	        //주문상태
 	private Date order_date;	            //주문 날짜
 	private String order_book_charge;	    //결재내역(휴대폰,무통장,신용카드)
+	private int order_total_price;			//결제액
 	
 	
 	public int getOrder_bunho() {
@@ -44,6 +46,14 @@ public class UserOrderDto {
 		this.member_id = member_id;
 	}
 	
+	public long getBook_num() {
+		return book_num;
+	}
+
+	public void setBook_num(long book_num) {
+		this.book_num = book_num;
+	}
+
 	public String getOrder_book_name() {
 		return order_book_name;
 	}
@@ -147,8 +157,25 @@ public class UserOrderDto {
 	public void setOrder_book_charge(String order_book_charge) {
 		this.order_book_charge = order_book_charge;
 	}
-	
-	
 
+	public int getOrder_total_price() {
+		return order_total_price;
+	}
 
+	public void setOrder_total_price(int order_total_price) {
+		this.order_total_price = order_total_price;
+	}
+
+	@Override
+	public String toString() {
+		return "UserOrderDto [order_bunho=" + order_bunho + ", member_id=" + member_id + ", book_num=" + book_num
+				+ ", order_book_name=" + order_book_name + ", order_book_price=" + order_book_price
+				+ ", order_book_count=" + order_book_count + ", order_zipcode=" + order_zipcode
+				+ ", order_book_user_address1=" + order_book_user_address1 + ", order_book_user_address2="
+				+ order_book_user_address2 + ", order_book_point=" + order_book_point + ", order_user_coupon_name="
+				+ order_user_coupon_name + ", order_user_coupon_discount=" + order_user_coupon_discount
+				+ ", order_book_user_number=" + order_book_user_number + ", order_book_state=" + order_book_state
+				+ ", order_date=" + order_date + ", order_book_charge=" + order_book_charge + ", order_total_price="
+				+ order_total_price + "]";
+	}
 }

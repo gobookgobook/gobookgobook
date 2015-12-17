@@ -5,21 +5,16 @@
 
 
 <mapper namespace="dao.UserOrderMapper">
-   <select id="userOrderCount" resultType="int">
-      select count(*) from userorder where member_id=#{member_id}
-   </select>
-   
-   <select id="userOrderList" resultType="com.gobook.userorder.dto.UserOrderDto" parameterType="java.util.Map">
-		<![CDATA[
-			select * from
-				(select rownum rnum, a.* from 
-					(select * from userorder) a) where member_id=#{member_id}
-		]]>
+	<select id="userOrderCouponListSelect" parameterType="String" resultType="com.gobook.member.dto.UserCouponDto"> 
+		SELECT ucoupon.user_coupon_num,mcoupon.MANAGER_COUPON_NAME user_coupon_name, mcoupon.MANAGER_COUPON_DISCOUNT user_coupon_discount
+		FROM usercoupon ucoupon, managercoupon mcoupon 
+		WHERE ucoupon.mcoupon_num=mcoupon.mcoupon_num 
+		AND member_id=#{member_id}
 	</select>
-   
-   <insert id="userOrderListOk" parameterType="com.gobook.userorder.dto.UserOrderDto">
+	
+	<insert id="userOrderPayInsert" parameterType="com.gobook.userorder.dto.UserOrderDto">
 		insert into userorder values(
-			#{order_bunho},
+			order_bunho_seq.nextval,
 			#{member_id},
 			#{book_num},
 			#{order_book_name},
@@ -34,10 +29,31 @@
 			#{order_book_user_number},
 			#{order_book_state},
 			#{order_book_charge},
-			#{order_date})
+			sysdate,
+			#{order_total_price})
 	</insert>
 	
-	<select resultType="com.gobook.member.dto.UserCouponDto" id="userOrderCouponListSelect" parameterType="java.lang.String"> 
-	select *from usercoupon where member_id=#{member_id} 
+	<delete id="userOrderBasketDelete" parameterType="String">
+		delete from myBasket where member_id=#{member_id}
+	</delete>
+	
+	<delete id="userOrderCouponDelete" parameterType="java.util.HashMap">
+		delete from userCoupon where member_id=#{member_id} and user_coupon_num=#{order_user_coupon_num}
+	</delete>
+	
+	<update id="userOrderPointUpdate" parameterType="java.util.HashMap">
+		update member set member_point=member_point-#{order_book_point} where member_id=#{member_id}
+	</update>
+	
+	<select id="userOrderSalesBookSelect" parameterType="long" resultType="int">
+		select book_cost from book where book_num=#{book_num}
+	</select>
+	
+	<insert id="userOrderSalesInsert" parameterType="java.util.HashMap">
+		insert into salesDaily values(SALESDAILY_NUM_SEQ.nextval, #{order_bunho}, #{member_id}, #{book_num}, #{salesDaily_profit})
+	</insert>
+	
+	<select id="salesUODSelect" resultType="com.gobook.userorder.dto.UserOrderDto">
+		select * from userOrder where order_bunho=(select nvl(max(order_bunho),0) from userorder)
 	</select>
 </mapper>

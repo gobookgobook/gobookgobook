@@ -9,14 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gobook.userorder.dto.UserOrderDto;
 import com.gobook.userorder.service.IUserOrderService;
 
 
+/**
+ * @클래스이름 : UserOrderController
+ * @날짜 : 2015. 12. 7.
+ * @개발자 : 김재석
+ * @설명 : 주문 Controller
+ */
 @Controller
 public class UserOrderController {
 	
 	@Autowired
-	IUserOrderService UserOrderService;
+	IUserOrderService iUserOrderService;
 	
 	/**
 	 * @클래스이름 : userOrderList
@@ -28,39 +35,37 @@ public class UserOrderController {
 	public ModelAndView userOrderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("request",request);
-		UserOrderService.userOrderList(mav);
+		iUserOrderService.userOrderList(mav);
 		return mav;
 		
 	}  
 	
 	/**
-	 * @클래스이름 : userOrderPayOk
-	 * @날짜 : 2015. 12. 7.
-	 * @개발자 : 김재석
-	 * @설명 : 사용자 주문완료, 사용자 쿠폰 사용
+	 * @함수이름 : userOrderCouponList
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 황규성
+	 * @설명 : 쿠폰 리스트
 	 */
-	@RequestMapping(value="/userOrder/userOrderList.do",method=RequestMethod.POST)
-	public void userOrderPayOk(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav= new ModelAndView();
-		mav.addObject("request",request);
-		UserOrderService.userOrderPay(mav);
-		
-	}   
-	public void userOrderPay(){}     //주문(주문창)
+	@RequestMapping(value="/userOrder/userOrderCouponList.do", method=RequestMethod.GET)
+	public ModelAndView userOrderCouponList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserOrderService.userOrderCouponList(mav);
+		return mav;
+	}
 	
 	/**
-	 * @클래스이름 : userOrderCouponList
-	 * @날짜 : 2015. 12. 8.
-	 * @개발자 : 김재석
-	 * @설명 : 사용자 주문시 쿠폰적용 리스트
+	 * @함수이름 : userOrderPay
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 황규성
+	 * @설명 : 주문 완료 시 화면
 	 */
-	public void userOrderCouponList(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav= new ModelAndView();
-		mav.addObject("request",request);
-		UserOrderService.userOrderCouponList(mav);
-		
-	} 
-		
-	
-
+	@RequestMapping(value="/userOrder/userOrderPay.do", method=RequestMethod.POST)
+	public ModelAndView userOrderPay(HttpServletRequest request, HttpServletResponse response, UserOrderDto userOrderDto){		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("userOrderDto", userOrderDto);
+		iUserOrderService.userOrderPay(mav);
+		return mav;
+	}     
 }
