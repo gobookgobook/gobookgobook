@@ -25,6 +25,15 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;">
+			<h3>신간 구매 요청</h3>
+			<c:if test="${bookReOrderCount!=0}">
+				<a href="">신간 구매 요청이 ${bookReOrderCount}권 있습니다.</a>
+			</c:if>
+			<c:if test="${bookReOrderCount==0}">
+				신간 도서 입고 요청이 없습니다.
+			</c:if>
+			<br/><br/>
+			
 			<h3>재입고 요청</h3>
 			<c:if test="${bookReOrderCount!=0}">
 				<a href="${root}/bookManage/bookReOrderCount.do">재입고 요청 도서가 ${bookReOrderCount}권 있습니다.</a>
@@ -32,7 +41,7 @@
 			<c:if test="${bookReOrderCount==0}">
 				품절도서 재입고 요청이 없습니다.
 			</c:if>
-			<br/><br/><br/>
+			<br/><br/>
 			
 			<h3>공동구매 현황</h3>
 			<c:if test="${bookGroupPurchaseListCount!=0}">
@@ -41,7 +50,7 @@
 			<c:if test="${bookGroupPurchaseListCount==0}">
 				진행중인 공동구매가 없습니다.
 			</c:if>
-			<br/><br/><br/>
+			<br/><br/>
 			
 			<c:if test="${bookGroupPurchaseCount!=0}">
 				<a href="${root}/bookManage/bookGroupPurchase.do">공동구매 요청 도서가 ${bookGroupPurchaseCount}권 있습니다.</a>

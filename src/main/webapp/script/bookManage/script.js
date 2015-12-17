@@ -5,7 +5,7 @@
  * @개발자 : 성기훈
  * @설명 : 도서등록 Form 스크립트
  */
-function bookInsertForm(form){
+function bookInsertForm(form){	
 	var check=false;
 	var str="";
 	for(var i=0;i<form.category.length;i++){

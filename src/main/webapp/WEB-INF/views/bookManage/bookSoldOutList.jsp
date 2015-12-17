@@ -8,28 +8,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-	<br/><br/>
+	<c:set var="id" value="admin" scope="session"/>
+	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-	<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 		</div>
 		
-		<div id="nav">
-			<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
-		</div>
-		
-		<div id="con1" align="left" style="height:300px;">
+		<div align="left" style="width: 120px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
-		
-		<div id="con2">
-			<b>도서목록</b>
-			<hr/>
+			
+		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
+			<div align="center"><b style="font-size: 16px;">품절도서목록</b></div>
+			<br/>
 		<c:if test="${count==0}">
 		<div align="center">
 			<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
@@ -99,8 +98,8 @@
 		
 		</c:if>
 		</div>
-	</div>
 	</c:if>
+	</div>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
 			alert("관리자만 접근이 가능한 페이지 입니다");

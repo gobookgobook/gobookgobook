@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+#tda:link {
+	text-decoration:none;
+	color: white;
+}
+
+#tda:visited {
+	text-decoration:none;
+	color: white;
+}
+
+#tda:hover {
+	text-decoration:none;
+	color: black;
+}

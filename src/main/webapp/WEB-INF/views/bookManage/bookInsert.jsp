@@ -7,30 +7,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-	<br/><br/>
+	<c:set var="id" value="admin" scope="session"/>
+	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-	<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 		</div>
 		
-		<div id="nav">
-			<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
-		</div>
-		
-		<div id="con1" align="left" style="height:1000px;">
+		<div align="left" style="width: 120px;height: 1000px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
-		
-		<div id="#con2" align="left">
+			
+		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookInsertForm(this)" enctype="multipart/form-data">
-				<b>도서등록</b>
-				<hr/>
+				<div align="center"><b style="font-size: 16px;">도서등록</b></div>
+				<br/>
 				
 				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 				<div class="line">
@@ -112,7 +110,7 @@
 				<div class="line">
 					<label class="title">입고수량</label>
 					<span class="content">
-						<input type="text" name="book_quantity"/>
+						<input type="text" name="book_quantity" value="0"/>
 					</span>
 				</div>
 				
@@ -150,8 +148,8 @@
 				</div>
 			</form>	
 		</div>
-	</div>
 	</c:if>
+	</div>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
 			alert("관리자만 접근이 가능한 페이지 입니다");

@@ -1,16 +1,24 @@
 @CHARSET "UTF-8";
 
-#tda:link {
-	text-decoration:none;
-	color: white;
+.line{	
+	width:610px;height:30px;float:left;
+	border:solid 0px #000000;
+	margin:0px; padding:0px
+	;text-align:left; 
 }
 
-#tda:visited {
-	text-decoration:none;
-	color: white;
+.title{
+	width:96px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 0px 0px 2px;
+    text-align:center; line-height:30px;
 }
 
-#tda:hover {
-	text-decoration:none;
-	color: black;
+.title2{
+	width:128px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 0px 0px 2px;
+    text-align:center; line-height:30px;
 }

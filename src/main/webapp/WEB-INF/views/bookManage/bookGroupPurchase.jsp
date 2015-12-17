@@ -8,71 +8,69 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-	<br/><br/>
+	<c:set var="id" value="admin" scope="session"/>
+	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-	<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
-		</div>
-			
-		<div id="nav">
-			<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 		</div>
 		
-		<div id="con1" align="left" style="height:300px;">
+		<div align="left" style="width: 120px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
-		
-		<div id="con2">
+			
+		<div align="left" style="float: left;margin: 20px 0 0 50px;">
 			<div>
 				<b>진행중인 공동구매</b>
 				<hr/>
-			<c:if test="${gpCount==0}">
-			<div align="center">
-				<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
-					<tr>
-						<td align="center">진행중인 공동구매가 없습니다.</td>
-					</tr>
-				</table> 
-			</div>
-			</c:if>
-			
-			<c:if test="${gpCount>0}">
-			<div align="center">
-				<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
-					<tr>
-						<td class="mytable" align="center" height="18" width="70">공구번호</td>
-						<td class="mytable" align="center" height="18" width="70">도서번호</td>
-						<td class="mytable" align="center" height="18" width="240">도서명</td>
-						<td class="mytable" align="center" height="18" width="70">도서가격</td>
-						<td class="mytable" align="center" height="18" width="70">공구가격</td>
-						<td class="mytable" align="center" height="18" width="70">시작수량</td>
-						<td class="mytable" align="center" height="18" width="70">마감수량</td>
-						<td class="mytable" align="center" height="18" width="70">공구마감일</td>
-						<td class="mytable" align="center" height="18" width="70">공구희망자</td>
-					</tr>
-				<c:forEach var="gpList" items="${gpList}">
-					<tr>
-						<td class="mytable" align="center" height="18">${gpList.gp_num}</td>
-						<td class="mytable" align="center" height="18">${gpList.book_num}</td>
-						<td class="mytable" align="left" height="18">
-							<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}" style="margin-left: 20px;">${gpList.book_name}</a>
-						</td>
-						<td class="mytable" align="center" height="18">${gpList.book_price}</td>
-						<td class="mytable" align="center" height="18">${gpList.group_purchase_price}</td>
-						<td class="mytable" align="center" height="18">${gpList.group_purchase_min_count}</td>
-						<td class="mytable" align="center" height="18">${gpList.group_purchase_max_count}</td>
-						<td class="mytable" align="center" height="18"><fmt:formatDate value="${gpList.group_purchase_date}" pattern="yyyy/MM/dd"/></td>
-						<td class="mytable" align="center" height="18">${gpList.group_purchase_count}</td>
-					</tr>
-				</c:forEach>
-				</table> 
-			</div>
-			</c:if>
+				<c:if test="${gpCount==0}">
+					<div align="center">
+						<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
+							<tr>
+								<td align="center">진행중인 공동구매가 없습니다.</td>
+							</tr>
+						</table> 
+					</div>
+					</c:if>
+					
+					<c:if test="${gpCount>0}">
+					<div align="center">
+						<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
+							<tr>
+								<td class="mytable" align="center" height="18" width="70">공구번호</td>
+								<td class="mytable" align="center" height="18" width="70">도서번호</td>
+								<td class="mytable" align="center" height="18" width="240">도서명</td>
+								<td class="mytable" align="center" height="18" width="70">도서가격</td>
+								<td class="mytable" align="center" height="18" width="70">공구가격</td>
+								<td class="mytable" align="center" height="18" width="70">시작수량</td>
+								<td class="mytable" align="center" height="18" width="70">마감수량</td>
+								<td class="mytable" align="center" height="18" width="70">공구마감일</td>
+								<td class="mytable" align="center" height="18" width="70">공구희망자</td>
+							</tr>
+						<c:forEach var="gpList" items="${gpList}">
+							<tr>
+								<td class="mytable" align="center" height="18">${gpList.gp_num}</td>
+								<td class="mytable" align="center" height="18">${gpList.book_num}</td>
+								<td class="mytable" align="left" height="18">
+									<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}" style="margin-left: 20px;">${gpList.book_name}</a>
+								</td>
+								<td class="mytable" align="center" height="18">${gpList.book_price}</td>
+								<td class="mytable" align="center" height="18">${gpList.group_purchase_price}</td>
+								<td class="mytable" align="center" height="18">${gpList.group_purchase_min_count}</td>
+								<td class="mytable" align="center" height="18">${gpList.group_purchase_max_count}</td>
+								<td class="mytable" align="center" height="18"><fmt:formatDate value="${gpList.group_purchase_date}" pattern="yyyy/MM/dd"/></td>
+								<td class="mytable" align="center" height="18">${gpList.group_purchase_count}</td>
+							</tr>
+						</c:forEach>
+						</table> 
+					</div>
+				</c:if>
 			</div>
 			<br/>
 			<div>
@@ -148,8 +146,8 @@
 			</c:if>
 			</div>
 		</div>
-	</div>
 	</c:if>
+	</div>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
 			alert("관리자만 접근이 가능한 페이지 입니다");

@@ -294,6 +294,18 @@ public class BookManageDao implements IBookManageDao {
 		
 		return sqlSessionTemplate.update("dao.bookmanageMapper.bookGroupPurchaseDelete", gp_num);
 	}
+
+	/**
+	 * @함수이름 : bookNewPublishCount
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 성기훈
+	 * @설명 : 신간 출간후 구매희망 목록 
+	 */
+	@Override
+	public int bookNewPublishCount() {
+		
+		return 0;
+	}
 	
 	
 }
