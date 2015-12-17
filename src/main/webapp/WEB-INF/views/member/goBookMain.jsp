@@ -153,7 +153,7 @@
            <li><a href="${root}/help/userHelpLocation.do">지점 확인</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userBook/userBookGroupPurchaseList.do"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
      <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
