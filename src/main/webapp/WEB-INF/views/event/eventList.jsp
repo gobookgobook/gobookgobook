@@ -19,9 +19,9 @@
 </head>
 <body>
    <br/><br/>
-<div id="contents" style="height:900px; background:white; border:1px solid black"><br/><br/><br/><br/>   
+<div id="contents" style="height:450px; background:white; border:1px solid black; position:absolute;  left:172px;" ><br/><br/><br/><br/>   
 <div align="right">
-<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
+<div style="width:598px; height:10px; text-align:right; ">
 			<a href="${root}/event/eventWrite.do">이벤트 등록</a>
 </div>
 </div>
@@ -31,7 +31,7 @@
         <c:forEach var="eventDto" items="${eventList}">
            <div id="event_id">
            <a href="javascript:readFun('${root}','${eventDto.event_bunho}')">
-            <img src="http://localhost:8181/gobook/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="300" height="300"/>
+            <img src="http://localhost:8181/gobook/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="300" height="100"/>
            </a>
             
             <a href="javascript:readFun('${root}','${eventDto.event_bunho}')">${eventDto.event_name}</a> 

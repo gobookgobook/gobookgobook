@@ -107,6 +107,7 @@ a:hover, a:focus{color:#c60;}
 #gnb img{
 	margin-left:35px;
 	border: 0px solid black;
+	margin-top:10px;
 }
 #gnb ul.sub1 li:first-child{margin-left:30px;}
 #gnb ul.sub2 li:first-child{margin-left:30px;}
