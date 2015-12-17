@@ -6,7 +6,7 @@
  * @함수이름 : userBookRead
  * @작성일 : 2015. 12. 16.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 도서 상세확인
  */
 function userBookRead(root, book_num){
 	var url =root +"/userBook/userBookRead.do?book_num="+book_num;
@@ -18,7 +18,7 @@ function userBookRead(root, book_num){
  * @함수이름 : soldOutAsk
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 재입고 요청
  */
 function soldOutAsk(root, book_num){
 	var url=root+"/userBook/userBookSoldOutAsk.do?book_num="+book_num;
@@ -47,7 +47,7 @@ function soldOutAsk(root, book_num){
  * @함수이름 : myBasket
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 장바구니 담기
  */
 function myBasket(root, book_num, book_name, book_price){
 	
@@ -84,11 +84,23 @@ function myBasket(root, book_num, book_name, book_price){
 	});
 }
 
+function order(root, book_num, book_price, book_name){
+	var book_quantity=$("#book_quantity option:selected").val();
+	var url=root+"/userOrder/userOrder.do?book_num="+book_num;
+	url+="&book_quantity="+book_quantity;
+	url+="&book_price="+book_price;
+	url+="&book_name="+book_name;
+	
+	alert(url);
+	
+	location.href=url;
+}
+
 /**
  * @함수이름 : groupPurchaseAsk
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 공동구매 요청
  */
 function groupPurchaseAsk(root, book_num){
 	
@@ -117,7 +129,7 @@ function groupPurchaseAsk(root, book_num){
  * @함수이름 : userbookstar_star
  * @작성일 : 2015. 12. 15.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 별점 주기
  */
 function userbookstar_star(root, book_num){
 	

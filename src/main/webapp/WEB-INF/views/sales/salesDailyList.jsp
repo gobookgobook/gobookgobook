@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 <script type="text/javascript" src="${root}/script/sales/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/sales/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/script/sales/jquery-ui.css"/>
@@ -26,10 +25,10 @@
 		 });
 	});
 </script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-    <br/><br/>
+<div id="contents" style="background:white; border:0px solid black">
     
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
@@ -39,20 +38,15 @@
 	</c:if>
 	
 	<c:if test="${id=='admin'}">
-		<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
-		</div>
-		
-		<div id="nav">
-			<a href="${root}/sales/salesDailyList.do"><b> 매출관리 </b></a><br/>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;매출관리</b>
 		</div>
 	
 		<div id="con1" align="left" style="height:100px;">
 			<jsp:include page="salesConNav.jsp"/>
 		</div>
 	
-		<div id="#con2" align="left" >
+		<div id="#con2" align="center" style="border: 1px solid black; margin-top:30px;">
 			<h3>일일매출</h3>
 			<div align="center" style="border:0 solid red">
 				<form name="dayChoice" method="post">
@@ -149,8 +143,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</c:if>
-	
+</div>
 </body>
 </html>

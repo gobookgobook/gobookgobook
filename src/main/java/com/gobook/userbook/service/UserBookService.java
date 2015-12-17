@@ -2,12 +2,16 @@ package com.gobook.userbook.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,7 +48,8 @@ public class UserBookService implements IUserBookService {
 	public void userBookRead(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
+		
 //		long book_num=1;
 		long book_num=Long.parseLong(request.getParameter("book_num"));//나중에 주석지움
 		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
@@ -52,8 +57,31 @@ public class UserBookService implements IUserBookService {
 		BookDto bookDto=iUserBookDao.userBookRead(book_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto);
 		
-		bookDto.setBook_index(bookDto.getBook_index().replace("\r\n", "<br/>"));
+		if(bookDto.getBook_index() !=null){
+			bookDto.setBook_index(bookDto.getBook_index().replace("\r\n", "<br/>"));
+		}
+		if(bookDto.getBook_summary() !=null){
 		bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
+		}
+		
+		String book_name=bookDto.getBook_name();
+		System.out.println("book_name : "+book_name);
+		
+		 
+		try {
+			response.setContentType("text/html;charset=EUC-KR");
+			request.setCharacterEncoding("euc-kr");
+			Cookie cookie=new Cookie(String.valueOf(book_num), URLEncoder.encode(book_name, "utf-8"));
+			cookie.setMaxAge(60*60*20);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("request.getCookies().length : "+request.getCookies().length);
+		
 		mav.addObject("bookDto", bookDto);
 		mav.setViewName("userBook/userBookRead");
 		
@@ -406,7 +434,7 @@ public class UserBookService implements IUserBookService {
 	 * @함수이름 : userBookGroupPurchaseList
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 진행중인 공동구매 목록
 	 */
 	@Override
 	public void userBookGroupPurchaseList(ModelAndView mav) {
@@ -425,7 +453,7 @@ public class UserBookService implements IUserBookService {
 	 * @함수이름 : userBookGroupPurchaseRead
 	 * @작성일 : 2015. 12. 16.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 진행중인 공동구매 상세확인
 	 */
 	@Override
 	public void userBookGroupPurchaseRead(ModelAndView mav) {
@@ -443,6 +471,12 @@ public class UserBookService implements IUserBookService {
 		mav.setViewName("userBook/userBookGroupPurchaseRead");
 	}
 
+	/**
+	 * @함수이름 : userBookGroupPurchaseInsert
+	 * @작성일 : 2015. 12. 17.
+	 * @개발자 : 오주석
+	 * @설명 : 진행중인 공동구매 신청
+	 */
 	@Override
 	public void userBookGroupPurchaseInsert(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -492,4 +526,29 @@ public class UserBookService implements IUserBookService {
 			}
 		}	
 	}
+	
+	public static String euckr_encode(String str){
+		String rslt = "";
+		if(str!=null){
+			try{
+				rslt = URLEncoder.encode(str,"euc-kr");
+			}catch(Exception e){ 
+				//return "";
+			}
+		}
+		return rslt;
+	}
+	
+	public static String euckr_decode(String str){
+		String rslt = "";
+		if(str!=null){
+			try{
+				rslt = URLDecoder.decode(str,"euc-kr");
+			}catch(Exception e){
+				//return "";
+			}
+		}
+		return rslt;
+	}
 }
+

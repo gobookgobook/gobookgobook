@@ -6,7 +6,7 @@
  * @함수이름 : insertForm
  * @작성일 : 2015. 12. 11.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 쿠폰 생성 예외처리
  */
 function insertForm(couponForm){
 //	alert("ok");

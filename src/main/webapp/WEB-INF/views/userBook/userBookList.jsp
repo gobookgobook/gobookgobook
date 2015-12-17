@@ -15,6 +15,7 @@
 <jsp:include page="../main-top.jsp"/>
 </head> 	
 <body>
+<jsp:include page="../cookie/cookie.jsp"/>
 	<br/><br/>
 <div id="contents" style="height:800px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="userBookList">

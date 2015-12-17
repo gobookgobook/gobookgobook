@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+#quick_menu{
+	width:140px;
+	height:450px;
+	text-align:center;
+	position:absolute;
+	top:-450px;right:-160px;
+	color:white;
+	background:#37415a;
+	border:1px solid white;
+}
+#quick_menu li img{
+	width:60px;
+	height:80px;
+	margin:20px;
+}
+#quick_menu li a img{
+	position:absolute;
+	right:-15px;
+	width:130px;
+	height:40px;
+	border:0px solid blue;
+}

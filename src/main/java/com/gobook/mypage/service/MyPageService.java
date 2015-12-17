@@ -22,7 +22,7 @@ import com.gobook.userorder.dto.UserOrderDto;
  * @클래스이름 : MyPageService
  * @날짜 : 2015. 12. 11.
  * @개발자 : 오주석
- * @설명 : 
+ * @설명 : 마이페이지 Service
  */
 @Component
 public class MyPageService implements IMyPageService {
@@ -34,7 +34,7 @@ public class MyPageService implements IMyPageService {
 	 * @함수이름 : myPageOrderList
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 주문내역
 	 */
 	@Override
 	public void myPageOrderList(ModelAndView mav) {
@@ -87,7 +87,7 @@ public class MyPageService implements IMyPageService {
 	 * @함수이름 : myPageCoupon
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 쿠폰함
 	 */
 	@Override
 	public void myPageCoupon(ModelAndView mav) {
@@ -111,7 +111,7 @@ public class MyPageService implements IMyPageService {
 	 * @함수이름 : myPagePoint
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 포인트함
 	 */
 	@Override
 	public void myPagePoint(ModelAndView mav) {
@@ -134,7 +134,7 @@ public class MyPageService implements IMyPageService {
 	 * @함수이름 : myPagePvPList
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 1:1문의 목록
 	 */
 /*	@Override
 	public void myPagePvPList(ModelAndView mav) {
@@ -158,7 +158,7 @@ public class MyPageService implements IMyPageService {
 	 * @함수이름 : myPagePvPRead
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 1:1문의 상세확인
 	 */
 /*	@Override
 	public void myPagePvPRead(ModelAndView mav) {

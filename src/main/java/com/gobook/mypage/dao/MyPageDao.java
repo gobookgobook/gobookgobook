@@ -27,7 +27,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPageOrderListSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 주문내역 Dao
 	 */
 	@Override
 	public List<UserOrderDto> myPageOrderListSelect(String member_id) {
@@ -39,7 +39,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPageOrderCount
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 주문내역 페이징
 	 */
 	@Override
 	public int myPageOrderCount(String member_id) {
@@ -51,7 +51,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPageHistoryListSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 구매히스토리 리스트
 	 */
 	@Override
 	public List<UserOrderDto> myPageHistoryListSelect(int startRow, int endRow, String member_id) {
@@ -68,7 +68,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPageCouponSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 쿠폰함
 	 */
 	@Override
 	public List<UserCouponDto> myPageCouponSelect(String member_id) {
@@ -80,7 +80,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPagePointSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 포인트함
 	 */
 	@Override
 	public int myPagePointSelect(String member_id) {
@@ -92,7 +92,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPagePvPListSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 1:1문의 목록
 	 */
 /*	@Override
 	public List<HelpPvPDto> myPagePvPListSelect(String member_id) {
@@ -104,7 +104,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPagePvPRead
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 1:1문의 상세확인
 	 */
 /*	@Override
 	public HelpPvPDto myPagePvPRead(int helppvp_num) {

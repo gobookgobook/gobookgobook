@@ -11,6 +11,13 @@
 </head>
 <body>	
 	<div>
+	<c:if test="${id==null}">
+		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
+		<div align="center">
+			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
+		</div>
+	</c:if>
+	<c:if test="${id!=null }">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
 		1:1문의 내역
@@ -51,6 +58,7 @@
 			</c:if>
 			</div>	
 		</div>
+		</c:if>
 	</div>
 </body>
 </html>
