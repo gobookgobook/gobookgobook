@@ -1,54 +1,15 @@
 @CHARSET "UTF-8";
 
 /* DEFUAL STYLE START */
-body{
-   font-size:13px;
+.body{
+	width: 85%; height:300px;
+	border: 0px solid blue;
+	display: block;
+	float: left;
+	margin-left:400px;
+	margin-top:-130px;	
 }
-
-a:link {
-	text-decoration:none;
-	color:blue
+.point_body{
+	width: 500px; height:60px;
+	border: 0px solid red;	
 }
-
-a:visited {
-	text-decoration:none;
-	color:red
-}
-
-a:hover {
-	text-decoration:underline;
-	color:black
-}
-
-/*  WRITE UPDATE STYLE START */
-.form_style{
-	width:620px; height:420px;
-	border:dotted 0px red;
-}
-
-.line{	
-	width:610px;height:30px;float:left;
-	border:solid 0px #000000;
-	margin:0px; padding:0px
-	;text-align:left; 
-}
-
-.title{
-	width:96px;height:30px;float:left;
-	border:solid 2px #000000;
-	border-right-width:0px;border-bottom-width:0px;
-    padding:0px 0px 0px 2px;
-    text-align:center; line-height:30px;
-}
-
-
-span{
-	width:496px;height:24px;float:left;
-	border:solid 2px #000000;
-	border-bottom-width:0px;
-	padding:2px 0px 2px 2px;
-}
-
-.mytable {
-    border:2px solid #4C4C4C;
- } 

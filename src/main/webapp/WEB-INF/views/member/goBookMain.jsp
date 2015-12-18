@@ -144,7 +144,7 @@
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="${root}/userHelp/adminHelpQnAList.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="#"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>

@@ -2,22 +2,30 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>사용자 공지사항목록</title>
-<c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/help/style.css"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
+<div id="contents" style="background:white; border:0px solid black; margin-top:70px;">
+   <div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;고객센터</b>
+	</div>
+   <div align="left" style="width: 120px; float:left; border:0px solid green;">
+     <jsp:include page="userCategory.jsp"/>
+    <div class="body">
 	<h2>공지사항</h2>
 	<hr><br/><br/>
-	
-	<c:if test="${count==0}">
+	<div class="point_body">
+	<c:if test="${userHelpQnAList ==null}">
 		<h3>작성된 게시물이 없습니다.</h3>
 	</c:if>
 	
-	<c:if test="${count > 0}">
+	<c:if test="${userHelpQnAList != null}">
 				<table>
 				<tr><td>사용자가 자주 묻는 질문</td></tr>
 				<c:forEach var="help" items="${userHelpNoticeList}">	<%-- 서비스에서 넘겨준 boardList --%>
@@ -54,5 +62,11 @@
 			<a href="${root}/help/userHelpNotice.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 		</c:if>
 	</div>
+	</div>
+	</div>
+</div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>		
 </body>
 </html>

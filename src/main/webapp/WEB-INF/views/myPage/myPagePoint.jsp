@@ -11,7 +11,7 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<div id="contents" style="height:500px; background:white; border:1px solid black; position:static;"><br/><br/><br/><br/>
+<div id="contents" style="height:500px; background:white; border:0px solid black; position:static;"><br/><br/><br/><br/>
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
 	</div>

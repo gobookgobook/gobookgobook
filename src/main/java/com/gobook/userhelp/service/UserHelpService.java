@@ -78,10 +78,11 @@ public class UserHelpService implements IUserHelpService {
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("count", count);
 			mav.addObject("boardSize", boardSize);
-			mav.addObject("userHelpQnAList", userHelpQnAList);
+			
 			
 			
 		}
+		mav.addObject("userHelpQnAList", userHelpQnAList);
 		mav.setViewName("userHelp/userHelpQnA");
 	}
 
