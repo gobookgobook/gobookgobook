@@ -37,7 +37,7 @@
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="background:white; border:0px solid black"><br/><br/><br/><br/>	
+<div id="contents" style="background:white; border:0px solid black"><br/>
 
     
     <c:if test="${id==null}">
@@ -47,10 +47,14 @@
 		</div>
 	</c:if>
     <c:if test="${id !=null}">
+    	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;장바구니 목록</b>
+		</div>
+		
 		<div align="center">
-			<h3>장바구니 목록</h3>
+			<br/><br/>
 			<c:if test="${count==0}">
-				<div class="container" style="width:50%">
+				<div class="container" style="width:999px;padding:0px">
 					<table class="table table-bordered">
 						<thead>
 							<tr class="info" align="center" style="color:#1770b5">
@@ -71,16 +75,16 @@
 			
 			<c:if test="${count > 0}">
 				
-				<div class="container" style="width:50%">
+				<div class="container" style="width:999px;padding:0px">
 					<table class="table table-bordered">
 						<thead>
 							<tr class="info" align="center" style="color:#1770b5">
-								<th>책제목</th>
-								<th>판매가</th>
-								<th>수량</th>
-								<th>합계</th>
+								<th style="text-align:center">책제목</th>
+								<th style="text-align:center">판매가</th>
+								<th style="text-align:center">수량</th>
+								<th style="text-align:center">합계</th>
 	<!-- 							<th>선택</th> -->
-								<th>삭제</th>
+								<th style="text-align:center">삭제</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd">
@@ -93,22 +97,22 @@
 							<c:set var="point" value="${myBasket.basket_book_price*0.03}"/>	
 								<tr class="info" id="${myBasket.basket_num}">
 									<td>${myBasket.basket_book_name}</td>
-									<td>
-										<fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원
+									<td style="text-align:center">
+										<b><fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원</b>
 										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
 									</td>
-									<td>
+									<td style="text-align:center">
 										<form name="quantity_update" method="post">
-											<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="1" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>&nbsp;
+											<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="2" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>&nbsp;
 											<c:set var="value" value="upQuantity.value"/>
 											<input type="button" class="btn btn-info btn-xs" value="수정" onclick="updateToServer('${myBasket.basket_num}', ${value}, '${root}')"/>
 										</form>
 									</td>
-									<td id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원</td>
+									<td style="text-align:center;font-weight: bold" id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원</td>
 									<!-- <td>
 										<input type="checkbox" checked="checked"/>
 									</td> -->
-									<td>
+									<td style="text-align:center">
 										<input type="button" id="delete" class="btn btn-warning btn-xs" value="삭제" onclick="javascript:deleteToServer('${myBasket.basket_num}','${myBasket.member_id}','${root}')"/>
 									</td>
 								</tr>
@@ -119,10 +123,11 @@
 					</table>
 				</div>
 				
-				<hr width="50%" color="blue"/>
-				<div align="right" id="order" style="width:50%">
-					<span id="point_sum">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-					<span id="sum">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
+				<hr width="100%" color="blue"/>
+				<div align="right" id="order" style="width:999px;padding:0px">
+					<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+					<span style="font-size:20px">상품 총 금액:</span>
+					<span id="sum" style="font-size: 20px; color:red; font-weight:bold"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
 					<input type="button" class="btn btn-primary" value="주문하기" onclick="javascript:location.href='${root}/userOrder/userOrderList.do'"/>
 				</div>
 			</c:if>

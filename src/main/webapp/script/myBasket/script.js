@@ -18,8 +18,8 @@ function deleteToServer(basket_num, member_id, root){
 			// alert(data);
 			$("#listAllTd").find($("#"+basket_num)).remove();
 
-			$("#sum").replaceWith("<span id='sum'>상품 총 금액:"+data+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum'>포인트 총 적립액:"+(data*0.03)+"원</span>");
+			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+data+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+(data*0.03)+"원</span>");
 			
 			if($("tbody").children().size()==0) {	
 				$("<span>상품이 없습니다.</span>").insertBefore("hr");
@@ -63,10 +63,10 @@ function updateToServer(basket_num, value, root){
 			var total_price=parseInt(basket_total_price);	// 세 자리 콤마를 위한 int형변환
 			// alert(total_price.toLocaleString());
 			// alert(basket_num + "|" + basket_quantity + "|" + basket_total_price + "|" + sum);
-			$("#totalPrice"+basket_num).replaceWith("<td id='totalPrice"+basket_num+"'>"+total_price.toLocaleString()+"원</td>");
+			$("#totalPrice"+basket_num).replaceWith("<td style='text-align:center; font-weight:bold' id='totalPrice"+basket_num+"'>"+total_price.toLocaleString()+"원</td>");
 			
-			$("#sum").replaceWith("<span id='sum'>상품 총 금액:"+sum+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum'>포인트 총 적립액:"+(sum*0.03)+"원</span>");
+			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+sum+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+(sum*0.03)+"원</span>");
 		},
 		error:function(xhr, status, errorMsg){
 			alert(status + "," + errorMsg);
