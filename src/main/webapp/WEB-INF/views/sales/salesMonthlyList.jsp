@@ -9,6 +9,7 @@
 <fmt:formatDate var="today" value="${date}" pattern="yyyy"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -22,9 +23,8 @@
 <script type="text/javascript" src="${root}/script/sales/script.js"></script>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
     <br/><br/>
-    
+    <div id="contents" style="background:white; border:0px solid black">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -34,22 +34,19 @@
 	
 	<c:if test="${id=='admin'}">
 		<div id="wrap">
-			<div id="header">
-				<h1>GoBook!GoBook!</h1>
+			
+			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 			</div>
 			
-			<div id="nav">
-				<a href="${root}/sales/salesDailyList.do"><b> 매출관리 </b></a><br/>
-			</div>
-			
-			<div id="con1" align="left" style="height:100px;">
+			<div align="left" style="width: 110px;float: left">
 				<jsp:include page="salesConNav.jsp"/>
 			</div>
 			
-			<div id="#con2" align="left" >
+			<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
 				<h3>월별매출</h3>
 				<div align="center" style="border:0 solid red">
-					<form name="monthChoice" method="get" action="${root}/sales/salesMonthlyList.do">
+					<form name="monthChoice" method="get" action="${root}/sales/salesMonthlyList.do" style="text-align:right">
 						<label>년월 선택:</label>
 						<span class="content">
 							<select name="monthly_year">
@@ -67,22 +64,22 @@
 							</select>
 						</span>
 						<input type="submit" id="clickDate" class="btn btn-success btn-sm" value="조회"/>
-					</form>
+					</form><br/>
 					
 					<div id="monthlyTable">
 						<c:if test="${count ==0}">
-							<div class="container" style="width:85%">
+							<div class="container" style="width:835px;padding:0px">
 								<table class="table table-bordered">
 									<thead>
 										<tr class="success" align="center" style="color:#1DDB16">
-											<th>일일정산날짜</th>
-											<th>일일판매금액</th>
-											<th>일일순이익</th>
-											<th>입고도서번호</th>
-											<th>입고도서제목</th>
-											<th>입고량</th>
-											<th>입고개당가격</th>
-											<th>입고총액</th>
+											<th style="text-align:center">일일정산날짜</th>
+											<th style="text-align:center">일일판매금액</th>
+											<th style="text-align:center">일일순이익</th>
+											<th style="text-align:center">입고도서번호</th>
+											<th style="text-align:center">입고도서제목</th>
+											<th style="text-align:center">입고량</th>
+											<th style="text-align:center">입고개당가격</th>
+											<th style="text-align:center">입고총액</th>
 										</tr>
 									</thead>
 									<tbody id="listAllTd"></tbody>
@@ -93,18 +90,18 @@
 						</c:if>
 						
 						<c:if test="${count > 0}">
-							<div class="container" style="width:85%; border:0px solid red; margin:0 auto">
+							<div class="container" style="width:835px;padding:0px">
 								<table class="table table-bordered" style="line-height: 100px">
 									<thead>
 										<tr class="success" align="center" style="color:#1DDB16">
-											<th>일일정산날짜</th>
-											<th>일일판매금액</th>
-											<th>일일순이익</th>
-											<th>입고도서번호</th>
-											<th>입고도서제목</th>
-											<th>입고량</th>
-											<th>입고개당가격</th>
-											<th>입고총액</th>
+											<th style="text-align:center">일일정산날짜</th>
+											<th style="text-align:center">일일판매금액</th>
+											<th style="text-align:center">일일순이익</th>
+											<th style="text-align:center">입고도서번호</th>
+											<th style="text-align:center">입고도서제목</th>
+											<th style="text-align:center">입고량</th>
+											<th style="text-align:center">입고개당가격</th>
+											<th style="text-align:center">입고총액</th>
 										</tr>
 									</thead>
 									<tbody id="listAllTd">
@@ -119,14 +116,14 @@
 										
 										<c:forEach var="salesMonthly" items="${salesMonthlyList}">
 											<tr class="success" id="${salesMonthly.salesm_num}">
-												<td><fmt:formatDate value="${salesMonthly.salesmonthly_date}" type="both" pattern="yyyy/MM/dd"/></td>
-												<td><fmt:formatNumber value="${salesMonthly.salesmonthly_daily_sale}" groupingUsed="true"/>원</td>
-												<td><fmt:formatNumber value="${salesMonthly.salesmonthly_daily_profit}" groupingUsed="true"/>원</td>
+												<td style="text-align:center"><fmt:formatDate value="${salesMonthly.salesmonthly_date}" type="both" pattern="yyyy/MM/dd"/></td>
+												<td style="text-align:right"><fmt:formatNumber value="${salesMonthly.salesmonthly_daily_sale}" groupingUsed="true"/>원</td>
+												<td style="text-align:right"><fmt:formatNumber value="${salesMonthly.salesmonthly_daily_profit}" groupingUsed="true"/>원</td>
 												<td>${salesMonthly.book_num}</td>
 												<td>${salesMonthly.salesmonthly_order_bookname}</td>
-												<td>${salesMonthly.salesmonthly_order_quantity}</td>
-												<td><fmt:formatNumber value="${salesMonthly.salesmonthly_order_cost}" groupingUsed="true"/>원</td>
-												<td><fmt:formatNumber value="${salesMonthly.salesmonthly_order_totalprice}" groupingUsed="true"/>원</td>
+												<td style="text-align:center">${salesMonthly.salesmonthly_order_quantity}</td>
+												<td style="text-align:right"><fmt:formatNumber value="${salesMonthly.salesmonthly_order_cost}" groupingUsed="true"/>원</td>
+												<td style="text-align:right"><fmt:formatNumber value="${salesMonthly.salesmonthly_order_totalprice}" groupingUsed="true"/>원</td>
 											</tr>
 										</c:forEach>
 										
@@ -134,12 +131,12 @@
 								</table>
 							</div>
 							
-							<hr width="70%" color="blue"/>
-							<div align="left" id="order" style="width:75%">
-								<span id="monthly_sum">월 판매 총액:<fmt:formatNumber value="${monthlySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="daily_profit_sum">일일 순이익 합계:<fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="monthly_order_sum">월 입고 총액:<fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="monthly_profit">월 순이익:<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>원</span>
+							<hr width="90%" color="blue"/>
+							<div align="left" id="order" style="width:880px">
+								<span id="monthly_sum" style="font-size: 20px">월 판매 총액:<fmt:formatNumber value="${monthlySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="daily_profit_sum" style="font-size: 20px">일일 순이익 합계:<fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="monthly_order_sum" style="font-size: 20px">월 입고 총액:<fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="monthly_profit" style="font-size: 20px">월 순이익:<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>원</span>
 							</div>
 						</c:if>
 					</div>
@@ -147,5 +144,6 @@
 			</div>
 		</div>
 	</c:if>
+	</div>
 </body>
 </html>
