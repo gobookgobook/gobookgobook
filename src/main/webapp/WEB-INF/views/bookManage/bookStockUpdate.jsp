@@ -12,6 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
@@ -137,10 +138,10 @@
 				</div>
 				
 				<c:if test="${bookDto.book_cover_file_name !=null}">
-					<div class="line">
+					<div class="line" style="height: 60px;">
 					<label class="title">도서표지</label>
 					<span class="content">
-						${bookDto.book_cover_file_name}
+						기존파일 : ${bookDto.book_cover_file_name}
 						<input type="file" name="book_cover_file" />
 					</span>
 				</div>
@@ -156,10 +157,10 @@
 				</c:if>
 				
 				<c:if test="${bookDto.book_preview_file_name1!=null}">
-					<div class="line">
+					<div class="line" style="height: 60px;">
 						<label class="title">미리보기1</label>
 						<span class="content">
-							${bookDto.book_preview_file_name1}
+							기존파일 : ${bookDto.book_preview_file_name1}
 							<input type="file" name="book_preview_file1"/>
 						</span>
 					</div>				
@@ -175,10 +176,10 @@
 				</c:if>
 				
 				<c:if test="${bookDto.book_preview_file_name2!=null}">
-					<div class="line">
+					<div class="line" style="height: 60px;">
 						<label class="title">미리보기2</label>
 						<span class="content">
-							${bookDto.book_preview_file_name2}
+							기존파일 : ${bookDto.book_preview_file_name2}
 							<input type="file" name="book_preview_file2"/>
 						</span>
 					</div>
@@ -194,10 +195,10 @@
 				</c:if>
 				
 				<c:if test="${bookDto.book_preview_file_name3!=null}">
-					<div class="line">
+					<div class="line" style="height: 60px;">
 						<label class="title">미리보기3</label>
 						<span class="content">
-							${bookDto.book_preview_file_name3}
+							기존파일 : ${bookDto.book_preview_file_name3}
 							<input type="file" name="book_preview_file3"/>
 						</span>
 					</div>

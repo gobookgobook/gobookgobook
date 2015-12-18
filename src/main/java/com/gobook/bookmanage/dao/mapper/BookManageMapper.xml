@@ -26,7 +26,7 @@
 	</select>
 	
 	<insert id="bookReOrderInsert" parameterType="java.util.Map">
-		insert into BOOKREORDER values(BOOKREORDER_REORDER_NUM_seq.nextval,#{book_num},#{reorder_quantity},sysdate,#{reorder_total_price})
+		insert into BOOKREORDER values(BOOKREORDER_REORDER_NUM_seq.nextval,#{book_num},#{reorder_quantity},#{reorder_total_price},sysdate)
 	</insert>
 	
 	<insert id="salesMonthListInsert" parameterType="java.util.Map">
