@@ -8,11 +8,14 @@
 <meta charset="UTF-8">
 <title>QnA목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 <div align="center">
-<div id="contents" style="height:500px; background:white; border:1px solid black">
+<div id="contents" style="height:500px; background:white; border:0px solid black; margin-top:50px;">
    <h2>QnA</h2>
 	<br/><br/>
 	

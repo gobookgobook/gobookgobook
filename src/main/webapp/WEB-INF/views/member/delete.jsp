@@ -15,7 +15,7 @@
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
+<div id="contents" style="background:white; border:0Spx solid black"><br/><br/><br/><br/>	
 
 	<div align="center" >
 		<form action="${root}/member/delete.do" method="post">

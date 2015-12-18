@@ -140,7 +140,6 @@
            <li><a href="#">포인트함</a></li>
            <li><a href="#">주문내역</a></li>
            <li><a href="#">1:1문의내역</a></li>
-           <li><a href="#">장바구니</a></li>
         </ul>
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
