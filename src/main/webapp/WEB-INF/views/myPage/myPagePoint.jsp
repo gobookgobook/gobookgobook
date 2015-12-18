@@ -11,29 +11,27 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<br/><br/>
-
-<div id="contents" style="height:500px; background:white; border:1px solid black"><br/><br/><br/><br/>
-	<div class="all">
+<div id="contents" style="height:500px; background:white; border:1px solid black; position:static;"><br/><br/><br/><br/>
+	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
+	</div>
+	<div align="left" style="width: 120px; float:left;">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
-		포인트 함
+		<h2>포인트 함</h2>
 		<hr>
-			<div class="point_title">
-				현재 보유중인 포인트
-			</div>
 			<div class="point_body">
 				<c:if test="${member_point > 0 }">
 					${member_point}
 				</c:if>
 				<c:if test="${member_point == 0 || member_point ==null }">
-					현재 보유중인 포인트가 없습니다.
+					<h3>현재 보유중인 포인트가 없습니다.</h3>
 				</c:if>	
 			</div>
 		</div>
 	</div>
 </div>
-<%-- <jsp:include page="../main-bottom.jsp"/> --%>
+ <jsp:include page="../main-bottom.jsp"/> 
 	<br/><br/>
 </body>
 </html>

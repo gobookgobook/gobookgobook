@@ -46,8 +46,7 @@
 			    <tr>
 			    <th style="background:#B2CCFF">비밀번호 확인</th>
 			     <td colspan="3">
-			       <input type="password" name="passwordCheck" size="25"/>
-			       <span>비밀번호를 한번 더 입력해주세요</span>
+			       <input type="password" name="passwordCheck" size="25" value = "${memberDto.member_password }"/>
 			     </td>
 			    </tr>
 			    
@@ -61,14 +60,14 @@
 			     <tr>
 			    <th style="background:#B2CCFF">휴대폰 번호</th>
 			     <td colspan="3">
-			       <input type="text" name="member_phone" value="${memberDto.member_phone}" size="25"/>
+			       <input type="text" name="member_phone" size="25" value="${memberDto.member_phone}" />
 			     </td>
 			    </tr>
 			    		    
 			     <tr>
 			    <th style="background:#B2CCFF">우편번호</th>
 			     <td colspan="3">
-			       <input type="text" name="zipcodeDisp" size="25"/>
+			       <input type="text" name="zipcodeDisp" size="25" value="${memberDto.member_zipcode}"/>
 						<input type="hidden" name="member_zipcode"/>
 						<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
 				 </td>
@@ -77,14 +76,14 @@
 			     <tr>
 			    <th style="background:#B2CCFF">주소</th>
 			     <td colspan="3">
-			       <input type="text" name="address1Disp" size="50"/>
+			       <input type="text" name="member_address1" size="50" value="${memberDto.member_address1}"/>
 			     </td>
 			    </tr>
 			    
 			     <tr>
 			    <th style="background:#B2CCFF">상세주소</th>
 			     <td colspan="3">
-			       <input type="text" name="member_address2" size="50"/>
+			       <input type="text" name="member_address2" size="50" value="${memberDto.member_address2}"/>
 			     </td>
 			    </tr>
 			    

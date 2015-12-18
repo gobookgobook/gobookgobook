@@ -158,6 +158,7 @@ a:hover, a:focus{color:#c60;}
   margin:0 auto;position:relative;
   padding:15px 0 0 400px;
   border:0px solid #c56666;
+  margin-left:350px;
 }
 #inner_footer h3.footer_logo img{
 	position:absolute;left:-170px;bottom:-10px;

@@ -17,12 +17,12 @@ public class UserHelpController {
 	private IUserHelpService iUserHelpService;
 
 	
-	@RequestMapping(value="help/userHelpPvP.do", method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpPvP.do", method=RequestMethod.GET)
 	public ModelAndView userHelpPvP(HttpServletRequest request, HttpServletResponse response){
 		
-		return new ModelAndView("help/userHelpPvP");
+		return new ModelAndView("userHelp/userHelpPvP");
 	}
-	@RequestMapping(value="help/userHelpPvP.do", method=RequestMethod.POST)
+	@RequestMapping(value="userHelp/userHelpPvP.do", method=RequestMethod.POST)
 	public ModelAndView userHelpPvPOk(HttpServletRequest request, HttpServletResponse response, HelpPvPDto helpPvPDto){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
@@ -31,7 +31,7 @@ public class UserHelpController {
 		iUserHelpService.userHelpPvP(mav);
 		return mav;	
 	}
-	@RequestMapping(value="help/userHelpQnA.do", method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpQnA.do", method=RequestMethod.GET)
 	public ModelAndView userHelpQnA(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -39,7 +39,7 @@ public class UserHelpController {
 		iUserHelpService.userHelpQnAList(mav);
 		return mav;
 	}
-	@RequestMapping(value="help/userHelpQnARead.do", method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpQnARead.do", method=RequestMethod.GET)
 	public ModelAndView userHelpQnARead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
@@ -47,7 +47,7 @@ public class UserHelpController {
 		iUserHelpService.userHelpQnARead(mav);
 		return mav;
 	}
-	@RequestMapping(value="help/userHelpNotice.do", method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpNotice.do", method=RequestMethod.GET)
 	public ModelAndView userHelpNotice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
@@ -56,7 +56,7 @@ public class UserHelpController {
 		
 		return mav;
 	}
-	@RequestMapping(value="help/userHelpNoticeRead.do",method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpNoticeRead.do",method=RequestMethod.GET)
 	public ModelAndView userHelpNoticeRead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
@@ -72,7 +72,7 @@ public class UserHelpController {
 	 * @개발자 : 강주혁
 	 * @설명 : 오프라인 지점 가져오기
 	 */
-	@RequestMapping(value="help/userHelpLocation.do",method=RequestMethod.GET)
+	@RequestMapping(value="userHelp/userHelpLocation.do",method=RequestMethod.GET)
 	public ModelAndView userHelpLocation(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		iUserHelpService.userHelpLocation(mav);

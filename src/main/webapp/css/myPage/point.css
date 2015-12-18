@@ -1,10 +1,7 @@
 @CHARSET "UTF-8";
 
 
-.all{
-	width:800px;
-	margin: 0px auto;
-}
+
 
 .title{
 	width: 700px; height:30px;
@@ -14,17 +11,14 @@
 
 .body{
 	width: 85%; height:300px;
-	border: 1px solid blue;
+	border: 0px solid blue;
 	display: block;
-	float: left;	
-}
-
-.point_title{
-	width: 500px; height:60px;
-	border: 1px solid yellow;
+	float: left;
+	margin-left:200px;
+	margin-top:-250px;	
 }
 
 .point_body{
 	width: 500px; height:60px;
-	border: 1px solid red;	
+	border: 0px solid red;	
 }
