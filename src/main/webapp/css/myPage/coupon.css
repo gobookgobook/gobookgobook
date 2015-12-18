@@ -7,20 +7,16 @@
 }
 .body{
 	width: 690px; height:600px;
-	border: 1px solid blue;
+	border: 0px solid blue;
+	margin-left:200px;
+	margin-top:-250px;
 	display: block;
 	float: left;	
 }
 
-.title{
-	width: 700px; height:30px;
-	border: 1px solid black;
-	margin-bottom: 3px; 
-}
-
 .myPageCouponSelect{
 	width:600px; height:500px;
- 	border: 1px solid yellow; 
+ 	border: 1px solid black; 
 	margin: 0px auto;
 }
 
