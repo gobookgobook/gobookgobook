@@ -103,7 +103,7 @@
 	<!-- 공동구매 -->
 	<select id="userBookGroupPurchaseList" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
 		<![CDATA[
-		select gp.group_purchase_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity
+		select gp.gp_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity
 			from grouppurchase gp, book
 				WHERE gp.book_num=book.book_num
 					and gp.group_purchase_state=1
@@ -112,7 +112,7 @@
 	
 	<select id="userBookGroupPurchaseRead" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
 		<![CDATA[
-			select gp.group_purchase_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity, book.book_writer, book.book_publisher, book.book_publish_date, book.book_index, book.book_summary
+			select gp.gp_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity, book.book_writer, book.book_publisher, book.book_publish_date, book.book_index, book.book_summary
 				from grouppurchase gp, book
 					WHERE gp.book_num=book.book_num
 						and gp.book_num=#{book_num}
@@ -128,6 +128,6 @@
 	</insert>
 	
 	<update id="userBookGroupPurchaseUpdate" parameterType="int">
-		update grouppurchase set group_purchase_count=group_purchase_count+1 where group_purchase_num=#{group_purchase_num}
+		update grouppurchase set group_purchase_count=group_purchase_count+1 where gp_num=#{group_purchase_num}
 	</update>
 </mapper>

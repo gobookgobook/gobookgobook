@@ -64,22 +64,30 @@ public class UserBookService implements IUserBookService {
 		bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
 		}
 		
-		String book_name=bookDto.getBook_cover_file_name();
-		System.out.println("book_name : "+book_name);
-		
+		String book_name=null;
+		if(bookDto.getBook_cover_file_name() !=null){
+			book_name=bookDto.getBook_cover_file_name();
+			System.out.println("book_name : "+book_name);
+		}
 		 
 		//최근본 도서
 		try {
+			if(book_name==null){
+				book_name="a.jpg";
+			}
 			response.setContentType("text/html;charset=euc-kr");
 			request.setCharacterEncoding("euc-kr");
 			Cookie cookie=new Cookie(String.valueOf(book_num), URLEncoder.encode(book_name, "utf-8"));
 			cookie.setMaxAge(60*60*20);
 			cookie.setPath("/");
 			response.addCookie(cookie);
+			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 
 		System.out.println("request.getCookies().length : "+request.getCookies().length);
 		

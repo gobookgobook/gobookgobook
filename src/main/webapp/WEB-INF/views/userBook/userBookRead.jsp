@@ -48,7 +48,6 @@
 </script>
 </head>
 <body>
-<jsp:include page="../cookie/cookie.jsp"/>
 	<br/><br/>
 <div id="contents" style="height:900px; background:white; border:1px solid black"><br/><br/><br/><br/>
 	<div class="book_read">

@@ -4,6 +4,7 @@
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/memberManage/managerCoupon.css"/>
@@ -12,6 +13,11 @@
 <script type="text/javascript" src="${root}/script/event/start/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/script/event/start/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/script/memberManage/managerCoupon.js"></script>
+<style>
+.ui-datepicker{ font-size: 10px; width: 270px; }
+.ui-datepicker select.ui-datepicker-month{ width:40%; font-size: 11px;}
+.ui-datepicker select.ui-datepicker-year{ width:40%; font-size: 11px; }
+</style>
 <script type="text/javascript">
 $(function(){
 	$('#date').datepicker({
@@ -20,7 +26,7 @@ $(function(){
 	    monthNamesShort: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 	   	changeYear: true,
 		monthNames: ["1월", "2월", "3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-		dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+		dayNamesMin: ["일","월","화","수","목","금","토"],
  		showOn:"button",
 		buttonImage:"${root}/css/memberManage/calendar.gif", 
 		buttonImageOnly:true
@@ -36,9 +42,7 @@ $(function(){
 	});
 
 });
-
 </script>
-<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 	<br/><br/>
