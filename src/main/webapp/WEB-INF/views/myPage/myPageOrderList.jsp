@@ -14,61 +14,36 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<br/><br/>
-<div id="contents" style="height:400px; background:white; border:0px solid black"><br/><br/><br/><br/>	
-<div class="all">
+<div id="contents" style="height:400px; background:white; border:0px solid black; position:static;"><br/><br/><br/><br/>	
 	<c:if test="${id==null}">
+	
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
 		<div align="center">
 			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
 		</div>
 	</c:if>
+	
 	<c:if test="${id != null && id!='admin'}">
+	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
+	</div>
+	<div align="left" style="width: 120px; float:left;">
 		<jsp:include page="category.jsp"/>
-		<div class="body">
-		<!-- 주문내역 -->
-		주문내역
-		<hr>
-		<div class="myPageOrderListSelect">
-			<div class="ordertitle">
-				<div class="order_bunho">주문번호</div>
-				<div class="order_date">주문일자</div>
-				<div class="order_book_name">주문내역</div>
-				<div class="order_book_state">주문상태</div>
-			</div>
-			<c:if test="${count >0 }">
-				<c:forEach var="userOrderDto" items="${userOrderDto}">
-					<div class="orderbody">
-						<div class="order_bunho">${userOrderDto.order_bunho}</div>
-						<div class="order_date"><fmt:formatDate value="${userOrderDto.order_date}" pattern="yyyy-MM-dd"/></div>
-						<div class="order_book_name">${userOrderDto.order_book_name}</div>
-					<c:if test="${userOrderDto.order_book_state == 12}"> 
-						<div class="order_book_state">
-						배송중
-						</div>
-					</c:if> 
-					</div>
-				</c:forEach>
-			</c:if>
-		
-			<c:if test="${count ==0 }">
-			<div class="orderbody" style="text-align: center;">
-				최근 주문내역이 없습니다.
-			</div>
-			</c:if>
-		</div>
-		<!-- 구매 히스토리 -->
-		<br/>
-		구매히스토리
-		<hr>
-
+			<div class="container" style="width:600px;  border:0px solid red; margin-left:200px; margin-top:-250px;">
 		<div class="myPageHistoryListSelect">
-			<div class="ordertitle">
-				<div class="order_bunho">주문번호</div>
-				<div class="order_date">주문일자</div>
-				<div class="order_book_name">주문내역</div>
-				<div class="order_book_state">주문상태</div>
-			</div>
+			<table class="table table-bordered">
+						<thead>
+							<tr class="info" align="center" style="color:#1770b5">
+								<th>주문번호</th>					
+								<th>주문일자</th>
+								<th>주문내역</th>
+								<th>주문상태</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
 			
 			<c:if test="${count >0 }">
 				<c:forEach var="userOrder" items="${userOrderlist}">
@@ -87,7 +62,7 @@
 			</c:if>
 			<c:if test="${count==0 }">
 			<div class="orderbody" style="text-align: center;">
-				주문내역이 없습니다.
+				 최근 주문내역이 없습니다.
 			</div>
 			</c:if>
 				<div align="center">
@@ -119,10 +94,9 @@
 					</c:if>  
 				</div>
 			</div>	
-		</div>
-	</c:if>
+		</div>	
 </div> 
-
+</c:if>
 </div>
  <jsp:include page="../main-bottom.jsp"/> 
 	<br/><br/>		

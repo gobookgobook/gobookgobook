@@ -6,7 +6,7 @@
 	margin: 0px auto;
 }
 .body{
-	width: 690px; height:600px;
+	width: 690px; height:300px;
 	border: 0px solid blue;
 	margin-left:200px;
 	margin-top:-250px;
@@ -16,42 +16,7 @@
 
 .myPageCouponSelect{
 	width:600px; height:500px;
- 	border: 1px solid black; 
+ 	border: 0px solid black; 
 	margin: 0px auto;
 }
 
-.user_coupon_title{
-	width:600px; height:50px;
- 	border: 1px solid yellow; 
-	margin: 0px auto;
-}
-
-.user_coupon_name{
-	width:100px; height:50px;
- 	border: 1px solid yellow; 
-	float: left;
-}
-
-.user_coupon_period{
-	width:100px; height:50px;
- 	border: 1px solid yellow; 
-	float: left;
-}
-
-.user_coupon_content{
-	width:230px; height:50px;
- 	border: 1px solid yellow; 
-	float: left;
-}
-
-.user_coupon_field{
-	width:100px; height:50px;
- 	border: 1px solid yellow; 
-	float: left;
-}
-
-.user_coupon_discount{
-	width:60px; height:50px;
- 	border: 1px solid yellow; 
-	float: left;
-}

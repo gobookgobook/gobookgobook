@@ -14,32 +14,36 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<div id="contents" style="height:750px; background:white; border:0px solid black; position:static;"><br/><br/><br/><br/>
+<div id="contents" style="height:350px; background:white; border:0px solid black; position:static;"><br/><br/><br/><br/>
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
 	</div>
 	<div align="left" style="width: 120px; float:left;">
 		<jsp:include page="category.jsp"/>
 		<div class="body">
-			<div class="myPageCouponSelect">
-				<div class="user_coupon_title">
-					<div class="user_coupon_name">쿠폰명</div>
-					<div class="user_coupon_content">내용</div>
-					<div class="user_coupon_discount">할인율</div>
-					<div class="user_coupon_field">사용범위</div>
-					<div class="user_coupon_period">유효기간</div>
-				</div>
-			
+			<div class="myPageCouponSelect">			
 			<c:if test="${couponSelect.size() > 0}">	
-				<c:forEach var="couponSelect" items="${couponSelect}">	
-					<div class="user_coupon_title">
-						<div class="user_coupon_name">${couponSelect.user_coupon_name}</div>
-						<div class="user_coupon_content">${couponSelect.user_coupon_content}</div>
-						<div class="user_coupon_discount">${couponSelect.user_coupon_discount}</div>
-						<div class="user_coupon_field">${couponSelect.user_coupon_field}</div>
-						<div class="user_coupon_period"><fmt:formatDate value="${couponSelect.user_coupon_period}" pattern="yyyy-MM-dd"/></div>
-					</div>
-				</c:forEach>	
+				<div class="container" style="width:100%">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="info" align="center" style="color:#1770b5">
+								<th>쿠폰명</th>					
+								<th>쿠폰내용</th>
+								<th>쿠폰할인율</th>
+								<th>쿠폰적용카테고리</th>
+								<th>쿠폰적용기간</th>
+							</tr>
+						</thead>
+						<tbody>
+						  <tr>
+						  <td>가입쿠폰</td>
+						  <td>가입축하</td>
+						  <td>500</td>
+						  <td>문학</td>
+						   <td>2015-12-29</td>
+						</tbody>
+					</table>
+				</div>
 			</c:if>
 			<c:if test="${couponSelect.size() == 0}">
 				<div class="user_coupon_title" style="text-align: center; font-size: 20">
