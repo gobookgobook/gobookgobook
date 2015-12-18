@@ -287,7 +287,7 @@
 									<span class="content"> 
 										적용하실 포인트 : <input type="text" size="10" id="point" value="0" name="order_book_point_disp"/> Point (포인트는 100 Point이상단위부터 사용가능합니다.)<br/>
 										보유하신 포인트 : <input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled"/> Point<br/><br/>
-										<input type="hidden" name="order_book_point"/>
+										<input type="hidden" name="order_book_point" value="0"/>
 											<span id="applyPointDisp">적용된 포인트 : 0 Point</span>
 										<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)"/>
 									</span>
@@ -310,6 +310,7 @@
 									<label class="title">포인트 적립액 : </label>
 									<span class="content"> 
 										<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원
+										<input type="hidden" name="allBookPoint" value="${point_sum}"/>
 									</span><br/><br/>
 									
 									<label class="title">쿠폰 할인 금액 : </label> 

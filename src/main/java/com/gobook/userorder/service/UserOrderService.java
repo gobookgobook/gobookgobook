@@ -188,6 +188,7 @@ public class UserOrderService implements IUserOrderService{
 					userOrderDto.setOrder_book_price(myBasketList.get(i).getBasket_book_price());
 					userOrderDto.setOrder_book_count(myBasketList.get(i).getBasket_quantity());
 					if(i==0){
+						// 총결제액
 						// i==0 point 여기서만 계산 나머지는 point 계산 x 로 처리해야 됨(2015-12-17 21:01)
 						// i==0 %쿠폰이 아니면 여기서 처리해야함
 						if(userOrderDto.getOrder_user_coupon_discount()>=100){				//coupon이 원 쿠폰일때 계산
@@ -202,7 +203,6 @@ public class UserOrderService implements IUserOrderService{
 							userOrderDto.setOrder_total_price( myBasketList.get(i).getBasket_total_price()-(int)((myBasketList.get(i).getBasket_total_price()*userOrderDto.getOrder_user_coupon_discount()*0.01)));
 						}
 					}
-					// 총 결제액=총판매액-((사용포인트/장바구니 도서개수)+(총판매액*쿠폰퍼센트*0.01))
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "userOrderDto:" + userOrderDto);	//주문 dto에 정보 전부 입력
 					int check=iUserOrderDao.userOrderPayInsert(userOrderDto);
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "1.insert:" +check);// 1. insert 성공시 check
@@ -263,7 +263,7 @@ public class UserOrderService implements IUserOrderService{
 				int order_user_coupon_num=Integer.parseInt(request.getParameter("order_user_coupon_num"));
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "order_user_coupon_num:" +order_user_coupon_num);
 				int delCouponCheck=iUserOrderDao.userOrderCouponDelete(member_id, order_user_coupon_num);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + "4.delCouponCheck:" +delCouponCheck);// 3. 쿠폰 delete 성공시 check
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "3.delCouponCheck:" +delCouponCheck);// 3. 쿠폰 delete 성공시 check
 			}
 			
 			
@@ -271,8 +271,17 @@ public class UserOrderService implements IUserOrderService{
 			int order_book_point=userOrderDto.getOrder_book_point();
 			if(order_book_point!=0){
 				int upPointCheck=iUserOrderDao.userOrderPointUpdate(member_id, order_book_point);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + "5.upPointCheck:" +upPointCheck);// 4. 포인트 update 성공시 check
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "4.upPointCheck:" +upPointCheck);// 4. 포인트 update 성공시 check
 			}
+			
+			// 5. 주문시 포인트 적립액에 따른 사용자 포인트 증가
+			
+			float allBookPoint = Float.parseFloat(request.getParameter("allBookPoint"));
+			int savingPoint = (int)allBookPoint;
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "5.allBookPoint:" +savingPoint);
+			
+			// 6. 주문시 책에서 도서 수량 감소
+			
 		}
 	}
 }
