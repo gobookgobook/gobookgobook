@@ -2,6 +2,12 @@ package com.gobook.bookmanage.service;
 
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * @클래스이름 : IBookManageService
+ * @날짜 : 2015. 12. 18.
+ * @개발자 : 성기훈
+ * @설명 : 도서관리 서비스 인터페이스
+ */
 public interface IBookManageService {
 	public void bookManager(ModelAndView mav);
 	public void bookInsert(ModelAndView mav);
@@ -19,4 +25,5 @@ public interface IBookManageService {
 	public void bookGroupPurchaseUpdateOk(ModelAndView mav);
 	public void bookGroupPurchaseDelete(ModelAndView mav);
 	public void bookSchedule(ModelAndView mav);
+	public void bookNewPublishList(ModelAndView mav);
 }

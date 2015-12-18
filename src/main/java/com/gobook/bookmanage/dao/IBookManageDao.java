@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.gobook.bookmanage.dto.*;
 
+/**
+ * @클래스이름 : IBookManageDao
+ * @날짜 : 2015. 12. 18.
+ * @개발자 : 성기훈
+ * @설명 : 도서관리 DAO 인터페이스
+ */
 public interface IBookManageDao {
 	public int bookInsert(BookDto bookDto);
 	public int bookStockCount();
@@ -26,4 +32,5 @@ public interface IBookManageDao {
 	public int bookGroupPurchaseUpdate(BookGroupPurchaseDto bookGroupPurchaseDto);
 	public int bookGroupPurchaseDelete(int gp_num);
 	public int bookNewPublishCount();
+	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap);
 }

@@ -27,6 +27,10 @@
 		</tr>
 		
 		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookManage.do">고객도서요청</a></td>
+		</tr>
+		
+		<tr style="color:white">
 			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookReOrderList.do">재입고현황</a></td>
 		</tr>
 		

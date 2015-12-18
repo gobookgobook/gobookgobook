@@ -16,6 +16,12 @@ import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.bookmanage.dto.BookReOrderDto;
 
+/**
+ * @클래스이름 : BookManageDao
+ * @날짜 : 2015. 12. 18.
+ * @개발자 : 성기훈
+ * @설명 : 도서관리 DAO
+ */
 @Component
 public class BookManageDao implements IBookManageDao {
 
@@ -89,6 +95,7 @@ public class BookManageDao implements IBookManageDao {
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("book_num", bookDto.getBook_num());
 		hMap.put("reorder_quantity", reorder_quantity);
+		hMap.put("book_cost", bookDto.getBook_cost());
 		hMap.put("reorder_total_price", reorder_total_price);
 		
 		int value=0;
@@ -299,12 +306,24 @@ public class BookManageDao implements IBookManageDao {
 	 * @함수이름 : bookNewPublishCount
 	 * @작성일 : 2015. 12. 18.
 	 * @개발자 : 성기훈
-	 * @설명 : 신간 출간후 구매희망 목록 
+	 * @설명 : 신간 구매 희망 요청수
 	 */
 	@Override
 	public int bookNewPublishCount() {
 		
-		return 0;
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookNewPublishCount");
+	}
+
+	/**
+	 * @함수이름 : bookNewPublishList
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 성기훈
+	 * @설명 : 신간 구매 희망 목록
+	 */
+	@Override
+	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookNewPublishList", hMap);
 	}
 	
 	

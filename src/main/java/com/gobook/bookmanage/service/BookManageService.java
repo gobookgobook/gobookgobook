@@ -26,7 +26,7 @@ import net.sf.json.JSONObject;
  * @클래스이름 : BookManageService
  * @날짜 : 2015. 12. 8.
  * @개발자 : 성기훈
- * @설명 : 도서 등록 관리 수정 삭제
+ * @설명 : 도서관리 서비스 클래스
  */
 @Component
 public class BookManageService implements IBookManageService {
@@ -58,6 +58,8 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("bookReOrderCount", bookReOrderCount);
 		mav.addObject("bookGroupPurchaseListCount", bookGroupPurchaseListCount);
 		mav.addObject("bookGroupPurchaseCount", bookGroupPurchaseCount);
+		mav.addObject("bookNewPublishCount", bookNewPublishCount);
+		
 		mav.setViewName("bookManage/bookManage");
 	}
 	
@@ -661,6 +663,48 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("bsList", bsList);
 		
 		mav.setViewName("bookManage/bookSchedule");
+	}
+
+	/**
+	 * @함수이름 : bookNewPublishList
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 성기훈
+	 * @설명 : 신간 구매 희망 목록
+	 */
+	@Override
+	public void bookNewPublishList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookNewPublishCount();
+		
+		List<BookDto> bookNewPublishList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookNewPublishList=iBookManageDao.bookNewPublishList(hMap);
+		}
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookNewPublishList", bookNewPublishList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookNewPublishList");
+		
 	}
 	
 }

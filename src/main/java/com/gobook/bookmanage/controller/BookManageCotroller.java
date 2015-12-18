@@ -14,6 +14,12 @@ import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.bookmanage.service.IBookManageService;
 
+/**
+ * @클래스이름 : BookManageCotroller
+ * @날짜 : 2015. 12. 18.
+ * @개발자 : 성기훈
+ * @설명 : 도서관리 컨트롤러
+ */
 @Controller
 public class BookManageCotroller {
 	
@@ -258,6 +264,21 @@ public class BookManageCotroller {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		iBookManageService.bookSchedule(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookNewPublishList
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 성기훈
+	 * @설명 : 신간 구매 희망 목록
+	 */
+	@RequestMapping(value="/bookManage/bookNewPublishList.do", method=RequestMethod.GET)
+	public ModelAndView bookNewPublishList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookNewPublishList(mav);
 		
 		return mav;
 	}
