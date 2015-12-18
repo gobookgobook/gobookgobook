@@ -10,8 +10,8 @@
 	</select>
 
 	<!-- 장바구니 -->
-	<select id="myBasketSelect" parameterType="java.lang.Long" resultType="com.gobook.mybasket.dto.MyBasketDto">
-		select *from mybasket where book_num=#{book_num}
+	<select id="myBasketSelect" parameterType="java.util.HashMap" resultType="com.gobook.mybasket.dto.MyBasketDto">
+		select *from mybasket where book_num=#{book_num} and member_id=#{member_id}
 	</select>
 	
 	<insert id="userBookBasketInsert" parameterType="java.util.HashMap">

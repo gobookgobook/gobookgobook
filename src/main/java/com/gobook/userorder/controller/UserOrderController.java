@@ -38,7 +38,22 @@ public class UserOrderController {
 		iUserOrderService.userOrderList(mav);
 		return mav;
 		
-	}  
+	}
+	
+	/**
+	 * @함수이름 : userOrder
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 오주석
+	 * @설명 : 도서 즉시 구매
+	 */
+	@RequestMapping(value="/userOrder/userOrder.do", method=RequestMethod.GET)
+	public ModelAndView userOrder(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("request",request);
+		iUserOrderService.userOrder(mav);
+		return mav;
+		
+	}
 	
 	/**
 	 * @함수이름 : userOrderCouponList

@@ -24,8 +24,8 @@ public class UserBookDao implements IUserBookDao {
 	}
 	
 	@Override
-	public MyBasketDto myBasketSelect(long book_num) {
-		return sqlSessionTemplate.selectOne("dao.userBookMapper.myBasketSelect", book_num);
+	public MyBasketDto myBasketSelect(HashMap<String, Object> starMap) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.myBasketSelect", starMap);
 	}
 	
 	@Override

@@ -52,12 +52,12 @@ function soldOutAsk(root, book_num){
 function myBasket(root, book_num, book_name, book_price){
 	
 	var book_quantity=$("#book_quantity option:selected").val();
-//	alert(book_quantity);
+	alert(book_quantity);
 	var url=root+"/userBook/userBookBasketInsert.do?book_num="+book_num;
 	url+="&book_name="+book_name;
 	url+="&book_price="+book_price;
 	url+="&book_quantity="+book_quantity;
-//	alert(url);
+	alert(url);
 
 	$.ajax({
 		url:url,
@@ -199,4 +199,22 @@ function startSuggest(root){
 			}
 		});
 	});
+}
+
+/**
+ * @함수이름 : order
+ * @작성일 : 2015. 12. 18.
+ * @개발자 : 오주석
+ * @설명 : 도서 즉시구매
+ */
+function order(root, book_num, book_price, book_name){
+	var book_quantity=$("#book_quantity option:selected").val();
+	var url=root+"/userOrder/userOrder.do?book_num="+book_num;
+	url+="&book_quantity="+book_quantity;
+	url+="&book_price="+book_price;
+	url+="&book_name="+book_name;
+	
+	alert(url);
+	
+	location.href=url;
 }

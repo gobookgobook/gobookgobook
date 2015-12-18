@@ -77,7 +77,7 @@
 		</c:if>
 		
 		<c:if test="${id!=null}">
-			<c:if test="${purchase!='basket' && purchase!='book_num'}">	<!-- 회원이 주문을 안누른 상태로 주문내역에 들어왔을 경우 -->	
+			<c:if test="${purchase!='basket' && purchase!='immediately'}">	<!-- 회원이 주문을 안누른 상태로 주문내역에 들어왔을 경우 -->	
 				<div class="container" style="width:100%">
 					<table class="table table-bordered">
 						<thead>
@@ -95,8 +95,9 @@
 				</div>
 			</c:if>
 			
-			<c:if test="${purchase=='basket'}">			<!-- 장바구니에서 주문했을 경우 뿌려주는 주문 리스트 -->
-				<form class="form_style" name="memberForm" action="${root}/userOrder/userOrderPay.do" method="post" onsubmit="">
+			
+			<form class="form_style" name="memberForm" action="${root}/userOrder/userOrderPay.do" method="post" onsubmit="">
+				<c:if test="${purchase=='basket'}">			<!-- 장바구니에서 주문했을 경우 뿌려주는 주문 리스트 -->
 					<div align="left" style="width:50%">
 						<label class="title">1. 주문 상품 목록</label>
 						
@@ -140,6 +141,47 @@
 							<span id="sum" style="font-size: 20px">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
 						</div>
 					</div>
+				</c:if>
+				<c:if test="${purchase=='immediately'}">	<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
+					<div align="left" style="width:50%">
+						<label class="title">1. 주문 상품 목록</label>
+						
+						<div class="container" style="width:100%">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="info">
+										<th>책제목</th>
+										<th>판매가</th>
+										<th>수량</th>
+										<th>합계</th>
+									</tr>
+								</thead>
+								<tbody>								
+									
+									<c:set var="point" value="${book_price*0.03}"/>	
+										<tr class="info" id="${book_num}">
+											<td>${book_name}</td>
+											<td>
+												<fmt:formatNumber value="${book_price}" groupingUsed="true"/>원
+												 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
+											</td>
+											<td>${book_quantity}</td>
+											<td id="${sum}"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원</td>
+										</tr>
+									
+									
+									<c:set var="point_sum" value="${sum*0.03}"/>
+								</tbody>
+							</table>
+						</div>
+						
+						<hr width="50%" color="blue"/>
+						<div align="right" id="order" style="width:98%">
+							<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+							<span id="sum" style="font-size: 20px">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
+						</div>
+					</div>
+				</c:if>
 					
 					<div align="left" style="width:50%">
 						<label class="title">2. 배송지 정보</label>
@@ -306,7 +348,7 @@
 						<br/><br/>
 					</div>
 				</form>
-			</c:if>
+			
 			
 			<c:if test="${purchase=='book_num'}">	<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
 				

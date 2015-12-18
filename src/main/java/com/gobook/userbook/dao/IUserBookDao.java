@@ -12,7 +12,7 @@ import com.gobook.userorder.dto.UserOrderDto;
 public interface IUserBookDao {
 	
 	public BookDto userBookRead(long book_num);
-	public MyBasketDto myBasketSelect(long book_num);
+	public MyBasketDto myBasketSelect(HashMap<String, Object> starMap);
 	public int userBookBasketInsert(HashMap<String, Object> hMap);
 	public int userBookSoldOutAskUpdate(long book_num);
 	public int userBookGroupPurchaseAskUpdate(long book_num);
