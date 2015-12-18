@@ -27,7 +27,7 @@ function selectToServer(salesdaily_date, root){
 function salesMonthlyInsert(daily_sum, daily_profit, salesmonthly_date, root){
 	// alert(salesmonthly_date);
 	var url=root+"/sales/salesMonthlyInsert.do?daily_sum="+daily_sum+"&daily_profit="+daily_profit+"&salesmonthly_date="+salesmonthly_date;
-	// alert(url);
+	//alert(url);
 	
 	location.href=url;
 }

@@ -22,7 +22,7 @@
 	</select>
 	
 	<insert id="salesMonthlyInsert" parameterType="java.util.HashMap">
-		insert into salesmonthly(salesm_num, salesmonthly_daily_sale, salesmonthly_daily_profit, salesmonthly_date) values(salesm_num_seq.nextval, #{daily_sum}, #{daily_profit}, #{salesmonthly_date})
+		insert into salesmonthly(salesm_num, salesmonthly_daily_sale, salesmonthly_daily_profit, salesmonthly_date) values(salesmonthly_salesm_num_seq.nextval, #{daily_sum}, #{daily_profit}, #{salesmonthly_date})
 	</insert>
 	
 	<select id="salesMonthlyCount" resultType="int" parameterType="java.util.HashMap">
