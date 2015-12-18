@@ -166,7 +166,11 @@
 												 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
 											</td>
 											<td>${book_quantity}</td>
-											<td id="${sum}"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원</td>
+											<td id="${sum}"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원
+											<input type="hidden" name="book_num" value="${book_num}"/>
+											<input type="hidden" name="order_book_name" value="${book_name}"/>
+											<input type="hidden" name="order_book_price" value="${book_price}"/>
+											<input type="hidden" name="order_book_count" value="${book_quantity}"/>
 										</tr>
 									
 									
@@ -348,11 +352,6 @@
 						<br/><br/>
 					</div>
 				</form>
-			
-			
-			<c:if test="${purchase=='book_num'}">	<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
-				
-			</c:if>
 		</c:if>
   </div>
 </body>
