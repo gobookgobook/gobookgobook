@@ -133,13 +133,13 @@
 									<c:set var="point_sum" value="${sum*0.03}"/>
 								</tbody>
 							</table>
-						</div>
+						</div><br/><br/>
 						
 						<hr width="50%" color="blue"/>
 						<div align="right" id="order" style="width:98%">
 							<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 							<span id="sum" style="font-size: 20px">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
-						</div>
+						</div><br/><br/>
 					</div>
 				</c:if>
 				<c:if test="${purchase=='immediately'}">	<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
@@ -177,13 +177,13 @@
 									<c:set var="point_sum" value="${sum*0.03}"/>
 								</tbody>
 							</table>
-						</div>
+						</div><br/><br/>
 						
 						<hr width="50%" color="blue"/>
 						<div align="right" id="order" style="width:98%">
 							<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 							<span id="sum" style="font-size: 20px">상품 총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
-						</div>
+						</div><br/><br/>
 					</div>
 				</c:if>
 					
@@ -259,6 +259,7 @@
 							</div>
 			     		</div>
 			    	</div> 
+			    	
 					<div align="left" style="width:50%">
 						<label class="title">3. 할인/적립 혜택</label>
 			
@@ -273,11 +274,12 @@
 										<input type="text" name="couponNameDisp" disabled="disabled"/>
 										<input type="hidden" name="order_user_coupon_name"/>
 									</span>
-									<span class="content">
+									<span class="content" id="coupon_halin">
 										<label>할인:</label>
 										<input type="text" name="couponDiscountDisp" value="0" size="8" disabled="disabled"/>
 										<input type="hidden" name="coupon_discount"/> 
-										<input type="button" value="쿠폰적용" onclick="couponRead('${root}')"/><br/><br/>
+										<input type="button" id="coupon_btn" name="coupon_button" value="쿠폰적용" onclick="couponRead('${root}')"/>
+										(쿠폰은 최대 1개만 적용 가능합니다.)<br/><br/>
 									</span>
 								</div>
 								<div align="left">
@@ -286,7 +288,7 @@
 										적용하실 포인트 : <input type="text" size="10" id="point" value="0" name="order_book_point_disp"/> Point (포인트는 100 Point이상단위부터 사용가능합니다.)<br/>
 										보유하신 포인트 : <input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled"/> Point<br/><br/>
 										<input type="hidden" name="order_book_point"/>
-										<span id="applyPointDisp">적용된 포인트 : 0 Point</span>
+											<span id="applyPointDisp">적용된 포인트 : 0 Point</span>
 										<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)"/>
 									</span>
 								</div>
@@ -295,7 +297,43 @@
 					</div>
 			
 					<div align="left" style="width:50%">
-						<label class="title">4. 결제정보</label>
+						<label class="title">4. 결제총액</label>
+			
+						<div class="container" style="width: 100%">
+							<div class="alert alert-info">
+								<div align="left">
+									<label class="title">상품 총 금액 : </label>
+									<span class="content"> 
+										<fmt:formatNumber value="${sum}" groupingUsed="true"/>원
+									</span><br/><br/>
+									
+									<label class="title">포인트 적립액 : </label>
+									<span class="content"> 
+										<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원
+									</span><br/><br/>
+									
+									<label class="title">쿠폰 할인 금액 : </label> 
+									<span class="content" id="applyCouponCharge"> 
+										0 원
+									</span><br/><br/>
+									
+									<label class="title">포인트 할인 금액 : </label> 
+									<span class="content" id="applyPointCharge"> 
+										0원
+									</span><br/><br/><br/>
+									
+									<label class="title">최종 결제 금액 : </label> 
+									<span class="content" id="applyTotalCharge" > 
+										<fmt:formatNumber value="${sum}" groupingUsed="true"/>원
+									</span><br/><br/>
+									<input type="hidden" value="${sum}" name="total"/>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div align="left" style="width:50%">
+						<label class="title">5. 결제정보</label>
 						<div class="container" style="width: 100%">
 							<div class="alert alert-info">
 								<div align="left">

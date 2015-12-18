@@ -55,17 +55,56 @@ function sendCoupon(user_coupon_num, user_coupon_name, user_coupon_discount){
 	opener.memberForm.order_user_coupon_num.value=user_coupon_num;
 	opener.memberForm.order_user_coupon_name.value=user_coupon_name;
 	opener.memberForm.couponNameDisp.value=user_coupon_name;
+
+	
+	var couponCharge=opener.document.getElementById("applyCouponCharge");
+	var totalCharge=opener.document.getElementById("applyTotalCharge");
+	
 	if(user_coupon_discount<100){
 		opener.memberForm.couponDiscountDisp.value=user_coupon_discount+"%";
+		
+		couponCharge.innerHTML=user_coupon_discount+"% 할인";
+		
+		opener.memberForm.total.value=opener.memberForm.total.value-(opener.memberForm.total.value*user_coupon_discount*0.01);
+		var tempNum=opener.memberForm.total.value;
+		var strNum=numberFormat(tempNum);
+		totalCharge.innerHTML=strNum+" 원";
 	}else{
 		opener.memberForm.couponDiscountDisp.value=user_coupon_discount+"원";
+		
+		couponCharge.innerHTML=user_coupon_discount+"원 할인";
+		
+		opener.memberForm.total.value=opener.memberForm.total.value-user_coupon_discount;
+		var tempNum=opener.memberForm.total.value;
+		var strNum=numberFormat(tempNum);
+		totalCharge.innerHTML=strNum+" 원";
 	}
 	opener.memberForm.coupon_discount.value=user_coupon_discount;
+	var coupon_halin = opener.document.getElementById("coupon_halin");
+	var coupon_btn = opener.document.getElementById("coupon_btn");
+	coupon_halin.removeChild(coupon_btn);
+	
 	self.close();
 }
 
 function applyPoint(root, point, memberPoint,order_book_point){
 	//alert(root + "," + point.value+","+memberPoint);
+	if(point.value<0){
+		alert("음수는 입력할수 없습니다.");
+		point.focus();
+		return false;
+	}
+	
+	//아이디 유효성 검사 (영문자, 숫자만 허용)
+	for(var i=0;i<point.value.length ;i++ ){
+		ch=point.value.charAt(i);
+		if (!(ch>='0' && ch<='9')){
+			alert ("사용할 포인트는 숫자로 입력해야합니다.");
+			point.focus();
+			return false;
+		}
+	}
+		
 	if(point.value%100!=0){
 		alert("100원단위 미만은 사용하실 수 없습니다.");
 		return false;
@@ -88,10 +127,39 @@ function applyPoint(root, point, memberPoint,order_book_point){
 		
 		var dispPoint=document.getElementById("applyPointDisp");
 		dispPoint.innerHTML="적용된 포인트 : "+order_book_point.value+" Point";
+		
+		var pointCharge=document.getElementById("applyPointCharge");
+		pointCharge.innerHTML=order_book_point.value+" Point 사용";
+		
+		memberForm.total.value=memberForm.total.value-point.value;
+		
+		var tempNum=memberForm.total.value;
+		var strNum=numberFormat(tempNum);
+		var totalCharge=document.getElementById("applyTotalCharge");
+		totalCharge.innerHTML=strNum+" 원";
+		
 		point.value=0;
 	}
 }
 
+// 숫자를  입력받아 세자리씩 끊어서 쉼표를 넣어주는 함수
+function numberFormat(num){
+	var numString=num+"";
+	var numLength=numString.length;
+	var rest=numLength%3;
+	if(rest==0) rest=3;
+	var result=numString;
+	
+	for(var i=0;i<numLength/3-1;i++){
+		result = interceptString(result,rest+i*4);
+	}
+	
+	return result;
+}
+
+function interceptString(str,num){
+	return str.substring(0,num) + "," +  str.substring(num,str.length);
+}
 /*function payToServer(root, order_bunho){
 	
 	var url=root + "/userOrder/userOrderList.do?order_bunho="+order_bunho;
