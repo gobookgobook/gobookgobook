@@ -94,6 +94,7 @@ public class BookManageDao implements IBookManageDao {
 		
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("book_num", bookDto.getBook_num());
+		hMap.put("book_name", bookDto.getBook_name());
 		hMap.put("reorder_quantity", reorder_quantity);
 		hMap.put("book_cost", bookDto.getBook_cost());
 		hMap.put("reorder_total_price", reorder_total_price);

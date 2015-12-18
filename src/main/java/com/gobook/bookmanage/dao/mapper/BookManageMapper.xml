@@ -30,8 +30,8 @@
 	</insert>
 	
 	<insert id="salesMonthListInsert" parameterType="java.util.Map">
-		insert into SALESMONTHLY(SALESM_NUM,BOOK_NUM,SALESMONTHLY_DATE,SALESMONTHLY_ORDER_QUANTITY,SALESMONTHLY_ORDER_COST,SALESMONTHLY_ORDER_TOTALPRICE) 
-		values(SALESMONTHLY_SALESM_NUM_seq.nextval,#{book_num},sysdate,#{reorder_quantity},#{book_cost},#{reorder_total_price})
+		insert into SALESMONTHLY(SALESM_NUM,BOOK_NUM,SALESMONTHLY_DATE,SALESMONTHLY_ORDER_BOOKNAME,SALESMONTHLY_ORDER_QUANTITY,SALESMONTHLY_ORDER_COST,SALESMONTHLY_ORDER_TOTALPRICE) 
+		values(SALESMONTHLY_SALESM_NUM_seq.nextval,#{book_num},sysdate,#{book_name},#{reorder_quantity},#{book_cost},#{reorder_total_price})
 	</insert>
 	
 	<update id="bookStockUpdate" parameterType="com.gobook.bookmanage.dto.BookDto">
