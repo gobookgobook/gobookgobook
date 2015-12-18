@@ -6,6 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -19,18 +20,19 @@
 <script type="text/javascript" src="${root}/script/sales/script.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$("#date").datepicker({
+		$("#dailyDate").datepicker({
 			 dateFormat:"yy/mm/dd",
 			 monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
 			 dayNamesMin:["일","월","화","수","목","금","토"]
 		 });
 	});
 </script>
+
+
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-    <br/><br/>
-    
+	<br/><br/>
+    <div id="contents" style="background:white; border:0px solid black">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -40,43 +42,40 @@
 	
 	<c:if test="${id=='admin'}">
 		<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
-		</div>
 		
-		<div id="nav">
-			<a href="${root}/sales/salesDailyList.do"><b> 매출관리 </b></a><br/>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 		</div>
 	
-		<div id="con1" align="left" style="height:100px;">
+		<div align="left" style="width: 110px;float: left">
 			<jsp:include page="salesConNav.jsp"/>
 		</div>
 	
-		<div id="#con2" align="left" >
+		<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
 			<h3>일일매출</h3>
-			<div align="center" style="border:0 solid red">
-				<form name="dayChoice" method="post">
+			<div align="center" style="border:1 solid red">
+				<form name="dayChoice" method="post" style="text-align:right">
 					<label>날짜선택:</label>
-					<input type="text" id="date" name="selectDate"/>
+					<input type="text" id="dailyDate" name="selectDate"/>
 					<c:set var="salesdaily_date" value="selectDate.value"/>
 					<input type="button" id="clickDate" class="btn btn-success btn-sm" value="조회" onclick="selectToServer(${salesdaily_date}, '${root}')"/>
-				</form>
+				</form><br/>
 				
 				<div id="dailyTable">
 					<c:if test="${count == 0}">
-						<div class="container" style="width:85%">
+						<div class="container" style="width:835px;padding:0px">
 							<table class="table table-bordered">
 								<thead>
-									<tr class="success" align="center" style="color:#1DDB16">
-										<th>결제일</th>
-										<th>도서번호</th>
-										<th>도서명</th>
-										<th>도서원가</th>
-										<th>판매가</th>
-										<th>수량</th>
-										<th>판매총액</th>
-										<th>결제액</th>
-										<th>순이익</th>
+									<tr class="success" style="color:#1DDB16">
+										<th style="text-align:center">결제일</th>
+										<th style="text-align:center">도서번호</th>
+										<th style="text-align:center">도서명</th>
+										<th style="text-align:center">도서원가</th>
+										<th style="text-align:center">판매가</th>
+										<th style="text-align:center">수량</th>
+										<th style="text-align:center">판매총액</th>
+										<th style="text-align:center">결제액</th>
+										<th style="text-align:center">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd"></tbody>
@@ -95,19 +94,19 @@
 								});
 							</script>
 						</c:if>
-						<div class="container" style="width:85%; border:0px solid red; margin:0 auto">
+						<div class="container" style="width:835px;padding:0px">
 							<table class="table table-bordered" style="line-height: 100px">
 								<thead>
 									<tr class="success" align="center" style="color:#1DDB16">
-										<th>결제일</th>
-										<th>도서번호</th>
-										<th>도서명</th>
-										<th>도서원가</th>
-										<th>판매가</th>
-										<th>수량</th>
-										<th>판매총액</th>
-										<th>결제액</th>
-										<th>순이익</th>
+										<th style="text-align:center">결제일</th>
+										<th style="text-align:center">도서번호</th>
+										<th style="text-align:center">도서명</th>
+										<th style="text-align:center">도서원가</th>
+										<th style="text-align:center">판매가</th>
+										<th style="text-align:center">수량</th>
+										<th style="text-align:center">판매총액</th>
+										<th style="text-align:center">결제액</th>
+										<th style="text-align:center">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd">
@@ -126,12 +125,12 @@
 											<td><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
 											<td>${salesDaily.book_num}</td>
 											<td>${salesDaily.salesdaily_book_name}</td>
-											<td><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
-											<td><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
-											<td>${salesDaily.salesdaily_quantity}</td>
-											<td><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
-											<td><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
-											<td><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
+											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
+											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
+											<td style="text-align:center">${salesDaily.salesdaily_quantity}</td>
+											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
+											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
+											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
 										</tr>
 									</c:forEach>
 									
@@ -140,9 +139,9 @@
 						</div>
 						
 						<hr width="70%" color="blue"/>
-						<div align="left" id="order" style="width:75%">
-							<span id="daily_sum">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-							<span id="daily_profit">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
+						<div align="left" id="order" style="width: 880px">
+							<span id="daily_sum" style="font-size: 20px">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+							<span id="daily_profit" style="font-size: 20px">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${dailyUpdate}', '${root}')"/>
 						</div>
 					</c:if>
@@ -151,6 +150,6 @@
 		</div>
 	</div>
 	</c:if>
-	
+	</div>
 </body>
 </html>
