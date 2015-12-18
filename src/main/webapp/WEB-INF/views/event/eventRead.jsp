@@ -28,7 +28,7 @@
 </head>
 <body>
    <br/><br/>
-<div id="contents" style="height:550px; background:white; border:1px solid black; position:absolute;  left:172px; "><br/><br/><br/><br/>
+<div id="contents" style="height:550px; background:white; border:1px solid black; position:static; "><br/><br/><br/><br/>
 <div align="right">
 <div style="width:598px; height:15px; text-align:right; ">
 			<a href="${root}/event/eventList.do">이벤트 목록</a></div>  

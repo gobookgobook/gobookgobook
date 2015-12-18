@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -91,6 +91,7 @@ public class EventService implements IEventService {
 	public void eventRead(ModelAndView mav) {
 		Map<String,Object>map= mav.getModelMap();
 		HttpServletRequest request= (HttpServletRequest) map.get("request");
+		/*HttpServletResponse response=(HttpServletResponse) map.get("response");*/
 		
 		int event_bunho=Integer.parseInt(request.getParameter("event_bunho"));
 		GoBookAspect.logger.info(GoBookAspect.logMsg+ event_bunho); 

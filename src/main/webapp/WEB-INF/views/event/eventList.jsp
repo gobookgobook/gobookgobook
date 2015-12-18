@@ -11,7 +11,7 @@
 <script type="text/javascript">
      function readFun(root,event_bunho){
     	 var url=root + "/event/eventRead.do?event_bunho=" +event_bunho;
-    	 //alert(url);
+    	 alert(url);
     	 location.href=url;
    }
   </script>
@@ -19,7 +19,7 @@
 </head>
 <body>
    <br/><br/>
-<div id="contents" style="height:450px; background:white; border:1px solid black; position:absolute;  left:172px;" ><br/><br/><br/><br/>   
+<div id="contents" style="height:450px; background:white; border:1px solid black; position:static;"><br/><br/><br/><br/>   
 <div align="right">
 <c:if test="${id=='admin'}">
 <div style="width:598px; height:10px; text-align:right; ">
@@ -42,7 +42,6 @@
         </div>
     </div>    
 	</div>
-<jsp:include page="../main-bottom.jsp"/>
-	<br/><br/>			
+<jsp:include page="../main-bottom.jsp"/>		
 </body>
 </html>

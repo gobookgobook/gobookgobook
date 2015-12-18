@@ -19,7 +19,7 @@
      <jsp:include page="userCategory.jsp"/>
     <div class="body">
 	<h2>공지사항</h2>
-	<hr><br/><br/>
+	<hr>
 	<div class="point_body">
 	<c:if test="${userHelpQnAList ==null}">
 		<h3>작성된 게시물이 없습니다.</h3>

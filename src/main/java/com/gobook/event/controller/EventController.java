@@ -70,6 +70,7 @@ public class EventController {
 	public ModelAndView eventRead(HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mav= new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("response",response);
 		iEventService.eventRead(mav);
 		return mav;
 	}
