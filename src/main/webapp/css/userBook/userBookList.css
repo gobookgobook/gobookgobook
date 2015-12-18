@@ -2,7 +2,7 @@
 
 .userBookList{
 	width: 800px; height:700px;
-	border: 1px dotted red;
+	border: 1px solid red;
 	margin: 0px auto;
 }
 

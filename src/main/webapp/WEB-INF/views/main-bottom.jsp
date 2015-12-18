@@ -19,8 +19,8 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap"  style="border:2px solid #37415A;  width:1350px;height:250px; position:absolute; bottom:-450px;">
-<div id="inner_footer" style="position:absolute; left:150px">
+<div id="footer_wrap"  style="border:2px solid #37415A;  width:1350px;height:250px; position:relative; margin-bottom:-100px; bottom:-30px;">
+<div id="inner_footer">
  <h3 class="footer_logo">
     <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>
  </h3>

@@ -9,33 +9,41 @@
 <title>Insert title here</title>
 <link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="menu.jsp"/>
-	<br/><br/>
-	
+<div id="contents" style="background:white; border:1px solid black"><br/><br/><br/><br/>	
 	<div align="center" >
-		<form action="${root}/member/login.do" method="post" name="loginOk">
-			<table class="mytable" style="border-collapse:collapse; width:300px;">
+		<form action="${root}/member/login.do" method="post">
+		<div class="container" style="width:30%">
+			<table class="table table-bordered">
 				<tr>
-					<td class="mytable" >회원ID</td>
-					<td class="mytable" ><input type="text" name="member_id"/></td>
-				</tr>
-				
-				<tr>
-					<td class="mytable" >비밀번호</td>
-					<td class="mytable" ><input type="password" name="member_password"/></td>
-				</tr>
-				
-				<tr>
-					<td class="mytable"  colspan="2" align="center">
-						<input type="submit" value="확인"/>
-						<input type="reset" value="취소"/>
+				  <th style="background:#B2CCFF">아이디</th>
+					<td colspan="3">
+					   <input type="text" name="member_id" size="25" value="${memberDto.member_id }"/>
 					</td>
 				</tr>
+				
+				<tr>
+				  <th style="background:#B2CCFF">비밀번호</th>
+					<td colspan="3">
+					   <input type="password" name="member_password" size="25" value="${memberDto.member_password }"/>
+					</td>
+				</tr>
+				
+	           <tr align="center">
+		         <td colspan="3">
+		           <input type="submit" class="btn btn-primary btn-xs" value="확인"/>
+			       <input type="reset" class="btn btn-warning btn-xs" value="취소"/>
+		         </td>
+		       </tr>
 			</table>
+			</div>
 		</form>
 	</div>
+</div>
+<jsp:include page="../main-bottom.jsp"/>
+	<br/><br/>		
 
 	<c:if test="${loginId != null }">
 		<c:set var="id" value="${loginId }" scope="session"/>

@@ -8,14 +8,12 @@
 <meta charset="UTF-8">
 <title>QnA목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link href="${root}/css/help/style.css" type="text/css" rel="stylesheet"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-   <br/><br/>
-   
+<div align="center">
+<div id="contents" style="height:500px; background:white; border:1px solid black">
    <h2>QnA</h2>
-	<hr>
 	<br/><br/>
 	
 	
@@ -60,5 +58,9 @@
 			<a href="${root}/help/adminHelpQnAList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 		</c:if>
 	</div>
+</div>	
+</div>
+ <jsp:include page="../main-bottom.jsp"/> 
+	<br/><br/>	
 </body>
 </html>

@@ -22,7 +22,7 @@ $(function(){
 	 });
  });
 </script>
-<jsp:include page="../main-top.jsp"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
    <br/><br/>
@@ -34,6 +34,7 @@ $(function(){
 			<a href="${root}/event/eventList.do">이벤트 목록</a>
 </div>
 </div>
+<c:if test="${id=='admin'}">
  <div align="center">
    <label class="title">이벤트 등록</label><br/><br/>
    
@@ -67,6 +68,7 @@ $(function(){
      </div>
    </div>
  </div>
+</c:if> 
 </form>
 	</div>
 <jsp:include page="../main-bottom.jsp"/>

@@ -19,10 +19,10 @@
 </head>
 <body>	
 	<br/><br/>	
-  <div id="contents" style="height:560px; background:white;"><br/><br/><br/><br/>
+  <div id="contents" style="height:580px; background:white; position:static; border:0px solid red;"><br/><br/><br/><br/>
   <div align="center">
 		<form class="form_style" name="memberForm" action="${root}/member/register.do" 	method="post" onsubmit="return registerForm(this)">
-		<div class="container" style="width:90%; border:0px solid black; position:absolute; top:5px; left:10px;">
+		<div class="container" style="width:90%; border:0px solid black; margin-top:-60px;">
 		<h2>회원가입</h2>
 		 <table class="table table-bordered" style="border-top-color:rgb(209,209,209); width:860px;">
 		  <tbody>
@@ -79,6 +79,7 @@
 		    <th style="background:#B2CCFF">주소</th>
 		     <td colspan="3">
 		       <input type="text" name="address1Disp" size="50"/>
+		       <input type="hidden" name="member_address1"/>
 		     </td>
 		    </tr>
 		    

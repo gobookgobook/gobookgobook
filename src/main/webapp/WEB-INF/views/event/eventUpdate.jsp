@@ -23,7 +23,7 @@ $(function(){
 	 });
  });
 </script>
-<jsp:include page="../main-top.jsp"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 <br/><br/>

@@ -24,7 +24,7 @@
    }
    
 </script>
-<jsp:include page="../main-top.jsp"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
    <br/><br/>
@@ -59,10 +59,12 @@
        </span>
 </div>
 <div align="center">
+<c:if test="${id=='admin'}">
 <div class="line" style="width:598px; border-width:2px; text-align:center;">
 				<input type="button" value="이벤트 수정" onclick="updateFun('${root}', '${eventDto.event_bunho}')"/>
 				<input type="button" value="이벤트 삭제" onclick="deleteFun('${root}', '${eventDto.event_bunho}')"/>
          </div>
+ </c:if>        
 </div>
 </div>
 </div>

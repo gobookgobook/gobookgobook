@@ -15,15 +15,17 @@
     	 location.href=url;
    }
   </script>
-<jsp:include page="../main-top.jsp"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
    <br/><br/>
 <div id="contents" style="height:450px; background:white; border:1px solid black; position:absolute;  left:172px;" ><br/><br/><br/><br/>   
 <div align="right">
+<c:if test="${id=='admin'}">
 <div style="width:598px; height:10px; text-align:right; ">
 			<a href="${root}/event/eventWrite.do">이벤트 등록</a>
 </div>
+</c:if>
 </div>
    
      <div align="center">

@@ -8,11 +8,9 @@
 <meta charset="UTF-8">
 <title>공지사항 목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-   <br/><br/>
-   
    <h2>공지사항</h2>
 	<hr>
 	<br/><br/>

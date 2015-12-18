@@ -2,13 +2,13 @@
 
 .title{
 	width: 800px; height:30px;
-	border: 1px solid black;
+	border: 0px solid black;
 	margin-bottom: 3px; 
 }
 
 .category{
 	width: 13%; height:200px;
-	border: 1px solid black;
+	border: 0px solid black;
 	display: block;
 	float: left;	
 }
@@ -24,7 +24,7 @@ a:link {
 
 a:visited {
 	text-decoration:none;
-	color:red;
+	color:black;
 }
 
 a:hover {
