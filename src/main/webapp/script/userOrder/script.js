@@ -55,9 +55,41 @@ function sendCoupon(user_coupon_num, user_coupon_name, user_coupon_discount){
 	opener.memberForm.order_user_coupon_num.value=user_coupon_num;
 	opener.memberForm.order_user_coupon_name.value=user_coupon_name;
 	opener.memberForm.couponNameDisp.value=user_coupon_name;
+	if(user_coupon_discount<100){
+		opener.memberForm.couponDiscountDisp.value=user_coupon_discount+"%";
+	}else{
+		opener.memberForm.couponDiscountDisp.value=user_coupon_discount+"원";
+	}
 	opener.memberForm.coupon_discount.value=user_coupon_discount;
-	opener.memberForm.couponDiscountDisp.value=user_coupon_discount;
 	self.close();
+}
+
+function applyPoint(root, point, memberPoint,order_book_point){
+	//alert(root + "," + point.value+","+memberPoint);
+	if(point.value%100!=0){
+		alert("100원단위 미만은 사용하실 수 없습니다.");
+		return false;
+	}
+	
+	if(point.value>memberPoint.value){
+		alert("보유하신 Point 보다 적용하실 Point가 클 수 없습니다.");
+		point.value=0;
+	}else{
+		alert("포인트가 적용되었습니다.");
+		memberPoint.value=memberPoint.value-point.value;
+		
+		var odp=parseInt(order_book_point.value);
+		if(order_book_point.value==(null)||order_book_point.value==("")){
+			odp=0;
+		}else{
+			odp=parseInt(order_book_point.value);
+		}
+		order_book_point.value=odp+parseInt(point.value);
+		
+		var dispPoint=document.getElementById("applyPointDisp");
+		dispPoint.innerHTML="적용된 포인트 : "+order_book_point.value+" Point";
+		point.value=0;
+	}
 }
 
 /*function payToServer(root, order_bunho){

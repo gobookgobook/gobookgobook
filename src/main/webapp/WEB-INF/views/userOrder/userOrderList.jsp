@@ -274,18 +274,20 @@
 										<input type="hidden" name="order_user_coupon_name"/>
 									</span>
 									<span class="content">
-										<label>할인율:</label>
-										<input type="text" name="couponDiscountDisp" value="0" size="5" disabled="disabled"/>%
+										<label>할인:</label>
+										<input type="text" name="couponDiscountDisp" value="0" size="8" disabled="disabled"/>
 										<input type="hidden" name="coupon_discount"/> 
 										<input type="button" value="쿠폰적용" onclick="couponRead('${root}')"/><br/><br/>
 									</span>
 								</div>
 								<div align="left">
-									<label class="title">포인트사용</label> 
+									<label class="title">포인트 사용</label><br/>
 									<span class="content"> 
-										<input type="text" size="10" id="point" value="0" name="order_book_point"/> 
-										<input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled"/>
-										<input type="button" name="payPoint" value="포인트적용" onclick=""/>
+										적용하실 포인트 : <input type="text" size="10" id="point" value="0" name="order_book_point_disp"/> Point (포인트는 100 Point이상단위부터 사용가능합니다.)<br/>
+										보유하신 포인트 : <input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled"/> Point<br/><br/>
+										<input type="hidden" name="order_book_point"/>
+										<span id="applyPointDisp">적용된 포인트 : 0 Point</span>
+										<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)"/>
 									</span>
 								</div>
 							</div>
