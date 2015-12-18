@@ -6,41 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/category.css"/>
 </head>
 <body>
-	<table class="table table-bordered">
-	    <tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/myPage/myPageOrderList.do">주문내역</a></td>
-     	</tr>
-     	
-     	<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/myPage/myPagePvPList.do">1:1문의내역</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/myPage/myPagePoint.do">포인트함</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/member/update.do">회원수정</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}/member/delete.do">회원탈퇴</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a href="${root}">메인</a></td>
-		</tr>
-	</table>
-		
+		<div class="title">
+		※마이페이지
+		</div>
+		<div class="category">
+		<a href="${root}/myPage/myPageOrderList.do">주문내역</a>
+		<a href="${root}/myPage/myPagePvPList.do">1:1문의내역</a>
+		<a href="${root}/myPage/myPageCoupon.do">쿠폰함</a>
+		<a href="${root}/myPage/myPagePoint.do">포인트함</a>
+		<a href="${root}/member/update.do">회원수정</a>
+		<a href="${root}/member/delete.do">회원탈퇴</a>
+		<a href="${root}">메인</a>
+		</div>
 </body>
 </html>
