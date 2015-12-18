@@ -10,27 +10,26 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
-	<br/><br/>
+	<c:set var="id" value="admin" scope="session"/>
+	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-	<div id="wrap">
-		<div id="header">
-			<h1>GoBook!GoBook!</h1>
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
 		</div>
 		
-		<div id=nav>
-			<a href="${root}/bookManage/bookManage.do"><b> 도서관리 </b></a><br/>
-		</div>
-		
-		<div id="con1" align="left" style="height:1200px;">
+		<div align="left" style="width: 120px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
-		
-		<div id="#con2" align="left">
-			<b>공구 등록</b>
-			<hr/>
+			
+		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
+			<div align="center"><b style="font-size: 16px;">공구등록</b></div>
+			<br/>
 			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchaseInsert(this)">				
 				<div class="line">
 					<label class="title2">도서번호</label>
@@ -104,8 +103,8 @@
 				</div>
 			</form>	
 		</div>
-	</div>
 	</c:if>
+	</div>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
 			alert("관리자만 접근이 가능한 페이지 입니다");

@@ -25,10 +25,10 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;">
+		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<div>
-				<b>진행중인 공동구매</b>
-				<hr/>
+			<div align="center"><b style="font-size: 16px;">진행중인 공동구매</b></div>
+			<br/>
 				<c:if test="${gpCount==0}">
 					<div align="center">
 						<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
@@ -74,8 +74,8 @@
 			</div>
 			<br/>
 			<div>
-				<b>공동구매 요청 내역</b>
-				<hr/>
+				<div align="center"><b style="font-size: 16px;">공동구매 요청내역</b></div>
+			<br/>
 			<c:if test="${count==0}">
 			<div align="center">
 				<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">

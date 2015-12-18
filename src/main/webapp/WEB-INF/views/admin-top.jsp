@@ -11,7 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="${root}/css/base.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/main.css" media="all" />
 	<script type="text/javascript" src="${root}/js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
-	<script type="text/javascript" src="${root}/script/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="${root}/css/style.css" /><!-- 터치 슬라이드 스타일(CSS) 연동 -->
 	<script type="text/javascript" src="${root}/js/swipe.js"></script> <!-- 터치 슬라이드 플러그인 연동 -->
 	<script type="text/javascript" src="${root}/js/jquery.bxslider.min.js"></script>  <!-- bxSlider 플러그인 연동 -->
@@ -34,61 +33,9 @@
      <dt class="hide">유틸 메뉴</dt>
      <dd class="util_first">
         <ul>
-           <li class="login_wrap">
-        
-             <!-- 로그인 폼 -->
-			
-             <form action="#" method="post" name="log_f" id="login_f">
-               <fieldset>
-                 <legend>로그인</legend>
-                 <p class="user_id">
-                    <label for="user_id">
-                      <img src="${root}/images/login_title_id.gif" alt="아이디" />
-                    </label>
-                    <input type="text" name="user_id" id="user_id" />
-                 </p>
-                 <p class="user_pw">
-                    <label for="user_pw">
-                      <img src="${root}/images/login_title_pw.gif" alt="아이디" />
-                    </label>
-                    <input type="password" name="user_pw" id="user_pw" /></p>
-                 <p class="log_btn">
-                    <input type="image" src="${root}/images/login_btn.gif" alt="로그인버튼" />
-                 </p>
-                 <p class="join_btn_wrap">
-                     <a href="${root}/member/register.do">회원가입</a>
-
-                 </p>
-                 <p class="login_close_btn">
-                     <a href="#">
-                     <img src="${root}/images/login_close_btn.gif" alt="닫기버튼" />
-                     </a>
-                 </p>
-               </fieldset>
-             </form>
-           </li>
-           
-           <c:if test="${id==null}">
-           <li>
-            <a href="${root}/member/register.do">회원가입</a>
-           </li>
-           <li>
-            <a href="${root}/member/login.do">로그인</a>
-           </li>
-           <li>
-            <a href="${root}/myBasket/myBasketList.do">장바구니</a>
-           </li>
-           <li>
-            <a href="${root}/myPage/myPageOrderList.do">MyPage</a>
-           </li>
-           </c:if>
-           
-           <c:if test="${id!=null}">
+           <c:if test="${id=='admin'}">
           <li>
 				<a href="${root}/member/update.do">회원수정</a>
-			</li>
-			<li>
-				<a href="${root}/member/delete.do">회원탈퇴</a>
 			</li>
 			<li>
 				<a href="${root}/member/logout.do">로그아웃</a>
@@ -99,9 +46,9 @@
 			<li>
 				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
 			</li>
-				<c:if test="${id=='admin'}">
-					<li><a href="${root}/member/adminMain.do">관리자&nbsp;&nbsp;&nbsp;</a></li>
-				</c:if>
+			<li>
+				<a href="${root}/member/adminMain.do">관리자</a>
+			</li>
            </c:if>
         </ul>
      </dd>

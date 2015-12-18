@@ -685,6 +685,7 @@ public class BookManageService implements IBookManageService {
 		int endRow=currentPage*boardSize;
 		
 		int count=iBookManageDao.bookNewPublishCount();
+		// GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" + count);
 		
 		List<BookDto> bookNewPublishList=null;
 		if(count>0){
@@ -692,6 +693,7 @@ public class BookManageService implements IBookManageService {
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
 			bookNewPublishList=iBookManageDao.bookNewPublishList(hMap);
+			// GoBookAspect.logger.info(GoBookAspect.logMsg + "bookNewPublishList:" + bookNewPublishList.size());
 		}
 		
 		HttpSession session=request.getSession();
