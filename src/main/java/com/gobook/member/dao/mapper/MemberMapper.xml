@@ -75,4 +75,16 @@
 			where member_id=#{member_id}
 		]]>
 	</update>
+	
+			<!-- 베스트 셀러 -->
+	<select id="userBookBestSeller" resultType="com.gobook.userorder.dto.UserOrderDto">
+	<![CDATA[
+		SELECT *FROM
+			(SELECT ROWNUM rnum, A.*FROM
+				 (SELECT sum(order_book_count), book_num FROM
+					userorder GROUP BY book_num
+						ORDER BY 1 DESC) A)
+							WHERE rnum>=1 and rnum<=8
+	]]>
+	</select>
 </mapper>

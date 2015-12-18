@@ -64,13 +64,13 @@ public class UserBookService implements IUserBookService {
 		bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
 		}
 		
-		String book_name=bookDto.getBook_name();
+		String book_name=bookDto.getBook_cover_file_name();
 		System.out.println("book_name : "+book_name);
 		
 		 
 		//최근본 도서
 		try {
-			response.setContentType("text/html;charset=EUC-KR");
+			response.setContentType("text/html;charset=euc-kr");
 			request.setCharacterEncoding("euc-kr");
 			Cookie cookie=new Cookie(String.valueOf(book_num), URLEncoder.encode(book_name, "utf-8"));
 			cookie.setMaxAge(60*60*20);
@@ -542,7 +542,7 @@ public class UserBookService implements IUserBookService {
 		String rslt = "";
 		if(str!=null){
 			try{
-				rslt = URLEncoder.encode(str,"euc-kr");
+				rslt = URLEncoder.encode(str,"utf-8");
 			}catch(Exception e){ 
 				//return "";
 			}
@@ -560,7 +560,7 @@ public class UserBookService implements IUserBookService {
 		String rslt = "";
 		if(str!=null){
 			try{
-				rslt = URLDecoder.decode(str,"euc-kr");
+				rslt = URLDecoder.decode(str,"utf-8");
 			}catch(Exception e){
 				//return "";
 			}

@@ -31,7 +31,7 @@
 				<c:forEach var="userBook" items="${bookDto}">
 					<div class="bookList">
 						<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
-							<img src="http://localhost:8181/goBook/bookimg/${userBook.book_cover_file_name}" alt="준비중" width="30%" height="40%">
+							<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="30%" height="40%">
 						</a>
 						<div>
 							<span>${userBook.book_name}</span>

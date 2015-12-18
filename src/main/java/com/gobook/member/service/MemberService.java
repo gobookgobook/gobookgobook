@@ -14,6 +14,7 @@ import com.gobook.aop.GoBookAspect;
 import com.gobook.member.dao.IMemberDao;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
+import com.gobook.userorder.dto.UserOrderDto;
 
 /**
  * @클래스이름 : MemberService
@@ -202,6 +203,7 @@ public class MemberService implements IMemberService {
 	 * @작성일 : 2015. 12. 12.
 	 * @개발자 : 성기훈
 	 * @설명 : 메인페이지(사용자, 관리자 구분)
+	 * @수정 : 오주석:베스트 셀러 추가
 	 */
 	@Override
 	public void goBookMain(ModelAndView mav) {
@@ -212,7 +214,10 @@ public class MemberService implements IMemberService {
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
+		List<UserOrderDto> bestSeller=iMemberDao.userBookBestSeller();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + bestSeller.size());
 		
+		mav.addObject("bestSeller", bestSeller);
 		try{
 			if(id.equals("admin")) mav.setViewName("member/adminMain");
 			else mav.setViewName("member/goBookMain");

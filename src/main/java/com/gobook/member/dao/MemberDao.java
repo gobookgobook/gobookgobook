@@ -13,6 +13,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
+import com.gobook.userorder.dto.UserOrderDto;
 
 /**
  * @클래스이름 : MemberDao
@@ -173,5 +174,16 @@ public class MemberDao implements IMemberDao{
 	@Override
 	public int memberDeleteBasketDate(String loginId) {
 		return sqlSessionTemplate.delete("dao.memberMapper.memberDeleteBasketDate",loginId);
+	}
+	
+	/**
+	 * @함수이름 : userBookBestSeller
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 오주석
+	 * @설명 : 베스트 셀러
+	 */
+	@Override
+	public List<UserOrderDto> userBookBestSeller() {
+		return sqlSessionTemplate.selectList("dao.memberMapper.userBookBestSeller");
 	}
 }

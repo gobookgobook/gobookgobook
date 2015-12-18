@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
+<jsp:include page="../cookie/cookie.jsp"/>
 <div id="wrap">
 <dl class="hide">
  <dt>스킵 메뉴</dt>
@@ -197,37 +198,12 @@
    </h3>
    <div id="best_bg">
       <ul>
-        <li><a href="#"><img src="${root}/images/bestbook_list_1.PNG" alt="" />
-              <span><strong>위험한 과학책</strong>랜들 먼로</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_2.PNG" alt="" />
-              <span><strong>세상의 모든 공식</strong>존 M.헨쇼</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_3.PNG" alt="" />
-              <span><strong>정재승의 과학콘서트</strong>정재승</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_4.PNG" alt="" />
-              <span><strong>마음의 미래</strong>미치오 카쿠</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_5.PNG" alt="" />
-              <span><strong>과학, 인문으로 탐구하다</strong>박민아, 선유정</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_6.PNG" alt="" />
-              <span><strong>이종필의 아주 특별한 상대성이론 강의</strong>이종필</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_7.PNG" alt="" />
-              <span><strong>뇌를 바꾼 공학,공학을 바꾼 뇌</strong>임창환</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_8.PNG" alt="" />
-              <span><strong>아주 특별한 생물학 수업</strong>장수철, 이재성</span></a>
-        </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_9.PNG" alt="" />
-              <span><strong>빅 히스토리 BIG HISTORY</strong>데이비드 크리스천, 밥 베인</span>
-              </a>
-       </li>
-        <li><a href="#"><img src="${root}/images/bestbook_list_10.PNG" alt="" />
-             <span><strong>인문학 습관</strong>윤소정</span></a>
-        </li>
+		<c:forEach var="bestSeller" items="${bestSeller}">
+			<li>
+				<img src="#" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')"/>
+				<span><strong>${bestSeller.book_num}</strong></span>
+			</li>      	
+		</c:forEach>
       </ul>
       <p class="prev_btn">
          <a href="#">
@@ -241,17 +217,6 @@
       </p>
    </div>
  </div> <!-- close of bestbook_zone -->
- 
- 
- <div id="quick_menu" >
-   <h3><span>최근 본 도서</span></h3>
-   <ul>
-     <li><img src="${root}/images/bestbook_list_1.PNG" alt="" /></li>
-     <li><img src="${root}/images/bestbook_list_2.PNG" alt="" /></li>
-     <li><img src="${root}/images/bestbook_list_3.PNG" alt="" /></li>    
-     <li><a href="#"><img src="${root}/images/quick_top_btn.png" alt="상단으로 이동" /></a></li>
-   </ul>
- </div>
 
  <p id="pop_wrap">
   <img src="${root}/images/popup.jpg" alt="검색이 잘 되는 키워드는 따로 있다!" usemap="#pop" />

@@ -30,39 +30,37 @@
 		   }
 	}
 </script> -->
-<script type="text/javascript">
-	function delCookie(root){
-		var url=root+"/storeInfo/delCookie.do";
-		location.href=url;
-	}
-</script>
-<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
+<script type="text/javascript" src="${root}/script/cookie/cookie.js"></script>
+<link href="${root}/css/cookie/cookie.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<c:if test="${id!=null}">
-		<div style="position: fixed; width: 102px; height: auto; border:10px solid red; margin-left: 90%; margin-top : 10%; ">
-			<div align="center" style="border:2px solid black; background-color: lime;">최근본 도서</div>
-			<div align="center" style="border:0px solid black; background-color: aqua;">
-			<%if(cookies!=null){
-				if(cookies.length>=3){
-					for(int i=cookies.length-1;i>=cookies.length-3;i--){
-						if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-			 			<a name="coo" href="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"><img style="width:99px; height:100px; max-height: 100%; max-width:100%;" src="#"/></a>
-			 			<div><%=cookies[i].getName() %></div>
-					<%}}else if(cookies.length>=2){
-						for(int i=cookies.length-1;i>=cookies.length-2;i--){
-						if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-			 			<a name="coo" href="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"><img style="width:99px; height:100px; max-height: 100%; max-width:100%;" src="#"/></a>
-			 			<div><%=cookies[i].getName() %></div>
-					<%}}else if(cookies.length>=1){
-						for(int i=cookies.length-1;i>=cookies.length-1;i--){
-				 		if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-			 			<a name="coo" href="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"><img style="width:99px; height:100px; max-height: 100%; max-width:100%;" src="#"/></a>
-			 			<div><%=cookies[i].getName() %></div>
-					<%}}}%>
-			<%-- <div><input type="button" name="del_cookie" value="쿠키삭제" onclick="javascript:delCookie('${root}')"/></div> --%>
-			</div>
-		</div>
+<div id="quick">
+   <h3><span>최근 본 도서</span></h3>
+   	<ul>
+		<%if(cookies!=null){
+			if(cookies.length>=3){
+				for(int i=cookies.length-1;i>=cookies.length-3;i--){
+					if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
+		 			<li><img src="http://localhost:8181/gobook/css/book/images/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<%=cookies[i].getName() %>
+		 			<%=cookies[i].getValue() %>
+				<%}}else if(cookies.length>=2){
+					for(int i=cookies.length-1;i>=cookies.length-2;i--){
+					if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
+		 			<li><img src="http://localhost:8181/gobook/css/book/images/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<%=cookies[i].getName() %>
+		 			<%=cookies[i].getValue() %>
+				<%}}else if(cookies.length>=1){
+					for(int i=cookies.length-1;i>=cookies.length-1;i--){
+			 		if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
+		 			<li><img src="http://localhost:8181/gobook/css/book/images/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<%=cookies[i].getName() %>
+		 			<%=cookies[i].getValue() %>
+				<%}}}%>
+		     <li><a href="#"><img src="${root}/images/quick_top_btn.png" alt="상단으로 이동" /></a></li>
+		</ul>
+</div>
 	</c:if>
 </body>
 </html>

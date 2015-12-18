@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
+import com.gobook.userorder.dto.UserOrderDto;
 
 /**
  * @클래스이름 : IMemberDao
@@ -21,4 +22,5 @@ public interface IMemberDao {
 	public int memberUpdate(MemberDto memberDto);
 	public int memberDeleteCouponDate(String loginId);
 	public int memberDeleteBasketDate(String loginId);
+	public List<UserOrderDto> userBookBestSeller();
 }
