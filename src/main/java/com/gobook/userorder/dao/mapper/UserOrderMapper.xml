@@ -56,4 +56,12 @@
 	<select id="salesUODSelect" resultType="com.gobook.userorder.dto.UserOrderDto">
 		select * from userOrder where order_bunho=(select nvl(max(order_bunho),0) from userorder)
 	</select>
+	
+	<update id="userOrderSaving" parameterType="java.util.HashMap">
+		update member set member_point=member_point+#{savingPoint} where member_id=#{member_id}
+	</update>
+	
+	<update id="userOrderUpBook" parameterType="java.util.HashMap">
+		update book set book_quantity= book_quantity-#{book_count} where book_num=#{book_num}
+	</update>
 </mapper>

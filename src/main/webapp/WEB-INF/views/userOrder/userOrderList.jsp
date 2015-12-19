@@ -96,7 +96,7 @@
 			</c:if>
 			
 			
-			<form class="form_style" name="memberForm" action="${root}/userOrder/userOrderPay.do" method="post" onsubmit="">
+			<form class="form_style" name="memberForm" action="${root}/userOrder/userOrderPay.do" method="post" onsubmit="return userOrderForm(this)">
 				<c:if test="${purchase=='basket'}">			<!-- 장바구니에서 주문했을 경우 뿌려주는 주문 리스트 -->
 					<div align="left" style="width:50%">
 						<label class="title">1. 주문 상품 목록</label>
@@ -225,7 +225,7 @@
 												</div>
 										
 												<label for="phone">전화번호</label> 
-												<input type="text" class="form-control" id="hphone" value="">
+												<input type="text" class="form-control" id="hphone" name="member_phone" value="">
 											</div>
 									
 											<div id="old">		
@@ -246,12 +246,14 @@
 												
 												<div class="line">
 													<span class="content">
-														<input type="text" class="form-control" name="order_book_user_address2" value="${memberDto.member_address2}" size="48" />
+														<input type="text" class="form-control" name="old_address2" value="${memberDto.member_address2}" size="48" />
+														<input type="hidden" name="order_book_user_address2"/>
 													</span>
 												</div>
 											
 												<label for="phone">전화번호</label> 
-												<input type="text" class="form-control" id="oldHphone" name="order_book_user_number" value="${memberDto.member_phone}">
+												<input type="text" class="form-control" id="oldHphone" name="old_phone" value="${memberDto.member_phone}">
+												<input type="hidden" name="order_book_user_number"/>
 											</div>
 										</div>
 									</div>

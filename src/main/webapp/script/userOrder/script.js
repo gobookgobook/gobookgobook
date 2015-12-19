@@ -87,6 +87,12 @@ function sendCoupon(user_coupon_num, user_coupon_name, user_coupon_discount){
 	self.close();
 }
 
+/**
+ * @함수이름 : applyPoint
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 총가격에서 사용자가 적용할 포인트를 빼주며, 보유한 포인트에서 사용하는 포인트만큼 빼주는 함수
+ */
 function applyPoint(root, point, memberPoint,order_book_point){
 	//alert(root + "," + point.value+","+memberPoint);
 	if(point.value<0){
@@ -143,6 +149,12 @@ function applyPoint(root, point, memberPoint,order_book_point){
 }
 
 // 숫자를  입력받아 세자리씩 끊어서 쉼표를 넣어주는 함수
+/**
+ * @함수이름 : numberFormat
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 숫자의 포맷팅을 위한 함수
+ */
 function numberFormat(num){
 	var numString=num+"";
 	var numLength=numString.length;
@@ -157,39 +169,68 @@ function numberFormat(num){
 	return result;
 }
 
+/**
+ * @함수이름 : interceptString
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 숫자 포맷팅당 ,를 찍어주는 함수
+ */
 function interceptString(str,num){
 	return str.substring(0,num) + "," +  str.substring(num,str.length);
 }
-/*function payToServer(root, order_bunho){
+
+/**
+ * @함수이름 : userOrderForm
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 새로운주소, 오래된주소 
+ */
+function userOrderForm(form){
+	var test=false;
 	
-	var url=root + "/userOrder/userOrderList.do?order_bunho="+order_bunho;
-	//alert(url);
-	$.ajax({
-		url:url,
-		type:"get",
-		dataType:"text",
-		success:function(data){
-			$("#c").click(function(){
-				$("#bank").hide();	
-				$("#phone").hide();
-				$("#card").show();
-			});
-			
-			$("#b").click(function(){
-				$("#card").hide();
-				$("#phone").hide();
-				$("#bank").show();
-			});
-			
-			$("#p").click(function(){
-				$("#card").hide();
-				$("#bank").hide();
-				$("#phone").show();
-			});
-		},
-		error:function(xhr,status,errorMsg){
-			alert(status + "," + errorMsg);
+	for(var i=0; i<form.address.length;i++){
+		if(form.address[i].checked==true){
+			if(i==0){
+				//alert("Old");
+				if(form.old_address2.value==""){
+					alert("주문시 주소입력을 반드시 해주세요.");
+					return false;
+				}
+				
+				if(form.old_phone.value==""){
+					alert("주문시 전화번호을 입력해주세요.");
+					return false;
+				}
+				form.order_book_user_address2.value=form.old_address2.value;
+				form.order_book_user_number.value=form.old_phone.value;
+				
+			}else{
+				//alert("new");
+				if(form.member_zipcode.value==""){
+					alert("새로운 주소로 주문시 주소입력을 반드시 해주세요.");
+					return false;
+				}
+				
+				if(form.member_address1.value==""){
+					alert("새로운 주소로 주문시 주소입력을 반드시 해주세요.");
+					return false;
+				}
+				
+				if(form.member_address2.value==""){
+					alert("새로운 주소로 주문시 주소입력을 반드시 해주세요.");
+					return false;
+				}
+				
+				if(form.member_phone.value==""){
+					alert("새로운 주소로 주문시 전화번호을 새로 입력해주세요.");
+					return false;
+				}
+				
+				form.order_zipcode.value=form.member_zipcode.value;
+				form.order_book_user_address1.value=form.member_address1.value;
+				form.order_book_user_address2.value=form.member_address2.value;
+				form.order_book_user_number.value=form.member_phone.value;
+			}
 		}
-	
-	});
-}*/
+	}
+}

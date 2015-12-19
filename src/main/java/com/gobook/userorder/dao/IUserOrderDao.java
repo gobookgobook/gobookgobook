@@ -28,4 +28,8 @@ public interface IUserOrderDao {
 	public int userOrderSalesInsert(UserOrderDto userOrderDto, int salesDaily_profit);
 	
 	public UserOrderDto salesUODSelect();
+	
+	public int userOrderSavingPoint(String member_id, int savingPoint);
+	
+	public int userOrderUpBookCount(long book_num, int book_count);
 }

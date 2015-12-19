@@ -133,5 +133,35 @@ public class UserOrderDao implements IUserOrderDao{
 		return sqlSessionTemplate.selectOne("dao.UserOrderMapper.salesUODSelect");
 	}
 
+	/**
+	 * @함수이름 : userOrderSavingPoint
+	 * @작성일 : 2015. 12. 19.
+	 * @개발자 : 강주혁
+	 * @설명 : 주문시 포인트 적립액에 따른 사용자 포인트 증가
+	 */
+	@Override
+	public int userOrderSavingPoint(String member_id, int savingPoint) {
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("member_id",member_id);
+		hMap.put("savingPoint",savingPoint);
+		
+		return sqlSessionTemplate.update("dao.UserOrderMapper.userOrderSaving",hMap);
+	}
+
+	/**
+	 * @함수이름 : userOrderUpBookCount
+	 * @작성일 : 2015. 12. 19.
+	 * @개발자 : 강주혁
+	 * @설명 : 주문시 책에서 도서 수량 감소
+	 */
+	@Override
+	public int userOrderUpBookCount(long book_num, int book_count) {
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("book_num",book_num);
+		hMap.put("book_count",book_count);
+
+		return sqlSessionTemplate.update("dao.UserOrderMapper.userOrderUpBook",hMap);
+	}
+
 
 }

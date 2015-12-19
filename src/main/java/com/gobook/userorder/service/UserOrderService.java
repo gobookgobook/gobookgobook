@@ -162,6 +162,7 @@ public class UserOrderService implements IUserOrderService{
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
 		String purchase=(String) idSession.getAttribute("purchase");
+		int check=0;
 		
 		if(member_id !=null){
 			UserOrderDto userOrderDto=(UserOrderDto) map.get("userOrderDto");
@@ -204,7 +205,7 @@ public class UserOrderService implements IUserOrderService{
 						}
 					}
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "userOrderDto:" + userOrderDto);	//주문 dto에 정보 전부 입력
-					int check=iUserOrderDao.userOrderPayInsert(userOrderDto);
+					check=iUserOrderDao.userOrderPayInsert(userOrderDto);
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "1.insert:" +check);// 1. insert 성공시 check
 		
 					// 2.일일매출에 insert
@@ -220,11 +221,15 @@ public class UserOrderService implements IUserOrderService{
 					//4) INSERT 일일매출 
 					int salesInsertCheck=iUserOrderDao.userOrderSalesInsert(salesUOD, salesDaily_profit);
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "2.salesInsertCheck:" + salesInsertCheck);
+					
+					// 3. 주문시 책에서 도서 수량 감소
+					int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count());
+					GoBookAspect.logger.info(GoBookAspect.logMsg + "3.upBookCountCheck : " + upBookCountCheck);
 				}
 				
-				// 5. 장바구니 내역 제거 check
+				// 4. 장바구니 내역 제거 check
 				int delCheck=iUserOrderDao.userOrderBasketDelete(member_id);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + "3.delete:" +delCheck);// 5. delete 성공시 check
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "4.delete:" +delCheck);// 5. delete 성공시 check
 				
 			}else{
 				//개별주문 들어오면 처리할 INSERT 부분
@@ -238,7 +243,7 @@ public class UserOrderService implements IUserOrderService{
 				}
 				
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "userOrderDto:" + userOrderDto);	//주문 dto에 정보 전부 입력
-				int check=iUserOrderDao.userOrderPayInsert(userOrderDto);
+				check=iUserOrderDao.userOrderPayInsert(userOrderDto);
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "1.insert:" +check);// 1. insert 성공시 check
 	
 				// 2.일일매출에 insert
@@ -254,34 +259,41 @@ public class UserOrderService implements IUserOrderService{
 				//4) INSERT 일일매출 
 				int salesInsertCheck=iUserOrderDao.userOrderSalesInsert(salesUOD, salesDaily_profit);
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "2.salesInsertCheck:" + salesInsertCheck);
+				
+				// 3. 주문시 책에서 도서 수량 감소
+				int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count());
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "3.upBookCountCheck : " + upBookCountCheck);
 			}
 			
 			
-			// 3. 사용한 쿠폰이 있으면(쿠폰명이 null이 아닐 시), 쿠폰 제거 check
+			// 5. 사용한 쿠폰이 있으면(쿠폰명이 null이 아닐 시), 쿠폰 제거 check
 			String temp=request.getParameter("order_user_coupon_num");
 			if(!(temp.equals(null)) && !(temp.equals(""))){
 				int order_user_coupon_num=Integer.parseInt(request.getParameter("order_user_coupon_num"));
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "order_user_coupon_num:" +order_user_coupon_num);
 				int delCouponCheck=iUserOrderDao.userOrderCouponDelete(member_id, order_user_coupon_num);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + "3.delCouponCheck:" +delCouponCheck);// 3. 쿠폰 delete 성공시 check
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "5.delCouponCheck:" +delCouponCheck);// 3. 쿠폰 delete 성공시 check
 			}
 			
 			
-			// 4. 사용한 포인트가 있으면(사용한 포인트가 0이 아닐 시), 포인트 감소 업데이트 check
+			// 6. 사용한 포인트가 있으면(사용한 포인트가 0이 아닐 시), 포인트 감소 업데이트 check
 			int order_book_point=userOrderDto.getOrder_book_point();
 			if(order_book_point!=0){
 				int upPointCheck=iUserOrderDao.userOrderPointUpdate(member_id, order_book_point);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + "4.upPointCheck:" +upPointCheck);// 4. 포인트 update 성공시 check
+				GoBookAspect.logger.info(GoBookAspect.logMsg + "6.upPointCheck:" +upPointCheck);// 4. 포인트 update 성공시 check
 			}
 			
-			// 5. 주문시 포인트 적립액에 따른 사용자 포인트 증가
+			// 7. 주문시 포인트 적립액에 따른 사용자 포인트 증가
 			
 			float allBookPoint = Float.parseFloat(request.getParameter("allBookPoint"));
 			int savingPoint = (int)allBookPoint;
-			GoBookAspect.logger.info(GoBookAspect.logMsg + "5.allBookPoint:" +savingPoint);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "7.allBookPoint:" +savingPoint);
 			
-			// 6. 주문시 책에서 도서 수량 감소
-			
+			int savingPointCheck = iUserOrderDao.userOrderSavingPoint(member_id,savingPoint);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "7.savingPointCheck:" +savingPointCheck);
 		}
+		
+		mav.addObject("check",check);
+		mav.setViewName("userOrder/userOrderPay");
 	}
 }
