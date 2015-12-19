@@ -52,18 +52,18 @@
 			</c:if>
 			
 			<c:if test="${startPage>pageBlock}">
-				<a href="${root}/userBook/userBookSerch.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+				<a href="${root}/userBook/userBookSerch.do?pageNumber=${startPage-pageBlock}&keyword=${keyword}">[이전]</a>
 			</c:if>
 			
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<c:if test="${currentPage==i}">[${i}]</c:if>
+				<c:if test="${currentPage==i}">&nbsp;&nbsp;&nbsp;[${i}]</c:if>
 				<c:if test="${currentPage!=i}">
-				<a href="${root}/userBook/userBookSerch.do?pageNumber=${i}">[${i}]</a>
+				<a href="${root}/userBook/userBookSerch.do?pageNumber=${i}&keyword=${keyword}">[${i}]</a>
 				</c:if>
 			</c:forEach>
 			
 			<c:if test="${endPage<pageCount}">
-				<a href="${root}/userBook/userBookSerch.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+				<a href="${root}/userBook/userBookSerch.do?pageNumber=${startPage+pageBlock}&keyword=${keyword}">[다음]</a>
 			</c:if>
 		</div>
 </body>

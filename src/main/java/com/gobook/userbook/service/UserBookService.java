@@ -356,6 +356,7 @@ public class UserBookService implements IUserBookService {
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("count", count);
+		mav.addObject("keyword", keyword);
 		
 		mav.setViewName("userBook/userBookSerch");
 	}
