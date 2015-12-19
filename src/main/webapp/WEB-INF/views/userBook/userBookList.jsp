@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
@@ -14,15 +15,12 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <jsp:include page="../main-top.jsp"/>
 <jsp:include page="../cookie/cookie.jsp"/>
-<script type="text/javascript">
-	밥먹고 와서 제목 ... 처리
-</script>
 </head> 	
 <body>
-<div id="contents" style="height:800px; background:white; border:1px solid black; position:static;">
+<div id="contents" style="height:800px; background:white; border:0px solid black; position:static;">
 
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 목록</b>
+		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 목록</b>
 	</div>
 	
 	<div align="left" style="width: 120px; float:left;">
@@ -37,17 +35,26 @@
 								<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="60%" height="60%">
 							</a>
 						</div>
-						<div style="border: 1px solid black;">
-							<label style="te">책 제목 : </label>
-							<span>${userBook.book_name}</span>
+						<div class="userbook_list_all">
+							<label class="userBook_title">책 제목 : </label>
+							<span class="userBook_content">
+							<c:choose>
+								<c:when test="${fn:length(userBook.book_name) > 14}">
+									<c:out value="${fn:substring(userBook.book_name, 0, 13)}"/>....
+								</c:when>
+								<c:otherwise>
+									<c:out value="${userBook.book_name}"/>
+								</c:otherwise>
+							</c:choose>
+							</span>
 						</div>
-						<div>
-							<label>저자 : </label>
-							<span>${userBook.book_writer}</span>
+						<div class="userbook_list_all">
+							<label class="userBook_title">저자 : </label>
+							<span class="userBook_content">${userBook.book_writer}</span>
 						</div>
-						<div>
-							<label>별점 : </label>
-							<span>${userBook.book_star}</span>
+						<div class="userbook_list_all">
+							<label class="userBook_title">별점 : </label>
+							<span class="userBook_content">${userBook.book_star}</span>
 						</div>
 					</div>
 				</c:forEach>

@@ -20,3 +20,24 @@
 	float: left;
 }
 
+.userbook_list_all{
+	border: 0px solid red;
+	width:100%; height: 10%;
+	margin: 0px auto;
+}
+
+.userBook_title{
+	border: 0px dotted blue;
+	display: block;
+	float: left;
+	width:20%; height: 90%;
+	text-align: center;
+}
+
+.userBook_content{
+	border: 0px dotted blue;
+	display: block;
+	float: left;
+	width:80%; height: 90%;
+	text-align: center;
+}
