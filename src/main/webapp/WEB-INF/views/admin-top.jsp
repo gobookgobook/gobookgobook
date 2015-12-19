@@ -98,7 +98,7 @@
      <li><a href="#"><img src="${root}/images/gnb_ad5_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
      	<ul class="sub5">
            <li><a href="${root}/help/adminHelpNoticeList.do">공지사항</a></li>
-           <li><a href="${root}/help/adminHelpQnAListSelect.do">Q&A</a></li>
+           <li><a href="${root}/help/adminHelpQnAList.do">Q&A</a></li>
         </ul>
      </li>
      <li><a href="${root}/sales/salesDailyList.do"><img src="${root}/images/gnb_ad6_pic.png" alt="매출관리" style="width:100px; height:40px;"/></a>

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<jsp:include page="../main-top.jsp"/>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 <div align="center">
@@ -27,7 +27,7 @@
 	<c:if test="${count > 0}">
 				<table>
 				<tr><td>사용자가 자주 묻는 질문</td></tr>
-				<c:forEach var="help" items="${adminHelpQnAListSelect}">	<%-- 서비스에서 넘겨준 boardList --%>
+				<c:forEach var="help" items="${adminHelpQnAList}">	<%-- 서비스에서 넘겨준 boardList --%>
 					<tr>
 						<td>${help.helpqna_num}</td>
 						<td>

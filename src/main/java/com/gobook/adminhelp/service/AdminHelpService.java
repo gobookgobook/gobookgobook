@@ -48,7 +48,7 @@ public class AdminHelpService implements IAdminHelpService {
 	}
 
 	@Override
-	public void adminHelpQnAListSelect(ModelAndView mav) {
+	public void adminHelpQnAList(ModelAndView mav) {
 		Map<String, Object> hmap=mav.getModelMap();
 		//HelpQnADto helpQnADto=(HelpQnADto) hmap.get("helpQnADto");
 		HttpServletRequest request=(HttpServletRequest) hmap.get("request");
@@ -65,25 +65,25 @@ public class AdminHelpService implements IAdminHelpService {
 		int count=iAdminHelpDao.adminHelpQnACount();
 		GoBookAspect.logger.info(GoBookAspect.logMsg+"adminHelpQnACount:" + count);
 		
-		List<HelpQnADto> adminHelpQnAListSelect=null;
+		List<HelpQnADto> adminHelpQnAList=null;
 		if(count > 0){
 			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
-			adminHelpQnAListSelect=iAdminHelpDao.adminHelpQnAListSelect(startRow, endRow);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpQnAListSelect.size());
+			adminHelpQnAList=iAdminHelpDao.adminHelpQnAListSelect(startRow, endRow);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpQnAList.size());
 		}
 //		String helpqna_content=request.getParameter("helpqna_content");
 		
 		
 		
-		mav.addObject("adminHelpQnAListSelect", adminHelpQnAListSelect);
+		mav.addObject("adminHelpQnAList", adminHelpQnAList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("count", count);
 		mav.addObject("boardSize", boardSize);
 //		mav.addObject("helpqna_content", helpqna_content);
 		
-		mav.setViewName("help/adminHelpQnAListSelect");
+		mav.setViewName("help/adminHelpQnAList");
 	}
 
 	@Override
@@ -201,15 +201,15 @@ public class AdminHelpService implements IAdminHelpService {
 			adminHelpNoticeListSelect=iAdminHelpDao.adminHelpNoticeListSelect(hMap);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpNoticeListSelect.size());
 			
-			mav.addObject("currentPage", currentPage);
-			mav.addObject("count", count);
-			mav.addObject("boardSize", boardSize);
-			mav.addObject("adminHelpNoticeListSelect", adminHelpNoticeListSelect);
-			
-			mav.setViewName("help/adminHelpNoticeList");
-			
 			
 		}
+		
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("count", count);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("adminHelpNoticeListSelect", adminHelpNoticeListSelect);
+		
+		mav.setViewName("help/adminHelpNoticeList");
 	}
 
 	@Override

@@ -5,10 +5,10 @@
 <!DOCTYPE>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>공지사항 목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
    <h2>공지사항</h2>

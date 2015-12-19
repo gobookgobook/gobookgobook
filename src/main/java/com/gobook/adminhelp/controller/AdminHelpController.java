@@ -42,7 +42,7 @@ public class AdminHelpController {
 		
 		mav.addObject("request", request);
 		
-		iAdminHelpService.adminHelpQnAListSelect(mav);
+		iAdminHelpService.adminHelpQnAList(mav);
 		return mav;
 	}
 	@RequestMapping(value="/help/adminHelpQnARead.do", method=RequestMethod.GET)
