@@ -110,9 +110,8 @@ a:hover, a:focus{color:#c60;}
 	margin-top:10px;
 }
 #gnb ul.sub1 li:first-child{margin-left:30px;}
-#gnb ul.sub2 li:first-child{margin-left:30px;}
-#gnb ul.sub3 li:first-child{margin-left:30px;}
-#gnb ul.sub4 li:first-child{margin-left:30px;}
+#gnb ul.sub2 li:first-child{margin-left:400px;}
+#gnb ul.sub3 li:first-child{margin-left:750px;}
 
 /*오늘 날짜 영역*/
 #date_wrap{

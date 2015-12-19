@@ -119,17 +119,11 @@
 			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
-     <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
-        <ul class="sub2">
-           <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
-           <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
-           <li><a href="${root}/myPage/">주문내역</a></li>
-        </ul>
-     </li>
+
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
      <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
-        <ul class="sub4">
+        <ul class="sub2">
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>
            <li><a href="${root}/userHelp/userHelpNotice.do">공지사항</a></li>
            <li><a href="${root}/userHelp/userHelpLocation.do">지점 확인</a></li>
@@ -138,6 +132,13 @@
      <li><a href="${root}/userBook/userBookGroupPurchaseList.do"><img src="${root}/images/gnb_5_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
      </li>
      <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
+     </li>
+     <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+        <ul class="sub3">
+           <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
+           <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
+           <li><a href="${root}/myPage/">주문내역</a></li>
+        </ul>
      </li>
   </ul> 
 </div>
