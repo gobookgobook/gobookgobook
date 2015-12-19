@@ -1,130 +1,33 @@
 @CHARSET "UTF-8";
+@CHARSET "UTF-8";
 
-div{
-	display: block;
+.line{	
+	width:610px;height:30px;float:left;
+	border:solid 0px #000000;
+	margin:0px; padding:0px
+	;text-align:left; 
 }
 
-span{
-	display: block;
-	float: left;
+.title{
+	width:96px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 0px 0px 2px;
+    text-align:center; line-height:30px;
 }
 
-.managerCoupon{
-	width: 800px;
-	border: 1px dotted blue;
-	margin: 0px auto;
+.titleR{
+	width:96px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 10px 0px 2px;
+    text-align:right; line-height:20px;
 }
 
-.managerCouponBody{
-	width:86%; height:60%;
-	border: 1px dotted red;
-	float: left;
-}
-
-.couponInsert{
-	width:80%; height:80%;
-	border: 1px dotted blue;
-	margin: 0px auto;
-}
-
-.coupon_title{
-	width: 30%;
-	border: 1px dotted red;
-	margin: 1px 1px;
-	float: left;
-}
-
-.coupon_content{
-	width: 60%;
-	border: 1px dotted red;
-	margin: 1px 1px;	
-}
-
-.couponAllList{
-	width:90%; height:80%;
-	border: 1px dotted blue;
-	margin: 0px auto;
-}
-
-.couponList{
-	width:100%; height:13%;
-	border: 1px dotted red;
-}
-
-.couponTitle{
-	width:100%; height:10%;
-	border: 1px dotted black;
-}
-
-.mcoupon_num{
-	width: 20%; height:100%;
-	border: 1px solid red;
-}
-
-.manager_coupon_name{
-	width: 39.3%; height:100%;
-	border: 1px solid red;	
-}
-
-.manager_coupon_period{
-	width: 20%; height:100%;
-	border: 1px solid red;	
-}
-
-.manager_coupon_discount{
-	width: 18%; height:100%;
-	border: 1px solid red;	
-}
-
-.couponReadAll{
-	width:90%; height:80%;
-	border: 1px dotted blue;
-	margin: 0px auto;
-}
-
-.read_num{
-	width: 20%; height:100%;
-	border: 1px solid red;
-}
-
-.read_name{
-	width: 40%; height:100%;
-	border: 1px solid red;	
-}
-
-.read_field{
-	width: 20%; height:100%;
-	border: 1px solid red;	
-	
-}
-
-.read_period{
-	width: 20%; height:100%;
-	border: 1px solid red;	
-}
-
-.read_discount{
-	width: 18%; height:100%;
-	border: 1px solid red;	
-}
-
-.read_title{
-	width:100%; height:13%;
-}
-
-.read_content{
-	width:100%; height:60%;
-	border: 1px	dotted red;
-}
-
-.manager_coupon_content{
-	width: 87.2%; height:97%;
-	border: 1px solid blue;
-}
-
-.content_title{
-	width: 12%; height:97%;
-	border: 1px solid red;
-	display: block;
-	float: left;
+.title2{
+	width:128px;height:30px;float:left;
+	border:solid 0px #000000;
+	border-right-width:0px;border-bottom-width:0px;
+    padding:0px 0px 0px 2px;
+    text-align:center; line-height:30px;
 }

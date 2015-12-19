@@ -1,60 +1,18 @@
 @CHARSET "UTF-8";
 
-div{
-	display: block;
+#tda:link {
+	text-decoration:none;
+	color: white;
 }
 
-span{
-	display: block;
-	float: left;
+#tda:visited {
+	text-decoration:none;
+	color: white;
 }
 
-label{
-	display: block;
-	float: left;
+#tda:hover {
+	text-decoration:none;
+	color: black;
 }
 
-.title{
-	width: 700px; height:30px;
-	border: 1px solid black;
-	margin-bottom: 3px; 
-}
-
-.memberManagerUpdate{
-	width: 800px;
-	border: 1px dotted blue;
-	margin: 0px auto;
-}
-
-.memberMangerBody{
-	width:86%;
-	border: 1px dotted red;
-	float: left;
-}
-
-.memberMnager{
-	width:70%; height: 60%;
-	border: 1px dotted blue;
-	margin: 3px auto;
-}
-
-.managerLine{
-	width: 90%; height: 10%;
-	border: 1px dotted red;
-}
-
-.managertitle{
-	width: 35%; height:74%;
-	border: 1px solid blue;
-	margin: 0px 1px;
-	text-align: center;
-	padding-top: 8px; 
-}
-
-.managercontent{
-	width: 60%; height:74%;
-	border: 1px solid blue;
-	margin: 0px 1px;
-	padding-top: 8px; 
-}
 

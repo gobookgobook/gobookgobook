@@ -14,71 +14,61 @@
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<br/><br/>
-<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
-	<div class="memberManagerUpdate">
-		<jsp:include page="menu.jsp"/>
-		<div class="memberMangerBody">
-			관리자 회원 정보 수정
-			<hr>
-			<form class="memberMnager" name="managerForm" action="${root}/memberManager/memberManagerUpdateOk.do" method="post" onsubmit="">
-			<input type="hidden" name="member_id" value="${memberDto.member_id}">
-				<div class="managerLine">
-					<label class="managertitle">관리자 아이디</label>
-					<span class="managercontent">
-						<input type="text" name="id" value="${memberDto.member_id}" disabled="disabled"/>
-					</span>
-				</div>
-				<div class="managerLine">
-					<label class="managertitle">관리자 비밀번호</label>
-					<span class="managercontent">
-						<input type="password" name="member_password" value="${memberDto.member_password}"/>
-					</span>
-				</div>		
-				<div class="managerLine">
-					<label class="managertitle">관리자 이름</label>
-					<span class="managercontent">
-						<input type="text" name="member_name" value="${memberDto.member_name}"/>
-					</span>
-				</div>
-<%-- 				<div class="managerLine">
-					<label class="managertitle">우편번호</label>
-					<span class="managercontent">
-						<input type="text" name="member_zipcode_view" value="${memberDto.member_zipcode}" size="10" disabled="disabled"/>
-						<input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}" />
-						<input type="button" name="managerbtn" value="우편번호검색" onclick="zipcodeManagerRead('${root}')"/>
-					</span>
-				</div>
-				<div class="managerLine">
-					<label class="managertitle">관리자 주소</label>
-					<span class="managercontent">
-						<input type="text" name="member_address1_view" value="${memberDto.member_address1}" disabled="disabled" size="30"/>
-						<input type="hidden" name="member_address1" value="${memberDto.member_address1}" />
-					</span>
-				</div>
-				<div class="managerLine">
-					<label class="managertitle">관리자 상세주소</label>
-					<span class="managercontent">
-						<input type="text" name="member_address2" value="${memberDto.member_address2}"/>
-					</span>
-				</div> --%>
-				<div class="managerLine">
-					<label class="managertitle">전화번호</label>
-					<span class="managercontent">
-						<input type="text" name="member_phone" value="${memberDto.member_phone}"/>
-					</span>
-				</div>
-				<div class="managerLine" style="text-align: center;">
-					<input type="submit" value="수정"/>
-					<input type="reset" value="취소"/>
-				</div>			
-			</form>
+<div id="contents" style="height:300px; background:white; border:0px solid black; position: static;">	
+	<c:if test="${id=='admin'}">
+		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;회원 관리</b>
 		</div>
-	</div>
+		
+		<div align="left" style="width: 120px;float: left;">
+			<jsp:include page="menu.jsp"/>
+		</div>
+		
+	<h2 style="text-align: center;">회원정보수정</h2>
+		<form class="memberMnager" name="managerForm" action="${root}/memberManager/memberManagerUpdateOk.do" method="post" onsubmit="">
+			<input type="hidden" name="member_id" value="${memberDto.member_id}">
+			
+			<table class="table table-bordered" style=" width:600px; margin: 0px auto;">
+				 <tbody>
+			    <tr>
+			    <th style="background:#dff0d8; color:#1DDB16;">관리자 아이디</th>
+			     <td colspan="3">
+			       <input type="text" name="id" value="${memberDto.member_id}" disabled="disabled"/>
+			     </td>
+			    </tr>
+			   
+			    <tr>
+			    <th style="background:#dff0d8; color:#1DDB16;">비밀번호</th>
+			     <td colspan="3">
+			       <input type="password" name="member_password" value="${memberDto.member_password}"/>
+			     </td>
+			    </tr>
+			    
+			    <tr>
+			    <th style="background:#dff0d8; color:#1DDB16;">관리자 이름</th>
+			     <td colspan="3">
+			       <input type="text" name="member_name" value="${memberDto.member_name}"/>
+			     </td>
+			    </tr>
+			    
+			    <tr>
+			    <th style="background:#dff0d8; color:#1DDB16;">전화번호</th>
+			     <td colspan="3">
+			       <input type="text" name="member_phone" value="${memberDto.member_phone}"/>
+			     </td>
+			    </tr>
+			    
+			     <tr>
+			     <td colspan="4" align="center">
+			       <input type="submit" value="수정"/>
+					<input type="reset" value="취소"/>
+			     </td>
+			    </tr>
+		</tbody>
+		</table>
+	</form>	
+	</c:if>
 </div>
-<div style="margin-top: -200px;">
 <jsp:include page="../main-bottom.jsp"/>
-	<br/><br/>
-</div>
 </body>
 </html>
