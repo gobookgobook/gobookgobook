@@ -77,14 +77,19 @@
 	</update>
 	
 			<!-- 베스트 셀러 -->
-	<select id="userBookBestSeller" resultType="com.gobook.userorder.dto.UserOrderDto">
+	<select id="userBookBestSeller" resultType="com.gobook.bookmanage.dto.BookDto">
 	<![CDATA[
-		SELECT *FROM
-			(SELECT ROWNUM rnum, A.*FROM
-				 (SELECT sum(order_book_count), book_num FROM
-					userorder GROUP BY book_num
-						ORDER BY 1 DESC) A)
-							WHERE rnum>=1 and rnum<=8
+		SELECT * FROM
+			book
+			WHERE book_num IN(
+				SELECT book_num FROM
+					(SELECT ROWNUM rnum, A.*FROM
+					   (SELECT sum(order_book_count) count, book_num FROM
+							userorder
+							GROUP BY book_num
+								ORDER BY 1 DESC) A)
+									WHERE rnum>=1 AND rnum<=8)
+										order by nvl(book_star, 0) desc
 	]]>
 	</select>
 </mapper>

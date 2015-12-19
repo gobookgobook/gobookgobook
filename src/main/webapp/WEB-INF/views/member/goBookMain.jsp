@@ -177,8 +177,9 @@
       <ul>
 		<c:forEach var="bestSeller" items="${bestSeller}">
 			<li>
-				<img src="#" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')"/>
-				<span><strong>${bestSeller.book_num}</strong></span>
+				<img src="#" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
+				<span><strong>${bestSeller.book_name}</strong></span>
+				<span><strong>${bestSeller.book_writer}</strong></span>
 			</li>      	
 		</c:forEach>
       </ul>

@@ -45,6 +45,7 @@
 				</span>
 			</div>
 			<div class="info">
+			<!-- 잘못됨 -->
 				<label class="book_title">판매가 : </label>
 				<span class="book_content">${bookGroupPurchaseDto.book_price}</span>
 			</div>
