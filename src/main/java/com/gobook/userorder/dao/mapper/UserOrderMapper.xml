@@ -14,7 +14,7 @@
 	
 	<insert id="userOrderPayInsert" parameterType="com.gobook.userorder.dto.UserOrderDto">
 		insert into userorder values(
-			order_bunho_seq.nextval,
+			userorder_order_bunho_seq.nextval,
 			#{member_id},
 			#{book_num},
 			#{order_book_name},
@@ -50,7 +50,7 @@
 	</select>
 	
 	<insert id="userOrderSalesInsert" parameterType="java.util.HashMap">
-		insert into salesDaily values(SALESDAILY_NUM_SEQ.nextval, #{order_bunho}, #{member_id}, #{book_num}, #{salesDaily_profit})
+		insert into salesDaily values(salesdaily_SALESDAILY_NUM_SEQ.nextval, #{order_bunho}, #{member_id}, #{book_num}, #{salesDaily_profit})
 	</insert>
 	
 	<select id="salesUODSelect" resultType="com.gobook.userorder.dto.UserOrderDto">
