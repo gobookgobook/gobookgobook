@@ -70,24 +70,13 @@
            </li>
            
            <c:if test="${id!=null}">
-          <li>
-				<a href="${root}/member/update.do">회원수정</a>
-			</li>
-			<li>
-				<a href="${root}/member/delete.do">회원탈퇴</a>
-			</li>
-			<li>
+           <li>
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
-			<li>
-				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
-			</li>
-			<li>
-				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
-			</li>
-			<li>
-				<a href="${root}/member/adminMain.do">관리자&nbsp;&nbsp;&nbsp;</a>
-			</li>
+            <li>
+           		<a href="${root}/memberManager/memberManagerUpdate.do">관리자정보수정</a>
+           	</li>
+			
            </c:if>
         </ul>
      </dd>

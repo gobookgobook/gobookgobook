@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="contents" style="height:500px; background:white; border:0px solid black; position:static;">
-   <div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+   <div style="background-color:margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;고객센터</b>
 	</div>
    <div align="left" style="width: 120px; float:left; border:0px solid green;">

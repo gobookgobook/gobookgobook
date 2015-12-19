@@ -84,12 +84,12 @@
            </c:if>
            
            <c:if test="${id!=null}">
-          <li>
+          <%-- <li>
 				<a href="${root}/member/update.do">회원수정</a>
 			</li>
 			<li>
 				<a href="${root}/member/delete.do">회원탈퇴</a>
-			</li>
+			</li> --%>
 			<li>
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
@@ -134,19 +134,15 @@
      </li>
      <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
-           <li><a href="${root}/member/update.do">회원수정</a></li>
-           <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
            <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
            <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
            <li><a href="#">주문내역</a></li>
-           <li><a href="#">1:1문의내역</a></li>
         </ul>
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
       <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
-           <li><a href="#">1:1문의</a></li>
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>
            <li><a href="${root}/userHelp/userHelpNotice.do">공지사항</a></li>
            <li><a href="${root}/userHelp/userHelpLocation.do">지점 확인</a></li>

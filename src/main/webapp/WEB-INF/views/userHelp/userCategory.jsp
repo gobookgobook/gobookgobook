@@ -15,19 +15,19 @@
 	
 
 	    <tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="#">1:1문의</a></td>
+		    <td style="background:#37415a"><a id="tda" href="#">1:1문의</a></td>
      	</tr>
      	
      	<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/userHelp/userHelpQnA.do">Q&A</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/userHelp/userHelpQnA.do">Q&A</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/userHelp/userHelpNotice.do">공지사항</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/userHelp/userHelpNotice.do">공지사항</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/userHelp/userHelpLocation.do">지점확인</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/userHelp/userHelpLocation.do">지점확인</a></td>
 		</tr>
 		
 	</table>
