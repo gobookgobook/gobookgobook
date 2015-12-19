@@ -158,11 +158,6 @@
      <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_6_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
      </li>
   </ul> 
-  <p id="date_wrap">
-      <span class="year">0000</span> 년
-      <span class="month">00</span> 월
-      <span class="date">00</span>일
-   </p>
 </div>
 <hr />
 <div id="visual">
