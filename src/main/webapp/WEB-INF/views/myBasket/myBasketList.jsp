@@ -36,10 +36,7 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<br/><br/>
-<div id="contents" style="background:white; border:0px solid black"><br/>
-
-    
+<div id="contents" style="background:white; border:0px solid black; position:static;">
     <c:if test="${id==null}">
 		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
 		<div align="center">

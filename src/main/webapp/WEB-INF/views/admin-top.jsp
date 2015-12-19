@@ -111,11 +111,6 @@
         </ul>
      </li>
   </ul> 
-  <p id="date_wrap">
-      <span class="year">0000</span> 년
-      <span class="month">00</span> 월
-      <span class="date">00</span>일
-   </p>
 </div>
 </div>
 </body>

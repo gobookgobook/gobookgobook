@@ -52,7 +52,7 @@
 		</div>
 	
 		<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-			<h3 style="margin-left:20px">일일매출</h3>
+			<h1 style="margin-left:20px">일일매출</h1>
 			<div align="center" style="border:1 solid red">
 				<form name="dayChoice" method="post" style="text-align:right">
 					<label>날짜선택:</label>
@@ -151,5 +151,6 @@
 	</div>
 	</c:if>
 	</div>
+<jsp:include page="../main-bottom.jsp"/>	
 </body>
 </html>
