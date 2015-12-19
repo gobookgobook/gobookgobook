@@ -18,10 +18,6 @@
 		<tr>
 			<td style="background:#41AF39"><a id="tda" href="${root}/location/locationList.do">지점목록</a></td>
 		</tr>
-		
-		<tr>
-			<td style="background:#41AF39"><a id="tda" href="${root}/location/locationList.do">지점확인</a></td>
-		</tr>
 	</table>
 </body>
 </html>

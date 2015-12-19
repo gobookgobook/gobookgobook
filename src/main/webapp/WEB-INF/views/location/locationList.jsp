@@ -42,7 +42,7 @@
 			
 			<div align="center"><div id="map"></div></div>
 			<br/><br/>
-			<div align="center" class="container" style="width:835px;padding:0px">
+			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px">
 				<c:if test="${count==0}">
 					<table border="1" class="table table-bordered">
 						<tr class="success">
@@ -64,7 +64,7 @@
 						<c:set var="i" value="0"/>
 						<c:forEach var="location" items="${locationList}">
 							<tr class="success">
-								<td align="center">꼬부꼬북</td>
+								<td align="center">꼬북꼬북</td>
 								<td align="center">${location.location_address}</td>
 								<td align="center">${location.location_admin}</td>
 								<td align="center">${location.location_phone}</td>
