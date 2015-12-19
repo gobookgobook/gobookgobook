@@ -29,78 +29,97 @@
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 16px;">재입고 현황</b></div>
 			<br/>
-		<c:if test="${count==0}">
-		<div align="center">
-			<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
-				<tr>
-					<td align="center">등록된 재입고 현황이 없습니다.</td>
-				</tr>
-			</table> 
-		</div>
-		</c:if>
-		
-		<c:if test="${count>0}">
-		<div align="center">
-			<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
-				<tr>
-					<td class="mytable" align="center" height="18" width="80">재입고번호</td>
-					<td class="mytable" align="center" height="18" width="80">도서번호</td>
-					<td class="mytable" align="center" height="18" width="240">도서명</td>
-					<td class="mytable" align="center" height="18" width="80">재입고수량</td>
-					<td class="mytable" align="center" height="18" width="80">도서원가</td>
-					<td class="mytable" align="center" height="18" width="80">재입고총계</td>
-					<td class="mytable" align="center" height="18" width="80">재입고날짜</td>
-				</tr>
-			<c:forEach var="book" items="${bookReorderList}">
-				<tr>
-					<td class="mytable" align="center" height="18">${book.reorder_num}</td>
-					<td class="mytable" align="center" height="18">${book.book_num}</td>
-					<td class="mytable" align="left" height="18">${book.book_name}</td>
-					<td class="mytable" align="center" height="18">${book.reorder_quantity}</td>
-					<td class="mytable" align="center" height="18">${book.book_cost}</td>
-					<td class="mytable" align="center" height="18">${book.reorder_total_price}</td>
-					<td class="mytable" align="center" height="18"><fmt:formatDate value="${book.reorder_date}" pattern="yyyy/MM/dd"/></td>
-				</tr>
-			</c:forEach>
-			</table> 
-		</div>
-		
-		<div align="center">
-			<c:set var="pageBlock" value="${5}"/>
-			<c:set var="pageCount" value="${count/boardSize+(count%boardSize==0 ? 0:1)}"/>		
-			<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
-			<c:set var="startPage" value="${result*pageBlock+1}"/>
-			<c:set var="endPage" value="${startPage+pageBlock-1}"/>
 			
-			<c:if test="${endPage>pageCount}">
-				<c:set var="endPage" value="${pageCount}"/>
+			<c:if test="${count==0}">
+				<div class="container" style="width:835px;padding:0px">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="success" style="color:#1DDB16">
+								<th style="text-align:center">재입고번호</th>
+								<th style="text-align:center">도서번호</th>
+								<th style="text-align:center">도서명</th>
+								<th style="text-align:center">재입고수량</th>
+								<th style="text-align:center">도서원가</th>
+								<th style="text-align:center">재입고총계</th>
+								<th style="text-align:center">재입고날짜</th>
+							</tr>
+						</thead>
+						<tbody id="listAllTd"></tbody>
+					</table>
+				</div>
+				<span>등록된 재입고 현황이 없습니다.</span>
 			</c:if>
-			
-			<c:if test="${startPage>pageBlock}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
-			</c:if>
-			
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<c:if test="${currentPage==i}">[${i}]</c:if>
-				<c:if test="${currentPage!=i}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${i}">[${i}]</a>
-				</c:if>
-			</c:forEach>
-			
-			<c:if test="${endPage<pageCount}">
-				<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
-			</c:if>
-		</div>
 		
-		</c:if>
+			<c:if test="${count>0}">
+				<div class="container" style="width:835px;padding:0px">
+					<table class="table table-bordered" style="line-height: 100px">
+						<thead>
+							<tr class="success" align="center" style="color:#1DDB16">
+								<th style="text-align:center">재입고번호</th>
+								<th style="text-align:center">도서번호</th>
+								<th style="text-align:center;width:355px">도서명</th>
+								<th style="text-align:center">재입고수량</th>
+								<th style="text-align:center">도서원가</th>
+								<th style="text-align:center">재입고총계</th>
+								<th style="text-align:center">재입고날짜</th>
+							</tr>
+						</thead>
+						<tbody id="listAllTd">
+							<c:forEach var="book" items="${bookReorderList}">
+								<tr class="success">
+									<td style="text-align:center">${book.reorder_num}</td>
+									<td style="text-align:center">${book.book_num}</td>
+									<td style="text-align:left">${book.book_name}</td>
+									<td style="text-align:center">${book.reorder_quantity}</td>
+									<td style="text-align:center">${book.book_cost}</td>
+									<td style="text-align:center">${book.reorder_total_price}</td>
+									<td style="text-align:center"><fmt:formatDate value="${book.reorder_date}" pattern="yyyy/MM/dd"/></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+		
+				<div align="center">
+					<c:set var="pageBlock" value="${5}"/>
+					<c:set var="pageCount" value="${count/boardSize+(count%boardSize==0 ? 0:1)}"/>		
+					<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
+					<c:set var="startPage" value="${result*pageBlock+1}"/>
+					<c:set var="endPage" value="${startPage+pageBlock-1}"/>
+					
+					<c:if test="${endPage>pageCount}">
+						<c:set var="endPage" value="${pageCount}"/>
+					</c:if>
+					
+					<c:if test="${startPage>pageBlock}">
+						<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+					</c:if>
+					
+					<c:forEach var="i" begin="${startPage}" end="${endPage}">
+						<c:if test="${currentPage==i}">[${i}]</c:if>
+						<c:if test="${currentPage!=i}">
+						<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${i}">[${i}]</a>
+						</c:if>
+					</c:forEach>
+					
+					<c:if test="${endPage<pageCount}">
+						<a href="${root}/bookManage/bookReOrderList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+					</c:if>
+				</div>
+			</c:if>
 		</div>
-	</div>
 	</c:if>
+	</div>
+	
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">
 			alert("관리자만 접근이 가능한 페이지 입니다");
 			location.href="${root}/member/goBookMain.do"
 		</script>
 	</c:if>
+	
+	<div style="margin-top:150px">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>

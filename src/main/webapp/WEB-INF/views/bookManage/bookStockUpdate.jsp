@@ -37,7 +37,7 @@
 				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 				
 				<div class="line">
-					<label class="title">도서번호</label>
+					<label class="titleR">도서번호</label>
 					<span class="content">
 						<input type="hidden" name="book_num" value="${bookDto.book_num}"/>
 						<input type="text" value="${bookDto.book_num}" disabled="disabled"/>
@@ -45,61 +45,61 @@
 				</div>
 				
 				<div class="line">
-					<label class="title">도서명</label>
+					<label class="titleR">도서명</label>
 					<span class="content"><input type="text" size="50" name="book_name" value="${bookDto.book_name}"/></span>
 				</div>
 				
 				<div class="line">
-					<label class="title">저자</label>
+					<label class="titleR">저자</label>
 					<span class="content">
 						<input type="text" name="book_writer" value="${bookDto.book_writer}"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title">출판사</label>
+					<label class="titleR">출판사</label>
 					<span class="content">
 						<input type="text" name="book_publisher" value="${bookDto.book_publisher}"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title">출판일</label>
+					<label class="titleR">출판일</label>
 					<span class="content">	
 						<input type="text" name="book_publish_date" value="<fmt:formatDate value='${bookDto.book_publish_date}' pattern='yyyy/MM/dd'/>"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title">도서원가</label>
+					<label class="titleR">도서원가</label>
 					<span class="content">
 						<input type="text" name="book_cost" value="${bookDto.book_cost}"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title">도서가격</label>
+					<label class="titleR">도서가격</label>
 					<span class="content">
 						<input type="text" name="book_price" value="${bookDto.book_price}"/>
 					</span>
 				</div>
 				
 				<div class="line" style="height:200px;">
-					<label class="title" style="height:180px;">줄거리</label>
+					<label class="titleR" style="height:180px;">줄거리</label>
 					<span class="content" style="height:180px;">
 						<textarea rows="10" cols="67" name="book_summary">${bookDto.book_summary}</textarea>
 					</span>
 				</div>
 				
 				<div class="line" style="height:200px;">
-					<label class="title" style="height:180px;">목차</label>
+					<label class="titleR" style="height:180px;">목차</label>
 					<span class="content" style="height:180px;">
 						<textarea rows="10" cols="67" name="book_index">${bookDto.book_index}</textarea>
 					</span>
 				</div>
 				
 				<div class="line" style="height:160px;">
-					<label class="title" style="height:160px;">카테고리</label>
+					<label class="titleR" style="height:160px;">카테고리</label>
 					<span class="content" style="height:160px;">
 						<input type="checkbox" name="category" value="문학"/> 문학<br/>
 						<input type="checkbox" name="category" value="교육도서"/> 교육도서 <br/>
@@ -123,7 +123,7 @@
 				</div>
 				
 				<div class="line">
-					<label class="title">재고수량</label>
+					<label class="titleR">재고수량</label>
 					<span class="content">
 						<input type="hidden" name="book_quantity" value="${bookDto.book_quantity}"/>
 						<input type="text" value="${bookDto.book_quantity}" disabled="disabled"/>
@@ -131,7 +131,7 @@
 				</div>
 				
 				<div class="line">
-					<label class="title">입고요청수량</label>
+					<label class="titleR">입고요청수량</label>
 					<span class="content">
 						<input type="text" name="reorder_quantity" value="0"/>
 					</span>
@@ -139,7 +139,7 @@
 				
 				<c:if test="${bookDto.book_cover_file_name !=null}">
 					<div class="line" style="height: 60px;">
-					<label class="title">도서표지</label>
+					<label class="titleR">도서표지</label>
 					<span class="content">
 						기존파일 : ${bookDto.book_cover_file_name}
 						<input type="file" name="book_cover_file" />
@@ -149,7 +149,7 @@
 				
 				<c:if test="${bookDto.book_cover_file_name ==null}">
 					<div class="line">
-						<label class="title">도서표지</label>
+						<label class="titleR">도서표지</label>
 						<span class="content">
 							<input type="file" name="book_cover_file"/>
 						</span>
@@ -158,7 +158,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name1!=null}">
 					<div class="line" style="height: 60px;">
-						<label class="title">미리보기1</label>
+						<label class="titleR">미리보기1</label>
 						<span class="content">
 							기존파일 : ${bookDto.book_preview_file_name1}
 							<input type="file" name="book_preview_file1"/>
@@ -168,7 +168,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name1==null}">
 					<div class="line">
-						<label class="title">미리보기1</label>
+						<label class="titleR">미리보기1</label>
 						<span class="content">
 							<input type="file" name="book_preview_file1"/>
 						</span>
@@ -177,7 +177,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name2!=null}">
 					<div class="line" style="height: 60px;">
-						<label class="title">미리보기2</label>
+						<label class="titleR">미리보기2</label>
 						<span class="content">
 							기존파일 : ${bookDto.book_preview_file_name2}
 							<input type="file" name="book_preview_file2"/>
@@ -187,7 +187,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name2==null}">
 					<div class="line">
-						<label class="title">미리보기2</label>
+						<label class="titleR">미리보기2</label>
 						<span class="content">
 							<input type="file" name="book_preview_file2"/>
 						</span>
@@ -196,7 +196,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name3!=null}">
 					<div class="line" style="height: 60px;">
-						<label class="title">미리보기3</label>
+						<label class="titleR">미리보기3</label>
 						<span class="content">
 							기존파일 : ${bookDto.book_preview_file_name3}
 							<input type="file" name="book_preview_file3"/>
@@ -206,7 +206,7 @@
 				
 				<c:if test="${bookDto.book_preview_file_name3==null}">
 					<div class="line">
-						<label class="title">미리보기3</label>
+						<label class="titleR">미리보기3</label>
 						<span class="content">
 							<input type="file" name="book_preview_file3"/>
 						</span>
@@ -229,5 +229,9 @@
 			location.href="${root}/member/goBookMain.do"
 		</script>
 	</c:if>
+	
+	<div style="margin-top:700px">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>
