@@ -139,7 +139,7 @@
            <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
            <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
            <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
-           <li><a href="#">주문내역</a></li>
+           <li><a href="${root}/myPage/">주문내역</a></li>
            <li><a href="#">1:1문의내역</a></li>
         </ul>
      </li>
