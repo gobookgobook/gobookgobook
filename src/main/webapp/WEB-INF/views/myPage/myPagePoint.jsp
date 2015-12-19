@@ -28,7 +28,7 @@
 					${member_point}
 				</c:if>
 				<c:if test="${member_point == 0 || member_point ==null }">
-				<div class="user_coupon_title" style="text-align: center; font-size: 20">
+				<div class="user_point_title" style="text-align: center; font-size: 20">
 					<span>현재 보유중인 포인트가 없습니다.</span>
 					</div>
 				</c:if>	

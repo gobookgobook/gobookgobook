@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="${root}/css/myPage/coupon.css"/>
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
@@ -18,10 +17,13 @@
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
 	</div>
-	<div align="left" style="width: 120px; float:left;">
+	
+	<div align="left" style="width: 110px; float:left;">
 		<jsp:include page="category.jsp"/>
-		<div class="body">
-			<div class="myPageCouponSelect">			
+	</div>	
+	
+	<div align="left" style="float: left;margin: 10 0 0 10px; width: 880px;">
+			<!-- <h3>쿠폰함</h3> -->		
 			<c:if test="${couponSelect.size() > 0}">	
 				<div class="container" style="width:100%">
 					<table class="table table-bordered">
@@ -44,12 +46,10 @@
 				</div>
 			</c:if>
 			<c:if test="${couponSelect.size() == 0}">
-				<div class="user_coupon_title" style="text-align: center; font-size: 20">
-					현재 보유중인 쿠폰이 없습니다.
-				</div>
+			<div class="user_coupon_title" style="text-align: center; font-size: 20">
+					<span>현재 보유중인 쿠폰이 없습니다.</span>
+					</div>
 			</c:if>	
-			</div>	
-		</div>
 	</div>
 </div>
 <jsp:include page="../main-bottom.jsp"/> 

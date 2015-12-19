@@ -7,8 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/location/script.js"></script>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/location/listMapScript.js"></script>
 <script async defer
@@ -20,6 +24,7 @@
 		width: 600px;
 	}
 </style>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body onload="initMap('${count}')">
 	<div align="center"><div id="map"></div></div>
@@ -45,7 +50,7 @@
 				<c:set var="i" value="0"/>
 				<c:forEach var="location" items="${locationList}">
 					<tr>
-						<td align="center">꼬부꼬북</td>
+						<td align="center">꼬북꼬북</td>
 						<td align="center">${location.location_address}</td>
 						<td align="center">${location.location_admin}</td>
 						<td align="center">${location.location_phone}</td>
@@ -58,5 +63,6 @@
 			</table>
 		</c:if>
 	</div>
+<jsp:include page="../main-bottom.jsp"/>	
 </body>
 </html>
