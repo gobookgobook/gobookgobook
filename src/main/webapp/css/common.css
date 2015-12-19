@@ -107,10 +107,10 @@ a:hover, a:focus{color:#c60;}
 #gnb img{
 	margin-left:45px;
 	border: 0px solid black;
-	margin-top:10px;
+	margin-top:5px;
 }
 #gnb ul.sub1 li:first-child{margin-left:30px;}
-#gnb ul.sub2 li:first-child{margin-left:400px;}
+#gnb ul.sub2 li:first-child{margin-left:600px;}
 #gnb ul.sub3 li:first-child{margin-left:750px;}
 
 /*오늘 날짜 영역*/
