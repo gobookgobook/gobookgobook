@@ -23,7 +23,7 @@
 <script type="text/javascript" src="${root}/script/sales/script.js"></script>
 </head>
 <body>
-    <div id="contents" style="background:white; border:0px solid black">
+    <div id="contents" style="height:550px;background:white; border:0px solid black; position: static">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -43,7 +43,7 @@
 			</div>
 			
 			<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-				<h3 style="margin-left:20px">월별매출</h3>
+				<h1 style="margin-left:20px">월별매출</h1>
 				<div align="center" style="border:0 solid red">
 					<form name="monthChoice" method="get" action="${root}/sales/salesMonthlyList.do" style="text-align:right">
 						<label>년월 선택:</label>
@@ -144,5 +144,6 @@
 		</div>
 	</c:if>
 	</div>
+	<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>

@@ -28,7 +28,7 @@
 </style>
 </head>
 <body onload="initMap('${count}')">
-	<div id="contents" style="background:white; border:0px solid black">
+	<div id="contents" style="height:100%; background:white; border:0px solid black;position: static">
 		<div id="wrap">
 			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;지점 관리</b>
@@ -83,5 +83,7 @@
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>

@@ -31,8 +31,7 @@
 
 </head>
 <body>
-	
-    <div id="contents" style="background:white; border:0px solid black">
+    <div id="contents" style="height:550px;background:white; border:0px solid black; position: static">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
