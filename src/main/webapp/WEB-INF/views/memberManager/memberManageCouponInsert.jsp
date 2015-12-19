@@ -7,7 +7,6 @@
 <jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/memberManage/managerCoupon.css"/>
 <script type="text/javascript" src="${root}/script/memberManage/managerCoupon.js"></script>
 <script type="text/javascript" src="${root}/script/event/start/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/event/start/jquery-ui.js"></script>
@@ -46,53 +45,84 @@ $(function(){
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="height:600px; background:white; border:1px solid black"><br/><br/><br/><br/>
-	<div class="managerCoupon">
-		<jsp:include page="menu.jsp"/>
-		<div class="managerCouponBody">
-		쿠폰 제작
-		<hr>
-			<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
-				<div>
-					<label class="coupon_title">쿠폰이름</label>
-					<span class="coupon_content">
-						<input type="text" name="manager_coupon_name">
-					</span>
-				</div>
-				<div>
-					<label class="coupon_title">쿠폰 사용기간</label>
-					<span class="coupon_content">
-						<input type="text" id="date" name="manager_coupon_period_value" disabled="disabled"/>
-						<input type="hidden" name="manager_coupon_period">
-						<%-- <input type="button" id="date" onsubmit="javascript:period('${root}')"/> --%>
-					</span>
-				</div>
-				<div>
-					<label class="coupon_title">쿠폰 내용</label>
-					<span class="coupon_content">
-						<input type="text" name="manager_coupon_content"/>
-					</span>
-				</div>
-				<div>
-					<label class="coupon_title">쿠폰 할인율</label>
-					<div>
-						<span class="coupon_content">
-							<input type="radio" name="discount" id="percent"/>%
-							<input type="radio" name="discount" id="won"/>원
-						</span>
-						<span>
-							<input type="text" name="manager_coupon_discount" id="coupon"/> (원/%)
-						</span>
-					</div>
-				</div>
-				<div>
-					<span>
-						<input type="submit" value="쿠폰 등록"/>
-					</span>
-				</div>
-			</form>
-		</div>
+<div id="contents" style="height:600px; background:white; border:1px solid black; position: static;"><br/><br/><br/><br/>
+	
+	<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;쿠폰 제작</b>
 	</div>
+	
+	<div align="left" style="width: 120px;height: 1000px;float: left;">
+		<jsp:include page="menu.jsp"/>
+	</div>
+		
+	<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
+		
+		<table class="table table-bordered">
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+			<tr>
+				<td>쿠폰이름</td>
+				<td><input type="text" name="manager_coupon_name"></td>
+			</tr>
+		
+		</table>
+		
+	<%-- 	<div>
+			<label class="coupon_title">쿠폰이름</label>
+			<span class="coupon_content">
+				<input type="text" name="manager_coupon_name">
+			</span>
+		</div>
+		<div>
+			<label class="coupon_title">쿠폰 사용기간</label>
+			<span class="coupon_content">
+				<input type="text" id="date" name="manager_coupon_period_value" disabled="disabled"/>
+				<input type="hidden" name="manager_coupon_period">
+				<input type="button" id="date" onsubmit="javascript:period('${root}')"/>
+			</span>
+		</div>
+		<div>
+			<label class="coupon_title">쿠폰 내용</label>
+			<span class="coupon_content">
+				<input type="text" name="manager_coupon_content"/>
+			</span>
+		</div>
+		<div>
+			<label class="coupon_title">쿠폰 할인율</label>
+			<div>
+				<span class="coupon_content">
+					<input type="radio" name="discount" id="percent"/>%
+					<input type="radio" name="discount" id="won"/>원
+				</span>
+				<span>
+					<input type="text" name="manager_coupon_discount" id="coupon"/> (원/%)
+				</span>
+			</div>
+		</div>
+		<div>
+			<span>
+				<input type="submit" value="쿠폰 등록"/>
+			</span>
+		</div> --%>
+	</form>
 </div>
 <%-- <jsp:include page="../main-bottom.jsp"/>
 	<br/><br/> --%>

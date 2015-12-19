@@ -13,7 +13,6 @@
 </head>
 <body>
 	<table class="table table-bordered">
-	
 
 	    <tr style="color:white">
 		    <td style="background:#6799FF"><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></td>

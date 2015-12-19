@@ -37,7 +37,6 @@
 			SELECT ucoupon.user_coupon_num,
 					ucoupon.member_id,
 					mcoupon.manager_coupon_name user_coupon_name,
-					mcoupon.manager_coupon_field user_coupon_field,
 					mcoupon.manager_coupon_period user_coupon_period,
 					mcoupon.manager_coupon_content user_coupon_content,
 					mcoupon.manager_coupon_discount user_coupon_discount
