@@ -97,15 +97,15 @@
         <legend>검색폼</legend>
         <p>
            <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest('${root}')"/>
-           <input type="image" src="${root}/images/gnb_search.png" alt="검색" style="width:70px; height:33px; position:absolute; top:0px; left:308px"/>
+           <input type="image" src="${root}/images/gnb_search3.png" alt="검색" style="width:50px; height:33px; position:absolute; top:0px; left:300px"/>
         </p>
         <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">
 			<div id="suggestList"></div>
 		</div>
      </fieldset>
   </form>
-  <h2 class="hide">메인메뉴</h2>
-   <ul id="gnb">
+   <h2 class="hide">메인메뉴</h2>
+      <ul id="gnb">
      <li><a href="${root}/userBook/userBookList.do?category=${'문학'}"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
            	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
@@ -124,7 +124,7 @@
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_4_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_5_pic.png" alt="MyPage" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/myPage/myPageCoupon.do"><img src="${root}/images/gnb_5_pic.png" alt="MyPage" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
            <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
            <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
@@ -134,14 +134,14 @@
      </li>
     
      
-     <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_6_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_6_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub3">
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>
            <li><a href="${root}/userHelp/userHelpNotice.do">공지사항</a></li>
            <li><a href="${root}/userHelp/userHelpLocation.do">지점 확인</a></li>
         </ul>
      </li>
-  </ul> 
+  </ul>
 </div>
 </div>
 </body>

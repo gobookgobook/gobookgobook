@@ -50,7 +50,7 @@
         <legend>검색폼</legend>
         <p>
            <input type="text" name="keyword" id="keyword" title="검색어입력 " onkeydown="startSuggest('${root}')"/>
-           <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
+           <input type="image" src="${root}/images/gnb_search3.png" alt="검색" style="width:50px; height:33px; position:absolute; top:0px; left:300px"/>
         </p>
         <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">
 			<div id="suggestList"></div>
@@ -58,48 +58,43 @@
      </fieldset>
   </form>
   <h2 class="hide">메인메뉴</h2>
-   <ul id="gnb">
-     <li><a href="${root}/bookManage/bookManage.do"><img src="${root}/images/gnb_ad1_pic.png" alt="도서관리" style="width:100px; height:40px;"/></a>
+      <ul id="gnb">
+     <li><a href="${root}/userBook/userBookList.do?category=${'문학'}"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
-           	<li><a href="${root}/bookManage/bookInsert.do">도서등록</a></li>
-			<li><a href="${root}/bookManage/bookStockList.do">재고관리</a></li>
-			<li><a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></li>
-			<li><a href="${root}/bookManage/bookReOrderList.do">재입고현황</a></li>
-			<li><a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a></li>
-			<li><a href="${root}/bookManage/bookSchedule.do">출간일정관리</a></li>
+           	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'전공도서'}">전공도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'만화'}">만화</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'잡지'}">잡지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'역사'}">역사</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
-     <li><a href="${root}/memberManager/memberManagerUpdate.do"><img src="${root}/images/gnb_ad2_pic.png" alt="회원관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub3">
-           	<li><a href="${root}/memberManager/memberManagerUpdate.do">관리자 정보수정</a></li>
-			<li><a href="${root}/memberManager/memberManageCouponList.do">쿠폰 관리</a></li>
+      <li><a href="${root}/userBook/userBookGroupPurchaseList.do"><img src="${root}/images/gnb_2_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
+     </li>
+     <li><a href="${root}/userBook/userBookInterestReading.do"><img src="${root}/images/gnb_3_pic.png" alt="관심분야 추천" style="width:100px; height:40px;"/></a>
+     </li>
+     <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_4_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
+     </li>
+     <li><a href="${root}/myPage/myPageCoupon.do"><img src="${root}/images/gnb_5_pic.png" alt="MyPage" style="width:100px; height:40px;"/></a>
+        <ul class="sub2">
+           <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
+           <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
+           <li><a href="${root}/myPage/">주문내역</a></li>
+        </ul>
+        
+     </li>
+    
+     
+     <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_6_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+        <ul class="sub3">
+           <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>
+           <li><a href="${root}/userHelp/userHelpNotice.do">공지사항</a></li>
+           <li><a href="${root}/userHelp/userHelpLocation.do">지점 확인</a></li>
         </ul>
      </li>
-     <li><a href="${root}/event/eventList.do"><img src="${root}/images/gnb_ad3_pic.png" alt="이벤트 관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub3">
-           	<li><a href="${root}/event/eventWrite.do">이벤트 등록</a></li>
-			<li><a href="${root}/event/eventList.do">이벤트 목록</a></li>
-        </ul>
-     </li>
-     <li><a href="${root}/location/locationList.do"><img src="${root}/images/gnb_ad4_pic.png" alt="지점관리" style="width:100px; height:40px;"/></a>
-        <ul class="sub4">
-           <li><a href="${root}/location/locationWrite.do">지점등록</a></li>
-           <li><a href="${root}/location/locationList.do">지점목록</a></li>
-        </ul>
-     </li>
-     <li><a href="#"><img src="${root}/images/gnb_ad5_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
-     	<ul class="sub5">
-           <li><a href="${root}/help/adminHelpNoticeList.do">공지사항</a></li>
-           <li><a href="${root}/help/adminHelpQnAList.do">Q&A</a></li>
-        </ul>
-     </li>
-     <li><a href="${root}/sales/salesDailyList.do"><img src="${root}/images/gnb_ad6_pic.png" alt="매출관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub6">
-     		<li><a href="${root}/sales/salesDailyList.do">일일매출</a></li>
-           <li><a href="${root}/sales/salesMonthlyList.do">월간매출</a></li>
-        </ul>
-     </li>
-  </ul> 
+  </ul>
 </div>
 </div>
 </body>
