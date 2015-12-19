@@ -85,12 +85,11 @@
 	
 	<select id="userBookInterestReadingSelect" parameterType="java.lang.String" resultType="com.gobook.bookmanage.dto.BookDto">
 	<![CDATA[
-		SELECT *FROM
-			book WHERE book_publish_date in(SELECT book_publish_date FROM
+		SELECT * FROM
 				(SELECT ROWNUM rnum, A.*FROM
 					(SELECT *FROM book WHERE book_category LIKE '%' || #{interest} || '%'
 						ORDER BY book_publish_date DESC)A)
-							where rnum>=1 and rnum<=3)
+							where rnum>=1 and rnum<=3
 	]]>				
 	</select>
 	

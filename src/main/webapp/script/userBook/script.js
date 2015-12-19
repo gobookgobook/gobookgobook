@@ -218,3 +218,4 @@ function order(root, book_num, book_price, book_name){
 	
 	location.href=url;
 }
+

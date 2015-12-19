@@ -14,6 +14,9 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <jsp:include page="../main-top.jsp"/>
 <jsp:include page="../cookie/cookie.jsp"/>
+<script type="text/javascript">
+	밥먹고 와서 제목 ... 처리
+</script>
 </head> 	
 <body>
 <div id="contents" style="height:800px; background:white; border:1px solid black; position:static;">
@@ -34,17 +37,17 @@
 								<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="60%" height="60%">
 							</a>
 						</div>
-						<div>
-							<label>책 제목 : </label>
+						<div style="border: 1px solid black;">
+							<label style="te">책 제목 : </label>
 							<span>${userBook.book_name}</span>
-						</div>
-						<div>
-							<label>별점 : </label>
-							<span>${userBook.book_star}</span>
 						</div>
 						<div>
 							<label>저자 : </label>
 							<span>${userBook.book_writer}</span>
+						</div>
+						<div>
+							<label>별점 : </label>
+							<span>${userBook.book_star}</span>
 						</div>
 					</div>
 				</c:forEach>
@@ -57,7 +60,7 @@
 		
 		<div align="center" style="border:0px solid green; margin-top:720px; margin-left:430px; width:130px; height:20px;">
 			<c:if test="${bookDtoCount > 0}">
-				<c:set var="pageBlock" value="${2}"/>
+				<c:set var="pageBlock" value="${10}"/>
 				<c:set var="pageCount" value="${bookDtoCount/boardSize+(bookDtoCount%boardSize==0 ? 0:1)}"/>
 				<fmt:parseNumber var="pageCount" value="${bookDtoCount/boardSize+(bookDtoCount%boardSize==0 ? 0:1)}" integerOnly="true"/>
 				<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
