@@ -10,13 +10,13 @@
 <fmt:formatDate var="birth" value="${memberDto.member_birth}" type="date" pattern="yyyy/MM/dd"/>
 <html>
 <head>
+<jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
-<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	<br/><br/>
@@ -32,7 +32,6 @@
 			     <td colspan="3">
 			       <input type="text" name="id_check" size="25" value= "${memberDto.member_id }" disabled="disabled"/>
 			       <input type="hidden" name="member_id" value="${memberDto.member_id }"/>
-			       <input type="button"  value="아이디중복" onclick="idCheck('${root}',memberForm)" />
 			     </td>
 			    </tr>
 			   
@@ -68,7 +67,7 @@
 			    <th style="background:#B2CCFF">우편번호</th>
 			     <td colspan="3">
 			       <input type="text" name="zipcodeDisp" size="25" value="${memberDto.member_zipcode}"/>
-						<input type="hidden" name="member_zipcode"/>
+						<input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}"/>
 						<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
 				 </td>
 			    </tr>
@@ -99,6 +98,15 @@
 					  <input type="checkbox" name="member_interestValue" value="SF/판타지"/>SF/판타지
 					  <input type="checkbox" name="member_interestValue" value="교양"/>교양
 					  <input type="hidden" name="member_interest"/>
+					  <c:forTokens var="interest" items="${memberDto.member_interest}" delims=",">
+						<script type="text/javascript">
+							for(var i=0;i<memberForm.member_interestValue.length;i++){
+								if(memberForm.member_interestValue[i].value=="${interest}"){
+									memberForm.member_interestValue[i].checked=true;
+								}
+							}
+						</script>
+					</c:forTokens>
 			     </td>
 			    </tr>
 			    
@@ -127,12 +135,34 @@
 						</select>
 						<input type="hidden" name="member_birth"/>
 						</td>
+						<c:forTokens var="userBirth" items="${birth}" delims="/">
+						<script type="text/javascript">
+							
+							if(memberForm.member_birth_year.value!="년"){
+								if(memberForm.member_birth_month.value!="월"){
+									if(memberForm.member_birth_day.value=="일"){
+										memberForm.member_birth_day.value="${userBirth}";
+									}
+								}
+							}
+							
+							if(memberForm.member_birth_year.value!="년"){
+								if(memberForm.member_birth_month.value=="월"){
+									memberForm.member_birth_month.value=parseInt("${userBirth}");
+								}
+							}
+						
+							if(memberForm.member_birth_year.value=="년"){
+								memberForm.member_birth_year.value="${userBirth}";
+							}
+						</script>
+					</c:forTokens>
 			    </tr>
 			    
 			    <tr>
 			    <th style="background:#B2CCFF">이메일</th>
 			     <td colspan="3">
-			       <input type="text" name="member_email" size="30"/>
+			       <input type="text" name="member_email" value="${memberDto.member_email}" size="25" />
 			     </td>
 			    </tr>
 			    
