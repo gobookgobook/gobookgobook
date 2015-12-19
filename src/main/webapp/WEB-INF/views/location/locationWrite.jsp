@@ -61,7 +61,7 @@
 					</div>
 					
 					<div class="line" style="width:591px; border-width:2px; border-color:#B3D667; text-align:center;">
-						<input type="submit" class="btn btn-success btn-xs" value="매장등록" />
+						<input type="submit" class="btn btn-success btn-xs" value="지점등록" />
 						<input type="reset" class="btn btn-success btn-xs" value="취소" />
 					</div>
 				</form>

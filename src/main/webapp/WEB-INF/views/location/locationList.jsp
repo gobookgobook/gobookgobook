@@ -46,7 +46,7 @@
 				<c:if test="${count==0}">
 					<table border="1" class="table table-bordered">
 						<tr class="success">
-							<td width="530" align="center">게시판에 저장된 글이 없습니다.</td>
+							<td width="530" align="center">등록된 지점이 없습니다.</td>
 						</tr>
 					</table>
 				</c:if>
