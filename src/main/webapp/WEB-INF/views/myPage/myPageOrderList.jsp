@@ -24,12 +24,12 @@
 	</c:if>
 	
 	<c:if test="${id != null && id!='admin'}">
-	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;마이페이지</b>
 	</div>
 	<div align="left" style="width: 120px; float:left;">
 		<jsp:include page="category.jsp"/>
-			<div class="container" style="width:600px;  border:0px solid red; margin-left:200px; margin-top:-250px;">
+			<div class="container" style="width:600px;  border:0px solid red; margin-left:200px; margin-top:-200px;">
 		<div class="myPageHistoryListSelect">
 			<table class="table table-bordered">
 						<thead>

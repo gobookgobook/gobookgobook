@@ -14,31 +14,23 @@
 <body>
 	<table class="table table-bordered">
 	    <tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/myPage/myPageOrderList.do">주문내역</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/myPage/myPageOrderList.do">주문내역</a></td>
      	</tr>
-     	
-     	<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/myPage/myPagePvPList.do">1:1문의내역</a></td>
+		
+		<tr style="color:white">
+		    <td style="background:#37415a"><a id="tda" href="${root}/myPage/myPageCoupon.do">쿠폰함</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/myPage/myPageCoupon.do">쿠폰함</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/myPage/myPagePoint.do">포인트함</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/myPage/myPagePoint.do">포인트함</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/member/update.do">회원수정</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/member/update.do">회원수정</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}/member/delete.do">회원탈퇴</a></td>
-		</tr>
-		
-		<tr style="color:white">
-		    <td style="background:#6799FF"><a id="tda" href="${root}">메인</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/member/delete.do">회원탈퇴</a></td>
 		</tr>
 	</table>
 		
