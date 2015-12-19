@@ -157,11 +157,9 @@ a:hover, a:focus{color:#c60;}
   width:653px;height:180px;
   margin:0 auto;position:relative;
   padding:15px 0 0 400px;
-  border:0px solid #c56666;
-  margin-left:350px;
 }
 #inner_footer h3.footer_logo img{
-	position:absolute;left:-170px;bottom:-10px;
+	position:absolute;left:35px;bottom:-10px;
 	border:0px solid red;
 	width:250px;
 	height:180px;
@@ -169,15 +167,16 @@ a:hover, a:focus{color:#c60;}
 #inner_footer label{
 	border:0px solid red;
 	position:absolute;
-	left:140px;
+	left : 300px;
 }
 
 #bottom_menu dd{
 	float:left;margin-right:15px;
+	border:1px solid red;
 }
 #bottom_menu{
 	overflow:hidden;margin-bottom:25px;
 }
 #relSite_wrap{
-	position:absolute;left:630px;top:50px;
+	position:absolute;left:815px;top:50px;
 }

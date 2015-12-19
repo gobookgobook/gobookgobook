@@ -19,14 +19,14 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap"  style="border:2px solid #37415A;  width:1350px;height:250px; position:relative; margin-bottom:-100px; bottom:-30px;">
-<div id="inner_footer">
+<div id="footer_wrap" style="border-top:2px solid #37415a; background-color:#fff; margin-top:30px;">
+<div id="inner_footer" style="width:800px; height:180px; margin:0 auto; position:relative; padding:15px 0 0 400px; border:0px solid red;">
  <h3 class="footer_logo">
-    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>
+    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="position:absolute;left:-100px;bottom:-10px; width:250px; height:180px;border:0px solid red;"/></a>
  </h3>
  <br/><br/>
- <div id="relSite_wrap">
-   <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기" /></h3>
+ <div id="relSite_wrap" style="position:absolute;left:700px;top:50px;">
+   <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기"/></h3>
    <form action="#" method="get" name="rel_f">
      <fieldset>
        <legend>관련 사이트 이동</legend>
@@ -41,7 +41,7 @@
  </div>
  <address>
 
- <label style="border:0px solid red; width:500px;font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
+ <label style="border:0px solid red; position:absolute; left :200px;font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
  2015-2016 꼬북꼬북. All Rights Reserved</label>
  
  </address>

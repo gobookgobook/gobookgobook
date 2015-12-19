@@ -223,6 +223,7 @@
 </div> <!-- close of contents -->
 </div> <!-- close of wrap -->
 <hr />
+
 <div id="footer_wrap">
 <div id="inner_footer">
  <h3 class="footer_logo">
