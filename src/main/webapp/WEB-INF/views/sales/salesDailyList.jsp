@@ -31,7 +31,7 @@
 
 </head>
 <body>
-	<br/><br/>
+	
     <div id="contents" style="background:white; border:0px solid black">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
@@ -44,7 +44,7 @@
 		<div id="wrap">
 		
 		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;매출 관리</b>
 		</div>
 	
 		<div align="left" style="width: 110px;float: left">
@@ -52,7 +52,7 @@
 		</div>
 	
 		<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-			<h3>일일매출</h3>
+			<h3 style="margin-left:20px">일일매출</h3>
 			<div align="center" style="border:1 solid red">
 				<form name="dayChoice" method="post" style="text-align:right">
 					<label>날짜선택:</label>
@@ -139,7 +139,7 @@
 						</div>
 						
 						<hr width="70%" color="blue"/>
-						<div align="left" id="order" style="width: 880px">
+						<div align="left" id="order" style="width: 880px;margin-left:20px">
 							<span id="daily_sum" style="font-size: 20px">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 							<span id="daily_profit" style="font-size: 20px">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${dailyUpdate}', '${root}')"/>

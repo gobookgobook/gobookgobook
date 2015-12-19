@@ -23,7 +23,6 @@
 <script type="text/javascript" src="${root}/script/sales/script.js"></script>
 </head>
 <body>
-    <br/><br/>
     <div id="contents" style="background:white; border:0px solid black">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
@@ -36,7 +35,7 @@
 		<div id="wrap">
 			
 			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
+				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;매출 관리</b>
 			</div>
 			
 			<div align="left" style="width: 110px;float: left">
@@ -44,7 +43,7 @@
 			</div>
 			
 			<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-				<h3>월별매출</h3>
+				<h3 style="margin-left:20px">월별매출</h3>
 				<div align="center" style="border:0 solid red">
 					<form name="monthChoice" method="get" action="${root}/sales/salesMonthlyList.do" style="text-align:right">
 						<label>년월 선택:</label>
@@ -132,11 +131,11 @@
 							</div>
 							
 							<hr width="90%" color="blue"/>
-							<div align="left" id="order" style="width:880px">
-								<span id="monthly_sum" style="font-size: 20px">월 판매 총액:<fmt:formatNumber value="${monthlySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="daily_profit_sum" style="font-size: 20px">일일 순이익 합계:<fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="monthly_order_sum" style="font-size: 20px">월 입고 총액:<fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-								<span id="monthly_profit" style="font-size: 20px">월 순이익:<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>원</span>
+							<div align="left" id="order" style="width:880px; margin-left:20px">
+								<span id="monthly_sum" style="font-size: 18px">월 판매 총액:<fmt:formatNumber value="${monthlySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="daily_profit_sum" style="font-size: 18px">일일 순이익 합계:<fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="monthly_order_sum" style="font-size: 18px">월 입고 총액:<fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+								<span id="monthly_profit" style="font-size: 18px">월 순이익:<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>원</span>
 							</div>
 						</c:if>
 					</div>
