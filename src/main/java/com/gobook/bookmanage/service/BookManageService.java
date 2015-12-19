@@ -457,7 +457,7 @@ public class BookManageService implements IBookManageService {
 		int gpCount=iBookManageDao.gpCount();
 		
 		List<BookGroupPurchaseDto> gpList=null;
-		if(count>0) gpList=iBookManageDao.gpList();
+		if(gpCount>0) gpList=iBookManageDao.gpList();
 		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");

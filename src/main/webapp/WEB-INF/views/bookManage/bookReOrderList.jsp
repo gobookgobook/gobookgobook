@@ -71,8 +71,8 @@
 									<td style="text-align:center">${book.book_num}</td>
 									<td style="text-align:left">${book.book_name}</td>
 									<td style="text-align:center">${book.reorder_quantity}</td>
-									<td style="text-align:center">${book.book_cost}</td>
-									<td style="text-align:center">${book.reorder_total_price}</td>
+									<td style="text-align:right">${book.book_cost}원</td>
+									<td style="text-align:right">${book.reorder_total_price}원</td>
 									<td style="text-align:center"><fmt:formatDate value="${book.reorder_date}" pattern="yyyy/MM/dd"/></td>
 								</tr>
 							</c:forEach>
