@@ -132,15 +132,12 @@
         <ul class="sub4">
            <li><a href="${root}/location/locationWrite.do">지점등록</a></li>
            <li><a href="${root}/location/locationList.do">지점목록</a></li>
-           <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
      <li><a href="#"><img src="${root}/images/gnb_ad5_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
      	<ul class="sub5">
-     		<li><a href="#">1:1 문의</a></li>
            <li><a href="${root}/help/adminHelpNoticeList.do">공지사항</a></li>
            <li><a href="${root}/help/adminHelpQnAListSelect.do">Q&A</a></li>
-           <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
      <li><a href="${root}/sales/salesDailyList.do"><img src="${root}/images/gnb_ad6_pic.png" alt="매출관리" style="width:100px; height:40px;"/></a>
