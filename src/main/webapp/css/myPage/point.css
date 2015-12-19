@@ -10,15 +10,17 @@
 }
 
 .body{
-	width: 85%; height:300px;
+	width: 690px; height:300px;
 	border: 0px solid blue;
+	margin-left:200px;
+	margin-top:-250px;
 	display: block;
-	float: left;
-	margin-left:400px;
-	margin-top:-130px;	
+	float: left;	
 }
 
 .point_body{
-	width: 500px; height:60px;
-	border: 0px solid red;	
+	width:600px; height:500px;
+ 	border: 0px solid black; 
+	margin: 0px auto;	
 }
+

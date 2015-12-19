@@ -21,14 +21,16 @@
 	</div>	
 	
 	<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-		<h1 style="margin-left:20px">포인트 함</h1>	
+			
 			<div class="point_body">
 				<c:if test="${member_point > 0 }">
+				<h1 style="margin-left:20px">포인트 함</h1>
 					${member_point}
 				</c:if>
 				<c:if test="${member_point == 0 || member_point ==null }">
+				<div class="user_coupon_title" style="text-align: center; font-size: 20">
 					<span>현재 보유중인 포인트가 없습니다.</span>
-					<hr width="80%" color="blue"/>
+					</div>
 				</c:if>	
 			
 		</div>

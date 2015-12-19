@@ -42,20 +42,6 @@
              <form action="#" method="post" name="log_f" id="login_f">
                <fieldset>
                  <legend>로그인</legend>
-                 <p class="user_id">
-                    <label for="user_id">
-                      <img src="${root}/images/login_title_id.gif" alt="아이디" />
-                    </label>
-                    <input type="text" name="user_id" id="user_id" />
-                 </p>
-                 <p class="user_pw">
-                    <label for="user_pw">
-                      <img src="${root}/images/login_title_pw.gif" alt="아이디" />
-                    </label>
-                    <input type="password" name="user_pw" id="user_pw" /></p>
-                 <p class="log_btn">
-                    <input type="image" src="${root}/images/login_btn.gif" alt="로그인버튼" />
-                 </p>
                  <p class="join_btn_wrap">
                      <a href="${root}/member/register.do">회원가입</a>
 
@@ -121,7 +107,7 @@
   </form>
   <h2 class="hide">메인메뉴</h2>
    <ul id="gnb">
-     <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userBook/userBookList.do?category=${'문학'}"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
            	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
 			<li><a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a></li>
@@ -133,7 +119,7 @@
 			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
            <li><a href="${root}/member/update.do">회원수정</a></li>
            <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
@@ -145,7 +131,7 @@
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>

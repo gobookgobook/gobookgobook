@@ -11,18 +11,21 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<div id="contents" style="background:white; border:0px solid black; margin-top:70px;">
+<div id="contents" style="height:500px; background:white; border:0px solid black; position:static;">
    <div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;고객센터</b>
 	</div>
    <div align="left" style="width: 120px; float:left; border:0px solid green;">
      <jsp:include page="userCategory.jsp"/>
     <div class="body">
-	<h2>공지사항</h2>
+    <div align="center">
+	<h1>공지사항</h1>
 	<hr>
 	<div class="point_body">
 	<c:if test="${userHelpQnAList ==null}">
-		<h3>작성된 게시물이 없습니다.</h3>
+	<div class="user_help_title" style="text-align: center; font-size: 20">
+		<span>작성된 게시물이 없습니다.</span>
+		</div>
 	</c:if>
 	
 	<c:if test="${userHelpQnAList != null}">
@@ -64,6 +67,7 @@
 	</div>
 	</div>
 	</div>
+</div>	
 </div>
 </div>
 <jsp:include page="../main-bottom.jsp"/>

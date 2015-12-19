@@ -120,7 +120,7 @@
   </form>
   <h2 class="hide">메인메뉴</h2>
    <ul id="gnb">
-     <li><a href="#"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/userBook/userBookList.do?category=${'문학'}"><img src="${root}/images/gnb_1_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub1">
            	<li><a href="${root}/userBook/userBookList.do?category=${'문학'}">문학</a></li>
 			<li><a href="${root}/userBook/userBookList.do?category=${'교육도서'}">교육도서</a></li>
@@ -132,7 +132,7 @@
 			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/member/update.do"><img src="${root}/images/gnb_2_pic.png" alt="카테고리" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
            <li><a href="${root}/member/update.do">회원수정</a></li>
            <li><a href="${root}/member/delete.do">회원탈퇴</a></li>
@@ -144,7 +144,7 @@
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_3_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-      <li><a href="#"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+      <li><a href="${root}/userHelp/userHelpNotice.do"><img src="${root}/images/gnb_4_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
         <ul class="sub4">
            <li><a href="#">1:1문의</a></li>
            <li><a href="${root}/userHelp/userHelpQnA.do">Q&A</a></li>
