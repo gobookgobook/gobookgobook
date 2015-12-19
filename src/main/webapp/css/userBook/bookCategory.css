@@ -31,3 +31,18 @@ a:hover {
 	text-decoration:underline;
 	color:black;
 }
+
+#tda:link {
+	text-decoration:none;
+	color: white;
+}
+
+#tda:visited {
+	text-decoration:none;
+	color: white;
+}
+
+#tda:hover {
+	text-decoration:none;
+	color: black;
+}

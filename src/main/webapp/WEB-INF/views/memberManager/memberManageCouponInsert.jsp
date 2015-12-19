@@ -58,31 +58,12 @@ $(function(){
 	<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
 		
 		<table class="table table-bordered">
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-			<tr>
-				<td>쿠폰이름</td>
-				<td><input type="text" name="manager_coupon_name"></td>
-			</tr>
-		
+			<tbody>
+				<tr>
+					<th>쿠폰이름</th>
+					<td><input type="text" name="manager_coupon_name"></td>
+				</tr>
+			</tbody>		
 		</table>
 		
 	<%-- 	<div>

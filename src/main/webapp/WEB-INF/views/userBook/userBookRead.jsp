@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<jsp:include page="../main-top.jsp"/>
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookRead.css"/>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
@@ -46,6 +45,7 @@
 	    });
 	});
 </script>
+<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	<br/><br/>

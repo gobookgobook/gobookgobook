@@ -13,10 +13,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <jsp:include page="../main-top.jsp"/>
+<jsp:include page="../cookie/cookie.jsp"/>
 </head> 	
 <body>
-<jsp:include page="../cookie/cookie.jsp"/>
 <div id="contents" style="height:500px; background:white; border:1px solid black; position:static;">
+
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 목록</b>
 	</div>
@@ -54,8 +55,7 @@
 				
 				<c:set var="startPage" value="${result*pageBlock+1}"/>
 				<c:set var="endPage" value="${startPage+pageBlock-1}"/>
-			</c:if>	
-			
+			</c:if>		
 			<!-- 마지막페이지가 출력되는 페이지보다 크면 마지막페이지를 출력되는 페이지로 바꿔줌 -->
 			<c:if test="${endPage > pageCount }">		
 				<c:set var="endPage" value="${pageCount}"/>
@@ -73,7 +73,6 @@
 				<a href="${root}/userBook/userBookList.do?category=${category}&pageNumber=${startPage+pageBlock}">[다음]</a>
 			</c:if>  
 		</div>
-	
 </div>
  <jsp:include page="../main-bottom.jsp"/> 
 	<br/><br/>	
