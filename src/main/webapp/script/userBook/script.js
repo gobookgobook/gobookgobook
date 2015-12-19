@@ -10,7 +10,7 @@
  */
 function userBookRead(root, book_num){
 	var url =root +"/userBook/userBookRead.do?book_num="+book_num;
-	alert(url);
+//	alert(url);
 	
 	location.href=url;
 }
@@ -22,14 +22,14 @@ function userBookRead(root, book_num){
  */
 function soldOutAsk(root, book_num){
 	var url=root+"/userBook/userBookSoldOutAsk.do?book_num="+book_num;
-	alert(url);
+//	alert(url);
 	
 	$.ajax({
 		url:url,
 		type:"get",
 		dataType:"text",
 		success:function(data){
-			alert(data);
+//			alert(data);
 			if(data > 0){
 				alert("재입고 신청되었습니다.");
 			}else{
@@ -52,19 +52,19 @@ function soldOutAsk(root, book_num){
 function myBasket(root, book_num, book_name, book_price){
 	
 	var book_quantity=$("#book_quantity option:selected").val();
-	alert(book_quantity);
+//	alert(book_quantity);
 	var url=root+"/userBook/userBookBasketInsert.do?book_num="+book_num;
 	url+="&book_name="+book_name;
 	url+="&book_price="+book_price;
 	url+="&book_quantity="+book_quantity;
-	alert(url);
+//	alert(url);
 
 	$.ajax({
 		url:url,
 		type:"get",
 		dataType:"text",
 		success:function(data){
-			alert(data);
+//			alert(data);
 			if(data > 0){
 			   var retVal = confirm("장바구니에 선택하신 상품이 담겼습니다.\n장바구니를 확인하시겠습니까?");
 			   if( retVal == true ){
@@ -93,7 +93,7 @@ function myBasket(root, book_num, book_name, book_price){
 function groupPurchaseAsk(root, book_num){
 	
 	var url=root+"/userBook/userBookGroupPurchaseAsk.do?book_num="+book_num;
-	alert(url);
+//	alert(url);
 	
 	$.ajax({
 		url:url,
@@ -122,11 +122,11 @@ function groupPurchaseAsk(root, book_num){
 function userbookstar_star(root, book_num){
 	
 	var star=$('#userstar').html();
-	alert(star);
+//	alert(star);
 	
 	var url=root+"/userBook/userBookStarInsert.do?book_num="+book_num;
 	url+="&userbookstar_star="+star;
-	alert(url);
+//	alert(url);
 	
 	if(star == ""){
 		alert("하나는 선택해주세요.");
@@ -214,7 +214,7 @@ function order(root, book_num, book_price, book_name){
 	url+="&book_price="+book_price;
 	url+="&book_name="+book_name;
 	
-	alert(url);
+//	alert(url);
 	
 	location.href=url;
 }

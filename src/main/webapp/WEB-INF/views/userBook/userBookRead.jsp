@@ -5,6 +5,7 @@
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
+<jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookRead.css"/>
@@ -45,7 +46,6 @@
 	    });
 	});
 </script>
-<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	<br/><br/>
@@ -111,27 +111,26 @@
 				</div>
 				<div>
 				<c:if test="${id !='admin' && id !=null}">
-					<input type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
-					<input type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
+					<c:if test="${bookDto.book_quantity > 0 }">
+						<input type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
+						<input type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
+					</c:if>
 				<!-- 수량 없을때 if문 처리 해주자-->	
 				<c:if test="${bookDto.book_quantity==0}">
 					<input type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
 				</c:if>
-					<input type="button" value="공동구매" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
-				</c:if>
-				<c:if test="${id =='admin' }">
-					<input type="button" value="공동구매등록" id="" onclick=""/>
+					<input type="button" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
 				</c:if>
 				</div>				
 			</div>
 		</div>
 		
 		<div class="book_index">
-		<c:if test="${bookDto.book_summary !=null}">
-			${bookDto.book_summary}
+		<c:if test="${bookDto.book_index !=null}">
+			${bookDto.book_index}
 		</c:if>
-		<c:if test="${bookDto.book_summary ==null}">
-			줄거리가없습니다.	
+		<c:if test="${bookDto.book_index ==null}">
+			목차가 없습니다.
 		</c:if>
 		</div>
 		

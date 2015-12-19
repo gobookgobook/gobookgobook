@@ -16,7 +16,7 @@
 <jsp:include page="../cookie/cookie.jsp"/>
 </head> 	
 <body>
-<div id="contents" style="height:500px; background:white; border:1px solid black; position:static;">
+<div id="contents" style="height:800px; background:white; border:1px solid black; position:static;">
 
 	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 목록</b>
@@ -26,16 +26,24 @@
 		<jsp:include page="bookCategory.jsp"/>
 	</div>	
 		<div class="userBookBody">
-		
 			<c:if test="${bookDtoCount > 0 }">
 				<c:forEach var="userBook" items="${bookDto}">
 					<div class="bookList">
-						<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
-							<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="30%" height="40%">
-						</a>
+						<div style="text-align: center;">
+							<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
+								<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="60%" height="60%">
+							</a>
+						</div>
 						<div>
+							<label>책 제목 : </label>
 							<span>${userBook.book_name}</span>
+						</div>
+						<div>
+							<label>별점 : </label>
 							<span>${userBook.book_star}</span>
+						</div>
+						<div>
+							<label>저자 : </label>
 							<span>${userBook.book_writer}</span>
 						</div>
 					</div>
@@ -46,7 +54,8 @@
 				도서 준비중입니다.
 			</c:if>
 		</div>
-		<div align="center" style="border:3px solid green; margin-top:450px; margin-left:430px; width:130px;">
+		
+		<div align="center" style="border:0px solid green; margin-top:720px; margin-left:430px; width:130px; height:20px;">
 			<c:if test="${bookDtoCount > 0}">
 				<c:set var="pageBlock" value="${2}"/>
 				<c:set var="pageCount" value="${bookDtoCount/boardSize+(bookDtoCount%boardSize==0 ? 0:1)}"/>
@@ -75,6 +84,5 @@
 		</div>
 </div>
  <jsp:include page="../main-bottom.jsp"/> 
-	<br/><br/>	
 </body>
 </html>
