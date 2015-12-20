@@ -28,3 +28,31 @@
 	text-decoration:none;
 	color: black;
 }
+
+/* REGISTER UPDATE STYLE START */
+.form_style{
+	width:590px; height:340px;
+	border:dotted 0px red; 
+}
+
+.line{	
+	width:600px; height:30px; float:left; 
+	border:solid 0px #000000;
+	margin:0px; padding:0px;
+	text-align:left; 
+}
+
+.title{
+	width:96px; float:left; line-height:13px;
+	border:solid 2px #DDDDDD;
+	border-right-width:0px;
+	border-bottom-width:0px;
+	padding:8px 0px 8px 5px;
+}
+
+.content{
+	width:486px; float:left;
+	border:solid 2px #DDDDDD;
+	border-bottom-width:0px;
+	padding:2px 0px 2px 2px;
+}
