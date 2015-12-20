@@ -24,7 +24,8 @@
 				<tr>
 				  <th style="background:#B2CCFF">아이디</th>
 					<td colspan="3">
-					   <input type="text" name="member_id" size="25"/>
+					   <input type="text" name="dispId" value="${id}" size="25" disabled="disabled"/>
+					   <input type="hidden" name="member_id" value="${id}"/>
 					</td>
 				</tr>
 				

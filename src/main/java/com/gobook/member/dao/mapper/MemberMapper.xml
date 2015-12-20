@@ -53,10 +53,10 @@
 			delete from mybasket where basket_date<sysdate-7 and member_id=#{loginId}
 		]]>
 	</delete>
-	
+<!-- 	
 	<delete id="memberDelete" parameterType="java.util.HashMap">
 		delete from member where member_id=#{id} and member_password=#{password}
-	</delete>
+	</delete> -->
 	
 	<select id="memberSelect" parameterType="String" resultType="com.gobook.member.dto.MemberDto">
 		select * from member where member_id=#{id}
@@ -92,4 +92,32 @@
 										order by nvl(book_star, 0) desc
 	]]>
 	</select>
+	
+	<delete id="memberUserCouponDelete" parameterType="String">
+		<![CDATA[
+			delete from usercoupon where member_id=#{id}
+		]]>
+	</delete>
+	
+	<delete id="memberMyBasketDelete" parameterType="String">
+		delete from myBasket where member_id=#{id}
+	</delete>
+	
+	<select id="memberUserGPSelect" parameterType="String" resultType="int">
+		select gp_num from userGP where member_id=#{id}
+	</select>
+	
+	<delete id="memberUserGPDelete" parameterType="String">
+		delete from userGP where member_id=#{id}
+	</delete>
+	
+	<update id="memberGroupPurchaseDelete" parameterType="int">
+		update groupPurchase set group_purchase_count=group_purchase_count-1 where gp_num=#{tempBook}
+	</update>
+	
+	<update id="memberDelete" parameterType="java.util.HashMap">
+		update member set member_zipcode='0' where member_id=#{id} and member_password=#{password}
+	</update>
+	
+	
 </mapper>

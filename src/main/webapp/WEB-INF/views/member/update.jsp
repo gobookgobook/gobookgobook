@@ -76,7 +76,7 @@
 			    <th style="background:#B2CCFF">주소</th>
 			     <td colspan="3">
 			       <input type="text" name="address1Disp" size="50" value="${memberDto.member_address1}" disabled="disabled"/>
-			       <input type="hidden" name="member_address1" />
+			       <input type="hidden" name="member_address1" value="${memberDto.member_address1}" />
 			     </td>
 			    </tr>
 			    
