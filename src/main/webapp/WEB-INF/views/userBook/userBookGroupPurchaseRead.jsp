@@ -13,67 +13,69 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-	<br/><br/>
-
-<div id="contents" style="height:750px; background:white; border:1px solid black"><br/><br/><br/><br/>
-	<div class="book_read">
+<div id="contents" style="height:600px; background:white; border:1px solid black">
+	  <h2 align="center">공동구매 신청</h2>
+<div class="book_read">
 	<div class="book_top">	
 		<div class="book_cover">
-			<div>
-			표지
+			<div align="center" style="margin-top: 10px;">
+				<img src="#" width="50%" height="90%"/>
 			</div>
-			<div>
-			미리보기
-			</div>
+			<br/>
 		</div>
 		<div class="book_info">
-			<div class="info">
-				<label class="book_title">제목 : </label>
-				<span class="book_content">${bookGroupPurchaseDto.book_name}</span>
-			</div>
-			<div class="info">
-				<label class="book_title">저자 : </label>
-				<span class="book_content">${bookGroupPurchaseDto.book_writer}</span>
-			</div>
-			<div>
-				<label class="book_title">출판사 : </label>
-				<span class="book_content">${bookGroupPurchaseDto.book_publisher}</span>
-			</div>
-			<div class="info">
-				<label class="book_title">출판연도 : </label>
-				<span class="book_content"><fmt:formatDate value="${bookGroupPurchaseDto.book_publish_date}" pattern="yyyy-MM-dd"/>
-				</span>
-			</div>
-			<div class="info">
-			<!-- 잘못됨 -->
-				<label class="book_title">판매가 : </label>
-				<span class="book_content">${bookGroupPurchaseDto.book_price}</span>
-			</div>
-			<div class="info">
-				<label class="book_title">희망자 : </label>
-				<span class="book_content" id="purchase_count">
-				${bookGroupPurchaseDto.group_purchase_count}
-				</span>
-			</div>
-			<div class="info">
-				<label class="book_title">최소 수량 : </label>
-				<span class="book_content">
-				${bookGroupPurchaseDto.group_purchase_min_count}
-				</span>
-			</div>
-			<div class="info">
-				<label class="book_title">최대 수량 : </label>
-				<span class="book_content">
-				${bookGroupPurchaseDto.group_purchase_max_count}
-				</span>
-			</div>
-			<div class="info">
-				<label class="book_title">마감 기간 : </label>
-				<span class="book_content">
-				<fmt:formatDate value="${bookGroupPurchaseDto.group_purchase_date}" pattern="yyyy-MM-dd"/>
-				</span>
-			</div>
-			<div>
+			<table class="table table-bordered" style="width:860px;">
+					<tbody>
+						<tr>
+							<th style="background:#37415a; color: white;" width="15%" >제목 : </th>
+							<td>
+							${bookGroupPurchaseDto.book_name}								
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">저자 : </th>
+							<td>
+							${bookGroupPurchaseDto.book_writer}							
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">출판연도 : </th>
+							<td>
+							<fmt:formatDate value="${bookGroupPurchaseDto.book_publish_date}" pattern="yyyy-MM-dd"/>							
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">판매가 : </th>
+							<td>
+							${bookGroupPurchaseDto.group_purchase_price}						
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">희망자 : </th>
+							<td id="purchase_count">
+							${bookGroupPurchaseDto.group_purchase_count}							
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">최소 수량 : </th>
+							<td>
+							${bookGroupPurchaseDto.group_purchase_min_count}						
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">최대 수량  : </th>
+							<td>
+							${bookGroupPurchaseDto.group_purchase_max_count}						
+							</td>
+						</tr>
+						<tr>
+							<th style="background:#37415a; color: white;">마감 기간   : </th>
+							<td>
+							<fmt:formatDate value="${bookGroupPurchaseDto.group_purchase_date}" pattern="yyyy-MM-dd"/>					
+							</td>
+						</tr>
+					</tbody>
+    		</table>
 			<c:if test="${bookGroupPurchaseDto.group_purchase_max_count > bookGroupPurchaseDto.group_purchase_count}">
 				<c:if test="${id !='admin' && id !=null}">
 					<input type="button" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseInsert('${root}', '${bookGroupPurchaseDto.book_num}', '${bookGroupPurchaseDto.gp_num}')"/>
@@ -85,27 +87,33 @@
 			</c:if>
 			</div>				
 		</div>
-	</div>
-	<div class="book_index">
-	<c:if test="${bookGroupPurchaseDto.book_index !=null}">
-		${bookGroupPurchaseDto.book_index}
-	</c:if>
-	<c:if test="${bookGroupPurchaseDto.book_index ==null}">
-		목차가 존재 하지 않습니다.
-	</c:if>
-	</div>
-	<div class="book_summary">
-	<c:if test="${bookGroupPurchaseDto.book_summary !=null}">
-		${bookGroupPurchaseDto.book_summary}
-	</c:if>
-	
-	<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
-		줄거리가없습니다.	
-	</c:if>
-	</div>
+		
+		<div class="book_body">
+			<label class="book_title">목차</label>
+			<span class="book_content">
+			<c:if test="${bookGroupPurchaseDto.book_index !=null}">
+				<textarea rows="10" cols="110" disabled="disabled"  style="background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
+				</textarea>
+			</c:if>
+			<c:if test="${bookGroupPurchaseDto.book_index ==null}">
+				목차가 존재 하지 않습니다.
+			</c:if>
+			</span>
+
+
+			<label class="book_title">줄거리</label>
+			<span class="book_content">
+				<c:if test="${bookGroupPurchaseDto.book_summary !=null}">
+					<textarea rows="10" cols="110" disabled="disabled" style="background-color: white;resize: none;" >${bookGroupPurchaseDto.book_summary}
+					</textarea>
+				</c:if>
+				<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
+					줄거리가없습니다.	
+				</c:if>
+			</span>
+		</div>
 	</div>
 </div>
-<%-- <jsp:include page="../main-bottom.jsp"/> --%>
-	<br/><br/>
+<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>

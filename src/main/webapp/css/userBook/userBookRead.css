@@ -1,61 +1,54 @@
 @CHARSET "UTF-8";
 
 .book_read{
-	width:80%; height:90%;
-	border: 1px solid black;
+	width:80%;
+	border: 0px solid black;
 	margin: 0px auto;
 }
 
-/* 책 표지 */
-.book_top{
-	width:100%; height:40%;
-	border: 1px dotted blue;
-}
 
+.book_top{
+	width:100%;
+	border: 0px dotted blue;
+}
+/* 책 표지 */
 .book_cover{
-	width:40%; height:100%;
-	border: 1px dotted red;
+	width:30%; height:30%;
+	border: 1px solid black;
 	margin: 1px;
 	float: left;
 }
 
 /* 책 상세내용 */
 .book_info{
-	width:58%; height:100%;
-	border: 1px dotted red;
+	width:68%; height:30%;
+	border: 1px solid black;
 	margin: 1px;	
 	float: left;
 }
 
 .info{
-	width:100%; height:10%;
-/* 	border: 1px dotted yellow; */
+	width:100%;
+ 	border: 0px dotted yellow; 
 }
 
+.book_body{
+	width:100%; 
+	border: red 0px dotted;
+	margin-top: 3px;
+}
 .book_title{
-	width:30%; heigth:99%;
-	border: blue 1px dotted;
+	width:100%;
+	border: blue 0px dotted;
 	display: block;
-	float: left;
 	margin: 0px 2px;
+	margin-top: 4px;
 }
 
 .book_content{
-	width:65%; heigth:99%;
-	border: blue 1px dotted;
+	width:100%;
+	border: 0px solid black;
 	display: block;
-	float: left;	
+	float: left;
+	margin-top: 4px;
 }
-
-/* 목차 */
-.book_index{
-	width:100%;
-	border: 1px dotted blue;
-}
-
-/* 줄거리 */
-.book_summary{
-	width:100%;
-	border: 1px dotted blue;
-}
-

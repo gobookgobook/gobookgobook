@@ -201,6 +201,42 @@ function startSuggest(root){
 	});
 }
 
+function groupPurchaseInsert(root, book_num, gp_num){
+	var url=root+"/userBook/userBookGroupPurchaseInsert.do?book_num="+book_num;
+	url+="&gp_num="+gp_num;
+//	alert(url);
+	
+	$.ajax({
+		url:url,
+		type:"get",
+		dataType:"text",
+		success:function(data){
+//			alert(data);
+			var result=data.split(",");
+			var value=result[0].trim();				
+			var count=result[1].trim();
+			
+			var purchase=$('#purchase_count').html();
+			var purcahse_count=parseInt(purchase);
+			var hap=purcahse_count+1;
+			
+			if(value>0){
+				alert("공동구매를 신청하셧습니다.");
+				$('#purchase_count').html(hap);
+			}else{
+				alert("이미 공동구매 신청을 하셨습니다.");
+			}
+			
+		},
+		error:function(xhr, status, errorMsg){
+			alert(status + "," + errorMsg);
+		}
+	});
+	
+	
+}
+
+
 /**
  * @함수이름 : order
  * @작성일 : 2015. 12. 18.
@@ -218,4 +254,13 @@ function order(root, book_num, book_price, book_name){
 	
 	location.href=url;
 }
+
+function preview(root, book_preview_file_name){
+	var url=root + "/userBook/userBookPreview.do?book_preview_file_name="+book_preview_file_name;
+	alert(url);
+	
+	
+}
+
+
 
