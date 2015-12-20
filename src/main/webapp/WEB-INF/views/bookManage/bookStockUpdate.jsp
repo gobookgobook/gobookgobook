@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
+<c:set var="date" value="<%=new Date() %>"/>
+<fmt:formatDate var="today" value="${date}" pattern="yyyy"/>
+<fmt:formatDate var="publish" value="${bookDto.book_publish_date}" type="date" pattern="yyyy/MM/dd"/>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -30,7 +34,7 @@
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 16px;">도서수정</b></div>
 			<br/>
-			<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookUpdateForm(this)" enctype="multipart/form-data">	
+			<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">	
 				<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 				</div>
 				
@@ -66,7 +70,51 @@
 				<div class="line">
 					<label class="titleR">출판일</label>
 					<span class="content">	
-						<input type="text" name="book_publish_date" value="<fmt:formatDate value='${bookDto.book_publish_date}' pattern='yyyy/MM/dd'/>"/>
+						<select name="book_publish_date_year">
+	    					<option>년</option>
+							<c:forEach var="year" begin="1900" end="${today}">
+							<option value="${year}">${year}</option>
+							</c:forEach>
+						</select>
+						
+						<select name="book_publish_date_month">
+							<option>월</option>
+							<c:forEach var="month" begin="1" end="12">
+							<option value="${month}">${month}</option>
+							</c:forEach>
+						</select>
+						
+						<select name="book_publish_date_day">
+							<option>일</option>
+							<c:forEach var="day" begin="1" end="31">
+							<option value="${day}">${day}</option>
+							</c:forEach>
+						</select>
+						
+						<input type="hidden" name="book_publish_date"/>
+						
+						<c:forTokens var="publish_date" items="${publish}" delims="/">
+							<script type="text/javascript">
+								
+								if(bookStokUpdate.book_publish_date_year.value!="년"){
+									if(bookStokUpdate.book_publish_date_month.value!="월"){
+										if(bookStokUpdate.book_publish_date_day.value=="일"){
+											bookStokUpdate.book_publish_date_day.value="${publish_date}";
+										}
+									}
+								}
+								
+								if(bookStokUpdate.book_publish_date_year.value!="년"){
+									if(bookStokUpdate.book_publish_date_month.value=="월"){
+										bookStokUpdate.book_publish_date_month.value=parseInt("${publish_date}");
+									}
+								}
+							
+								if(bookStokUpdate.book_publish_date_year.value=="년"){
+									bookStokUpdate.book_publish_date_year.value="${publish_date}";
+								}
+							</script>
+						</c:forTokens>
 					</span>
 				</div>
 				
@@ -230,8 +278,17 @@
 		</script>
 	</c:if>
 	
+	<c:if test="${bookDto.book_cover_file_name==null}">
 	<div style="margin-top:700px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
+	</c:if>
+	
+	<c:if test="${bookDto.book_cover_file_name!=null}">
+	<div style="margin-top:800px">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
+	</c:if>
+	
 </body>
 </html>

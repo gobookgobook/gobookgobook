@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
+<c:set var="date" value="<%=new Date() %>"/>
+<fmt:formatDate var="today" value="${date}" pattern="yyyy"/>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,7 +31,7 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookInsertForm(this)" enctype="multipart/form-data">
+			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">
 				<div align="center"><b style="font-size: 16px;">도서등록</b></div>
 				<br/>
 				
@@ -61,7 +65,29 @@
 				<div class="line">
 					<label class="titleR">출판일</label>
 					<span class="content">
-						<input type="text" name="book_publish_date"/>
+					
+						<select name="book_publish_date_year">
+	    					<option>년</option>
+							<c:forEach var="year" begin="1900" end="${today}">
+							<option value="${year}">${year}</option>
+							</c:forEach>
+						</select>
+						
+						<select name="book_publish_date_month">
+							<option>월</option>
+							<c:forEach var="month" begin="1" end="12">
+							<option value="${month}">${month}</option>
+							</c:forEach>
+						</select>
+						
+						<select name="book_publish_date_day">
+							<option>일</option>
+							<c:forEach var="day" begin="1" end="31">
+							<option value="${day}">${day}</option>
+							</c:forEach>
+						</select>
+						
+						<input type="hidden" name="book_publish_date"/>
 					</span>
 				</div>
 				

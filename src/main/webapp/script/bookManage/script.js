@@ -5,7 +5,78 @@
  * @개발자 : 성기훈
  * @설명 : 도서등록 Form 스크립트
  */
-function bookInsertForm(form){	
+function bookDataForm(form){
+	if(form.book_num.value==""){
+		alert("도서번호를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.book_name.value==""){
+		alert("도서번호를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.book_writer.value==""){
+		alert("저자를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.book_publisher.value==""){
+		alert("출판사를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	var strDate="";
+	if(form.book_publish_date_year.value!="년"||form.book_publish_date_month.value!="월"||form.book_publish_date_day.value!="일"){
+		if(form.book_publish_date_year.value=="년"||form.book_publish_date_month.value=="월"||form.book_publish_date_day.value=="일"){
+			alert("년, 월, 일을 모두 올바르게 입력해주세요.");
+			return false;
+		}
+		
+		if(form.book_publish_date_month.value==2){
+			if(form.book_publish_date_year.value%4==0&&form.book_publish_date_year.value%100!=0){
+				if(form.book_publish_date_day.value>29){
+					alert("출판일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+			
+			if(form.book_publish_date_year.value%4!=0||form.book_publish_date_year.value%100==0){
+				if(form.book_publish_date_day.value>28){
+					alert("출판일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+		}
+		
+		if(form.book_publish_date_month.value==4||form.book_publish_date_month.value==6||form.book_publish_date_month.value==9||form.book_publish_date_month.value==11){
+			if(form.book_publish_date_day.value>30){
+				alert("출판일을 다시 확인해주세요.");
+				return false;
+			}
+		}
+		
+		strDate=form.book_publish_date_year.value+"/"+form.book_publish_date_month.value+"/"+form.book_publish_date_day.value;
+		//alert(strDate);
+		form.book_publish_date.value=strDate;
+	}
+	
+	if(form.book_cost.value==""){
+		alert("도서원가를 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.book_price.value==""){
+		alert("도서가격을 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
 	var check=false;
 	var str="";
 	for(var i=0;i<form.category.length;i++){

@@ -123,7 +123,7 @@ public class BookManageService implements IBookManageService {
 			long book_preview_file_size2=book_preview_file2.getSize();
 			long book_preview_file_size3=book_preview_file3.getSize();
 			
-			File path=new File("C:/gobook/bookimg/");
+			File path=new File(request.getRealPath("/images/bookImg/"));
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){
@@ -289,7 +289,7 @@ public class BookManageService implements IBookManageService {
 			long book_preview_file_size2=book_preview_file2.getSize();
 			long book_preview_file_size3=book_preview_file3.getSize();
 			
-			File path=new File("C:/gobook/bookimg/");
+			File path=new File(request.getRealPath("/images/bookImg/"));
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){
