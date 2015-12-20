@@ -22,12 +22,12 @@
 		<h2>로그인</h2>
 		
 		<div id="member_id" style="margin:10px;">	
-		<input type="text" name="member_id" value="아이디" style="background:#37415a; color:white;" disabled="disabled"/>
-		<input type="text" name="id_check" size="30"/><br/>
+		<input type="text" name="idName" value="아이디" style="background:#37415a; color:white;" disabled="disabled"/>
+		<input type="text" name="member_id" size="30"/><br/>
 		</div>
 		
 		<div id="member_password" style="margin:10px;">
-		<input type="text" name="member_password" value="비밀번호" style="background:#37415a; color:white;"  disabled="disabled"/>
+		<input type="text" name="passwordName" value="비밀번호" style="background:#37415a; color:white;"  disabled="disabled"/>
         <input type="password" name="member_password" size="30"/><br/>
         </div>
         <input type="submit" size="40"  value="확인"/>	
