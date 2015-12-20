@@ -20,28 +20,18 @@
 		<form action="${root}/member/login.do" method="post">
 		<div class="container" style="width:90%; ">
 		<h2>로그인</h2>
-			<table class="table table-bordered">
-				<tr>
-				  <th style="background:#37415a; color:white; font-size:14px; text-align:center;">아이디</th>
-					<td colspan="3">
-					   <input type="text" name="member_id" size="25"/>
-					</td>
-				</tr>
-				
-				<tr>
-				  <th style="background:#37415a; color:white; font-size:14px; text-align:center; ">비밀번호</th>
-					<td colspan="3">
-					   <input type="password" name="member_password" size="25"/>
-					</td>
-				</tr>
-				
-	           <tr align="center">
-		         <td colspan="5">
-		           <input type="submit" class="btn btn-primary btn-xs" value="확인"/>
-			       <input type="reset" class="btn btn-warning btn-xs" value="취소"/>
-		         </td>
-		       </tr>
-			</table>
+		
+		<div id="member_id" style="margin:10px;">	
+		<input type="text" name="member_id" value="아이디" style="background:#37415a; color:white;" disabled="disabled"/>
+		<input type="text" name="id_check" size="30"/><br/>
+		</div>
+		
+		<div id="member_password" style="margin:10px;">
+		<input type="text" name="member_password" value="비밀번호" style="background:#37415a; color:white;"  disabled="disabled"/>
+        <input type="password" name="member_password" size="30"/><br/>
+        </div>
+        <input type="submit" size="40"  value="확인"/>	
+        <input type="reset" size="40"  value="취소"/>	
 			</div>
 		</form>
 	</div>
