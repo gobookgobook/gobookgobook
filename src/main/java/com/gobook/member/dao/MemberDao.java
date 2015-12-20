@@ -121,7 +121,23 @@ public class MemberDao implements IMemberDao{
 		hMap.put("id", id);
 		hMap.put("password", password);
 		
-		return sqlSessionTemplate.delete("dao.memberMapper.memberDelete", hMap);
+		int count=0;
+		
+	/*	TransactionDefinition definition=new DefaultTransactionDefinition();
+		TransactionStatus status=transactionManager.getTransaction(definition);
+		
+		try{
+			sqlSessionTemplate.delete("dao.memberMapper.memberUserCouponDelete",id);
+			sqlSessionTemplate.delete("dao.memberMapper.memberU",id);
+			sqlSessionTemplate.delete("dao.memberMapper.memberUserCouponDelete",id);
+			
+			count=sqlSessionTemplate.delete("dao.memberMapper.memberDelete", hMap);
+			transactionManager.commit(status);
+		}catch(Exception e){
+			transactionManager.rollback(status);
+		}	*/
+		
+		return count;
 	}
 
 	/**

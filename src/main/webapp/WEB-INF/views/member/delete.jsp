@@ -24,7 +24,7 @@
 				<tr>
 				  <th style="background:#B2CCFF">아이디</th>
 					<td colspan="3">
-					   <input type="text" name="id_check" size="25"/>
+					   <input type="text" name="member_id" size="25"/>
 					</td>
 				</tr>
 				

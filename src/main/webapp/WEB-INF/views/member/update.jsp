@@ -66,7 +66,7 @@
 			     <tr>
 			    <th style="background:#B2CCFF">우편번호</th>
 			     <td colspan="3">
-			       <input type="text" name="zipcodeDisp" size="25" value="${memberDto.member_zipcode}"/>
+			       <input type="text" name="zipcodeDisp" size="25" value="${memberDto.member_zipcode}" disabled="disabled"/>
 						<input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}"/>
 						<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
 				 </td>
@@ -75,7 +75,8 @@
 			     <tr>
 			    <th style="background:#B2CCFF">주소</th>
 			     <td colspan="3">
-			       <input type="text" name="member_address1" size="50" value="${memberDto.member_address1}"/>
+			       <input type="text" name="address1Disp" size="50" value="${memberDto.member_address1}" disabled="disabled"/>
+			       <input type="hidden" name="member_address1" />
 			     </td>
 			    </tr>
 			    

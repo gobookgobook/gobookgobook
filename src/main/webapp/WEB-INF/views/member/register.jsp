@@ -58,18 +58,11 @@
 		       <input type="text" name="member_name" size="25" />
 		     </td>
 		    </tr>
-		    
-		     <tr>
-		    <th style="background:#B2CCFF">휴대폰 번호</th>
-		     <td colspan="3">
-		       <input type="text" name="member_phone" size="25"/>
-		     </td>
-		    </tr>
 		    		    
 		     <tr>
 		    <th style="background:#B2CCFF">우편번호</th>
 		     <td colspan="3">
-		       <input type="text" name="zipcodeDisp" size="25"/>
+		       <input type="text" name="zipcodeDisp" size="25" disabled="disabled"/>
 					<input type="hidden" name="member_zipcode"/>
 					<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')"/>
 			 </td>
@@ -78,7 +71,7 @@
 		     <tr>
 		    <th style="background:#B2CCFF">주소</th>
 		     <td colspan="3">
-		       <input type="text" name="address1Disp" size="50"/>
+		       <input type="text" name="address1Disp" size="50" disabled="disabled"/>
 		       <input type="hidden" name="member_address1"/>
 		     </td>
 		    </tr>
@@ -87,6 +80,13 @@
 		    <th style="background:#B2CCFF">상세주소</th>
 		     <td colspan="3">
 		       <input type="text" name="member_address2" size="50"/>
+		     </td>
+		    </tr>
+		    
+		     <tr>
+		    <th style="background:#B2CCFF">휴대폰 번호</th>
+		     <td colspan="3">
+		       <input type="text" name="member_phone" size="25"/>
 		     </td>
 		    </tr>
 		    
