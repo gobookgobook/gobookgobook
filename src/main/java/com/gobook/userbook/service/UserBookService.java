@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
+import com.gobook.member.dao.IMemberDao;
 import com.gobook.mybasket.dto.MyBasketDto;
 import com.gobook.userbook.dao.IUserBookDao;
 import com.gobook.userbook.dto.UserBookStarDto;
@@ -37,6 +38,8 @@ public class UserBookService implements IUserBookService {
 
 	@Autowired
 	private IUserBookDao iUserBookDao;
+	@Autowired
+	private IMemberDao iMemberDao;
 
 	/**
 	 * @함수이름 : userBookRead
@@ -375,33 +378,44 @@ public class UserBookService implements IUserBookService {
 		HttpSession session=request.getSession();
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
-		
+
 		List<BookDto> book=new ArrayList<BookDto>();
+		List<BookDto> bestList=null;
+
 		if(member_id !=null){
 			
+			String interest=null;
 			String member_interest=iUserBookDao.interestSelect(member_id);
 			GoBookAspect.logger.info(GoBookAspect.logMsg + member_interest);
-			
-			StringTokenizer stok2=new StringTokenizer(member_interest, ",");
 		
-			String interest=null;
 			List<BookDto> interestBook=null;
 				
-			while(stok2.hasMoreTokens()){
+			if(member_interest != null){
+				System.out.println("ok1");
 				
-				interest=stok2.nextToken();
-				GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+				StringTokenizer stok2=new StringTokenizer(member_interest, ",");
 				
-				interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
-				book.addAll(interestBook);
-				GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
-				
-				}
+				while(stok2.hasMoreTokens()){
+					
+					interest=stok2.nextToken();
+					GoBookAspect.logger.info(GoBookAspect.logMsg + interest);
+					
+					interestBook=iUserBookDao.userBookInterestReadingSelect(interest);
+					book.addAll(interestBook);
+					GoBookAspect.logger.info(GoBookAspect.logMsg + interestBook.size());
+					
+					}
 				
 				GoBookAspect.logger.info(GoBookAspect.logMsg + book.size());
 				GoBookAspect.logger.info(GoBookAspect.logMsg + book);
-
+			}else if(member_interest == null){
+				System.out.println("ok2");
+				bestList=iMemberDao.userBookBestSeller();
+				GoBookAspect.logger.info(GoBookAspect.logMsg + bestList.size());
+			}
+			
 		}
+		mav.addObject("bestList", bestList);
 		mav.addObject("book", book);
 		mav.addObject("member_id", member_id);
 		mav.setViewName("userBook/userBookInterestRead");

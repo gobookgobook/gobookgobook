@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
+import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.member.dao.IMemberDao;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
@@ -214,7 +215,7 @@ public class MemberService implements IMemberService {
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
-		List<UserOrderDto> bestSeller=iMemberDao.userBookBestSeller();
+		List<BookDto> bestSeller=iMemberDao.userBookBestSeller();
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bestSeller.size());
 		
 		mav.addObject("bestSeller", bestSeller);

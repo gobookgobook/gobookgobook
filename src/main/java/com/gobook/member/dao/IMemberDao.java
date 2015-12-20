@@ -2,6 +2,7 @@ package com.gobook.member.dao;
 
 import java.util.List;
 
+import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
 import com.gobook.userorder.dto.UserOrderDto;
@@ -22,5 +23,5 @@ public interface IMemberDao {
 	public int memberUpdate(MemberDto memberDto);
 	public int memberDeleteCouponDate(String loginId);
 	public int memberDeleteBasketDate(String loginId);
-	public List<UserOrderDto> userBookBestSeller();
+	public List<BookDto> userBookBestSeller();
 }

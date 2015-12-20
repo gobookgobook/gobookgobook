@@ -3,18 +3,18 @@
 .interest{
 	width:32%; height:30%;
 	border: 1px dotted red;
-	margin: 10px 1px;
+	margin: 4px 1px;
 	margin-left: 6px;
 	float: left;
 }
 
 .interestAll{
-	width:700px; height:700px;
-	border: 1px solid red;
+	width:700px; height:740px;
+	border: 0px solid red;
 	margin: 0px auto;
 }
 
 .interestBody{
 	width:99%; height:99%;
-	border: 1px dottd blue;
+	border: 0px dotted blue;
 }

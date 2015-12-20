@@ -11,6 +11,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
 import com.gobook.userorder.dto.UserOrderDto;
@@ -201,7 +202,7 @@ public class MemberDao implements IMemberDao{
 	 * @설명 : 베스트 셀러
 	 */
 	@Override
-	public List<UserOrderDto> userBookBestSeller() {
+	public List<BookDto> userBookBestSeller() {
 		return sqlSessionTemplate.selectList("dao.memberMapper.userBookBestSeller");
 	}
 }

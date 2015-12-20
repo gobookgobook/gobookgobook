@@ -12,23 +12,42 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookInterest.css"/>
 <script type="text/javascript" src="${root}/script/userBook/script.js"></script>
 <body>
-	<br/><br/>
-<div id="contents" style="height:800px; background:white; border:1px solid black"><br/><br/><br/><br/>
+<div id="contents" style="height:800px; background:white; border:1px solid black">
+	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;관심분야 추천 목록</b>
+	</div>
 	<div class="interestAll">
 		<div class="interestBody">
 			<c:if test="${id !=null }">
-				<c:if test="${book !=null }">
+				<c:if test="${book.size() >0}">
+						<h2 align="center">관심분야 추천</h2>
 					<c:forEach var="interestBook" items="${book}">
 						<div class="interest">
-							<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
-								<img src="#" width="100%" height="80%"/>
-							</a>
-							${interestBook.book_name}
+							<div style="width: 100%; height: 83%;" align="center">
+								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
+									<img src="#" width="60%" height="80%"/>
+								</a>
+							</div>
+							<div style="width: 100%; height: 15%; text-align: center;">
+								${interestBook.book_name}
+							</div>
 						</div>
 					</c:forEach>
 				</c:if>
-				<c:if test="${book ==null }">
-					<label>관심분야를 선택해주세요.</label>
+				<c:if test="${book.size()==0}">
+					<h2 align="center">베스트 셀러 추천</h2>
+					<c:forEach var="interestBook" items="${bestList}">
+						<div class="interest">
+							<div style="width: 100%; height: 83%;" align="center">
+								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
+									<img src="#" width="60%" height="90%" style="margin-top: 5px;"/>
+								</a>
+							</div>
+							<div style="width: 100%; height: 15%; text-align: center;">
+								${interestBook.book_name}
+							</div>
+						</div>
+					</c:forEach>
 				</c:if>
 			</c:if>
 			
@@ -38,7 +57,6 @@
 		</div>
 	</div>
 </div>
-<%-- <jsp:include page="../main-bottom.jsp"/> --%>
-	<br/><br/>	
+<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>
