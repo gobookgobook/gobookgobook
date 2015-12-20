@@ -127,12 +127,18 @@ public class MemberDao implements IMemberDao{
 		TransactionDefinition definition=new DefaultTransactionDefinition();
 		TransactionStatus status=transactionManager.getTransaction(definition);
 		
+		String tempBook = sqlSessionTemplate.selectOne("dao.memberMapper.memberUserGPSelect",id);
+		int tempBookNum=0;
+		if(tempBook!=null){
+			tempBookNum=Integer.parseInt(tempBook);
+		}
 		try{
 			sqlSessionTemplate.delete("dao.memberMapper.memberUserCouponDelete",id);
 			sqlSessionTemplate.delete("dao.memberMapper.memberMyBasketDelete",id);
-			int tempBook = sqlSessionTemplate.selectOne("dao.memberMapper.memberUserGPSelect",id);
 			sqlSessionTemplate.delete("dao.memberMapper.memberUserGPDelete",id);
-			sqlSessionTemplate.update("dao.memberMapper.memberGroupPurchaseDelete",tempBook);
+			if(tempBookNum >0){
+				sqlSessionTemplate.update("dao.memberMapper.memberGroupPurchaseDelete",tempBook);
+			}
 			
 			count=sqlSessionTemplate.update("dao.memberMapper.memberDelete", hMap);
 			transactionManager.commit(status);

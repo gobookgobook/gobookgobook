@@ -104,7 +104,9 @@
 	</delete>
 	
 	<select id="memberUserGPSelect" parameterType="String" resultType="int">
-		select gp_num from userGP where member_id=#{id}
+		<![CDATA[
+			select gp_num from userGP where member_id=#{id}
+		]]>
 	</select>
 	
 	<delete id="memberUserGPDelete" parameterType="String">
