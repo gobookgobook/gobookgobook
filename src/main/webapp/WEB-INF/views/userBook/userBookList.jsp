@@ -65,7 +65,7 @@
 			</c:if>
 		</div>
 		
-		<div align="center" style="border:0px solid green; margin-top:720px; margin-left:430px; width:130px; height:20px;">
+		<div align="center" style="border:0px solid green; margin-top:720px; margin-left:430px; width:200px; height:20px;">
 			<c:if test="${bookDtoCount > 0}">
 				<c:set var="pageBlock" value="${10}"/>
 				<c:set var="pageCount" value="${bookDtoCount/boardSize+(bookDtoCount%boardSize==0 ? 0:1)}"/>

@@ -40,7 +40,7 @@
 	        path : "${root}/css/star",
 	        width : 130,
 	        click: function(score, evt) {
-                $("#userstar").html(score);
+                $("#userstar").val(score);
             }
 
 	    });
@@ -67,7 +67,7 @@
 			        
 					<c:if test="${id !=null }">		   
 				        <div id="inputstar"></div>
-				        <span id="userstar"></span>
+				        <input type="hidden" id="userstar"/>
 				        <input type="button" value="전송" onclick="userbookstar_star('${root}', '${bookDto.book_num}')"/>
 				    </c:if>
 				</div>
