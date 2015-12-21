@@ -14,7 +14,7 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<div id="contents" style="height:500px; background:white; border:0px solid black; position:static;">
+<div id="contents" style="height:500px; background:white; margin-top:0px; border:0px solid black; position:static;">
 	<div style="background-color:margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객센터</b>
 	</div>
@@ -28,7 +28,7 @@
 		    <div align="center"><b style="font-size:18px">공지사항</b></div>
 		    <br/>
 			
-			<div class="point_body" style="width:400px;margin-left:110px">
+			<div class="point_body" style="width:400px;margin-left:20px">
 				<c:if test="${userHelpNoticeList ==null}">
 					<div align="center" style="width:400px">
 						<table class="table table-bordered">
@@ -46,7 +46,7 @@
 				</c:if>
 				
 				<c:if test="${userHelpNoticeList != null}">
-					<div align="center" style="width:400px">
+					<div align="center" style="width:600px">
 						<table class="table table-bordered">
 							<thead>
 								<tr style="color:white;background-color:#37415a">
@@ -59,7 +59,7 @@
 								<c:forEach var="help" items="${userHelpNoticeList}">	<%-- 서비스에서 넘겨준 boardList --%>
 									<tr>
 										<td style="text-align:center">${help.helpnotice_num}</td>
-										<td>
+										<td style="text-align:center">
 											<a href="${root}/userHelp/userHelpNoticeRead.do?helpnotice_num=${help.helpnotice_num}&pageNumber=${currentPage}">${help.helpnotice_subject}</a>
 										</td>
 										<td style="text-align:center"><fmt:formatDate value="${help.helpnotice_writeDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -70,7 +70,7 @@
 					</div>
 				</c:if>
 						
-				<div align="center" style="width:350px">
+				<div align="center" style="width:550px">
 					<c:set var="pageBlock" value="${2}"/>
 					<fmt:parseNumber var="rs" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
 					<c:set var="startPage" value="${rs*pageBlock+1}"/>

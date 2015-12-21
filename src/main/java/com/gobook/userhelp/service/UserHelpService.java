@@ -98,7 +98,7 @@ public class UserHelpService implements IUserHelpService {
 		HelpQnADto helpQnADto=iUserHelpDao.userHelpQnARead(helpqna_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + helpQnADto);
 		
-		mav.addObject("HelpQnADto", helpQnADto);
+		mav.addObject("helpQnADto", helpQnADto);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("userHelp/userHelpQnARead");
 		
