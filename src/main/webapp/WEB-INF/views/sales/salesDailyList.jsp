@@ -31,7 +31,7 @@
 
 </head>
 <body>
-    <div id="contents" style="height:550px;background:white; border:0px solid black; position: static">
+    <div id="contents" style="height:100%; background:white; border:0px solid black; position: static;">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -41,18 +41,19 @@
 	
 	<c:if test="${id=='admin'}">
 		<div id="wrap">
-		
+		<br/>
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 매출 관리</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 일일 매출</b>
 		</div>
-	
-		<div align="left" style="width: 110px;float: left">
+		
+		<div align="left" style="width: 110px;float: left;">
 			<jsp:include page="salesConNav.jsp"/>
 		</div>
 	
-		<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-			<h1 style="margin-left:20px">일일매출</h1>
-			<div align="center" style="border:1 solid red">
+		<br/>
+         <div align="center"><b style="font-size:18px">일일 매출</b></div>
+         <br/>
+			<div align="center">
 				<form name="dayChoice" method="post" style="text-align:right">
 					<label>날짜선택:</label>
 					<input type="text" id="dailyDate" name="selectDate"/>
@@ -62,19 +63,19 @@
 				
 				<div id="dailyTable">
 					<c:if test="${count == 0}">
-						<div class="container" style="width:835px;padding:0px">
-							<table class="table table-bordered">
+						<div class="container" style="width:835px;padding:0px;">
+							<table class="table table-bordered" style="border:1px solid blue;">
 								<thead>
 									<tr class="success" style="color:#1DDB16">
-										<th style="text-align:center">결제일</th>
-										<th style="text-align:center">도서번호</th>
-										<th style="text-align:center">도서명</th>
-										<th style="text-align:center">도서원가</th>
-										<th style="text-align:center">판매가</th>
-										<th style="text-align:center">수량</th>
-										<th style="text-align:center">판매총액</th>
-										<th style="text-align:center">결제액</th>
-										<th style="text-align:center">순이익</th>
+										<th style="text-align:center;width:120px;">결제일</th>
+										<th style="text-align:center;width:120px;">도서번호</th>
+										<th style="text-align:center;width:120px;">도서명</th>
+										<th style="text-align:center;width:120px;">도서원가</th>
+										<th style="text-align:center;width:120px;">판매가</th>
+										<th style="text-align:center;width:120px;">수량</th>
+										<th style="text-align:center;width:120px;">판매총액</th>
+										<th style="text-align:center;width:120px;">결제액</th>
+										<th style="text-align:center;width:120px;">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd"></tbody>
@@ -147,7 +148,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</c:if>
 	</div>
 <jsp:include page="../main-bottom.jsp"/>	

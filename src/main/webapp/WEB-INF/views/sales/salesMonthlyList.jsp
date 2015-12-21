@@ -23,7 +23,7 @@
 <script type="text/javascript" src="${root}/script/sales/script.js"></script>
 </head>
 <body>
-    <div id="contents" style="height:550px;background:white; border:0px solid black; position: static">
+    <div id="contents" style="height:100%;background:white; border:0px solid black; ">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -33,17 +33,18 @@
 	
 	<c:if test="${id=='admin'}">
 		<div id="wrap">
+			<br/>
+			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			   <b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 월별 매출</b>
+		    </div>
+		
+	 	   <div align="left" style="width: 110px;float: left;">
+			   <jsp:include page="salesConNav.jsp"/>
+		    </div>
 			
-			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;매출 관리</b>
-			</div>
-			
-			<div align="left" style="width: 110px;float: left">
-				<jsp:include page="salesConNav.jsp"/>
-			</div>
-			
-			<div align="left" style="float: left; margin: 10px 0 0 10px;width: 880px;" >
-				<h1 style="margin-left:20px">월별매출</h1>
+			<br/>
+            <div align="center"><b style="font-size:18px">월별 매출</b></div>
+              <br/>
 				<div align="center" style="border:0 solid red">
 					<form name="monthChoice" method="get" action="${root}/sales/salesMonthlyList.do" style="text-align:right">
 						<label>년월 선택:</label>
@@ -67,7 +68,7 @@
 					
 					<div id="monthlyTable">
 						<c:if test="${count ==0}">
-							<div class="container" style="width:835px;padding:0px">
+							<div class="container" style="width:835px;padding:0px; position: static">
 								<table class="table table-bordered">
 									<thead>
 										<tr class="success" align="center" style="color:#1DDB16">
@@ -141,7 +142,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</c:if>
 	</div>
 	<jsp:include page="../main-bottom.jsp"/>

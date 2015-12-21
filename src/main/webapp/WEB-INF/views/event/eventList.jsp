@@ -18,6 +18,16 @@
 		location.href = url;
 	}
 </script>
+<style type="text/css">
+#nav_info{
+      border-bottom: 5px solid #cccccc;
+      border-right: 3px solid   #cccccc;
+      text-align: center;
+      border-left:0px;
+      border-top: 0px;
+      border-radius: 0px 10px 10px 10px;
+   }
+</style>
 </head>
 <body>
 	<div id="contents" style="height:500px;background:white; border:0px solid black; position:static">
@@ -44,9 +54,7 @@
 				</c:forEach>
 			</div>
 		</div>
-		</div><br/>
-
-		
+		</div><br/>		
 	<jsp:include page="../main-bottom.jsp" />
 </body>
 </html>
