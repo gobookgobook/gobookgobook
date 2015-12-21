@@ -397,5 +397,6 @@
 				</form>
 		</c:if>
   </div>
+<jsp:include page="../main-bottom.jsp"/>  
 </body>
 </html>
