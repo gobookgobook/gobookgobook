@@ -17,7 +17,7 @@
 				</tr>
 			</table>
 		</div>
-		<input type="button" value="목록으로" onclick="location.href='${root}/help/userHelpNotice.do?pageNumber=${pageNumber}'"/>
+		<input type="button" value="목록으로" onclick="location.href='${root}/userHelp/userHelpNotice.do?pageNumber=${pageNumber}'"/>
 	</div>
 </body>
 </html>

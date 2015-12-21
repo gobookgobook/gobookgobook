@@ -12,12 +12,6 @@
 </head>
 <body>
 	<table class="table table-bordered">
-	
-
-	    <tr style="color:white">
-		    <td style="background:#37415a"><a id="tda" href="#">1:1문의</a></td>
-     	</tr>
-     	
      	<tr style="color:white">
 		    <td style="background:#37415a"><a id="tda" href="${root}/userHelp/userHelpQnA.do">Q&A</a></td>
 		</tr>
