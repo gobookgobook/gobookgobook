@@ -59,14 +59,14 @@ public class UserBookService implements IUserBookService {
 		
 		BookDto bookDto=iUserBookDao.userBookRead(book_num);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto);
-		
+/*		
 		if(bookDto.getBook_index() !=null){
 			bookDto.setBook_index(bookDto.getBook_index().replace("\r\n", "<br/>"));
 		}
 		if(bookDto.getBook_summary() !=null){
-		bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
+			bookDto.setBook_summary(bookDto.getBook_summary().replace("\r\n", "<br/>"));
 		}
-		
+		*/
 		String book_name=null;
 		if(bookDto.getBook_cover_file_name() !=null){
 			book_name=bookDto.getBook_cover_file_name();
@@ -589,6 +589,21 @@ public class UserBookService implements IUserBookService {
 			}
 		}
 		return rslt;
+	}
+
+	@Override
+	public void userBookPreview(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		GoBookAspect.logger.info(GoBookAspect.logMsg + book_num);
+		
+		BookDto preview=iUserBookDao.userBookPreview(book_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + preview);
+		
+		mav.addObject("preview", preview);
+		mav.setViewName("userBook/preview");
 	}
 }
 

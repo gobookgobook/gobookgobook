@@ -19,8 +19,8 @@
 <body>
 <div id="contents" style="height:800px; background:white; border:0px solid black; position:static;">
 
-	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 목록</b>
+	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 목록</b>
 	</div>
 	
 	<div align="left" style="width: 120px; float:left;">
@@ -31,9 +31,14 @@
 				<c:forEach var="userBook" items="${bookDto}">
 					<div class="bookList">
 						<div style="text-align: center;">
-							<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
-								<img src="http://localhost:8181/gobook/css/book/images/${userBook.book_cover_file_name}" alt="준비중" width="60%" height="60%">
-							</a>
+							<c:if test="${userBook.book_cover_file_name !=null }">
+								<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">
+									<img src="http://localhost:8181/gobook/images/bookImg/${userBook.book_cover_file_name}" alt="준비중" width="45%" height="70%">
+								</a>
+							</c:if>
+							<c:if test="${userBook.book_cover_file_name ==null }">
+								<img alt="" src="http://localhost:8181/gobook/images/bookImg/a.jpg" width="45%" height="70%">
+							</c:if>
 						</div>
 						<div class="userbook_list_all">
 							<label class="userBook_title">책 제목 : </label>

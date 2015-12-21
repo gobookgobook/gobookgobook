@@ -145,6 +145,7 @@ function userbookstar_star(root, book_num){
 			var bunho=result[1].trim();
 			
 			if(bunho == 0){
+				alert("별점을 평가하셨습니다.")
 				$('#displayStarRating').replaceWith("<span id='displayStarRating' style='padding-left:20px;'>"+star+"</span>");
 				$('div#star').raty('set', { 'score': star });
 			}else{
@@ -252,14 +253,22 @@ function order(root, book_num, book_price, book_name){
 	
 //	alert(url);
 	
+
 	location.href=url;
 }
 
-function preview(root, book_preview_file_name){
-	var url=root + "/userBook/userBookPreview.do?book_preview_file_name="+book_preview_file_name;
+/**
+ * @함수이름 : preview
+ * @작성일 : 2015. 12. 21.
+ * @개발자 : 오주석
+ * @설명 : 미리보기
+ */
+function preview(root, book_num){
+	var url=root + "/userBook/userBookPreview.do?book_num="+book_num;
 	alert(url);
 	
-	
+	window.open(url,"","scrollbars=no, width=1150, height=550");
+
 }
 
 

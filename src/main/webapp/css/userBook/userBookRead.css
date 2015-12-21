@@ -8,12 +8,12 @@
 
 
 .book_top{
-	width:100%;
-	border: 0px dotted blue;
+	width:100%; height:43%;
+	border: 0px dotted black;
 }
 /* 책 표지 */
 .book_cover{
-	width:30%; height:30%;
+	width:30%; height:93%;
 	border: 1px solid black;
 	margin: 1px;
 	float: left;
@@ -21,7 +21,7 @@
 
 /* 책 상세내용 */
 .book_info{
-	width:68%; height:30%;
+	width:68%; height:93%;
 	border: 1px solid black;
 	margin: 1px;	
 	float: left;
@@ -29,26 +29,27 @@
 
 .info{
 	width:100%;
- 	border: 0px dotted yellow; 
+ 	border: 1px dotted yellow; 
 }
 
 .book_body{
-	width:100%; 
+	width:100%; height:50%;
 	border: red 0px dotted;
 	margin-top: 3px;
 }
 .book_title{
-	width:100%;
+	width:98.5%; height:5%;
 	border: blue 0px dotted;
 	display: block;
+	background:#37415a;
+	color: white;
 	margin: 0px 2px;
-	margin-top: 4px;
+	margin-top: 7px;
 }
 
 .book_content{
-	width:100%;
+	width:100%; height:40%;
 	border: 0px solid black;
 	display: block;
-	float: left;
 	margin-top: 4px;
 }

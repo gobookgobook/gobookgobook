@@ -24,7 +24,7 @@
 					<c:forEach var="interestBook" items="${book}">
 						<div class="interest">
 							<div style="width: 100%; height: 83%;" align="center">
-								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
+	 								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
 									<img src="#" width="60%" height="80%"/>
 								</a>
 							</div>
@@ -40,7 +40,7 @@
 						<div class="interest">
 							<div style="width: 100%; height: 83%;" align="center">
 								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
-									<img src="#" width="60%" height="90%" style="margin-top: 5px;"/>
+									<img src="http://localhost:8181/gobook/images/bookImg/${interestBook.book_cover_file_name}" width="60%" height="90%" style="margin-top: 5px;"/>
 								</a>
 							</div>
 							<div style="width: 100%; height: 15%; text-align: center;">

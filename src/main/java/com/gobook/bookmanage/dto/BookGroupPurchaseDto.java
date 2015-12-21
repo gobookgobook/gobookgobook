@@ -20,7 +20,14 @@ public class BookGroupPurchaseDto {
 	private Date book_publish_date;
 	private String book_index;
 	private String book_summary;
+	private String book_cover_file_name;
 	
+	public String getBook_cover_file_name() {
+		return book_cover_file_name;
+	}
+	public void setBook_cover_file_name(String book_cover_file_name) {
+		this.book_cover_file_name = book_cover_file_name;
+	}
 	public String getBook_writer() {
 		return book_writer;
 	}

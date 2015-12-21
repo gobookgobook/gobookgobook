@@ -43,7 +43,7 @@
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#37415a"><a id="tda" href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></td>
+		    <td style="background:#37415a"><a id="tda" href="${root}/userBook/userBookList.do?category=${'교양'}">교양도서</a></td>
 		</tr>
 	</table>
 </body>

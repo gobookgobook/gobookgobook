@@ -148,5 +148,10 @@ public class UserBookDao implements IUserBookDao {
 	public int userBookGroupPurchaseSelect(HashMap<String, Object> userMap) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookGroupPurchaseSelect", userMap);
 	}
+
+	@Override
+	public BookDto userBookPreview(long book_num) {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookPreview", book_num);
+	}
 	
 }

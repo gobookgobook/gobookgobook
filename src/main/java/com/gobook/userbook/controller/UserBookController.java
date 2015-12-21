@@ -212,4 +212,19 @@ public class UserBookController {
 		return null;
 	}
 	
+	/**
+	 * @함수이름 : userBookPreview
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 오주석
+	 * @설명 : 미리보기
+	 */
+	@RequestMapping(value="/userBook/userBookPreview.do", method=RequestMethod.GET)
+	public ModelAndView userBookPreview(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookPreview(mav);
+		
+		return mav;
+	}
+	
 }

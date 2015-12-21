@@ -111,7 +111,7 @@
 	
 	<select id="userBookGroupPurchaseRead" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
 		<![CDATA[
-			select gp.gp_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity, book.book_writer, book.book_publisher, book.book_publish_date, book.book_index, book.book_summary
+			select gp.gp_num gp_num, gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity, book.book_writer, book.book_publisher, book.book_publish_date, book.book_index, book.book_summary, book.book_cover_file_name
 				from grouppurchase gp, book
 					WHERE gp.book_num=book.book_num
 						and gp.book_num=#{book_num}
@@ -129,4 +129,9 @@
 	<update id="userBookGroupPurchaseUpdate" parameterType="int">
 		update grouppurchase set group_purchase_count=group_purchase_count+1 where gp_num=#{group_purchase_num}
 	</update>
+	
+	<!-- 미리보기 -->
+	<select id="userBookPreview" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookDto">
+		select *from book where book_num=#{book_num}
+	</select>
 </mapper>

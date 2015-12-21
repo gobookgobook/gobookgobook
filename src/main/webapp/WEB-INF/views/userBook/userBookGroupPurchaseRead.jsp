@@ -13,23 +13,28 @@
 <jsp:include page="../main-top.jsp"/>
 </head>
 <body>
-<div id="contents" style="height:600px; background:white; border:1px solid black">
+<div id="contents" style="height:720px; background:white; border:1px solid black">
 	  <h2 align="center">공동구매 신청</h2>
 <div class="book_read">
-	<div class="book_top">	
+	<div class="book_top" style="height: 32%;">	
 		<div class="book_cover">
 			<div align="center" style="margin-top: 10px;">
-				<img src="#" width="50%" height="90%"/>
+			<c:if test="${bookGroupPurchaseDto.book_cover_file_name !=null}">
+				<img src="http://localhost:8181/gobook/images/bookImg/${bookGroupPurchaseDto.book_cover_file_name}" width="60%" height="90%"/>
+			</c:if>
+			<c:if test="${bookGroupPurchaseDto.book_cover_file_name ==null}">
+				<img src="http://localhost:8181/gobook/images/bookImg/a.jpg" width="60%" height="90%"/>
+			</c:if>
 			</div>
 			<br/>
 		</div>
 		<div class="book_info">
-			<table class="table table-bordered" style="width:860px;">
+			<table class="table table-bordered" style="width:860px;  border-spacing:6px;">
 					<tbody>
 						<tr>
 							<th style="background:#37415a; color: white;" width="15%" >제목 : </th>
 							<td>
-							${bookGroupPurchaseDto.book_name}								
+							${bookGroupPurchaseDto.book_name}			
 							</td>
 						</tr>
 						<tr>
@@ -78,7 +83,7 @@
     		</table>
 			<c:if test="${bookGroupPurchaseDto.group_purchase_max_count > bookGroupPurchaseDto.group_purchase_count}">
 				<c:if test="${id !='admin' && id !=null}">
-					<input type="button" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseInsert('${root}', '${bookGroupPurchaseDto.book_num}', '${bookGroupPurchaseDto.gp_num}')"/>
+					<input type="button" style="width: 80px; height: 25px; margin-left: 5px;" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseInsert('${root}', '${bookGroupPurchaseDto.book_num}', '${bookGroupPurchaseDto.gp_num}')"/>
 				</c:if>
 			</c:if>
 			<br/>
@@ -89,10 +94,10 @@
 		</div>
 		
 		<div class="book_body">
-			<label class="book_title">목차</label>
+			<div class="book_title">목차</div>
 			<span class="book_content">
 			<c:if test="${bookGroupPurchaseDto.book_index !=null}">
-				<textarea rows="10" cols="110" disabled="disabled"  style="background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
+				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
 				</textarea>
 			</c:if>
 			<c:if test="${bookGroupPurchaseDto.book_index ==null}">
@@ -101,10 +106,10 @@
 			</span>
 
 
-			<label class="book_title">줄거리</label>
+			<div class="book_title" style="margin-top: 30px;">줄거리</div>
 			<span class="book_content">
 				<c:if test="${bookGroupPurchaseDto.book_summary !=null}">
-					<textarea rows="10" cols="110" disabled="disabled" style="background-color: white;resize: none;" >${bookGroupPurchaseDto.book_summary}
+					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >${bookGroupPurchaseDto.book_summary}
 					</textarea>
 				</c:if>
 				<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
