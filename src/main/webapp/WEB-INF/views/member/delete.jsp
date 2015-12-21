@@ -15,35 +15,26 @@
 </head>
 <body>
 	<br/><br/>
-<div id="contents" style="background:white; border:0Spx solid black"><br/><br/><br/><br/>	
-
+<div id="contents" style="background:white; border:0px solid black; position:static; height:300px;"><br/><br/><br/><br/>	
 	<div align="center" >
 		<form action="${root}/member/delete.do" method="post">
-		   <div class="container" style="width:30%">
-			<table class="table table-bordered">
-				<tr>
-				  <th style="background:#B2CCFF">아이디</th>
-					<td colspan="3">
-					   <input type="text" name="dispId" value="${id}" size="25" disabled="disabled"/>
-					   <input type="hidden" name="member_id" value="${id}"/>
-					</td>
-				</tr>
-				
-				<tr>
-				  <th style="background:#B2CCFF">비밀번호</th>
-					<td colspan="3">
-					   <input type="password" name="member_password" size="25"/>
-					</td>
-				</tr>
-				
-	           <tr align="center">
-		         <td colspan="3">
-		           <input type="submit" class="btn btn-primary btn-xs" value="확인"/>
-			       <input type="reset" class="btn btn-warning btn-xs" value="취소"/>
-		         </td>
-		       </tr>
-			</table>
+		<div class="container" style="width:90%; margin-top:-60px;">
+		
+		<div align="center"><b style="font-size:18px">회원탈퇴</b></div>
+         <br/>
+		
+		<div id="member_id" style="margin:10px;">	
+		<input type="text" name="idName" value="아이디" style="background:#1993A8; color:white; height:30px;" disabled="disabled"/>
+		<input type="text" name="member_id" value="${id}" size="30" style="height:30px;" disabled="disabled"/><br/>
 		</div>
+		
+		<div id="member_password" style="margin:10px;">
+		<input type="text" name="passwordName" value="비밀번호" style="background:#1993A8; color:white; height:30px;"  disabled="disabled"/>
+        <input type="password" name="member_password" size="30" style="height:30px;"/><br/><br/>
+        </div>
+        <input type="submit" size="40" style="width:50px; height:30px;" value="확인"/>	
+        <input type="reset" size="40"  style="width:50px; height:30px;" value="취소"/>	
+			</div>
 		</form>
 	</div>
 </div>

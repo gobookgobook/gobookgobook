@@ -14,14 +14,12 @@
 		<c:remove var="id" scope="session"/>
 		
 		<script type="text/javascript">
-			alert("회원탈퇴가 완료되었습니다.");
 			location.href="${root}/member/goBookMain.do";
 		</script>
 	</c:if>
 	
 	<c:if test="${check == 0}">
 		<script type="text/javascript">
-			alert("회원탈퇴 되지 않았습니다.");
 			location.href="${root}/member/delete.do";
 		</script>
 	</c:if>
