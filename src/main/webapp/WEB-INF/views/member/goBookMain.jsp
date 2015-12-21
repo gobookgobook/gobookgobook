@@ -66,22 +66,16 @@
             <a href="${root}/myBasket/myBasketList.do">장바구니</a>
            </li>
            <li>
-            <a href="${root}/myPage/myPageOrderList.do">MyPage</a>
+            <a href="${root}/myPage/myPageCoupon.do">MyPage</a>
            </li>
            </c:if>
            
            <c:if test="${id!=null}">
-         <%--  <li>
-				<a href="${root}/member/update.do">회원수정</a>
-			</li>
-			<li>
-				<a href="${root}/member/delete.do">회원탈퇴</a>
-			</li> --%>
 			<li>
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
 			<li>
-				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
+				<a href="${root}/myPage/myPageCoupon.do">myPage</a>
 			</li>
 			<li>
 				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
