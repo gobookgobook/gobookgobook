@@ -46,18 +46,20 @@ $(function(){
 </script>
 </head>
 <body>
-<div id="contents" style="height:400px; background:white; border:1px solid black; position: static;">
+<div id="contents" style="height:400px; background:white; border:0px solid black; position: static;">
 	
 		<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;쿠폰 제작</b>
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;>쿠폰 관리</b>
 		</div>
 		
 		<div align="left" style="width: 120px;float: left;">
 			<jsp:include page="menu.jsp"/>
 		</div>
 		
-	<h2 style="text-align: center;">쿠폰 생성</h2>
+		<br/>
+			<div align="center"><b style="font-size:18px">쿠폰 생성</b></div>
+		<br/>
 		<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
 			<input type="hidden" name="member_id" value="${memberDto.member_id}">
 			
@@ -96,7 +98,7 @@ $(function(){
 			    
 			     <tr>
 			     <td colspan="4" align="center">
-					<input type="submit" value="쿠폰 등록"/>
+					<input type="submit" value="쿠폰 등록" style="width: 60px; height: 30px;"/>
 			     </td>
 			    </tr>
 		</tbody>

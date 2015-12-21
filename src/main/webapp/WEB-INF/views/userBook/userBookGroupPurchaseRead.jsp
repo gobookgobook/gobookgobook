@@ -126,7 +126,6 @@
 				<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
 				<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
 				</textarea>
-					
 				</c:if>
 			</span>
 		</div>

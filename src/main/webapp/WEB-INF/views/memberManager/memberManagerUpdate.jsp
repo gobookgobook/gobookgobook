@@ -24,7 +24,9 @@
 			<jsp:include page="menu.jsp"/>
 		</div>
 		
-	<h2 style="text-align: center;">회원정보수정</h2>
+		<br/>
+			<div align="center"><b style="font-size:18px">관리자 정보 수정</b></div>
+		<br/>
 		<form class="memberMnager" name="managerForm" action="${root}/memberManager/memberManagerUpdateOk.do" method="post" onsubmit="">
 			<input type="hidden" name="member_id" value="${memberDto.member_id}">
 			
@@ -60,8 +62,8 @@
 			    
 			     <tr>
 			     <td colspan="4" align="center">
-			       <input type="submit" value="수정"/>
-					<input type="reset" value="취소"/>
+			       <input type="submit" value="수정" style="width: 60px; height: 30px;"/>
+					<input type="reset" value="취소" style="width: 60px; height: 30px;"/>
 			     </td>
 			    </tr>
 		</tbody>

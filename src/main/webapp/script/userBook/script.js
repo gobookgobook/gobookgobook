@@ -265,7 +265,7 @@ function order(root, book_num, book_price, book_name){
  */
 function preview(root, book_num){
 	var url=root + "/userBook/userBookPreview.do?book_num="+book_num;
-	alert(url);
+//	alert(url);
 	
 	window.open(url,"","scrollbars=no, width=1150, height=550");
 
