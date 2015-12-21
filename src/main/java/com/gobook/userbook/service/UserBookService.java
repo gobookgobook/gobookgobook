@@ -70,7 +70,6 @@ public class UserBookService implements IUserBookService {
 		String book_name=null;
 		if(bookDto.getBook_cover_file_name() !=null){
 			book_name=bookDto.getBook_cover_file_name();
-			System.out.println("book_name : "+book_name);
 		}
 		 
 		//최근본 도서
@@ -86,14 +85,8 @@ public class UserBookService implements IUserBookService {
 			response.addCookie(cookie);
 			
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
-
-		System.out.println("request.getCookies().length : "+request.getCookies().length);
-		
+		}		
 		mav.addObject("bookDto", bookDto);
 		mav.setViewName("userBook/userBookRead");
 		

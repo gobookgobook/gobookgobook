@@ -110,7 +110,7 @@
 			<li><a href="${root}/userBook/userBookList.do?category=${'잡지'}">잡지</a></li>
 			<li><a href="${root}/userBook/userBookList.do?category=${'역사'}">역사</a></li>
 			<li><a href="${root}/userBook/userBookList.do?category=${'SF/판타지'}">SF/판타지</a></li>
-			<li><a href="${root}/userBook/userBookList.do?category=${'교양도서'}">교양도서</a></li>
+			<li><a href="${root}/userBook/userBookList.do?category=${'교양'}">교양도서</a></li>
         </ul>
      </li>
       <li><a href="${root}/userBook/userBookGroupPurchaseList.do"><img src="${root}/images/gnb_2_pic.png" alt="공동구매" style="width:100px; height:40px;"/></a>
@@ -174,7 +174,7 @@
       <ul>
 		<c:forEach var="bestSeller" items="${bestSeller}">
 			<li>
-				<img src="#" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
+				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
 				<span><strong>${bestSeller.book_name}</strong></span>
 				<span><strong>${bestSeller.book_writer}</strong></span>
 			</li>      	

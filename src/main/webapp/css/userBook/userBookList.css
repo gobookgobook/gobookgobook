@@ -2,19 +2,19 @@
 
 .userBookList{
 	width: 800px; height:700px;
-	border: 1px solid red;
+	border: 0px solid red;
 	margin: 0px auto;
 }
 
 .userBookBody{
 	width: 85%; height:90%;
-	border: 1px dotted blue;
+	border: 0px dotted blue;
 	float: left;
 }
 
 .bookList{
 	width:32%; height:30%;
-	border: 1px dotted red;
+	border: 1px solid black;
 	margin: 10px 1px;
 	margin-left: 6px;
 	float: left;

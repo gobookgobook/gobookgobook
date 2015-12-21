@@ -24,7 +24,7 @@
 	
 	<div align="left" style="float: left;margin: 10 0 0 10px; width: 880px;">
 			<!-- <h3>쿠폰함</h3> -->		
-			<c:if test="${couponSelect.size() > 0}">	
+				
 				<div class="container" style="width:100%">
 					<table class="table table-bordered">
 						<thead>
@@ -35,6 +35,7 @@
 								<th>쿠폰적용기간</th>
 							</tr>
 						</thead>
+			<c:if test="${couponSelect.size() > 0}">
 						<tbody>
 						  <tr>
 						  <td>가입쿠폰</td>
@@ -42,9 +43,9 @@
 						  <td>500</td>
 						   <td>2015-12-29</td>
 						</tbody>
+			</c:if>
 					</table>
 				</div>
-			</c:if>
 			<c:if test="${couponSelect.size() == 0}">
 			<div class="user_coupon_title" style="text-align: center; font-size: 20">
 					<span>현재 보유중인 쿠폰이 없습니다.</span>
