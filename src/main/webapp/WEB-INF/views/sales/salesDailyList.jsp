@@ -43,7 +43,7 @@
 		<div id="wrap">
 		<br/>
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 일일 매출</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 매출 관리</b>
 		</div>
 		
 		<div align="left" style="width: 110px;float: left;">
