@@ -119,6 +119,7 @@ function applyPoint(root, point, memberPoint,order_book_point){
 	if(point.value>memberPoint.value){
 		alert("보유하신 Point 보다 적용하실 Point가 클 수 없습니다.");
 		point.value=0;
+		return false;
 	}else{
 		alert("포인트가 적용되었습니다.");
 		memberPoint.value=memberPoint.value-point.value;
@@ -233,4 +234,5 @@ function userOrderForm(form){
 			}
 		}
 	}
+	
 }

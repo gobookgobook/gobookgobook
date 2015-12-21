@@ -6,6 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <html>
 <head>
+<jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -62,7 +63,6 @@
 	}
 </script>
 <title>Insert title here</title>
-	<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 	
