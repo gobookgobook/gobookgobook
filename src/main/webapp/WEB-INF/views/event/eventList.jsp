@@ -20,34 +20,33 @@
 </script>
 </head>
 <body>
-	<br />
-	<br />
-	<div id="contents" style="height: 450px; background: white; border: 1px solid black; position: static;">
-		<br />
-		<br />
-		<br />
-		<br />
-		<div align="right">
+	<div id="contents" style="height:500px;background:white; border:0px solid black; position:static">
 			<c:if test="${id=='admin'}">
-				<div style="width: 598px; height: 10px; text-align: right;">
-					<a href="${root}/event/eventWrite.do">이벤트 등록</a>
-				</div>
+				<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			         <b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 이벤트 관리</b>
+		       </div>
+		       
+		       <div align="left" style="width: 110px;float: left;">
+			      <jsp:include page="eventConNav.jsp"/>
+		        </div>
 			</c:if>
-		</div>
-
-		<div align="center">
-			<div id="event_one">
+	     <br/>
+			<div align="center"><b style="font-size:18px">이벤트 목록</b></div>
+         <br/><br/><br/><br/>
+         <div align="center">
+			<div id="event_one" style="margin-left:100px;">
 				<c:forEach var="eventDto" items="${eventList}">
-					<div id="event_id">
+					<div id="event_id" style="border:0px solid red; width:280px; height:180px; float:left;">
 						<a href="javascript:readFun('${root}','${eventDto.event_bunho}')">
-							<img src="${root}/css/event/images/${eventDto.event_file_name}"
-							title="${eventDto.event_name}" width="300" height="100" /> <br />${eventDto.event_name}
+							<img src="${root}/css/event/images/${eventDto.event_file_name}"	title="${eventDto.event_name}" width="300" height="100;" style="margin-left:20px"/><br/><br/>${eventDto.event_name}
 						</a>
 					</div>
 				</c:forEach>
 			</div>
 		</div>
-	</div>
+		</div><br/>
+
+		
 	<jsp:include page="../main-bottom.jsp" />
 </body>
 </html>

@@ -27,26 +27,32 @@
 </script>
 </head>
 <body>
-   <br/><br/>
-<div id="contents" style="height:550px; background:white; border:1px solid black; position:static; "><br/><br/><br/><br/>
+<div id="contents" style="height:600px; background:white; border:0px solid black; position:static; ">
+              <c:if test="${id=='admin'}">
+				<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			         <b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 이벤트 관리</b>
+		       </div>
+		       
+		       <div align="left" style="width: 110px;float: left;">
+			      <jsp:include page="eventConNav.jsp"/>
+		        </div>
+			</c:if>
+	         <br/>
+			<div align="center" style="border:0px solid red; height:50px;"><b style="font-size:18px"></b></div>			 
 <div align="right">
-<div style="width:598px; height:15px; text-align:right; ">
-			<a href="${root}/event/eventList.do">이벤트 목록</a></div>  
-</div>			 
-<div align="right">
-<div style="width:598px; height:15px; border-width:2px; text-align:right;">
+<div style="width:250px; height:15px; border-width:2px; text-align:center;">
        
        <label class="title"><fmt:formatDate value="${eventDto.event_start_period}"/></label>
        ~
        <label class="title"><fmt:formatDate value="${eventDto.event_end_period}"/></label>
 </div>
 
-<div align="left">
-<div style="width:598px; height:15px; border-width:2px; text-align:left; padding:15px 0px 0px 0px; border-bottom-width:0px;">
+<div align="center">
+<div style="width:200px; height:15px; border-width:2px; text-align:left; padding:15px 0px 0px 0px; border-bottom-width:0px;">
        
-      <label class="title">${eventDto.event_name}</label>
+      <label class="title" style="align:center">${eventDto.event_name}</label>
 </div>
-</div>
+</div><br/>
 
 <div align="center">
  <img src="${root}/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="400" height="200"/>

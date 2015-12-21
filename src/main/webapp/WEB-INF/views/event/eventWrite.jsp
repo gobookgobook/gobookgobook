@@ -23,36 +23,44 @@ $(function(){
 	 });
  });
 </script>
+<style>
+.ui-datepicker{ font-size: 13px; width: 270px; }
+.ui-datepicker select.ui-datepicker-month{ width:40%; font-size: 11px;}
+.ui-datepicker select.ui-datepicker-year{ width:40%; font-size: 11px; }
+</style>
 </head>
 <body>
-   <br/><br/>
-<div id="contents" style="height:500px; background:white; border:1px solid black"><br/><br/><br/><br/>      
-<form class="form_style" action="${root}/event/eventWrite.do" method="post" onsubmit="return eventForm(this)" enctype="multipart/form-data">
 
-<div align="right">
-<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
-			<a href="${root}/event/eventList.do">이벤트 목록</a>
-</div>
-</div>
-<c:if test="${id=='admin'}">
- <div align="center">
-   <label class="title">이벤트 등록</label><br/><br/>
-   
-   <div id="name">
+      <div id="contents" style="height:600px; background:white; border:0px solid black">     
+             <form class="form_style" action="${root}/event/eventWrite.do" method="post" onsubmit="return eventForm(this)" enctype="multipart/form-data"> 
+                <c:if test="${id=='admin'}">
+                  <div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			          <b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 이벤트 관리</b>
+		         </div>
+		       
+		       <div align="left" style="width: 110px;float: left;">
+			      <jsp:include page="eventConNav.jsp"/>
+		        </div>
+         <br/>
+			<div align="center"><b style="font-size:18px">이벤트 등록</b></div>
+         <br/>
+ <div align="center">  
      <div class="line">
-       <label class="title">이벤트이름</label>&nbsp;&nbsp;
+      <div id="name" style="border:0px solid red;">
+       <label class="title">이벤트이름</label>
        <span class="content">
           <input type="text" name="event_name"/><br/><br/>
        </span>
-       <label class="title">이벤트기간</label>&nbsp;&nbsp;
+       </div>
+       <label class="title">이벤트기간</label>
        
        <input type="text" id="date1" name="event_start_period"/>
        ~
        <input type="text" id="date2" name="event_end_period"/>
        <br/><br/> 
       
-      <div class="line" style="height:230px;"> 
-       <label class="title" style="height:230px;">이벤트내용</label><br/>
+      <div class="line"> 
+       <label class="title">이벤트내용</label><br/><br/><br/>
        <span class="content" style="height:230px;">
         <textarea rows="14" cols="67" name="event_Content"></textarea>
        </span>
@@ -67,11 +75,11 @@ $(function(){
          </div>
      </div>
    </div>
- </div>
 </c:if> 
 </form>
 	</div>
-<jsp:include page="../main-bottom.jsp"/>
+	<jsp:include page="../main-bottom.jsp"/>
 	<br/><br/>
+	
 </body>
 </html>
