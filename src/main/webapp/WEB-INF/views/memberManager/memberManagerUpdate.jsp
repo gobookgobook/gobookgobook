@@ -16,8 +16,8 @@
 <body>
 <div id="contents" style="height:300px; background:white; border:0px solid black; position: static;">	
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;회원 관리</b>
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 회원 관리</b>
 		</div>
 		
 		<div align="left" style="width: 120px;float: left;">
