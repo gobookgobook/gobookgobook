@@ -120,6 +120,10 @@
 	<update id="memberDelete" parameterType="java.util.HashMap">
 		update member set member_zipcode='0' where member_id=#{id} and member_password=#{password}
 	</update>
-	
+		
+	<!-- 이벤트 -->
+	<select id="eventListSelect" resultType="com.gobook.event.dto.EventDto">
+		select *from event where event_end_period >= sysdate
+	</select>	
 	
 </mapper>

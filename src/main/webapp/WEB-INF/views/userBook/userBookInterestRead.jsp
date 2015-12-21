@@ -70,7 +70,7 @@
 			</c:if>
 			
 			<c:if test="${id ==null }">
-				로그인 후 이용 가능합니다.
+				<div align="center" style="padding-bottom:25px; ">확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>
 			</c:if>
 		</div>
 	</div>

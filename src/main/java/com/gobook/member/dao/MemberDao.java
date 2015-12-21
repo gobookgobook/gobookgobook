@@ -12,6 +12,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.event.dto.EventDto;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
 import com.gobook.userorder.dto.UserOrderDto;
@@ -210,5 +211,16 @@ public class MemberDao implements IMemberDao{
 	@Override
 	public List<BookDto> userBookBestSeller() {
 		return sqlSessionTemplate.selectList("dao.memberMapper.userBookBestSeller");
+	}
+
+	/**
+	 * @함수이름 : eventListSelect
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 오주석
+	 * @설명 : 이벤트 불러오기
+	 */
+	@Override
+	public List<EventDto> eventListSelect() {
+		return sqlSessionTemplate.selectList("dao.memberMapper.eventListSelect");
 	}
 }

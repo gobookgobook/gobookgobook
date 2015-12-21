@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
+import com.gobook.event.dto.EventDto;
 import com.gobook.member.dao.IMemberDao;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.ZipcodeDto;
@@ -219,6 +220,7 @@ public class MemberService implements IMemberService {
 	 * @개발자 : 성기훈
 	 * @설명 : 메인페이지(사용자, 관리자 구분)
 	 * @수정 : 오주석:베스트 셀러 추가
+	 * @수정 : 오주석:이벤트 추카
 	 */
 	@Override
 	public void goBookMain(ModelAndView mav) {
@@ -232,10 +234,15 @@ public class MemberService implements IMemberService {
 		List<BookDto> bestSeller=iMemberDao.userBookBestSeller();
 		GoBookAspect.logger.info(GoBookAspect.logMsg + bestSeller.size());
 		
+		List<EventDto> eventeList=iMemberDao.eventListSelect();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + eventeList.size());
+		
 		mav.addObject("bestSeller", bestSeller);
+		mav.addObject("eventeList", eventeList);
 		try{
 			if(id.equals("admin")) mav.setViewName("member/adminMain");
 			else mav.setViewName("member/goBookMain");
 		}catch(Exception e){}
 	}
+
 }

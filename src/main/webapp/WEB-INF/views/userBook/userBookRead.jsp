@@ -166,7 +166,8 @@
 				</textarea>
 			</c:if>
 			<c:if test="${bookDto.book_index ==null}">
-				목차가 존재 하지 않습니다.
+				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">목차가 존재 하지 않습니다.
+				</textarea>
 			</c:if>
 			</span>
 
@@ -177,7 +178,8 @@
 					</textarea>
 				</c:if>
 				<c:if test="${bookDto.book_summary ==null}">
-					줄거리가없습니다.	
+					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
+					</textarea>
 				</c:if>
 			</span>
 		</div>

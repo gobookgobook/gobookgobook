@@ -141,15 +141,23 @@
 <div id="visual">
  <div id="mySwipe"  class='swipe'>
     <ul class="touch_banner swipe-wrap"> <!-- 배너 목록 -->
-      <li style="margin-left:-10px;"><a href="${root}/event/eventRead.do?event_bunho=27"><img src="${root}/images/이벤트7.jpg" alt=""/></a></li>
-      <li><a href="${root}/event/eventRead.do?event_bunho=28"><img src="${root}/images/이벤트8.jpg" alt=""/></a></li>
-      <li><a href="${root}/event/eventRead.do?event_bunho=29"><img src="${root}/images/이벤트9.jpg" alt=""/></a></li>
+    <c:set var="count" value="0"/>
+	<c:forEach var="event" items="${eventeList}">
+		<c:if test="${count==0 }">
+		<li style="margin-left:-3.5px;"><a href="${root}/event/eventRead.do?event_bunho=${event.event_bunho}"><img src="http://localhost:8181/gobook/css/event/images/${event.event_file_name}" alt=""/></a></li>
+		</c:if>
+		<c:if test="${count>0 }">
+		<li><a href="${root}/event/eventRead.do?event_bunho=${event.event_bunho}"><img src="http://localhost:8181/gobook/css/event/images/${event.event_file_name}" alt=""/></a></li>
+		</c:if>
+		count++;
+	</c:forEach>
    </ul>
   </div>
   <ul class="touch_bullet"> <!-- 배너 위치 표시 -->
      <li><img src="${root}/images/visual_bullet_on.png" class="active" alt="" /></li>
+	<c:forEach begin="1" end="${eventeList.size()-1}">
      <li><img src="${root}/images/visual_bullet_off.png" alt="" /></li>
-     <li><img src="${root}/images/visual_bullet_off.png" alt="" /></li>
+    </c:forEach>
   </ul>
   <p class="touch_left_btn"> <!-- 이전 버튼 -->
      <a href="#">
