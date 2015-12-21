@@ -6,6 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>이벤트 수정</title>
 <script type="text/javascript" src="${root}/script/event/start/jquery.js"></script>
@@ -23,7 +24,6 @@ $(function(){
 	 });
  });
 </script>
-<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 <br/><br/>
@@ -69,7 +69,7 @@ $(function(){
 				<c:if test="${eventDto.event_file_name !=null}">	
 					<label class="title">이벤트사진</label> 
 					<span class="content">
-					${eventDto.event_file_name}
+					${event_file_name}
 						<input type="file" name="event_file"/>
 					</span><br/><br/>	
 				</c:if>	

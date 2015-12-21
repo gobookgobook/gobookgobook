@@ -99,10 +99,10 @@ public class EventService implements IEventService {
 		EventDto eventDto=iEventDao.eventRead(event_bunho);
 		GoBookAspect.logger.info(GoBookAspect.logMsg+ eventDto); 
 		
-		if(eventDto.getEvent_file_name() != null){
+		/*if(eventDto.getEvent_file_name() != null){
 		int index=eventDto.getEvent_file_name().indexOf("_")+1;
-		eventDto.setEvent_file_name(eventDto.getEvent_file_name().substring(index));	
-		}
+			eventDto.setEvent_file_name(eventDto.getEvent_file_name().substring(index));	
+		}*/
 		mav.addObject("eventDto",eventDto);
 		mav.setViewName("event/eventRead");
 	}

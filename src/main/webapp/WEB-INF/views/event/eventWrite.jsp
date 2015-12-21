@@ -5,6 +5,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>이벤트 등록</title>
 <script type="text/javascript" src="${root}/script/event/start/jquery.js"></script>
@@ -22,7 +23,6 @@ $(function(){
 	 });
  });
 </script>
-<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
    <br/><br/>

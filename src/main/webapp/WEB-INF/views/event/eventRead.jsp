@@ -6,6 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>이벤트 열람</title>
 <script type="text/javascript">
@@ -24,7 +25,6 @@
    }
    
 </script>
-<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
    <br/><br/>
@@ -49,7 +49,7 @@
 </div>
 
 <div align="center">
- <img src="http://localhost:8181/gobook/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="400" height="200"/>
+ <img src="${root}/css/event/images/${eventDto.event_file_name}" title="${eventDto.event_name}" width="400" height="200"/>
 </div>
 
 <div align="center">
