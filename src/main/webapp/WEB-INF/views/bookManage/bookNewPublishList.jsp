@@ -17,88 +17,109 @@
 <body>
 	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
-	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
-		</div>
-		
-		<div align="left" style="width: 120px;float: left;">
-			<jsp:include page="bookManageConNav.jsp"/>
-		</div>
+		<c:if test="${id=='admin'}">
+			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
+			</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 16px;">신간 도서 구매 희망 내역</b></div>
-			<br/>
-		<c:if test="${count==0}">
-		<div align="center">
-			<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
-				<tr>
-					<td align="center">신간 도서 구매 희망 내역이 없습니다.</td>
-				</tr>
-			</table> 
-		</div>
-		</c:if>
-		
-		<c:if test="${count>0}">
-		<div align="center">
-			<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
-				<tr>
-					<td class="mytable" align="center" height="18" width="80">도서번호</td>
-					<td class="mytable" align="center" height="18" width="240">도서명</td>
-					<td class="mytable" align="center" height="18" width="80">도서원가</td>
-					<td class="mytable" align="center" height="18" width="80">도서가격</td>
-					<td class="mytable" align="center" height="18" width="80">도서수량</td>
-					<td class="mytable" align="center" height="18" width="80">별점</td>
-					<td class="mytable" align="center" height="18" width="80">신간요청</td>
-					<td class="mytable" align="center" height="18" width="80">공구요청</td>
-				</tr>
-			<c:forEach var="newBook" items="${bookNewPublishList}">
-				<tr>
-					<td class="mytable" align="center" height="18">${newBook.book_num}</td>
-					<td class="mytable" align="left" height="18">
-						<a href="${root}/bookManage/bookStockUpdate.do?book_num=${newBook.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${newBook.book_name}</a>
-					</td>
-					<td class="mytable" align="center" height="18">${newBook.book_cost}</td>
-					<td class="mytable" align="center" height="18">${newBook.book_price}</td>
-					<td class="mytable" align="center" height="18">${newBook.book_quantity}</td>
-					<td class="mytable" align="center" height="18">${newBook.book_star}</td>
-					<td class="mytable" align="center" height="18">${newBook.book_reorder_count}</td>
-					<td class="mytable" align="center" height="18">${newBook.book_group_purchase_count}</td>
-				</tr>
-			</c:forEach>
-			</table> 
-		</div>
-		
-		<div align="center">
-			<c:set var="pageBlock" value="${5}"/>
-			<c:set var="pageCount" value="${count/boardSize+(count%boardSize==0 ? 0:1)}"/>		
-			<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
-			<c:set var="startPage" value="${result*pageBlock+1}"/>
-			<c:set var="endPage" value="${startPage+pageBlock-1}"/>
-			
-			<c:if test="${endPage>pageCount}">
-				<c:set var="endPage" value="${pageCount}"/>
+			<div align="left" style="width: 120px;float: left;">
+				<jsp:include page="bookManageConNav.jsp"/>
+			</div>
+				
+			<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
+				<br/><br/>
+				<div align="center"><b style="font-size: 18px;">신간 도서 구매 희망 내역</b></div>
+				<br/>
+				
+			<c:if test="${count==0}">
+			<div align="center">
+				<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
+					<tr>
+						<td align="center">신간 도서 구매 희망 내역이 없습니다.</td>
+					</tr>
+				</table> 
+			</div>
 			</c:if>
 			
-			<c:if test="${startPage>pageBlock}">
-				<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${startPage-pageBlock}">[이전]</a>
-			</c:if>
-			
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<c:if test="${currentPage==i}">[${i}]</c:if>
-				<c:if test="${currentPage!=i}">
-				<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${i}">[${i}]</a>
+			<c:if test="${count==0}">
+					<div class="container" style="width:835px;padding:0px">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="success" style="color:#1DDB16">
+									<th style="text-align:center">도서번호</th>
+									<th style="text-align:center">도서명</th>
+									<th style="text-align:center">도서원가</th>
+									<th style="text-align:center">별점</th>
+									<th style="text-align:center">입고요청</th>
+									<th style="text-align:center">공구요청</th>
+								</tr>
+							</thead>
+							<tbody id="listAllTd"></tbody>
+						</table>
+					</div>
+					<span>품절된 도서가 없습니다.</span>
 				</c:if>
-			</c:forEach>
-			
-			<c:if test="${endPage<pageCount}">
-				<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${startPage+pageBlock}">[다음]</a>
-			</c:if>
-		</div>
+				
+				<c:if test="${count>0}">
+					<div class="container" style="width:835px;padding:0px">
+						<table class="table table-bordered" style="line-height: 100px">
+							<thead>
+								<tr class="success" align="center" style="color:#1DDB16">
+									<th style="text-align:center">도서번호</th>
+										<th style="text-align:center;width:375px">도서명</th>
+										<th style="text-align:center">도서원가</th>
+										<th style="text-align:center">별점</th>
+										<th style="text-align:center">입고요청</th>
+										<th style="text-align:center">공구요청</th>
+								</tr>
+							</thead>
+							<tbody id="listAllTd">
+								<c:forEach var="book" items="${bookNewPublishList}">
+									<tr class="success">
+										<td style="text-align:center">${book.book_num}</td>
+										<td style="text-align:left">
+											<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+										</td>
+										<td style="text-align:center">${book.book_cost}</td>
+										<td style="text-align:center">${book.book_star}</td>
+										<td style="text-align:center">${book.book_reorder_count}</td>
+										<td style="text-align:center">${book.book_group_purchase_count}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 		
+					<div align="center">
+						<c:set var="pageBlock" value="${5}"/>
+						<c:set var="pageCount" value="${count/boardSize+(count%boardSize==0 ? 0:1)}"/>		
+						<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
+						<c:set var="startPage" value="${result*pageBlock+1}"/>
+						<c:set var="endPage" value="${startPage+pageBlock-1}"/>
+						
+						<c:if test="${endPage>pageCount}">
+							<c:set var="endPage" value="${pageCount}"/>
+						</c:if>
+						
+						<c:if test="${startPage>pageBlock}">
+							<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+						</c:if>
+						
+						<c:forEach var="i" begin="${startPage}" end="${endPage}">
+							<c:if test="${currentPage==i}">[${i}]</c:if>
+							<c:if test="${currentPage!=i}">
+							<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${i}">[${i}]</a>
+							</c:if>
+						</c:forEach>
+						
+						<c:if test="${endPage<pageCount}">
+							<a href="${root}/bookManage/bookReOrderCount.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+						</c:if>
+					</div>
+		
+				</c:if>
+			</div>
 		</c:if>
-		</div>
-	</c:if>
 	</div>
 	<c:if test="${id!='admin'}">
 		<script type="text/javascript">

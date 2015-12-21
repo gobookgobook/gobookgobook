@@ -18,7 +18,7 @@
 	<div id="contents" style="background:white; border:0px solid black">
 		<c:if test="${id=='admin'}">
 			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 공동 구매</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
 		</div>
 		
 		<div align="left" style="width: 110px;float: left;">
@@ -26,7 +26,7 @@
 		</div>
 				
 			<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-				<br/>
+				<br/><br/>
 				<div align="center"><b style="font-size:18px">진행중인 공동구매</b></div>
 				<br/>
 				
@@ -91,7 +91,8 @@
 				<br/>
 				
 				<div>
-					<div align="center"><b style="font-size: 18px;">공동구매 요청내역</b></div>
+					<br/>
+					<div align="center"><b style="font-size:18px">진행중인 공동구매</b></div>
 					<br/>
 					<c:if test="${count==0}">
 						<div class="container" style="width:835px;padding:0px">
@@ -184,8 +185,16 @@
 		</script>
 	</c:if>
 	
+	<c:if test="${gpCount<4}">
 		<div style="margin-top: 400px">
 			<jsp:include page="../main-bottom.jsp"/>
 		</div>
+	</c:if>
+	
+	<c:if test="${gpCount>=4}">
+		<div style="margin-top: 500px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
 </body>
 </html>

@@ -87,7 +87,7 @@
         <legend>검색폼</legend>
         <p>
            <input type="text" name="keyword" id="keyword" title="검색어입력 " />
-           <input type="image" src="${root}/images/gnb_search.png" alt="검색" />
+           <input type="image" src="${root}/images/gnb_search.png" alt="검색" style="width:50px; height:33px; position:absolute; top:0px; left:300px;"/>
         </p>
         <div id="suggest" style="display:; postion: absolute; left: 0px; top: 30px;">
 			<div id="suggestList"></div>
@@ -95,9 +95,9 @@
      </fieldset>
   </form>
   <h2 class="hide">메인메뉴</h2>
-   <ul id="gnb">
-     <li><a href="${root}/bookManage/bookManage.do"><img src="${root}/images/gnb_ad1_pic.png" alt="도서관리" style="width:100px; height:40px;"/></a>
-        <ul class="sub1">
+    <ul id="gnb">
+     <li><a href="${root}/bookManage/bookManage.do"><img src="${root}/images/gnb_7_pic.png" alt="도서관리" style="width:100px; height:40px;"/></a>
+        <ul class="sub7">
            	<li><a href="${root}/bookManage/bookInsert.do">도서등록</a></li>
 			<li><a href="${root}/bookManage/bookStockList.do">재고관리</a></li>
 			<li><a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></li>
@@ -106,47 +106,44 @@
 			<li><a href="${root}/bookManage/bookSchedule.do">출간일정관리</a></li>
         </ul>
      </li>
-     <li><a href="${root}/memberManager/memberManagerUpdate.do"><img src="${root}/images/gnb_ad2_pic.png" alt="회원관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub3">
+     <li><a href="${root}/memberManager/memberManagerUpdate.do"><img src="${root}/images/gnb_8_pic.png" alt="회원관리" style="width:100px; height:40px;"/></a>
+     	<ul class="sub8">
            	<li><a href="${root}/memberManager/memberManagerUpdate.do">관리자 정보수정</a></li>
 			<li><a href="${root}/memberManager/memberManageCouponList.do">쿠폰 관리</a></li>
         </ul>
      </li>
-     <li><a href="${root}/event/eventList.do"><img src="${root}/images/gnb_ad3_pic.png" alt="이벤트 관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub3">
+     <li><a href="${root}/event/eventList.do"><img src="${root}/images/gnb_9_pic.png" alt="이벤트 관리" style="width:100px; height:40px;"/></a>
+     	<ul class="sub9">
            	<li><a href="${root}/event/eventWrite.do">이벤트 등록</a></li>
 			<li><a href="${root}/event/eventList.do">이벤트 목록</a></li>
         </ul>
      </li>
-     <li><a href="${root}/location/locationList.do"><img src="${root}/images/gnb_ad4_pic.png" alt="지점관리" style="width:100px; height:40px;"/></a>
-        <ul class="sub4">
+     <li><a href="${root}/location/locationList.do"><img src="${root}/images/gnb_10_pic.png" alt="지점관리" style="width:100px; height:40px;"/></a>
+        <ul class="sub10">
            <li><a href="${root}/location/locationWrite.do">지점등록</a></li>
            <li><a href="${root}/location/locationList.do">지점목록</a></li>
-           <li><a href="#">지점 확인</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_ad5_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
-     	<ul class="sub5">
-     		<li><a href="#">1:1 문의</a></li>
+     <li><a href="${root}/help/adminHelpNoticeList.do"><img src="${root}/images/gnb_11_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     	<ul class="sub11">
            <li><a href="${root}/help/adminHelpNoticeList.do">공지사항</a></li>
-           <li><a href="${root}/help/adminHelpQnAListSelect.do">Q&A</a></li>
-           <li><a href="#">지점 확인</a></li>
+           <li><a href="${root}/help/adminHelpQnAList.do">Q&A</a></li>
         </ul>
      </li>
-     <li><a href="${root}/sales/salesDailyList.do"><img src="${root}/images/gnb_ad6_pic.png" alt="매출관리" style="width:100px; height:40px;"/></a>
-     	<ul class="sub6">
+     <li><a href="${root}/sales/salesDailyList.do"><img src="${root}/images/gnb_12_pic.png" alt="매출관리" style="width:100px; height:40px;"/></a>
+     	<ul class="sub12">
      		<li><a href="${root}/sales/salesDailyList.do">일일매출</a></li>
            <li><a href="${root}/sales/salesMonthlyList.do">월간매출</a></li>
         </ul>
      </li>
-  </ul> 
+  </ul>
 </div>
 </div>
 
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
 		</div>
 		
 		<div align="left" style="width: 120px;height: 1000px;float: left;">

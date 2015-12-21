@@ -19,7 +19,7 @@
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 품절도서목록</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
 		</div>
 		
 		<div align="left" style="width: 110px;float: left;">
@@ -27,7 +27,8 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 16px;">품절도서목록</b></div>
+			<br/><br/>
+			<div align="center"><b style="font-size: 18px;">품절도서목록</b></div>
 			<br/>
 			
 			<c:if test="${count==0}">
@@ -117,7 +118,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:150px">
+	<div style="margin-top:200px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>
