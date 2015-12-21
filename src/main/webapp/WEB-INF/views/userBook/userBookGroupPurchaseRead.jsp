@@ -20,10 +20,11 @@
       border-top: 0px;
       border-radius: 0px 10px 10px 10px;
    }
+
 </style>
 </head>
 <body>
-<div id="contents" style="height:720px; background:white; border:0px solid black">
+<div id="contents" style="height:720px; background:white; border:0px solid black; position: static;">
 	  <h2 align="center">공동구매 신청</h2>
 <div class="book_read">
 	<div class="book_top" style="height: 32%;">	
@@ -131,6 +132,8 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="../main-bottom.jsp"/>
+<div>
+	<jsp:include page="../main-bottom.jsp"/>
+</div>
 </body>
 </html>

@@ -50,10 +50,10 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr style="color:white;background-color:#37415a">
-								<th style="text-align:center">지점명</th>
-								<th style="text-align:center">지점주소</th>
-								<th style="text-align:center">지점장</th>
-								<th style="text-align:center">전화번호</th>
+								<th style="text-align:center;background:#37415a; color: white;">지점명</th>
+								<th style="text-align:center;background:#37415a; color: white;">지점주소</th>
+								<th style="text-align:center;background:#37415a; color: white;">지점장</th>
+								<th style="text-align:center;background:#37415a; color: white;">전화번호</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd"></tbody>
@@ -75,12 +75,12 @@
 			</c:if>
 			
 			<c:if test="${count > 0}">
-				<table border="1">
+				<table class="table table-bordered">
 					<tr>
-						<td width="100" align="center">지점명</td>
-						<td width="500" align="center">지점주소</td>
-						<td width="100" align="center">지점장</td>
-						<td width="150" align="center">전화번호</td>
+						<td width="100" align="center" style="background:#37415a; color: white;">지점명</td>
+						<td width="500" align="center" style="background:#37415a; color: white;">지점주소</td>
+						<td width="100" align="center" style="background:#37415a; color: white;">지점장</td>
+						<td width="150" align="center" style="background:#37415a; color: white;">전화번호</td>
 					</tr>
 					
 					<c:set var="i" value="0"/>
