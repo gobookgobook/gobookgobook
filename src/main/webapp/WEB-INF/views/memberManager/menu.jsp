@@ -11,16 +11,16 @@
 <body>
 	<table class="table table-bordered">
 	
-	    <tr style="color:white">
-		    <td style="background:#41AF39"><a id="tda" href="${root}/memberManager/memberManageCouponList.do" >쿠폰 목록</a></td>
+	    <tr style="color:white;">
+		    <td style="background:#41AF39;"><a id="tda" href="${root}/memberManager/memberManageCouponList.do" >쿠폰 목록</a></td>
      	</tr>
      	
      	<tr style="color:white">
-		    <td style="background:#41AF39"><a id="tda" href="${root}/memberManager/memberManageCouponInsert.do">쿠폰 생성</a></td>
+		    <td style="background:#41AF39;"><a id="tda" href="${root}/memberManager/memberManageCouponInsert.do">쿠폰 생성</a></td>
 		</tr>
 		
 		<tr style="color:white">
-		    <td style="background:#41AF39"><a id="tda" href="${root}/memberManager/memberManagerUpdate.do">관리자 정보 수정</a></td>
+		    <td style="background:#41AF39;"><a id="tda" href="${root}/memberManager/memberManagerUpdate.do">관리자정보 수정</a></td>
 		</tr>
 	</table>
 </body>
