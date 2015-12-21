@@ -8,7 +8,6 @@
 <jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/location/script.js"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">

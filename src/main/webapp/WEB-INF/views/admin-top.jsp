@@ -29,7 +29,7 @@
  <dd><a href="#container">본문 바로가기</a></dd>
 </dl>
 <div id="header">
-  <h1><a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" /></a></h1>
+  <h1><a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="margin-top:10px;"/></a></h1>
   <dl id="util_menu">
      <dt class="hide">유틸 메뉴</dt>
      <dd class="util_first">

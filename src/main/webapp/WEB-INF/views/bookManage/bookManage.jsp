@@ -2,15 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 	<c:set var="id" value="admin" scope="session"/>
@@ -68,5 +68,6 @@
 		</script>
 	</c:if>
 	</div>
+<jsp:include page="../main-bottom.jsp"/>	
 </body>
 </html>

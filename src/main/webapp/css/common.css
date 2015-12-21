@@ -125,11 +125,11 @@ a:hover, a:focus{color:#c60;}
 #gnb ul.sub5 li:first-child{margin-left:30px;}
 #gnb ul.sub6 li:first-child{margin-left:30px;}
 #gnb ul.sub7 li:first-child{margin-left:30px;}
-#gnb ul.sub8 li:first-child{margin-left:30px;}
-#gnb ul.sub9 li:first-child{margin-left:30px;}
-#gnb ul.sub10 li:first-child{margin-left:30px;}
-#gnb ul.sub11 li:first-child{margin-left:30px;}
-#gnb ul.sub12 li:first-child{margin-left:30px;}
+#gnb ul.sub8 li:first-child{margin-left:150px;}
+#gnb ul.sub9 li:first-child{margin-left:320px;}
+#gnb ul.sub10 li:first-child{margin-left:500px;}
+#gnb ul.sub11 li:first-child{margin-left:650px;}
+#gnb ul.sub12 li:first-child{margin-left:800px;}
 /*오늘 날짜 영역*/
 #date_wrap{
   font-family:"nanum Gothic", Malgun Gothic, "맑은고딕", sans-serif;
