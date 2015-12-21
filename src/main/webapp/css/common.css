@@ -165,30 +165,38 @@ a:hover, a:focus{color:#c60;}
 
 /*푸터 영역*/
 #footer_wrap{
-  margin-top:30px;
+  margin-top:40px;
+  margin-left:180px;
   background-color:#fff;
-  border-top:2px solid #37415a;
+  width:970px;
+  height:5px;
+  position:static;
+  
 }
 #inner_footer{
-  width:653px;height:180px;
-  margin:0 auto;position:relative;
-  padding:15px 0 0 400px;
+  width:600px;height:100px;
+  margin-top:100px;
+  position:relative;
+  padding:10px 0 0 400px;
+  border-top:1px solid #37415a;
 }
 #inner_footer h3.footer_logo img{
-	position:absolute;left:35px;bottom:-10px;
+	position:absolute;left:100px;bottom:-10px;
 	border:0px solid red;
-	width:250px;
-	height:180px;
+	width:150px;
+	height:90px;
 }
 #inner_footer label{
 	border:0px solid red;
 	position:absolute;
 	left : 300px;
+	margin-bottom:30px;
+	bottom:-30px;
 }
 
 #bottom_menu dd{
 	float:left;margin-right:15px;
-	border:1px solid red;
+	border:0px solid red;
 }
 #bottom_menu{
 	overflow:hidden;margin-bottom:25px;

@@ -19,13 +19,13 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap" style="border-top:2px solid #37415a; background-color:#fff; margin-top:30px;">
-<div id="inner_footer" style="width:800px; height:180px; margin:0 auto; position:relative; padding:15px 0 0 400px; border:0px solid red;">
+<div id="footer_wrap" style="margin-top:40px; margin-left:180px; width:970px; height:5px; position:static;">
+<div id="inner_footer" style="width:970px; height:100px; margin-top:100px; position:relative;  padding:10px 0 0 400px;  border-top:1px solid #37415a;">
  <h3 class="footer_logo">
-    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="position:absolute;left:-100px;bottom:-10px; width:250px; height:180px;border:0px solid red;"/></a>
+    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="	position:absolute;left:100px; bottom:-10px; border:0px solid red;width:150px;height:90px;"/></a>
  </h3>
  <br/><br/>
- <div id="relSite_wrap" style="position:absolute;left:700px;top:50px;">
+ <div id="relSite_wrap" style="position:absolute;left:815px;top:50px;">
    <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기"/></h3>
    <form action="#" method="get" name="rel_f">
      <fieldset>
@@ -41,8 +41,9 @@
  </div>
  <address>
 
- <label style="border:0px solid red; position:absolute; left :200px;font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
- 2015-2016 꼬북꼬북. All Rights Reserved</label>
+ <label style="border:0px solid red; position:absolute; left :300px;bottom:-30px; margin-bottom:30px;">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
+ 2015-2016 꼬북꼬북. All Rights Reserved<br/>
+ LG U+ 구매안전서비스 : 고객님은 안전거래를 위해 현금 등으로 결제시<br/> 저희 쇼핑몰에서 가입한 LG유플러스의 구매안전서비스를 이용하실 수 있습니다</label>
  
  </address>
 </div>
