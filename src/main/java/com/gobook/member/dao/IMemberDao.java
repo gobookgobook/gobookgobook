@@ -17,7 +17,7 @@ public interface IMemberDao {
 	public List<ZipcodeDto> zipcode(String dong);
 	public int memberIdCheck(String id);
 	public int memberInsert(MemberDto memberDto);
-	public String memberLogin(String id, String password);
+	public MemberDto memberLogin(String id, String password);
 	public int memberDelete(String id, String password);
 	public MemberDto memberSelect(String id);
 	public int memberUpdate(MemberDto memberDto);

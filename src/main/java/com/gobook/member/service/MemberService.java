@@ -118,17 +118,31 @@ public class MemberService implements IMemberService {
 		String password=request.getParameter("member_password");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + id + "\t" + password);
 		
-		String loginId=iMemberDao.memberLogin(id,password);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + loginId);
+		MemberDto userMember=iMemberDao.memberLogin(id,password);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + userMember);
 		
-		if(loginId!=null&&loginId!=""){
-			int deleteCouponValue = iMemberDao.memberDeleteCouponDate(loginId);
+		String loginId=null;
+		String deleteIdCheck=null;
+		int deleteId=0;
+		
+		if(userMember!=null){
+			deleteIdCheck = userMember.getMember_zipcode();
+			GoBookAspect.logger.info(GoBookAspect.logMsg + deleteIdCheck);
+			
+			if(deleteIdCheck.equals("0")){
+				deleteId=1;
+			}
+			
+			int deleteCouponValue = iMemberDao.memberDeleteCouponDate(userMember.getMember_id());
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "기간지난쿠폰 : " + deleteCouponValue);
 			
-			int deleteBasketValue = iMemberDao.memberDeleteBasketDate(loginId);
+			int deleteBasketValue = iMemberDao.memberDeleteBasketDate(userMember.getMember_id());
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "기간지난장바구니 : " + deleteBasketValue);
+			
+			loginId=userMember.getMember_id();
 		}
 		
+		mav.addObject("deleteId", deleteId);
 		mav.addObject("loginId", loginId);
 		
 		mav.setViewName("member/loginOk");

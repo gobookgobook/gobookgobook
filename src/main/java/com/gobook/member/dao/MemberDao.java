@@ -94,20 +94,20 @@ public class MemberDao implements IMemberDao{
 	 * @설명 : 회원로그인
 	 */
 	@Override
-	public String memberLogin(String id, String password) {
-		String value=null;
+	public MemberDto memberLogin(String id, String password) {
+		MemberDto memberDto=null;
 		HashMap<String, String> hMap=new HashMap<String, String>();
 		hMap.put("id", id);
 		hMap.put("password", password);
 		
 		try{
-			value=sqlSessionTemplate.selectOne("dao.memberMapper.memberLogin", hMap);
+			memberDto=sqlSessionTemplate.selectOne("dao.memberMapper.memberLogin", hMap);
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
-		return value;
+		return memberDto;
 	}
 
 	/**

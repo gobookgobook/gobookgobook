@@ -32,8 +32,8 @@
 		#{member_id}, '1')
 	</insert>
 	
-	<select id="memberLogin" resultType="String" parameterType="java.util.HashMap">
-		select member_id from member where member_id=#{id} and member_password=#{password}
+	<select id="memberLogin" resultType="com.gobook.member.dto.MemberDto" parameterType="java.util.HashMap">
+		select * from member where member_id=#{id} and member_password=#{password}
 	</select>
 	
 	<delete id="memberDeleteCouponDate" parameterType="String">
