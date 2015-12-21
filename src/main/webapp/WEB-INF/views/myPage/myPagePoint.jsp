@@ -38,7 +38,7 @@
 			</c:if>
 			</c:if>
 			<c:if test="${id ==null }">
-				<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>지금 Login을 하신 후 장바구니를 보시면 회원님의 포인트함을 보실 수 있습니다.</div>
+				<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>지금 Login을 하신 후 포인트함을 보시면 회원님의 포인트를 보실 수 있습니다.</div>
 			</c:if>
 		</div>
 	</div>

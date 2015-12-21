@@ -27,7 +27,7 @@
 <body>
 <div id="contents" style="height:800px; background:white; border:1px solid black">
 	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;관심분야 추천 목록</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;>관심분야 추천 목록</b>
 	</div>
 	<div class="interestAll">
 		<div class="interestBody">
@@ -70,7 +70,7 @@
 			</c:if>
 			
 			<c:if test="${id ==null }">
-				<div align="center" style="padding-bottom:25px; ">확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>
+				<div align="center" style="padding-bottom:25px; ">확인하세요!<br/>지금 Login을 하시면 관심분야 추천 목록을 확인할 수 있습니다.</div>
 			</c:if>
 		</div>
 	</div>

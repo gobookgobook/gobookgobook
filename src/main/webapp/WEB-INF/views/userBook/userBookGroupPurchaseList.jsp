@@ -15,7 +15,7 @@
 <body>
 <div id="contents" style="height:600px; background:white; border:1px solid black; position: static;">
 	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;공동구매 목록</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;>공동구매 목록</b>
 	</div>
 	<div style="width: 95%;margin: 0px auto;">
 		<div align="left" style="float: left;margin: 10 0 0 10px; width:100%;">
