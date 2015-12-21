@@ -16,15 +16,19 @@
 <body>
 	<div id="contents" style="height:100%; background:white; border:0px solid black;position: static">
 		<div id="wrap">
-			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;고객 센터</b>
+			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객 센터</b>
 			</div>
 			
 			<div align="left" style="width: 110px;float: left">
 				<jsp:include page="adminHelpConNav.jsp"/>
 			</div>
 			
-		    <h1 style="margin-left:20px">공지사항</h1>
+		    <br/>
+	        <div align="center">
+	        	<b style="font-size:18px">공지사항 목록</b>
+	        </div>
+	        <br/>
 			
 			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px">
 				<c:if test="${count==0}">

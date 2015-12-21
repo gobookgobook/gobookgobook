@@ -38,14 +38,32 @@
 <body>
 <div id="contents" style="background:white; border:0px solid black; position:static;">
     <c:if test="${id==null}">
-		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
-		<div align="center">
-			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
+    	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 장바구니 목록</b>
 		</div>
+		<br/><br/>
+		
+		<div class="container" style="width:999px;padding:0px">
+			<table class="table table-bordered">
+				<thead>
+					<tr style="color:white;background-color:#37415a">
+						<th style="text-align:center">책제목</th>
+						<th style="text-align:center">판매가</th>
+						<th style="text-align:center">수량</th>
+						<th style="text-align:center">합계</th>
+						<th style="text-align:center">삭제</th>
+					</tr>
+				</thead>
+				<tbody id="listAllTd"></tbody>
+			</table>
+		</div>
+		<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>현재 고객님의 장바구니에 담긴 도서가 없습니다!<br/>지금 Login을 하신 후 장바구니를 보시면 회원님의 장바구니를 보실 수 있습니다.</div>
+		
 	</c:if>
+	
     <c:if test="${id !=null}">
-    	<div style="background-color: #6799FF;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;장바구니 목록</b>
+    	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 장바구니 목록</b>
 		</div>
 		
 		<div align="center">
@@ -54,20 +72,18 @@
 				<div class="container" style="width:999px;padding:0px">
 					<table class="table table-bordered">
 						<thead>
-							<tr class="info" align="center" style="color:#1770b5">
-								<th>책제목</th>
-								<th>판매가</th>
-								<th>수량</th>
-								<th>합계</th>
-	<!-- 							<th>선택</th> -->
-								<th>삭제</th>
+							<tr style="color:white;background-color:#37415a">
+								<th style="text-align:center">책제목</th>
+								<th style="text-align:center">판매가</th>
+								<th style="text-align:center">수량</th>
+								<th style="text-align:center">합계</th>
+								<th style="text-align:center">삭제</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<span>상품이 없습니다.</span>
-				<hr width="50%" color="blue"/>
+				<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>
 			</c:if>
 			
 			<c:if test="${count > 0}">
@@ -75,12 +91,11 @@
 				<div class="container" style="width:999px;padding:0px">
 					<table class="table table-bordered">
 						<thead>
-							<tr class="info" align="center" style="color:#1770b5">
+							<tr style="color:white;background-color:#37415a">
 								<th style="text-align:center">책제목</th>
 								<th style="text-align:center">판매가</th>
 								<th style="text-align:center">수량</th>
 								<th style="text-align:center">합계</th>
-	<!-- 							<th>선택</th> -->
 								<th style="text-align:center">삭제</th>
 							</tr>
 						</thead>
@@ -92,11 +107,11 @@
 							
 							<c:forEach var="myBasket" items="${myBasketList}">
 							<c:set var="point" value="${myBasket.basket_book_price*0.03}"/>	
-								<tr class="info" id="${myBasket.basket_num}">
+								<tr id="${myBasket.basket_num}">
 									<td>${myBasket.basket_book_name}</td>
 									<td style="text-align:center">
 										<b><fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원</b>
-										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
+										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true"/> &nbsp;P)
 									</td>
 									<td style="text-align:center">
 										<form name="quantity_update" method="post">

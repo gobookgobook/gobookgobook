@@ -1,3 +1,33 @@
+// 숫자를  입력받아 세자리씩 끊어서 쉼표를 넣어주는 함수
+/**
+ * @함수이름 : numberFormat
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 숫자의 포맷팅을 위한 함수
+ */
+function numberFormat(num){
+	var numString=num+"";
+	var numLength=numString.length;
+	var rest=numLength%3;
+	if(rest==0) rest=3;
+	var result=numString;
+	
+	for(var i=0;i<numLength/3-1;i++){
+		result = interceptString(result,rest+i*4);
+	}
+	
+	return result;
+}
+
+/**
+ * @함수이름 : interceptString
+ * @작성일 : 2015. 12. 19.
+ * @개발자 : 강주혁
+ * @설명 : 숫자 포맷팅당 ,를 찍어주는 함수
+ */
+function interceptString(str,num){
+	return str.substring(0,num) + "," +  str.substring(num,str.length);
+}
 
 /**
  * @함수이름 : deleteToServer
@@ -15,14 +45,20 @@ function deleteToServer(basket_num, member_id, root){
 		type:"get",
 		dataType:"text",
 		success:function(data){
-			// alert(data);
+			//alert(data);
 			$("#listAllTd").find($("#"+basket_num)).remove();
+			
+			var tempNum=data;
+			var strNum=numberFormat(tempNum);
+			
+			var tempPoint=data*0.03;
+			var strPoint=numberFormat(tempPoint);
 
-			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+data+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+(data*0.03)+"원</span>");
+			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+strNum+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+strPoint+"원</span>");
 			
 			if($("tbody").children().size()==0) {	
-				$("<span>상품이 없습니다.</span>").insertBefore("hr");
+				$("<div align='center' style='padding-bottom:25px; border-bottom:1px solid #DDDDDD'>확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>").insertBefore("hr");
 				$("#order").hide();
 			}
 		},
@@ -65,8 +101,14 @@ function updateToServer(basket_num, value, root){
 			// alert(basket_num + "|" + basket_quantity + "|" + basket_total_price + "|" + sum);
 			$("#totalPrice"+basket_num).replaceWith("<td style='text-align:center; font-weight:bold' id='totalPrice"+basket_num+"'>"+total_price.toLocaleString()+"원</td>");
 			
-			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+sum+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+(sum*0.03)+"원</span>");
+			var tempNum=sum;
+			var strNum=numberFormat(tempNum);
+			
+			var tempPoint=sum*0.03;
+			var strPoint=numberFormat(tempPoint);
+			
+			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+strNum+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+strPoint+"원</span>");
 		},
 		error:function(xhr, status, errorMsg){
 			alert(status + "," + errorMsg);
