@@ -25,7 +25,6 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-			<br/><br/>
 			<div align="center"><b style="font-size: 18px;">신간 구매 요청</b></div>
 			<br/>
 			<div align="center">

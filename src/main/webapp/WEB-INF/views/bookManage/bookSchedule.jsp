@@ -150,8 +150,8 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<h3 style="float: left;"> 도서 출간 일정</h3>
+		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
+			<div align="center"><b style="font-size: 18px;">도서 출간 일정</b></div>
 			<input style="float: right;" type="button" value="신간도서등록" onclick="location.href='${root}/bookManage/bookInsert.do?pageNumber=0'" />
 			<div id="calendar"></div>
 		</div>

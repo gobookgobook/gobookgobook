@@ -30,9 +30,8 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
+		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">
-				<br/><br/>
 				<div align="center"><b style="font-size: 18px;">도서등록</b></div>
 				<br/>
 				
@@ -88,6 +87,11 @@
 							</c:forEach>
 						</select>
 						
+						<script type="text/javascript">
+							$(document).ready(function(){
+							    $("select option[value='1980']").attr("selected", true);
+							});
+						</script>
 						<input type="hidden" name="book_publish_date"/>
 					</span>
 				</div>

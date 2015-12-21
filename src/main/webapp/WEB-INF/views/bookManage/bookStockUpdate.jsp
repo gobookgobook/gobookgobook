@@ -31,8 +31,7 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<br/><br/>
+		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 18px;">도서수정</b></div>
 			<br/>
 			<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">	

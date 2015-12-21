@@ -23,7 +23,7 @@
 	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
 		</div>
 		
@@ -31,8 +31,8 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 16px;">공구수정</b></div>
+		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
+			<div align="center"><b style="font-size: 18px;">공동 구매 수정</b></div>
 			<br/>
 			<form class="form_style" name="bookGroupPurchaseUpdate" action="${root}/bookManage/bookGroupPurchaseUpdate.do" method="post" onsubmit="return groupPurchaseForm(this)">				
 				<div class="line">

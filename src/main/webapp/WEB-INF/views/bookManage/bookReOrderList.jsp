@@ -26,8 +26,8 @@
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
-		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 16px;">재입고 현황</b></div>
+		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
+			<div align="center"><b style="font-size: 18px;">재입고 현황</b></div>
 			<br/>
 			
 			<c:if test="${count==0}">
