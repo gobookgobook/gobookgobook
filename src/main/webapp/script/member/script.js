@@ -156,7 +156,7 @@ function idCheck(root, memberForm){
 	
 	var url=root+"/member/idCheck.do?member_id="+id;
 	//alert(url);
-	window.open(url,"","width=250, height=150");
+	window.open(url,"","width=250, height=150, left=810, top=300");
 }
 
 /**
@@ -223,23 +223,4 @@ function cancel(){
 	opener.memberForm.member_id.value="";
 	opener.memberForm.id_check.value="";
 	self.close();
-}
-
-function readFun(boardNumber,currentPage,root){
-	var url = root+"/photoBoard/read.do?boardNumber="+boardNumber+"&pageNumber="+currentPage;
-	//alert(url);
-	location.href=url;
-}
-
-function idClick(form){
-	if(form.value=="아이디"){
-		form.value="";
-	}
-}
-
-function passClick(form){
-	if(form.value=="비밀번호"){
-		form.type="password";
-		form.value="";
-	}
 }
