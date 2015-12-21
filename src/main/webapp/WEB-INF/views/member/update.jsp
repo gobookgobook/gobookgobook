@@ -52,14 +52,14 @@
     
     <div id="zipcodeDisp"  style="margin-top:10px; margin-left:-68px;">
     <input type="text" name="zipcodeName"  value="우편번호" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
-    <input type="text" name="zipcodeDisp"  size="47" value="${memberDto.member_zipcode}" style=height:30px;/>
+    <input type="text" name="zipcodeDisp"  size="47" value="${memberDto.member_zipcode}" style=height:30px; disabled="disabled"/>
     <input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}"/>
     <input type="button" name="zipcodeBtn" value="우편번호검색" style="height:30px;" onclick="zipcodeRead('${root}')"/>
     </div>
     
     <div id="address1Disp"  style="margin-top:10px; margin-left:-68px;">
     <input type="text" name="address1Name" value="주소" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
-    <input type="text" name="address1Disp" size="60" value="${memberDto.member_address1}" style=height:30px;/>
+    <input type="text" name="address1Disp" size="60" value="${memberDto.member_address1}" style=height:30px; disabled="disabled"/>
     <input type="hidden" name="member_address1" value="${memberDto.member_address1}"/>
     </div>
     
