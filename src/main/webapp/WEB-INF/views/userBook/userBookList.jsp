@@ -15,6 +15,16 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <jsp:include page="../main-top.jsp"/>
 <jsp:include page="../cookie/cookie.jsp"/>
+<style type="text/css">
+#nav_info{
+      border-bottom: 5px solid #cccccc;
+      border-right: 3px solid   #cccccc;
+      text-align: center;
+      border-left:0px;
+      border-top: 0px;
+      border-radius: 0px 10px 10px 10px;
+   }
+</style>
 </head> 	
 <body>
 <div id="contents" style="height:800px; background:white; border:0px solid black; position:static;">
@@ -29,7 +39,7 @@
 		<div class="userBookBody">
 			<c:if test="${bookDtoCount > 0 }">
 				<c:forEach var="userBook" items="${bookDto}">
-					<div class="bookList">
+					<div class="bookList" id="nav_info">
 						<div style="text-align: center;">
 							<c:if test="${userBook.book_cover_file_name !=null }">
 								<a href="javascript:userBookRead('${root}', '${userBook.book_num}')">

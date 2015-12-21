@@ -46,15 +46,25 @@
 	    });
 	});
 </script>
+<style type="text/css">
+#nav_info{
+      border-bottom: 5px solid #cccccc;
+      border-right: 3px solid   #cccccc;
+      text-align: center;
+      border-left:0px;
+      border-top: 0px;
+      border-radius: 0px 10px 10px 10px;
+   }
+</style>
 </head>
 <body>
-<div id="contents" style="height:840px; background:white; border:1px solid black">
+<div id="contents" style="height:840px; background:white; border:0px solid black">
 		<br/>
 		<div align="center"><b style="font-size:18px">도서 상세 보기</b></div>
 		<br/>
 	<div class="book_read">
 		<div class="book_top">	
-			<div class="book_cover">
+			<div class="book_cover" id="nav_info">
 				<div align="center">
 					<c:if test="${bookDto.book_cover_file_name !=null}">	
 						<img alt="" src="http://localhost:8181/gobook/images/bookImg/${bookDto.book_cover_file_name}" width="55%" height="60%">
@@ -83,7 +93,7 @@
 				    </c:if>
 				</div>
 			</div>
-			<div class="book_info">
+			<div class="book_info" id="nav_info">
 				<table class="table table-bordered" style="width:860px; border-spacing:13px;">
 					<tbody>
 						<tr>

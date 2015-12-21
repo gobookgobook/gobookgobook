@@ -22,7 +22,7 @@
 /* 책 상세내용 */
 .book_info{
 	width:68%; height:93%;
-	border: 1px solid black;
+	border: 0px solid black;
 	margin: 1px;	
 	float: left;
 }
