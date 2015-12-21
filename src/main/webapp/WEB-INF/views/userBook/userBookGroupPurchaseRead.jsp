@@ -11,13 +11,23 @@
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 <script type="text/javascript" src="${root}/script/userBook/script.js"></script>
 <jsp:include page="../main-top.jsp"/>
+<style type="text/css">
+#nav_info{
+      border-bottom: 5px solid #cccccc;
+      border-right: 3px solid   #cccccc;
+      text-align: center;
+      border-left:0px;
+      border-top: 0px;
+      border-radius: 0px 10px 10px 10px;
+   }
+</style>
 </head>
 <body>
-<div id="contents" style="height:720px; background:white; border:1px solid black">
+<div id="contents" style="height:720px; background:white; border:0px solid black">
 	  <h2 align="center">공동구매 신청</h2>
 <div class="book_read">
 	<div class="book_top" style="height: 32%;">	
-		<div class="book_cover">
+		<div class="book_cover" id="nav_info">
 			<div align="center" style="margin-top: 10px;">
 			<c:if test="${bookGroupPurchaseDto.book_cover_file_name !=null}">
 				<img src="http://localhost:8181/gobook/images/bookImg/${bookGroupPurchaseDto.book_cover_file_name}" width="60%" height="90%"/>
@@ -28,7 +38,7 @@
 			</div>
 			<br/>
 		</div>
-		<div class="book_info">
+		<div class="book_info" id="nav_info">
 			<table class="table table-bordered" style="width:860px;  border-spacing:6px;">
 					<tbody>
 						<tr>
@@ -101,7 +111,8 @@
 				</textarea>
 			</c:if>
 			<c:if test="${bookGroupPurchaseDto.book_index ==null}">
-				목차가 존재 하지 않습니다.
+				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">목차가 존재 하지 않습니다.
+				</textarea>
 			</c:if>
 			</span>
 
@@ -113,7 +124,9 @@
 					</textarea>
 				</c:if>
 				<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
-					줄거리가없습니다.	
+				<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
+				</textarea>
+					
 				</c:if>
 			</span>
 		</div>

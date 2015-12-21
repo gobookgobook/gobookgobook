@@ -25,7 +25,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookInterest.css"/>
 <script type="text/javascript" src="${root}/script/userBook/script.js"></script>
 <body>
-<div id="contents" style="height:800px; background:white; border:1px solid black">
+<div id="contents" style="height:800px; background:white; border:0px solid black">
 	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;>관심분야 추천 목록</b>
 	</div>

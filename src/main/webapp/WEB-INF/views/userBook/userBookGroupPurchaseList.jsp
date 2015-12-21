@@ -13,7 +13,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="contents" style="height:600px; background:white; border:1px solid black; position: static;">
+<div id="contents" style="height:600px; background:white; border:0px solid black; position: static;">
 	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;>공동구매 목록</b>
 	</div>
