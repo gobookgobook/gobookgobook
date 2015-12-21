@@ -26,7 +26,8 @@
 			</div>
 				
 			<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-				<div align="center"><b style="font-size: 16px;">진행중인 공동구매</b></div>
+				<br/>
+				<div align="center"><b style="font-size:18px">공지사항 쓰기</b></div>
 				<br/>
 				
 				<c:if test="${gpCount==0}">

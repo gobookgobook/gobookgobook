@@ -191,6 +191,9 @@
 					<span class="content">
 						기존파일 : ${bookDto.book_cover_file_name}
 						<input type="file" name="book_cover_file" />
+						<input type="hidden" name="old_book_cover_file_name" value="${bookDto.book_cover_file_name}"/>
+						<input type="hidden" name="old_book_cover_file_path" value="${bookDto.book_cover_file_path}"/>
+						<input type="hidden" name="old_book_cover_file_size" value="${bookDto.book_cover_file_size}"/>
 					</span>
 				</div>
 				</c:if>
@@ -285,7 +288,7 @@
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name!=null}">
-	<div style="margin-top:800px">
+	<div style="margin-top:820px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>

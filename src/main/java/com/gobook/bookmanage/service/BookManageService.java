@@ -137,23 +137,41 @@ public class BookManageService implements IBookManageService {
 					
 					if(book_preview_file_size1!=0){
 						File preview_file1=new File(path, book_preview_file_name1);
-						File preview_file2=new File(path, book_preview_file_name2);
-						File preview_file3=new File(path, book_preview_file_name3);
 						try{
 							book_preview_file1.transferTo(preview_file1);
-							book_preview_file2.transferTo(preview_file2);
-							book_preview_file3.transferTo(preview_file3);
 							
 							bookDto.setBook_preview_file_name1(book_preview_file_name1);
-							bookDto.setBook_preview_file_name2(book_preview_file_name2);
-							bookDto.setBook_preview_file_name3(book_preview_file_name3);
 							
 							bookDto.setBook_preview_file_path1(preview_file1.getAbsolutePath());
-							bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
-							bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
 							
 							bookDto.setBook_preview_file_size1(book_preview_file_size1);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+					if(book_preview_file_size2!=0){
+						File preview_file2=new File(path, book_preview_file_name2);
+						try{
+							book_preview_file2.transferTo(preview_file2);
+							
+							bookDto.setBook_preview_file_name2(book_preview_file_name2);
+							
+							bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
+							
 							bookDto.setBook_preview_file_size2(book_preview_file_size2);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+					if(book_preview_file_size3!=0){
+						File preview_file3=new File(path, book_preview_file_name3);
+						try{
+							book_preview_file3.transferTo(preview_file3);
+							
+							bookDto.setBook_preview_file_name3(book_preview_file_name3);
+							
+							bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
+							
 							bookDto.setBook_preview_file_size3(book_preview_file_size3);
 						}catch(Exception e){
 							e.printStackTrace();
@@ -273,8 +291,9 @@ public class BookManageService implements IBookManageService {
 		String book_cover_file_name=book_cover_file.getOriginalFilename();
 		long book_cover_file_size=book_cover_file.getSize();
 		
-		GoBookAspect.logger.info(GoBookAspect.logMsg + bookDto.getBook_cover_file_name());
-				
+		String old_book_cover_file_name=request.getParameter("old_book_cover_file_name");
+		if(book_cover_file_size==0 && old_book_cover_file_name!=null) book_cover_file_size=Long.parseLong(request.getParameter("old_book_cover_file_size"));
+		
 		if(book_cover_file_size!=0){
 			System.out.println("잘옴?");
 			MultipartFile book_preview_file1=request.getFile("book_preview_file1");
@@ -289,49 +308,119 @@ public class BookManageService implements IBookManageService {
 			long book_preview_file_size2=book_preview_file2.getSize();
 			long book_preview_file_size3=book_preview_file3.getSize();
 			
+			GoBookAspect.logger.info(GoBookAspect.logMsg + "book_preview_file_name1 : " + book_preview_file_name1);
+			
 			File path=new File(request.getRealPath("/images/bookImg/"));
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){
-				File cover_file=new File(path, book_cover_file_name);
-				try{
-					book_cover_file.transferTo(cover_file);
+				if(old_book_cover_file_name==null){
+					File cover_file=new File(path, book_cover_file_name);
+					try{
+						book_cover_file.transferTo(cover_file);
+						
+						bookDto.setBook_cover_file_name(book_cover_file_name);
+						bookDto.setBook_cover_file_path(cover_file.getAbsolutePath());
+						bookDto.setBook_cover_file_size(book_cover_file_size);
+						
+						if(book_preview_file_size1!=0){
+							File preview_file1=new File(path, book_preview_file_name1);
+							try{
+								book_preview_file1.transferTo(preview_file1);
+								
+								bookDto.setBook_preview_file_name1(book_preview_file_name1);
+								
+								bookDto.setBook_preview_file_path1(preview_file1.getAbsolutePath());
+								
+								bookDto.setBook_preview_file_size1(book_preview_file_size1);
+							}catch(Exception e){
+								e.printStackTrace();
+							}
+						}
+						if(book_preview_file_size2!=0){
+							File preview_file2=new File(path, book_preview_file_name2);
+							try{
+								book_preview_file2.transferTo(preview_file2);
+								
+								bookDto.setBook_preview_file_name2(book_preview_file_name2);
+								
+								bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
+								
+								bookDto.setBook_preview_file_size2(book_preview_file_size2);
+							}catch(Exception e){
+								e.printStackTrace();
+							}
+						}
+						if(book_preview_file_size3!=0){
+							File preview_file3=new File(path, book_preview_file_name3);
+							try{
+								book_preview_file3.transferTo(preview_file3);
+								
+								bookDto.setBook_preview_file_name3(book_preview_file_name3);
+								
+								bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
+								
+								bookDto.setBook_preview_file_size3(book_preview_file_size3);
+							}catch(Exception e){
+								e.printStackTrace();
+							}
+						}
+					}catch(Exception e){
+						e.printStackTrace();
+					}
 					
-					bookDto.setBook_cover_file_name(book_cover_file_name);
-					bookDto.setBook_cover_file_path(cover_file.getAbsolutePath());
+				}else{
+					bookDto.setBook_cover_file_name(old_book_cover_file_name);
+					bookDto.setBook_cover_file_path(request.getParameter("old_book_cover_file_path"));
 					bookDto.setBook_cover_file_size(book_cover_file_size);
 					
 					if(book_preview_file_size1!=0){
 						File preview_file1=new File(path, book_preview_file_name1);
-						File preview_file2=new File(path, book_preview_file_name2);
-						File preview_file3=new File(path, book_preview_file_name3);
 						try{
 							book_preview_file1.transferTo(preview_file1);
-							book_preview_file2.transferTo(preview_file2);
-							book_preview_file3.transferTo(preview_file3);
 							
 							bookDto.setBook_preview_file_name1(book_preview_file_name1);
-							bookDto.setBook_preview_file_name2(book_preview_file_name2);
-							bookDto.setBook_preview_file_name3(book_preview_file_name3);
 							
 							bookDto.setBook_preview_file_path1(preview_file1.getAbsolutePath());
-							bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
-							bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
 							
 							bookDto.setBook_preview_file_size1(book_preview_file_size1);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+					if(book_preview_file_size2!=0){
+						File preview_file2=new File(path, book_preview_file_name2);
+						try{
+							book_preview_file2.transferTo(preview_file2);
+							
+							bookDto.setBook_preview_file_name2(book_preview_file_name2);
+							
+							bookDto.setBook_preview_file_path2(preview_file2.getAbsolutePath());
+							
 							bookDto.setBook_preview_file_size2(book_preview_file_size2);
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					}
+					if(book_preview_file_size3!=0){
+						File preview_file3=new File(path, book_preview_file_name3);
+						try{
+							book_preview_file3.transferTo(preview_file3);
+							
+							bookDto.setBook_preview_file_name3(book_preview_file_name3);
+							
+							bookDto.setBook_preview_file_path3(preview_file3.getAbsolutePath());
+							
 							bookDto.setBook_preview_file_size3(book_preview_file_size3);
 						}catch(Exception e){
 							e.printStackTrace();
 						}
 					}
-				}catch(Exception e){
-					e.printStackTrace();
 				}
 			}
 		}
 		
-		
+		GoBookAspect.logger.info(GoBookAspect.logMsg + "book_preview_file_name1 : " + bookDto.getBook_preview_file_name1());
 		
 		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + pageNumber);
