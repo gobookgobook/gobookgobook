@@ -132,8 +132,5 @@
 		</div>
 	</div>
 </div>
-<div>
-	<jsp:include page="../main-bottom.jsp"/>
-</div>
 </body>
 </html>

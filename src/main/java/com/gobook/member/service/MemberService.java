@@ -239,6 +239,7 @@ public class MemberService implements IMemberService {
 		
 		mav.addObject("bestSeller", bestSeller);
 		mav.addObject("eventeList", eventeList);
+		
 		try{
 			if(id.equals("admin")) mav.setViewName("member/adminMain");
 			else mav.setViewName("member/goBookMain");
