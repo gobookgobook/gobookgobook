@@ -13,6 +13,7 @@
 					WHERE member_id=#{member_id} AND order_date = 
 						ALL(SELECT MAX(order_date)
 							from userorder)
+							order by order_bunho desc
 		]]>
 	</select>
 	

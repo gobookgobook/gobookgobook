@@ -80,7 +80,7 @@
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
 			<li>
-				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
+				<a href="${root}/myPage/myPageCoupon.do">myPage</a>
 			</li>
 			<li>
 				<a href="${root}/myBasket/myBasketList.do">장바구니</a>

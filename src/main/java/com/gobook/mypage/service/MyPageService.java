@@ -97,11 +97,13 @@ public class MyPageService implements IMyPageService {
 		HttpSession session=request.getSession();
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
+		List<UserCouponDto> couponSelect=null;
 		
-		List<UserCouponDto> couponSelect=iMyPageDao.myPageCouponSelect(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect.size());
-		GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect);
-		
+		if(member_id !=null){
+			couponSelect=iMyPageDao.myPageCouponSelect(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect.size());
+			GoBookAspect.logger.info(GoBookAspect.logMsg + couponSelect);
+		}
 		mav.addObject("couponSelect", couponSelect);
 		mav.setViewName("myPage/myPageCoupon");
 	}
@@ -122,9 +124,11 @@ public class MyPageService implements IMyPageService {
 		String member_id=(String) session.getAttribute("id");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + member_id);
 		
-		int member_point=iMyPageDao.myPagePointSelect(member_id);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + member_point);
-		
+		int member_point=0;
+		if(member_id !=null){
+			member_point=iMyPageDao.myPagePointSelect(member_id);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + member_point);
+		}
 		mav.addObject("member_point", member_point);
 		mav.setViewName("myPage/myPagePoint");
 		
