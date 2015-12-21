@@ -24,16 +24,16 @@
          <br/>
 		
 		<div id="member_id" style="margin:10px;">	
-		<input type="text" name="idName" value="아이디" style="background:#37415a; color:white; height:30px;" disabled="disabled"/>
+		<input type="text" name="idName" value="아이디" style="background:#1993A8; color:white; height:30px;" disabled="disabled"/>
 		<input type="text" name="member_id" size="30" style="height:30px;" /><br/>
 		</div>
 		
 		<div id="member_password" style="margin:10px;">
-		<input type="text" name="passwordName" value="비밀번호" style="background:#37415a; color:white; height:30px;"  disabled="disabled"/>
-        <input type="password" name="member_password" size="30" style="height:30px;"/><br/>
+		<input type="text" name="passwordName" value="비밀번호" style="background:#1993A8; color:white; height:30px;"  disabled="disabled"/>
+        <input type="password" name="member_password" size="30" style="height:30px;"/><br/><br/>
         </div>
-        <input type="submit" size="40" style="height:30px;" value="확인"/>	
-        <input type="reset" size="40"  style="height:30px;" value="취소"/>	
+        <input type="submit" size="40" style="width:50px; height:30px;" value="확인"/>	
+        <input type="reset" size="40"  style="width:50px; height:30px;" value="취소"/>	
 			</div>
 		</form>
 	</div>

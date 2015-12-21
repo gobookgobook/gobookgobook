@@ -15,7 +15,6 @@
 	<c:remove var="memberLevel" scope="session"/>
 	
 	<script type="text/javascript">
-		alert("로그아웃 되었습니다.");
 		location.href="${root}/member/goBookMain.do";
 	</script>
 </body>
