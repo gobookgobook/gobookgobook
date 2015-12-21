@@ -26,6 +26,7 @@
 		<div id="member_id" style="margin:10px;">	
 		<input type="text" name="idName" value="아이디" style="background:#1993A8; color:white; height:30px;" disabled="disabled"/>
 		<input type="text" name="member_id" value="${id}" size="30" style="height:30px;" disabled="disabled"/><br/>
+		<input type="hidden" name="member_id" value="${id}"/>
 		</div>
 		
 		<div id="member_password" style="margin:10px;">
