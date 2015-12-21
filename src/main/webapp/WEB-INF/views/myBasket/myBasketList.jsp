@@ -6,6 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -33,7 +34,6 @@
 			event.target.value = event.target.value.replace(/[^0-9]/g, "");
 	}
 </script>
-<jsp:include page="../main-top.jsp"/>
 </head>
 <body>
 <div id="contents" style="background:white; border:0px solid black; position:static;">
