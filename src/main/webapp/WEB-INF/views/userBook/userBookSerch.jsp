@@ -8,36 +8,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="../main-top.jsp"/>
-		<div align="center">
-			<table class="mytable" style="border-collapse: collapse; width: 800px; height: 18px;">
-				<tr>
-					<td class="mytable" align="center" height="18" width="80">도서번호</td>
-					<td class="mytable" align="center" height="18" width="240">도서명</td>
-					<td class="mytable" align="center" height="18" width="80">도서원가</td>
-					<td class="mytable" align="center" height="18" width="80">도서가격</td>
-					<td class="mytable" align="center" height="18" width="80">도서수량</td>
-					<td class="mytable" align="center" height="18" width="80">별점</td>
-					<td class="mytable" align="center" height="18" width="80">재입고요청</td>
-					<td class="mytable" align="center" height="18" width="80">공구요청</td>
-				</tr>
-			<c:forEach var="book" items="${bookSerchList}">
-				<tr>
-					<td class="mytable" align="center" height="18">${book.book_num}</td>
-					<td class="mytable" align="left" height="18">
-						<a href="${root}/userBook/userBookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
-					</td>
-					<td class="mytable" align="center" height="18">${book.book_cost}</td>
-					<td class="mytable" align="center" height="18">${book.book_price}</td>
-					<td class="mytable" align="center" height="18">${book.book_quantity}</td>
-					<td class="mytable" align="center" height="18">${book.book_star}</td>
-					<td class="mytable" align="center" height="18">${book.book_reorder_count}</td>
-					<td class="mytable" align="center" height="18">${book.book_group_purchase_count}</td>
-				</tr>
-			</c:forEach>
-			</table> 
+		<div class="container" style="width:835px;padding:0px">
+			<table class="table table-bordered" style="line-height: 100px">
+				<thead>
+					<tr class="success" align="center" style="color:#1DDB16">
+						<th style="text-align:center">도서번호</th>
+						<th style="text-align:center;width:375px">도서명</th>
+						<th style="text-align:center">도서가격</th>
+						<th style="text-align:center">별점</th>
+						<th style="text-align:center">입고요청</th>
+						<th style="text-align:center">공구요청</th>
+					</tr>
+				</thead>
+				<tbody id="listAllTd">
+					<c:forEach var="book" items="${bookSerchList}">
+						<tr class="success">
+							<td style="text-align:center">${book.book_num}</td>
+							<td style="text-align:left">
+								<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+							</td>
+							<td style="text-align:center">${book.book_price}</td>
+							<td style="text-align:center">${book.book_star}</td>
+							<td style="text-align:center">${book.book_reorder_count}</td>
+							<td style="text-align:center">${book.book_group_purchase_count}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
 		
 		<div align="center">
