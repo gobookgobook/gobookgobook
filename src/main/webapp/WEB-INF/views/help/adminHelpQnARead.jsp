@@ -5,6 +5,7 @@
 <!DOCTYPE>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>QnA읽기</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
