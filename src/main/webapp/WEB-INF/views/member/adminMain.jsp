@@ -123,7 +123,7 @@
            <li><a href="${root}/location/locationList.do">지점목록</a></li>
         </ul>
      </li>
-     <li><a href="#"><img src="${root}/images/gnb_11_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/help/adminHelpNoticeList.do"><img src="${root}/images/gnb_11_pic.png" alt="고객센터" style="width:100px; height:40px;"/></a>
      	<ul class="sub11">
            <li><a href="${root}/help/adminHelpNoticeList.do">공지사항</a></li>
            <li><a href="${root}/help/adminHelpQnAList.do">Q&A</a></li>
