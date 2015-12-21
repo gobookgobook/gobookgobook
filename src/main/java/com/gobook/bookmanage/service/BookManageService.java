@@ -53,7 +53,6 @@ public class BookManageService implements IBookManageService {
 		int bookGroupPurchaseCount=iBookManageDao.bookGroupPurchaseCount();
 		int bookNewPublishCount=iBookManageDao.bookNewPublishCount();
 		
-		
 		mav.addObject("id", id);
 		mav.addObject("bookReOrderCount", bookReOrderCount);
 		mav.addObject("bookGroupPurchaseListCount", bookGroupPurchaseListCount);
@@ -78,6 +77,7 @@ public class BookManageService implements IBookManageService {
 		try{
 			if(pageNumber.equals(null)||pageNumber.equals("")) pageNumber="1";
 		}catch(Exception e){}
+		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
@@ -123,7 +123,7 @@ public class BookManageService implements IBookManageService {
 			long book_preview_file_size2=book_preview_file2.getSize();
 			long book_preview_file_size3=book_preview_file3.getSize();
 			
-			File path=new File(request.getRealPath("/images/bookImg/"));
+			File path=new File("C:\\gobook\\workspace\\gobookgobook\\src\\main\\webapp\\css\\event\\images\\bookImg");
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){
@@ -310,7 +310,7 @@ public class BookManageService implements IBookManageService {
 			
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "book_preview_file_name1 : " + book_preview_file_name1);
 			
-			File path=new File(request.getRealPath("/images/bookImg/"));
+			File path=new File("C:\\gobook\\workspace\\gobookgobook\\src\\main\\webapp\\css\\event\\images\\bookImg");
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){

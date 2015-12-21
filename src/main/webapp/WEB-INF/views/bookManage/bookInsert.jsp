@@ -32,7 +32,8 @@
 			
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">
-				<div align="center"><b style="font-size: 16px;">도서등록</b></div>
+				<br/><br/>
+				<div align="center"><b style="font-size: 18px;">도서등록</b></div>
 				<br/>
 				
 				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
@@ -68,7 +69,7 @@
 					
 						<select name="book_publish_date_year">
 	    					<option>년</option>
-							<c:forEach var="year" begin="1900" end="${today}">
+							<c:forEach var="year" begin="1900" end="${today+1}">
 							<option value="${year}">${year}</option>
 							</c:forEach>
 						</select>
@@ -184,7 +185,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:660px">
+	<div style="margin-top:700px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>

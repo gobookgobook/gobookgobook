@@ -32,7 +32,8 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 16px;">도서수정</b></div>
+			<br/><br/>
+			<div align="center"><b style="font-size: 18px;">도서수정</b></div>
 			<br/>
 			<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">	
 				<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
@@ -72,7 +73,7 @@
 					<span class="content">	
 						<select name="book_publish_date_year">
 	    					<option>년</option>
-							<c:forEach var="year" begin="1900" end="${today}">
+							<c:forEach var="year" begin="1900" end="${today+1}">
 							<option value="${year}">${year}</option>
 							</c:forEach>
 						</select>
@@ -282,13 +283,13 @@
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name==null}">
-	<div style="margin-top:700px">
+	<div style="margin-top:750px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name!=null}">
-	<div style="margin-top:820px">
+	<div style="margin-top:850px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>

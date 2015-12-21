@@ -27,7 +27,7 @@
 				
 			<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 				<br/>
-				<div align="center"><b style="font-size:18px">공지사항 쓰기</b></div>
+				<div align="center"><b style="font-size:18px">진행중인 공동구매</b></div>
 				<br/>
 				
 				<c:if test="${gpCount==0}">
@@ -91,7 +91,7 @@
 				<br/>
 				
 				<div>
-					<div align="center"><b style="font-size: 16px;">공동구매 요청내역</b></div>
+					<div align="center"><b style="font-size: 18px;">공동구매 요청내역</b></div>
 					<br/>
 					<c:if test="${count==0}">
 						<div class="container" style="width:835px;padding:0px">
@@ -128,7 +128,7 @@
 									</tr>
 								</thead>
 								<tbody id="listAllTd">
-									<c:forEach var="book" items="${bookList}">
+									<c:forEach var="book" items="${bookGroupPurchaseCountList}">
 										<tr class="success">
 											<td style="text-align:center">${book.book_num}</td>
 											<td style="text-align:left">
@@ -184,8 +184,22 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:150px">
-		<jsp:include page="../main-bottom.jsp"/>
-	</div>
+	<c:if test="${gpCount<4}">
+		<div style="margin-top: 400px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
+	
+	<c:if test="${gpCount<7}">
+		<div style="margin-top: 400px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
+	
+	<c:if test="${gpCount<10}">
+		<div style="margin-top: 400px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
 </body>
 </html>

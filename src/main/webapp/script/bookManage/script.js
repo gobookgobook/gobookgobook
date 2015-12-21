@@ -1,9 +1,9 @@
 
 /**
- * @함수이름 : bookInsertForm
+ * @함수이름 : bookDataForm
  * @작성일 : 2015. 12. 8.
  * @개발자 : 성기훈
- * @설명 : 도서등록 Form 스크립트
+ * @설명 : 도서등록 및 수정 스크립트
  */
 function bookDataForm(form){
 	if(form.book_num.value==""){
@@ -95,33 +95,76 @@ function bookDataForm(form){
 }
 
 /**
- * @함수이름 : bookUpdateForm
- * @작성일 : 2015. 12. 8.
+ * @함수이름 : groupPurchaseDeleteFun
+ * @작성일 : 2015. 12. 21.
  * @개발자 : 성기훈
- * @설명 : 도서수정 Form 스크립트
+ * @설명 : 공구등록 취소 스크립트
  */
-function bookUpdateForm(upform){
-	var check=false;
-	var str="";
-	for(var i=0;i<upform.category.length;i++){
-		if(upform.category[i].checked==true){
-			str+=upform.category[i].value + ",";
-			check=true;
-		}
-	}
-	if(check==false){
-		alert("카테고리를 하나 이상 선택하세요.");
-		upform.category[0].focus();
-		return false;
-	}
-	
-	upform.book_category.value=str;
-}
-
 function groupPurchaseDeleteFun(root,gp_num){
 	var check=confirm("공동구매 진행을 취소하시겠습니까?");
 	if(check==true) {
 		location.href=root+"/bookManage/bookGroupPurchaseDelete.do?gp_num="+gp_num;
 	}
 	return check;
+}
+
+/**
+ * @함수이름 : groupPurchaseForm
+ * @작성일 : 2015. 12. 21.
+ * @개발자 : 성기훈
+ * @설명 : 공동구매 등록 및 수정 스크립트
+ */
+function groupPurchaseForm(form){
+	if(form.group_purchase_price.value==""){
+		alert("공구가격을 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.group_purchase_min_count.value==""){
+		alert("공구 시작 수량을 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	if(form.group_purchase_max_count.value==""){
+		alert("공구 마감 수량을 써주세요.");
+		form.id_check.focus();
+		return false;
+	}
+	
+	var strDate="";
+	if(form.group_purchase_date_year.value!="년"||form.group_purchase_date_month.value!="월"||form.group_purchase_date_day.value!="일"){
+		if(form.group_purchase_date_year.value=="년"||form.group_purchase_date_month.value=="월"||form.group_purchase_date_day.value=="일"){
+			alert("년, 월, 일을 모두 올바르게 입력해주세요.");
+			return false;
+		}
+		
+		if(form.group_purchase_date_month.value==2){
+			if(form.group_purchase_date_year.value%4==0&&form.group_purchase_date_year.value%100!=0){
+				if(form.group_purchase_date_day.value>29){
+					alert("공구 마감일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+			
+			if(form.group_purchase_date_year.value%4!=0||form.group_purchase_date_year.value%100==0){
+				if(form.group_purchase_date_day.value>28){
+					alert("공구마감일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+		}
+		
+		if(form.group_purchase_date_month.value==4||form.group_purchase_date_month.value==6||form.group_purchase_date_month.value==9||form.group_purchase_date_month.value==11){
+			if(form.group_purchase_date_day.value>30){
+				alert("공구마감일을 다시 확인해주세요.");
+				return false;
+			}
+		}
+		
+		strDate=form.group_purchase_date_year.value+"/"+form.group_purchase_date_month.value+"/"+form.group_purchase_date_day.value;
+		//alert(strDate);
+		form.group_purchase_date.value=strDate;
+	}
 }
