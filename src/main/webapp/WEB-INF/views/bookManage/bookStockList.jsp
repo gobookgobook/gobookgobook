@@ -18,17 +18,17 @@
 	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">도서 관리</b>
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 재고 관리</b>
 		</div>
 		
-		<div align="left" style="width: 120px;float: left;">
+		<div align="left" style="width: 110px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<br/><br/>
-			<div align="center"><b style="font-size: 18px;">도서수정</b></div>
+			<div align="center"><b style="font-size: 18px;">재고 관리</b></div>
 			<br/>
 			<br/>
 			<c:if test="${count==0}">

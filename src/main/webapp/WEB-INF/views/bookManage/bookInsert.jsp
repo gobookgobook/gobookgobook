@@ -22,11 +22,11 @@
 	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;도서 관리</b>
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 등록</b>
 		</div>
 		
-		<div align="left" style="width: 120px;height: 1000px;float: left;">
+		<div align="left" style="width: 110px;float: left;">
 			<jsp:include page="bookManageConNav.jsp"/>
 		</div>
 			
