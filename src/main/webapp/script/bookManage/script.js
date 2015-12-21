@@ -117,19 +117,24 @@ function groupPurchaseDeleteFun(root,gp_num){
 function groupPurchaseForm(form){
 	if(form.group_purchase_price.value==""){
 		alert("공구가격을 써주세요.");
-		form.id_check.focus();
+		form.group_purchase_price.focus();
 		return false;
 	}
 	
 	if(form.group_purchase_min_count.value==""){
 		alert("공구 시작 수량을 써주세요.");
-		form.id_check.focus();
+		form.group_purchase_min_count.focus();
 		return false;
 	}
 	
 	if(form.group_purchase_max_count.value==""){
 		alert("공구 마감 수량을 써주세요.");
-		form.id_check.focus();
+		form.group_purchase_max_count.focus();
+		return false;
+	}
+	
+	if(form.group_purchase_date_year.value=="년"||form.group_purchase_date_month.value=="월"||form.group_purchase_date_day.value=="일"){
+		alert("년, 월, 일을 모두 올바르게 입력해주세요.");
 		return false;
 	}
 	

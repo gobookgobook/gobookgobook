@@ -33,7 +33,7 @@
 		<div align="left" style="float: left;margin: 20px 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 16px;">공구등록</b></div>
 			<br/>
-			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchase(this)">				
+			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchaseForm(this)">				
 				<div class="line">
 					<label class="titleR">도서번호</label>
 					<span class="content">
@@ -97,7 +97,7 @@
 					<span class="content">
 						<select name="group_purchase_date_year">
 	    					<option>년</option>
-							<c:forEach var="year" begin="1900" end="${today+1}">
+							<c:forEach var="year" begin="${today}" end="${today+1}">
 							<option value="${year}">${year}</option>
 							</c:forEach>
 						</select>
