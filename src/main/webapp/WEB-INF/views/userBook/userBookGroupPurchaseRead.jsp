@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
@@ -27,7 +28,7 @@
 <div id="contents" style="height:720px; background:white; border:0px solid black; position: static;">
 	  <h2 align="center">공동구매 신청</h2>
 <div class="book_read">
-	<div class="book_top" style="height: 32%;">	
+	<div class="book_top" style="height: 35%;">	
 		<div class="book_cover" id="nav_info">
 			<div align="center" style="margin-top: 10px;">
 			<c:if test="${bookGroupPurchaseDto.book_cover_file_name !=null}">
@@ -40,12 +41,19 @@
 			<br/>
 		</div>
 		<div class="book_info" id="nav_info">
-			<table class="table table-bordered" style="width:860px;  border-spacing:6px;">
+			<table class="table table-bordered" style="width:860px;  border-spacing:6px; font-size: 14px;">
 					<tbody>
 						<tr>
 							<th style="background:#37415a; color: white;" width="15%" >제목 : </th>
 							<td>
-							${bookGroupPurchaseDto.book_name}			
+							<c:choose>
+								<c:when test="${fn:length(bookGroupPurchaseDto.book_name) > 14}">
+									<c:out value="${fn:substring(bookGroupPurchaseDto.book_name, 0, 13)}"/>....
+								</c:when>
+								<c:otherwise>
+									<c:out value="${bookGroupPurchaseDto.book_name}"/>
+								</c:otherwise>
+							</c:choose>
 							</td>
 						</tr>
 						<tr>
@@ -105,7 +113,7 @@
 		</div>
 		
 		<div class="book_body">
-			<div class="book_title">목차</div>
+			<div class="book_title" style="font-size: 14px;">목차</div>
 			<span class="book_content">
 			<c:if test="${bookGroupPurchaseDto.book_index !=null}">
 				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
@@ -118,7 +126,7 @@
 			</span>
 
 
-			<div class="book_title" style="margin-top: 30px;">줄거리</div>
+			<div class="book_title" style="margin-top: 30px; font-size: 14px;">줄거리</div>
 			<span class="book_content">
 				<c:if test="${bookGroupPurchaseDto.book_summary !=null}">
 					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >${bookGroupPurchaseDto.book_summary}

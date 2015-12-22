@@ -140,7 +140,7 @@
   </ul> 
 </div>
 <hr />
-<div id="visual">
+<div id="visual" style="margin-top: 30px;">
  <div id="mySwipe"  class='swipe'>
     <ul class="touch_banner swipe-wrap"> <!-- 배너 목록 -->
     <c:set var="count" value="0"/>
@@ -187,15 +187,24 @@
 				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
 				<span><strong>
 				<c:choose>
-					<c:when test="${fn:length(bestSeller.book_name) > 14}">
-						<c:out value="${fn:substring(bestSeller.book_name, 0, 13)}"/>....
+					<c:when test="${fn:length(bestSeller.book_name) > 10}">
+						<c:out value="${fn:substring(bestSeller.book_name, 0, 9)}"/>....
 					</c:when>
 					<c:otherwise>
 						<c:out value="${bestSeller.book_name}"/>
 					</c:otherwise>
 				</c:choose>
 				</strong></span>
-				<span><strong>${bestSeller.book_writer}</strong></span>
+				<span><strong>
+				<c:choose>
+					<c:when test="${fn:length(bestSeller.book_writer) > 10}">
+						<c:out value="${fn:substring(bestSeller.book_writer, 0, 9)}"/>....
+					</c:when>
+					<c:otherwise>
+						<c:out value="${bestSeller.book_writer}"/>
+					</c:otherwise>
+				</c:choose>
+				</strong></span>
 			</li>      	
 		</c:forEach>
       </ul>
@@ -223,15 +232,24 @@
 				<img src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${newBook.book_num}')" width=120px; height="100px;"/>
 				<span><strong>
 				<c:choose>
-					<c:when test="${fn:length(newBook.book_name) > 14}">
-						<c:out value="${fn:substring(newBook.book_name, 0, 13)}"/>....
+					<c:when test="${fn:length(newBook.book_name) > 10}">
+						<c:out value="${fn:substring(newBook.book_name, 0, 9)}"/>....
 					</c:when>
 					<c:otherwise>
 						<c:out value="${newBook.book_name}"/>
 					</c:otherwise>
 				</c:choose>
 				</strong></span>
-				<span><strong>${newBook.book_writer}</strong></span>
+				<span><strong>
+				<c:choose>
+					<c:when test="${fn:length(newBook.book_writer) > 10}">
+						<c:out value="${fn:substring(newBook.book_writer, 0, 9)}"/>....
+					</c:when>
+					<c:otherwise>
+						<c:out value="${newBook.book_writer}"/>
+					</c:otherwise>
+				</c:choose>
+				</strong></span>
 			</li>      	
 		</c:forEach>
       </ul>
