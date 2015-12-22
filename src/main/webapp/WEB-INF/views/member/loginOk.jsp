@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GoBookGoBook</title>
 <link href="${root}/css/member/style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 <jsp:include page="../main-top.jsp"/>

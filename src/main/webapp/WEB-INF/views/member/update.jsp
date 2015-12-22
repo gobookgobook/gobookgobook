@@ -100,8 +100,8 @@
     
      <div id="choose" style="margin-top:10px; margin-left:-300px;">
     <input type="text" name="birthName" value="생년월일" style="background:#37415a;  color:white; height:30px;"  disabled="disabled"/>
-    <select name="member_birth_year">
-    <option>년</option>
+ 	  				<select name="member_birth_year"  onfocus="javascript: this.value=1980">
+    					<option>년</option>
 						<c:forEach var="year" begin="1900" end="${today}">
 						<option value="${year}">${year}</option>
 						</c:forEach>
@@ -121,28 +121,30 @@
 						</c:forEach>
 					</select>
 					<input type="hidden" name="member_birth"/>
-					<c:forTokens var="userBirth" items="${birth}" delims="/">
-						<script type="text/javascript">
-							
-							if(memberForm.member_birth_year.value!="년"){
-								if(memberForm.member_birth_month.value!="월"){
-									if(memberForm.member_birth_day.value=="일"){
-										memberForm.member_birth_day.value="${userBirth}";
+					<c:if test="${birth!='1800/01/01'}">
+						<c:forTokens var="userBirth" items="${birth}" delims="/">
+							<script type="text/javascript">
+								
+								if(memberForm.member_birth_year.value!="년"){
+									if(memberForm.member_birth_month.value!="월"){
+										if(memberForm.member_birth_day.value=="일"){
+											memberForm.member_birth_day.value=parseInt("${userBirth}");
+										}
 									}
 								}
-							}
-							
-							if(memberForm.member_birth_year.value!="년"){
-								if(memberForm.member_birth_month.value=="월"){
-									memberForm.member_birth_month.value=parseInt("${userBirth}");
+								
+								if(memberForm.member_birth_year.value!="년"){
+									if(memberForm.member_birth_month.value=="월"){
+										memberForm.member_birth_month.value=parseInt("${userBirth}");
+									}
 								}
-							}
-						
-							if(memberForm.member_birth_year.value=="년"){
-								memberForm.member_birth_year.value="${userBirth}";
-							}
-						</script>
-					</c:forTokens>
+							
+								if(memberForm.member_birth_year.value=="년"){
+									memberForm.member_birth_year.value="${userBirth}";
+								}
+							</script>
+						</c:forTokens>
+					</c:if>
     </div>
     <div id="member_email"  style="margin-top:10px; margin-left:-75px;">
     <input type="text"name="emailName"  value="이메일" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
