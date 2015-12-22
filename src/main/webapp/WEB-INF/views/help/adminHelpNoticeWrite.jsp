@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/help/style.css"/>
 </head>
 <body>
-	<div id="contents" style="height:100%; background:white; border:0px solid black;position: static">
+	<div id="contents" style="height:70%; background:white; border:0px solid black;position: static">
 		<div id="wrap">
 			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객 센터</b>
@@ -24,7 +24,6 @@
 				<jsp:include page="adminHelpConNav.jsp"/>
 			</div>
 			
-			<br/>
 			<div align="center"><b style="font-size:18px">공지사항 쓰기</b></div>
 			<br/>
 			

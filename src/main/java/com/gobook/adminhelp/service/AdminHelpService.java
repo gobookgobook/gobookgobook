@@ -192,14 +192,14 @@ public class AdminHelpService implements IAdminHelpService {
 		int count=iAdminHelpDao.adminHelpNoticeCount();
 		GoBookAspect.logger.info(GoBookAspect.logMsg+ "count:" + count);
 
-		List<HelpNoticeDto> adminHelpNoticeListSelect=null;
+		List<HelpNoticeDto> adminHelpNoticeList=null;
 		if(count > 0){
 //			System.out.println("OK");
 			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
-			adminHelpNoticeListSelect=iAdminHelpDao.adminHelpNoticeListSelect(hMap);
-			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpNoticeListSelect.size());
+			adminHelpNoticeList=iAdminHelpDao.adminHelpNoticeListSelect(hMap);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + adminHelpNoticeList.size());
 			
 			
 		}
@@ -207,7 +207,7 @@ public class AdminHelpService implements IAdminHelpService {
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("count", count);
 		mav.addObject("boardSize", boardSize);
-		mav.addObject("adminHelpNoticeListSelect", adminHelpNoticeListSelect);
+		mav.addObject("adminHelpNoticeList", adminHelpNoticeList);
 		
 		mav.setViewName("help/adminHelpNoticeList");
 	}
