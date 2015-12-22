@@ -95,10 +95,10 @@ public class AdminHelpService implements IAdminHelpService {
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
 		GoBookAspect.logger.info(GoBookAspect.logMsg + helpqna_num + "\t" + pageNumber);
 		
-		HelpQnADto HelpQnADto=iAdminHelpDao.adminHelpQnARead(helpqna_num);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + HelpQnADto);
+		HelpQnADto helpQnADto=iAdminHelpDao.adminHelpQnARead(helpqna_num);
+		GoBookAspect.logger.info(GoBookAspect.logMsg + helpQnADto);
 		
-		mav.addObject("HelpQnADto", HelpQnADto);
+		mav.addObject("helpQnADto", helpQnADto);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("help/adminHelpQnARead");
 	}
