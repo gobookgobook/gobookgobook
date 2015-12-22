@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,6 @@
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
@@ -69,7 +69,16 @@
 								<tr class="success">
 									<td style="text-align:center">${book.reorder_num}</td>
 									<td style="text-align:center">${book.book_num}</td>
-									<td style="text-align:left">${book.book_name}</td>
+									<td style="text-align:left">
+										<c:choose>
+											<c:when test="${fn:length(book.book_name) > 35}">
+												<c:out value="${fn:substring(book.book_name, 0, 34)}"/>....
+											</c:when>
+											<c:otherwise>
+												${book.book_name}
+											</c:otherwise>
+										</c:choose>
+									</td>
 									<td style="text-align:center">${book.reorder_quantity}</td>
 									<td style="text-align:right">${book.book_cost}원</td>
 									<td style="text-align:right">${book.reorder_total_price}원</td>
@@ -118,7 +127,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:150px">
+	<div style="margin-top:130px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>

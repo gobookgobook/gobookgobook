@@ -15,7 +15,6 @@
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 		<c:if test="${id=='admin'}">
 			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">

@@ -2,20 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<jsp:include page="../admin-top.jsp"/>
+
 </head>
 <body>
-	<c:set var="id" value="admin" scope="session"/>
-	<div id="contents" style="background:white; border:0px solid black">
+	<div id="contents" style="background:white; border:0px solid green">
 		<c:if test="${id=='admin'}">
 			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
@@ -73,7 +74,16 @@
 										<td style="text-align:center">${gpList.gp_num}</td>
 										<td style="text-align:center">${gpList.book_num}</td>
 										<td style="text-align:left">
-											<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${gpList.book_name}</a>
+											<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">
+												<c:choose>
+													<c:when test="${fn:length(gpList.book_name) > 14}">
+														<c:out value="${fn:substring(gpList.book_name, 0, 13)}"/>....
+													</c:when>
+													<c:otherwise>
+														${gpList.book_name}
+													</c:otherwise>
+												</c:choose>
+											</a>
 										</td>
 										<td style="text-align:right">${gpList.book_price}원</td>
 										<td style="text-align:right">${gpList.group_purchase_price}원</td>
@@ -132,7 +142,16 @@
 										<tr class="success">
 											<td style="text-align:center">${book.book_num}</td>
 											<td style="text-align:left">
-												<a href="${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+												<a href="${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">
+													<c:choose>
+														<c:when test="${fn:length(book.book_name) > 35}">
+															<c:out value="${fn:substring(book.book_name, 0, 34)}"/>....
+														</c:when>
+														<c:otherwise>
+															${book.book_name}
+														</c:otherwise>
+													</c:choose>
+												</a>
 											</td>
 											<td style="text-align:right">${book.book_price}원</td>
 											<td style="text-align:center">${book.book_quantity}</td>
@@ -184,14 +203,30 @@
 		</script>
 	</c:if>
 	
-	<c:if test="${gpCount<4}">
-		<div style="margin-top: 400px">
+<%-- 	<div style="display: block">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div> --%>
+	
+ 	<c:if test="${gpCount==0}">
+		<div style="margin-top: 200px">
 			<jsp:include page="../main-bottom.jsp"/>
 		</div>
 	</c:if>
 	
-	<c:if test="${gpCount>=4}">
+	<c:if test="${gpCount>0 && gpCount<=3}">
+		<div style="margin-top: 350px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
+	
+	<c:if test="${gpCount>3 && gpCount<=6}">
 		<div style="margin-top: 500px">
+			<jsp:include page="../main-bottom.jsp"/>
+		</div>
+	</c:if>
+	
+	<c:if test="${gpCount>6 && gpCount<=9}">
+		<div style="margin-top: 650px">
 			<jsp:include page="../main-bottom.jsp"/>
 		</div>
 	</c:if>

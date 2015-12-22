@@ -50,7 +50,6 @@
 
 </head>
 <body>
-	<c:set var="id" value="admin" scope="session"/>
 <div id="wrap">
 <dl class="hide">
  <dt>스킵 메뉴</dt>
@@ -145,7 +144,7 @@
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 18px;">도서 출간 일정</b></div>
-			<input style="float: right;" type="button" value="신간도서등록" onclick="location.href='${root}/bookManage/bookInsert.do?pageNumber=0'" />
+			<input style="float: right;margin: -10px 0 20px 0" type="button" value="신간도서등록" onclick="location.href='${root}/bookManage/bookInsert.do?pageNumber=0'" />
 			<div id="calendar"></div>
 		</div>
 	</c:if>
@@ -156,5 +155,6 @@
 			location.href="${root}/member/goBookMain.do"
 		</script>
 	</c:if>
+	
 </body>
 </html>

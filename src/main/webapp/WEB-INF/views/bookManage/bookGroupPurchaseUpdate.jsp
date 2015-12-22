@@ -20,7 +20,6 @@
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
-	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
@@ -36,7 +35,7 @@
 			<br/>
 			<form class="form_style" name="bookGroupPurchaseUpdate" action="${root}/bookManage/bookGroupPurchaseUpdate.do" method="post" onsubmit="return groupPurchaseForm(this)">				
 				<div class="line">
-					<label class="title2">공구번호</label>
+					<label class="titleR">공구번호</label>
 					<span class="content">
 						<input type="hidden" name="gp_num" value="${gpDto.gp_num}"/>
 						<input type="text" value="${gpDto.gp_num}" disabled="disabled"/>
@@ -44,63 +43,63 @@
 				</div>
 				
 				<div class="line">
-					<label class="title2">도서번호</label>
+					<label class="titleR">도서번호</label>
 					<span class="content">
 						<input type="text" value="${gpDto.book_num}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">도서명</label>
+					<label class="titleR">도서명</label>
 					<span class="content">
 						<input type="text" size="50" value="${gpDto.book_name}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">도서원가</label>
+					<label class="titleR">도서원가</label>
 					<span class="content">
 						<input type="text" value="${gpDto.book_cost}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">도서가격</label>
+					<label class="titleR">도서가격</label>
 					<span class="content">
 						<input type="text" value="${gpDto.book_price}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">공구가격</label>
+					<label class="titleR">공구가격</label>
 					<span class="content">
 						<input type="text" name="group_purchase_price" value="${gpDto.group_purchase_price}" />
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">재고수량</label>
+					<label class="titleR">재고수량</label>
 					<span class="content">
 						<input type="text" value="${gpDto.book_quantity}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">공구 진행 최소 수량</label>
+					<label class="titleR">공구 진행 수량</label>
 					<span class="content">
 						<input type="text" name="group_purchase_min_count" value="${gpDto.group_purchase_min_count}"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">공구 마감 최대 수량</label>
+					<label class="titleR">공구 마감 수량</label>
 					<span class="content">
 						<input type="text" name="group_purchase_max_count" value="${gpDto.group_purchase_max_count}"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="title2">공구 마감일</label>
+					<label class="titleR">공구 마감일</label>
 					<span class="content">
 						<select name="group_purchase_date_year">
 	    					<option>년</option>
@@ -147,8 +146,6 @@
 								}
 							</script>
 						</c:forTokens>
-						
-						<input type="text" name="group_purchase_date" value="<fmt:formatDate value='${gpDto.group_purchase_date}' pattern='yyyy/MM/dd'/>"/>
 					</span>
 				</div>
 				
@@ -168,5 +165,9 @@
 			location.href="${root}/member/goBookMain.do"
 		</script>
 	</c:if>
+	
+	<div style="margin-top: -70px">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>
