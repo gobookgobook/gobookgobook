@@ -32,7 +32,7 @@
     </select>
     
     <update id="eventUpdate" parameterType="com.gobook.event.dto.EventDto">
-      update event set event_name=#{event_name}, event_start_period=#{event_start_period},event_end_period= #{event_end_period},event_Content= #{event_Content}
+      update event set event_name=#{event_name}, event_start_period=#{event_start_period},event_end_period= #{event_end_period},event_Content= #{event_Content} where event_bunho=#{event_bunho}
     </update>
     
     <delete id="eventDelete" parameterType="int">

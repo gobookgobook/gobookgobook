@@ -19,9 +19,12 @@
 $(function(){
 	 
 	 $("#date1,#date2").datepicker({
-		 dateFormat:"yy/mm/dd",
-		 monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-		 dayNamesMin:["일","월","화","수","목","금","토"],
+		dateFormat:"yy/mm/dd",
+		monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+		dayNamesMin:["일","월","화","수","목","금","토"],
+		showOn:"button",
+		buttonImage:"${root}/css/memberManage/calendar.gif", 
+		buttonImageOnly:true
 		
 	 });
  });
@@ -33,7 +36,7 @@ $(function(){
 </style>
 </head>
 <body>
-<div id="contents" style="height:600px; background:white; border:0px solid black">     
+<div id="contents" style="height:500px; background:white; border:0px solid black; position: static;">     
 	<form class="form_style" action="${root}/event/eventWrite.do" method="post" onsubmit="return eventForm(this)" enctype="multipart/form-data"> 
 	<c:if test="${id=='admin'}">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
@@ -56,9 +59,11 @@ $(function(){
 				<tr>
 					<th style="background:#dff0d8;">이벤트 기간</th>
 					<td>
-					<input type="text" id="date1" name="event_start_period"/>
+					<input type="text" id="date1" name="start_period" disabled="disabled"/>
+					<input type="hidden" name="event_start_period"/>
 					~
-					<input type="text" id="date2" name="event_end_period"/>
+					<input type="text" id="date2" name="end_period" disabled="disabled"/>
+					<input type="hidden" name="event_end_period"/>
 					</td>
 				</tr>
 				<tr>
