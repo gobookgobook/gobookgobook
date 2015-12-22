@@ -28,7 +28,13 @@ function zipcodeRead(root){
 	var url =root+"/member/zipcode.do";
 	//alert(url);
 	
-	win_op(url,"","400", "400", "yes");
+	var width=500;
+	var height=300;
+	
+	var top = (screen.availHeight / 2) - (height / 2); 
+	var left = (screen.availWidth / 2) - (width / 2); 
+	
+	window.open(url,"","width="+width+" height="+height+" left="+left+" top="+top+" scrollbars=yes");
 }
 
 /**
@@ -41,7 +47,13 @@ function couponRead(root){
 	var url=root+"/userOrder/userOrderCouponList.do";
 	//alert(url);
 	
-	win_op(url,"","200", "200", "yes");
+	var width=360;
+	var height=280;
+	
+	var top = (screen.availHeight / 2) - (height / 2); 
+	var left = (screen.availWidth / 2) - (width / 2); 
+	
+	window.open(url,"","width="+width+" height="+height+" left="+left+" top="+top+" scrollbars=yes");
 }
 
 /**
@@ -116,13 +128,16 @@ function applyPoint(root, point, memberPoint,order_book_point){
 		return false;
 	}
 	
-	if(point.value>memberPoint.value){
+	var applyPoint = parseInt(point.value);
+	var savingPoint = parseInt(memberPoint.value);
+	
+	if(applyPoint>savingPoint){
 		alert("보유하신 Point 보다 적용하실 Point가 클 수 없습니다.");
 		point.value=0;
 		return false;
 	}else{
 		alert("포인트가 적용되었습니다.");
-		memberPoint.value=memberPoint.value-point.value;
+		savingPoint=savingPoint-applyPoint;
 		
 		var odp=parseInt(order_book_point.value);
 		if(order_book_point.value==(null)||order_book_point.value==("")){
@@ -130,7 +145,7 @@ function applyPoint(root, point, memberPoint,order_book_point){
 		}else{
 			odp=parseInt(order_book_point.value);
 		}
-		order_book_point.value=odp+parseInt(point.value);
+		order_book_point.value=odp+applyPoint;
 		
 		var dispPoint=document.getElementById("applyPointDisp");
 		dispPoint.innerHTML="적용된 포인트 : "+order_book_point.value+" Point";
@@ -138,7 +153,7 @@ function applyPoint(root, point, memberPoint,order_book_point){
 		var pointCharge=document.getElementById("applyPointCharge");
 		pointCharge.innerHTML=order_book_point.value+" Point 사용";
 		
-		memberForm.total.value=memberForm.total.value-point.value;
+		memberForm.total.value=memberForm.total.value-applyPoint;
 		
 		var tempNum=memberForm.total.value;
 		var strNum=numberFormat(tempNum);
