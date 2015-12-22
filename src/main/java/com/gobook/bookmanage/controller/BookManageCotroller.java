@@ -76,7 +76,7 @@ public class BookManageCotroller {
 	 * @함수이름 : bookStockList
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서현황
+	 * @설명 : 도서재고현황
 	 */
 	@RequestMapping(value="/bookManage/bookStockList.do", method=RequestMethod.GET)
 	public ModelAndView bookStockList(HttpServletRequest request, HttpServletResponse response){
@@ -279,6 +279,37 @@ public class BookManageCotroller {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		iBookManageService.bookNewPublishList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookList
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서목록
+	 */
+	@RequestMapping(value="/bookManage/bookList.do", method=RequestMethod.GET)
+	public ModelAndView bookList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookRead
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 세부 정보
+	 */
+	@RequestMapping(value="/bookManage/bookRead.do", method=RequestMethod.GET)
+	public ModelAndView bookRead(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		iBookManageService.bookRead(mav);
 		
 		return mav;
 	}

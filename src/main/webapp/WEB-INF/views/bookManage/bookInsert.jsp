@@ -32,7 +32,7 @@
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<form class="form_style" action="${root}/bookManage/bookInsert.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">
-				<div align="center"><b style="font-size: 18px;">도서등록</b></div>
+				<div align="center"><b style="font-size: 18px;">도서 등록</b></div>
 				<br/>
 				
 				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
@@ -45,7 +45,7 @@
 				
 				<div class="line">
 					<label class="titleR">도서명</label>
-					<span class="content"><input type="text" size="50" name="book_name"/></span>
+					<span class="content"><input type="text" size="68" name="book_name"/></span>
 				</div>
 				
 				<div class="line">
@@ -117,14 +117,14 @@
 					</span>
 				</div>
 				
-				<div class="line" style="height:200px;">
+				<div class="line" style="height:200px;margin-top:-20px;">
 					<label class="titleR" style="height:180px;">목차</label>
 					<span class="content" style="height:180px;">
 						<textarea rows="10" cols="67" name="book_index"></textarea>
 					</span>
 				</div>
 				
-				<div class="line" style="height:160px;">
+				<div class="line" style="height:160px;margin-top:-20px;">
 					<label class="titleR" style="height:160px;">카테고리</label>
 					<span class="content" style="height:160px;">
 						<input type="checkbox" name="category" value="문학"/> 문학<br/>
@@ -189,7 +189,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:700px">
+	<div style="margin-top:600px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>

@@ -348,11 +348,15 @@ public class UserBookService implements IUserBookService {
 			bookSerchList=iUserBookDao.bookSerchList(hMap);
 		}
 		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
 		mav.addObject("bookSerchList", bookSerchList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("count", count);
 		mav.addObject("keyword", keyword);
+		mav.addObject("id", id);
 		
 		mav.setViewName("userBook/userBookSerch");
 	}

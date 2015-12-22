@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -197,7 +198,7 @@ public class BookManageService implements IBookManageService {
 	 * @함수이름 : bookStockList
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서 현황
+	 * @설명 : 재고 도서 목록
 	 */
 	@Override
 	public void bookStockList(ModelAndView mav) {
@@ -214,19 +215,19 @@ public class BookManageService implements IBookManageService {
 		
 		int count=iBookManageDao.bookStockCount();
 		
-		List<BookDto> bookList=null;
+		List<BookDto> bookStockList=null;
 		if(count>0){
 			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
-			bookList=iBookManageDao.bookList(hMap);
+			bookStockList=iBookManageDao.bookStockList(hMap);
 		}
 		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
-		mav.addObject("bookList", bookList);
+		mav.addObject("bookStockList", bookStockList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("count", count);
@@ -718,7 +719,7 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		int count=iBookManageDao.bookStockCount();
+		int count=iBookManageDao.bookCount();
 		
 		List<BookDto> bookList=null;
 		if(count>0){
@@ -795,6 +796,72 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("count", count);
 		
 		mav.setViewName("bookManage/bookNewPublishList");
+		
+	}
+
+	/**
+	 * @함수이름 : bookList
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서목록
+	 */
+	@Override
+	public void bookList(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookCount();
+		
+		List<BookDto> bookStockList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookStockList=iBookManageDao.bookList(hMap);
+		}
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookList", bookStockList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookList");
+		
+	}
+
+	@Override
+	public void bookRead(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		HttpServletResponse response=(HttpServletResponse) map.get("response");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		
+		if(pageNumber==null) pageNumber="0";
+		
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("bookDto", bookDto);
+		
+		mav.setViewName("bookManage/bookRead");
 		
 	}
 	

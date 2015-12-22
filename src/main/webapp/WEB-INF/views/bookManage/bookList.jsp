@@ -27,7 +27,7 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 18px;">재고 목록</b></div>
+			<div align="center"><b style="font-size: 18px;">도서 목록</b></div>
 			<br/>
 			
 			<c:if test="${count==0}">
@@ -63,11 +63,11 @@
 							</tr>
 						</thead>
 						<tbody id="listAllTd">
-							<c:forEach var="book" items="${bookStockList}">
+							<c:forEach var="book" items="${bookList}">
 								<tr class="success">
 									<td style="text-align:center">${book.book_num}</td>
 									<td style="text-align:left">
-										<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+										<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
 									</td>
 									<td style="text-align:center">${book.book_quantity}</td>
 									<td style="text-align:center">${book.book_star}</td>
@@ -91,18 +91,18 @@
 					</c:if>
 					
 					<c:if test="${startPage>pageBlock}">
-						<a href="${root}/bookManage/bookStockList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+						<a href="${root}/bookManage/bookList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 					</c:if>
 					
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
 						<c:if test="${currentPage==i}">&nbsp;&nbsp;&nbsp;[${i}]</c:if>
 						<c:if test="${currentPage!=i}">
-						<a href="${root}/bookManage/bookStockList.do?pageNumber=${i}">[${i}]</a>
+						<a href="${root}/bookManage/bookList.do?pageNumber=${i}">[${i}]</a>
 						</c:if>
 					</c:forEach>
 					
 					<c:if test="${endPage<pageCount}">
-						<a href="${root}/bookManage/bookStockList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+						<a href="${root}/bookManage/bookList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 					</c:if>
 				</div>
 			</c:if>
@@ -117,7 +117,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top:220px">
+	<div style="margin-top:180px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>

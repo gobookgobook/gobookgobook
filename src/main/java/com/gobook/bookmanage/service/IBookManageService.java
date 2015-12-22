@@ -26,4 +26,6 @@ public interface IBookManageService {
 	public void bookGroupPurchaseDelete(ModelAndView mav);
 	public void bookSchedule(ModelAndView mav);
 	public void bookNewPublishList(ModelAndView mav);
+	public void bookList(ModelAndView mav);
+	public void bookRead(ModelAndView mav);
 }

@@ -9,14 +9,14 @@
 	</insert>
 	
 	<select id="bookStockCount" resultType="int">
-		select count(*) from book 
+		select count(*) from book where book_quantity!=0
 	</select>
 	
-	<select id="bookList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+	<select id="bookStockList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
 		<![CDATA[
 			select * from
 				(select rownum rnum, a.* from
-					(select * from book order by book_quantity asc, book_reorder_count desc)a )
+					(select * from book where book_quantity!=0 order by book_quantity desc, book_group_purchase_count desc, book_star)a )
 			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
@@ -188,6 +188,19 @@
 			select * from
 				(select rownum rnum, a.* from
 					(select * from book where BOOK_STATE=2 and BOOK_REORDER_COUNT!=0 order by BOOK_REORDER_COUNT desc)a )
+			where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
+	
+	<select id="bookCount" resultType="int">
+		select count(*) from book
+	</select>
+	
+	<select id="bookList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from book order by book_name)a )
 			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>

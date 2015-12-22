@@ -18,6 +18,10 @@
 		</tr>
 		
 		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookList.do">도서목록</a></td>
+		</tr>
+		
+		<tr style="color:white">
 			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookStockList.do">재고관리</a></td>
 		</tr>
 		

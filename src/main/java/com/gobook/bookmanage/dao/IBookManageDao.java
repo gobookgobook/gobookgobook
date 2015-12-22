@@ -14,7 +14,7 @@ import com.gobook.bookmanage.dto.*;
 public interface IBookManageDao {
 	public int bookInsert(BookDto bookDto);
 	public int bookStockCount();
-	public List<BookDto> bookList(HashMap<String, Integer> hMap);
+	public List<BookDto> bookStockList(HashMap<String, Integer> hMap);
 	public BookDto bookInfo(long book_num);
 	public int bookStockUpdate(BookDto bookDto, int reorder_quantity);
 	public int bookReOrderListCount();
@@ -33,4 +33,6 @@ public interface IBookManageDao {
 	public int bookGroupPurchaseDelete(int gp_num);
 	public int bookNewPublishCount();
 	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap);
+	public int bookCount();
+	public List<BookDto> bookList(HashMap<String, Integer> hMap);
 }

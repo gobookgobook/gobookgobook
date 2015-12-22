@@ -47,7 +47,7 @@ public class BookManageDao implements IBookManageDao {
 	 * @함수이름 : bookStockCount
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서목록 페이지 카운트
+	 * @설명 : 도서재고목록 수량(페이지 카운트)
 	 */
 	@Override
 	public int bookStockCount() {
@@ -59,12 +59,12 @@ public class BookManageDao implements IBookManageDao {
 	 * @함수이름 : bookList
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서목록
+	 * @설명 : 도서재고목록
 	 */
 	@Override
-	public List<BookDto> bookList(HashMap<String, Integer> hMap) {
+	public List<BookDto> bookStockList(HashMap<String, Integer> hMap) {
 		
-		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookList", hMap);
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookStockList", hMap);
 	}
 
 	/**
@@ -325,6 +325,30 @@ public class BookManageDao implements IBookManageDao {
 	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap) {
 		
 		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookNewPublishList", hMap);
+	}
+
+	/**
+	 * @함수이름 : bookList
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서목록
+	 */
+	@Override
+	public List<BookDto> bookList(HashMap<String, Integer> hMap) {
+
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookList", hMap);
+	}
+
+	/**
+	 * @함수이름 : bookCount
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서수량
+	 */
+	@Override
+	public int bookCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookCount");
 	}
 	
 	
