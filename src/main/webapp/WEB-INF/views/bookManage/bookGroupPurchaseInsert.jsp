@@ -32,7 +32,8 @@
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 18px;">공동 구매 등록</b></div>
 			<br/>
-			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchaseForm(this)">				
+			<form class="form_style" name="bookGroupPurchaseInsert" action="${root}/bookManage/bookGroupPurchaseInsert.do" method="post" onsubmit="return groupPurchaseForm(this)">
+				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 				<div class="line">
 					<label class="titleR">도서번호</label>
 					<span class="content">
@@ -122,7 +123,7 @@
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="공구등록"/>
 					<input type="reset" value="다시작성"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookStockList.do'"/>
+					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookList.do'"/>
 				</div>
 			</form>	
 		</div>

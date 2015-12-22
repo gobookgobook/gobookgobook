@@ -13,8 +13,8 @@
 	<c:if test="${check>0}">
 	<script type="text/javascript">
 		alert("도서 등록이 완료 되었습니다.");
-		var pageNumber=${pageNumber};
-		if(pageNumber==0) location.href="${root}/bookManage/bookSchedule.do";
+		var pageInfo=${pageInfo};
+		if(pageInfo=="bookSchedule") location.href="${root}/bookManage/bookSchedule.do";
 		else location.href="${root}/bookManage/bookStockList.do?pagenumber=${pageNumber}";
 		
 	</script>

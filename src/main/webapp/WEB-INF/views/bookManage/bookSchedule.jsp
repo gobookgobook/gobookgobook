@@ -92,6 +92,7 @@
            	<li><a href="${root}/bookManage/bookList.do">도서목록</a></li>
 			<li><a href="${root}/bookManage/bookStockList.do">재고관리</a></li>
 			<li><a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></li>
+			<li><a href="${root}/bookManage/bookSpecialPrice.do">특가도서목록</a></li>
 			<li><a href="${root}/bookManage/bookManage.do">고객도서요청</a></li>
 			<li><a href="${root}/bookManage/bookReOrderList.do">재입고현황</a></li>
 			<li><a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a></li>
@@ -144,7 +145,7 @@
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 			<div align="center"><b style="font-size: 18px;">도서 출간 일정</b></div>
-			<input style="float: right;margin: -10px 0 20px 0" type="button" value="신간도서등록" onclick="location.href='${root}/bookManage/bookInsert.do?pageNumber=0'" />
+			<input style="float: right;margin: -10px 0 20px 0" type="button" value="신간도서등록" onclick="location.href='${root}/bookManage/bookInsert.do?pageInfo=bookSchedule'" />
 			<div id="calendar"></div>
 		</div>
 	</c:if>

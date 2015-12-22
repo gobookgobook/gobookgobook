@@ -49,7 +49,7 @@
 							<tbody id="listAllTd"></tbody>
 						</table>
 					</div>
-					<span>등록된 도서가 없습니다.</span>
+					<div align="center"><span>공구 진행중인 도서가 없습니다.</span></div>
 				</c:if>
 				
 				<c:if test="${gpCount>0}">
@@ -74,10 +74,10 @@
 										<td style="text-align:center">${gpList.gp_num}</td>
 										<td style="text-align:center">${gpList.book_num}</td>
 										<td style="text-align:left">
-											<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">
+											<a href="${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${gpList.book_num}"  style="margin-left: 20px;">
 												<c:choose>
-													<c:when test="${fn:length(gpList.book_name) > 14}">
-														<c:out value="${fn:substring(gpList.book_name, 0, 13)}"/>....
+													<c:when test="${fn:length(gpList.book_name) > 21}">
+														<c:out value="${fn:substring(gpList.book_name, 0, 20)}"/>....
 													</c:when>
 													<c:otherwise>
 														${gpList.book_name}
@@ -109,7 +109,7 @@
 								<thead>
 									<tr class="success" style="color:#1DDB16">
 										<th style="text-align:center">도서번호</th>
-										<th style="text-align:center;width:245px">도서명</th>
+										<th style="text-align:center">도서명</th>
 										<th style="text-align:center">도서가격</th>
 										<th style="text-align:center">도서수량</th>
 										<th style="text-align:center">별점</th>
@@ -120,7 +120,7 @@
 								<tbody id="listAllTd"></tbody>
 							</table>
 						</div>
-						<span>공동구매 요청 도서가 없습니다.</span>
+						<div align="center"><span>공동구매 요청 도서가 없습니다.</span></div>
 					</c:if>
 						
 					<c:if test="${count>0}">
@@ -129,7 +129,7 @@
 								<thead>
 									<tr class="success" align="center" style="color:#1DDB16">
 										<th style="text-align:center">도서번호</th>
-										<th style="text-align:center">도서명</th>
+										<th style="text-align:center;width:245px">도서명</th>
 										<th style="text-align:center">도서가격</th>
 										<th style="text-align:center">도서수량</th>
 										<th style="text-align:center">별점</th>
@@ -144,8 +144,8 @@
 											<td style="text-align:left">
 												<a href="${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">
 													<c:choose>
-														<c:when test="${fn:length(book.book_name) > 35}">
-															<c:out value="${fn:substring(book.book_name, 0, 34)}"/>....
+														<c:when test="${fn:length(book.book_name) > 21}">
+															<c:out value="${fn:substring(book.book_name, 0, 20)}"/>....
 														</c:when>
 														<c:otherwise>
 															${book.book_name}

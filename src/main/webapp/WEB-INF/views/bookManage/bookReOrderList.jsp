@@ -47,7 +47,7 @@
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<span>등록된 재입고 현황이 없습니다.</span>
+				<div align="center"><span>등록된 재입고 현황이 없습니다.</span></div>
 			</c:if>
 		
 			<c:if test="${count>0}">

@@ -35,6 +35,7 @@
 				<br/>
 				
 				<input type="hidden" name="pageNumber" value="${pageNumber}"/>
+				<input type="hidden" name="pageInfo" value="${pageInfo}"/>
 				<div class="line">
 					<label class="titleR">도서번호</label>
 					<span class="content">

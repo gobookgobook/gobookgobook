@@ -101,31 +101,15 @@ public class BookManageDao implements IBookManageDao {
 		
 		int value=0;
 		try{			
-			if(reorder_quantity!=0){
-				if(bookDto.getBook_state()!=2) {
-					sqlSessionTemplate.insert("dao.bookmanageMapper.bookReOrderInsert", hMap);
-				}
-				sqlSessionTemplate.insert("dao.bookmanageMapper.salesMonthListInsert", hMap);
+			if(bookDto.getBook_state()!=2) {
+				sqlSessionTemplate.insert("dao.bookmanageMapper.bookReOrderInsert", hMap);
 			}
-			GoBookAspect.logger.info(GoBookAspect.logMsg + "DAO bookDto.getBook_reorder_count : "+bookDto.getBook_reorder_count());
+			sqlSessionTemplate.insert("dao.bookmanageMapper.salesMonthListInsert", hMap);
 			
-			if(bookDto.getBook_cover_file_name()==null){
-				value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
-			}else{
-				value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdateCoverFile", bookDto);	
-			}
+			bookDto.setBook_state(1);
+			bookDto.setBook_reorder_count(0);
 			
-			if(bookDto.getBook_preview_file_name1()!=null){
-				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileOne", bookDto);
-			}
-			
-			if(bookDto.getBook_preview_file_name2()!=null){
-				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileTwo", bookDto);
-			}
-			
-			if(bookDto.getBook_preview_file_name3()!=null){
-				sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdatePreviewFileThree", bookDto);
-			}
+			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookStockUpdate", bookDto);
 			
 			transactionManager.commit(status);
 		}catch(Exception e){
@@ -349,6 +333,85 @@ public class BookManageDao implements IBookManageDao {
 	public int bookCount() {
 		
 		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookCount");
+	}
+
+	/**
+	 * @함수이름 : bookUpdate
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 정보 수정
+	 */
+	@Override
+	public int bookUpdate(BookDto bookDto) {
+		int value=0;
+		
+		if(bookDto.getBook_cover_file_name()==null){
+			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookUpdate", bookDto);
+		}else{
+			value=sqlSessionTemplate.update("dao.bookmanageMapper.bookUpdateCoverFile", bookDto);	
+		}
+		
+		if(bookDto.getBook_preview_file_name1()!=null){
+			sqlSessionTemplate.update("dao.bookmanageMapper.bookUpdatePreviewFileOne", bookDto);
+		}
+		
+		if(bookDto.getBook_preview_file_name2()!=null){
+			sqlSessionTemplate.update("dao.bookmanageMapper.bookUpdatePreviewFileTwo", bookDto);
+		}
+		
+		if(bookDto.getBook_preview_file_name3()!=null){
+			sqlSessionTemplate.update("dao.bookmanageMapper.bookUpdatePreviewFileThree", bookDto);
+		}
+		
+		return value;
+	}
+
+	/**
+	 * @함수이름 : bookPriceUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 설정
+	 */
+	@Override
+	public int bookSpecialPriceUpdate(BookDto bookDto) {
+		
+		return sqlSessionTemplate.update("dao.bookmanageMapper.bookSpecialPriceUpdate", bookDto);
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceCancle
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 취소
+	 */
+	@Override
+	public int bookSpecialPriceCancle(BookDto bookDto) {
+		
+		return sqlSessionTemplate.update("dao.bookmanageMapper.bookSpecialPriceCancle", bookDto);
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceCount
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 특가 도서 수량
+	 */
+	@Override
+	public int bookSpecialPriceCount() {
+		
+		return sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookSpecialPriceCount");
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 특가 도서 목록
+	 */
+	@Override
+	public List<BookDto> bookSpecialPriceList(HashMap<String, Integer> hMap) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookSpecialPriceList", hMap);
 	}
 	
 	

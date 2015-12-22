@@ -5,21 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공구 등록</title>
+<title>도서 특가 설정</title>
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	
 	<c:if test="${check>0}">
 	<script type="text/javascript">
-		alert("공동구매  등록이 완료 되었습니다.");
-		location.href="${root}/bookManage/bookGroupPurchase.do?pageNumber=${pageNumber}"
+		alert("도서 특별 할인 가격이 적용되었습니다.");
+		location.href="${root}/bookManage/bookSpecialPrice.do?pageNumber=${pageNumber}";
 	</script>
 	</c:if>
 	<c:if test="${check==0}">
 	<script type="text/javascript">
-		alert("공동구매 등록에 문제가 발생하였습니다.");
-		location.href="${root}/bookManage/bookGroupPurchaseInsert.do"
+		alert("도서 특가 설정에 문제가 발생하였습니다.");
+		location.href="${root}/bookManage/bookSpecialPrice.do";
 	</script>
 	</c:if>
 </body>

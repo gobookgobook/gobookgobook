@@ -35,4 +35,9 @@ public interface IBookManageDao {
 	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap);
 	public int bookCount();
 	public List<BookDto> bookList(HashMap<String, Integer> hMap);
+	public int bookUpdate(BookDto bookDto);
+	public int bookSpecialPriceUpdate(BookDto bookDto);
+	public int bookSpecialPriceCancle(BookDto bookDto);
+	public int bookSpecialPriceCount();
+	public List<BookDto> bookSpecialPriceList(HashMap<String, Integer> hMap);
 }

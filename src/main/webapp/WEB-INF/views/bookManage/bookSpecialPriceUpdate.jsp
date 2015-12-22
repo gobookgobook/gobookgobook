@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>도서 입고 신청</title>
+<title>도서 특가 설정</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -31,9 +31,9 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 18px;">도서 입고 신청</b></div>
+			<div align="center"><b style="font-size: 18px;">도서 판매가 변경</b></div>
 			<br/>
-			<form class="form_style" name="bookStockUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookStockUpdateFun(this)">	
+			<form class="form_style" name="bookSpecialPriceUpdate" action="${root}/bookManage/bookSpecialPriceUpdate.do" method="post" onsubmit="return bookSpecialPriceUpdateFun(this)">	
 				<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
 				</div>
 				
@@ -54,32 +54,32 @@
 				</div>
 				
 				<div class="line">
-					<label class="titleR">도서원가</label>
-					<span class="content"><input type="text" value="${bookDto.book_cost}" disabled="disabled"/></span>
-				</div>
-				
-				<div class="line">
-					<label class="titleR">소비자가격</label>
-					<span class="content"><input type="text" value="${bookDto.book_price}" disabled="disabled"/>
-					</span>
-				</div>
-				
-				<div class="line">
 					<label class="titleR">재고수량</label>
 					<span class="content"><input type="text" value="${bookDto.book_quantity}" disabled="disabled"/>
 					</span>
 				</div>
 				
 				<div class="line">
-					<label class="titleR">입고요청수량</label>
+					<label class="titleR">도서원가</label>
+					<span class="content"><input type="text" value="${bookDto.book_cost}" disabled="disabled"/></span>
+				</div>
+				
+				<div class="line">
+					<label class="titleR">도서가격</label>
+					<span class="content"><input type="text" value="${bookDto.book_price}" disabled="disabled"/>
+					</span>
+				</div>
+				
+				<div class="line">
+					<label class="titleR">도서특가설정</label>
 					<span class="content">
-						<input type="text" name="reorder_quantity" value="0"/>
+						<input type="text" name="book_price" value="0"/>
 					</span>
 				</div>
 				<br/>
 				<div class="line" style="text-align:center;">
-					<input type="submit" value="입고신청"/>
-					<input type="reset" value="수량변경"/>
+					<input type="submit" value="특가등록"/>
+					<input type="reset" value="특가변경"/>
 				</div>
 			</form>	
 		</div>

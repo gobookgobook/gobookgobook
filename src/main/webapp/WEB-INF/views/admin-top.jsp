@@ -100,6 +100,7 @@
            	<li><a href="${root}/bookManage/bookList.do">도서목록</a></li>
 			<li><a href="${root}/bookManage/bookStockList.do">재고관리</a></li>
 			<li><a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></li>
+			<li><a href="${root}/bookManage/bookSpecialPrice.do">특가도서목록</a></li>
 			<li><a href="${root}/bookManage/bookManage.do">고객도서요청</a></li>
 			<li><a href="${root}/bookManage/bookReOrderList.do">재입고현황</a></li>
 			<li><a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a></li>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,18 +29,8 @@
 			<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
 				<div align="center"><b style="font-size: 18px;">신간 도서 구매 희망 내역</b></div>
 				<br/>
-				
-			<c:if test="${count==0}">
-			<div align="center">
-				<table class="mytable" style=" border-collapse:collapse; width: 600px; height: 18px;">
-					<tr>
-						<td align="center">신간 도서 구매 희망 내역이 없습니다.</td>
-					</tr>
-				</table> 
-			</div>
-			</c:if>
 			
-			<c:if test="${count==0}">
+				<c:if test="${count==0}">
 					<div class="container" style="width:835px;padding:0px">
 						<table class="table table-bordered">
 							<thead>
@@ -55,7 +46,7 @@
 							<tbody id="listAllTd"></tbody>
 						</table>
 					</div>
-					<span>품절된 도서가 없습니다.</span>
+					<div align="center"><span>신간 도서 구매 희망 내역이 없습니다.</span></div>
 				</c:if>
 				
 				<c:if test="${count>0}">
@@ -76,7 +67,16 @@
 									<tr class="success">
 										<td style="text-align:center">${book.book_num}</td>
 										<td style="text-align:left">
-											<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">${book.book_name}</a>
+											<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}&pageInfo=bookNP"  style="margin-left: 20px;">
+												<c:choose>
+													<c:when test="${fn:length(book.book_name) > 35}">
+														<c:out value="${fn:substring(book.book_name, 0, 34)}"/>....
+													</c:when>
+													<c:otherwise>
+														${book.book_name}
+													</c:otherwise>
+												</c:choose>
+											</a>
 										</td>
 										<td style="text-align:center">${book.book_cost}</td>
 										<td style="text-align:center">${book.book_star}</td>

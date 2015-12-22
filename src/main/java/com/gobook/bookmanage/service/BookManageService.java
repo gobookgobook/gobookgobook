@@ -75,6 +75,8 @@ public class BookManageService implements IBookManageService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
+		
 		try{
 			if(pageNumber.equals(null)||pageNumber.equals("")) pageNumber="1";
 		}catch(Exception e){}
@@ -84,6 +86,7 @@ public class BookManageService implements IBookManageService {
 		
 		mav.addObject("id", id);
 		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		mav.setViewName("bookManage/bookInsert");
 	}
 	
@@ -101,6 +104,7 @@ public class BookManageService implements IBookManageService {
 		if(tempPageNumber.equals(null)||tempPageNumber.equals("")) tempPageNumber="1";
 		
 		int pageNumber=Integer.parseInt(tempPageNumber);
+		String pageInfo=request.getParameter("pageInfo");
 		
 		BookDto bookDto=(BookDto)map.get("bookDto");
 		
@@ -188,6 +192,7 @@ public class BookManageService implements IBookManageService {
 
 		mav.addObject("check", check);
 		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("book_num", bookDto.getBook_num());
 		
 		mav.setViewName("bookManage/bookInsertOk");
@@ -242,17 +247,16 @@ public class BookManageService implements IBookManageService {
 	 * @함수이름 : bookStockUpdate
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서수정(입고요청)
+	 * @설명 : 도서수정
 	 */
 	@Override
-	public void bookStockUpdate(ModelAndView mav) {
+	public void bookUpdate(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
 		long book_num=Long.parseLong(request.getParameter("book_num"));
-		
-		if(pageNumber==null) pageNumber="0";
 		
 		BookDto bookDto=iBookManageDao.bookInfo(book_num);
 		
@@ -260,10 +264,11 @@ public class BookManageService implements IBookManageService {
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
-		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("bookDto", bookDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		
-		mav.setViewName("bookManage/bookStockUpdate");
+		mav.setViewName("bookManage/bookUpdate");
 	}
 
 
@@ -271,23 +276,16 @@ public class BookManageService implements IBookManageService {
 	 * @함수이름 : bookStockUpdateOk
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서수정(입고요청)
+	 * @설명 : 도서수정
 	 */
 	@Override
-	public void bookStockUpdateOk(ModelAndView mav) {
+	public void bookUpdateOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
 		BookDto bookDto=(BookDto)map.get("bookDto");
+		
 		String pageNumber=request.getParameter("pageNumber");
-		
-		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
-		int oldBook_quantity=bookDto.getBook_quantity();
-		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
-		
-		if(bookDto.getBook_quantity()!=oldBook_quantity){
-			bookDto.setBook_state(1);
-			bookDto.setBook_reorder_count(0);
-		}
+		String pageInfo=request.getParameter("pageInfo");
 		
 		MultipartFile book_cover_file=request.getFile("book_cover_file");
 		String book_cover_file_name=book_cover_file.getOriginalFilename();
@@ -297,7 +295,6 @@ public class BookManageService implements IBookManageService {
 		if(book_cover_file_size==0 && old_book_cover_file_name!=null) book_cover_file_size=Long.parseLong(request.getParameter("old_book_cover_file_size"));
 		
 		if(book_cover_file_size!=0){
-			System.out.println("잘옴?");
 			MultipartFile book_preview_file1=request.getFile("book_preview_file1");
 			MultipartFile book_preview_file2=request.getFile("book_preview_file2");
 			MultipartFile book_preview_file3=request.getFile("book_preview_file3");
@@ -424,12 +421,13 @@ public class BookManageService implements IBookManageService {
 		
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "book_preview_file_name1 : " + bookDto.getBook_preview_file_name1());
 		
-		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
-		GoBookAspect.logger.info(GoBookAspect.logMsg + pageNumber);
-		mav.addObject("pageNumber", pageNumber);
-		mav.addObject("check", check);
+		int check=iBookManageDao.bookUpdate(bookDto);
 		
-		mav.setViewName("bookManage/bookStockUpdateOk");
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
+		
+		mav.setViewName("bookManage/bookUpdateOk");
 	}
 
 	/**
@@ -617,6 +615,9 @@ public class BookManageService implements IBookManageService {
 	public void bookGroupPurchaseInsert(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
 		long book_num=Long.parseLong(request.getParameter("book_num"));
 		BookDto bookDto=iBookManageDao.bookInfo(book_num);
 		
@@ -625,6 +626,8 @@ public class BookManageService implements IBookManageService {
 		
 		mav.addObject("id", id);
 		mav.addObject("bookDto", bookDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseInsert");
 		
@@ -639,11 +642,17 @@ public class BookManageService implements IBookManageService {
 	@Override
 	public void bookGroupPurchaseInsertOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		BookGroupPurchaseDto bookGroupPurchaseDto=(BookGroupPurchaseDto)map.get("bookGroupPurchaseDto");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
 		
 		int check=iBookManageDao.bookGroupPurchaseInsert(bookGroupPurchaseDto);
 		
 		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseInsertOk");
 	}
@@ -659,6 +668,9 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
+		
 		long book_num=Long.parseLong(request.getParameter("book_num"));
 		BookGroupPurchaseDto gpDto=iBookManageDao.gpRead(book_num);
 		
@@ -667,6 +679,8 @@ public class BookManageService implements IBookManageService {
 		
 		mav.addObject("id", id);
 		mav.addObject("gpDto", gpDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseUpdate");
 	}
@@ -680,11 +694,17 @@ public class BookManageService implements IBookManageService {
 	@Override
 	public void bookGroupPurchaseUpdateOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		BookGroupPurchaseDto bookGroupPurchaseDto=(BookGroupPurchaseDto)map.get("bookGroupPurchaseDto");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
 		
 		int check=iBookManageDao.bookGroupPurchaseUpdate(bookGroupPurchaseDto);
 		
 		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		
 		mav.setViewName("bookManage/bookGroupPurchaseUpdateOk");
 	}
@@ -740,7 +760,7 @@ public class BookManageService implements IBookManageService {
 			JSONObject obj = new JSONObject();			// 다시 한번 JSONObject로 감싸기 위해 객체 선언
 			obj.put( "title" , bookDto.getBook_name());	// obj에 객체의 데이터를 꺼내 차례로 담는다. (key ,value) 형식
 			obj.put( "start" , sdf.format(bookDto.getBook_publish_date()));
-			obj.put( "url" , (root+"/bookManage/bookStockUpdate.do?book_num="+bookDto.getBook_num()));
+			obj.put( "url" , (root+"/bookManage/bookRead.do?book_num="+bookDto.getBook_num()+"&pageInfo=bookSchedule"));
 			bsList.add(obj); // 아까 만들어진 cell Array객체에 VO담은 객체를 주입
 		}
 		// jsonObject.put("rows", bsList); // 마지막으로 JSON객체에 JSONArray 객체를 넣으면 끝!
@@ -821,19 +841,19 @@ public class BookManageService implements IBookManageService {
 		
 		int count=iBookManageDao.bookCount();
 		
-		List<BookDto> bookStockList=null;
+		List<BookDto> bookList=null;
 		if(count>0){
 			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
 			hMap.put("startRow", startRow);
 			hMap.put("endRow", endRow);
-			bookStockList=iBookManageDao.bookList(hMap);
+			bookList=iBookManageDao.bookList(hMap);
 		}
 		
 		HttpSession session=request.getSession();
 		String id=(String) session.getAttribute("id");
 		
 		mav.addObject("id", id);
-		mav.addObject("bookList", bookStockList);
+		mav.addObject("bookList", bookList);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("count", count);
@@ -842,6 +862,12 @@ public class BookManageService implements IBookManageService {
 		
 	}
 
+	/**
+	 * @함수이름 : bookRead
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 세부 정보
+	 */
 	@Override
 	public void bookRead(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -849,6 +875,7 @@ public class BookManageService implements IBookManageService {
 		HttpServletResponse response=(HttpServletResponse) map.get("response");
 		
 		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
 		long book_num=Long.parseLong(request.getParameter("book_num"));
 		
 		if(pageNumber==null) pageNumber="0";
@@ -860,10 +887,195 @@ public class BookManageService implements IBookManageService {
 		
 		mav.addObject("id", id);
 		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("bookDto", bookDto);
 		
 		mav.setViewName("bookManage/bookRead");
 		
 	}
+
+	/**
+	 * @함수이름 : bookStockUpdate
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 입고 요청
+	 */
+	@Override
+	public void bookStockUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookDto", bookDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
+		
+		mav.setViewName("bookManage/bookStockUpdate");
+	}
+
+	/**
+	 * @함수이름 : bookStockUpdateOk
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 입고 요청
+	 */
+	@Override
+	public void bookStockUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String pageInfo=request.getParameter("pageInfo");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		int reorder_quantity=Integer.parseInt(request.getParameter("reorder_quantity"));
+		
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		bookDto.setBook_quantity(bookDto.getBook_quantity()+reorder_quantity);
+		
+		int check=iBookManageDao.bookStockUpdate(bookDto, reorder_quantity);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("pageInfo", pageInfo);
+		
+		mav.setViewName("bookManage/bookStockUpdateOk");
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 설정
+	 */
+	@Override
+	public void bookSpecialPriceUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookDto", bookDto);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("bookManage/bookSpecialPriceUpdate");
+		
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceUpdateOk
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 설정
+	 */
+	@Override
+	public void bookSpecialPriceUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		BookDto bookDto=(BookDto)map.get("bookDto");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		
+		bookDto.setBook_state(5);
+		
+		int check=iBookManageDao.bookSpecialPriceUpdate(bookDto);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("bookManage/bookSpecialPriceUpdateOk");
+		
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPriceCancle
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 특가 설정 취소
+	 */
+	@Override
+	public void bookSpecialPriceCancle(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		String pageNumber=request.getParameter("pageNumber");
+		BookDto bookDto=iBookManageDao.bookInfo(book_num);
+		bookDto.setBook_price((bookDto.getBook_cost())*2);
+		if(bookDto.getBook_quantity()>0) bookDto.setBook_state(1);
+		else bookDto.setBook_state(0);
+		
+		int check=iBookManageDao.bookSpecialPriceCancle(bookDto);
+		
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("bookManage/bookSpecialPriceCancle");
+	}
+
+	/**
+	 * @함수이름 : bookSpecialPrice
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 목록
+	 */
+	@Override
+	public void bookSpecialPrice(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		int boardSize=10;
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=iBookManageDao.bookSpecialPriceCount();
+		
+		List<BookDto> bookSpecialPriceList=null;
+		if(count>0){
+			HashMap<String, Integer> hMap=new HashMap<String, Integer>();
+			hMap.put("startRow", startRow);
+			hMap.put("endRow", endRow);
+			bookSpecialPriceList=iBookManageDao.bookSpecialPriceList(hMap);
+		}
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookSpecialPriceList", bookSpecialPriceList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookSpecialPrice");
+		
+	}
+	
 	
 }

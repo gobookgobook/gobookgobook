@@ -13,6 +13,7 @@
 <script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="${root}/script/star/jquery.raty.js"></script>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <style type="text/css">
 #nav_info{
       border-bottom: 5px solid #cccccc;
@@ -89,9 +90,9 @@
 									</td>
 								</tr>						
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">출판연도 : </td>
+									<td style="background:#37415a; color: white; padding: 7px;">도서원가 : </td>
 									<td>
-									<fmt:formatDate value="${bookDto.book_publish_date}" pattern="yyyy-MM-dd"/>							
+									${bookDto.book_cost}							
 									</td>
 								</tr>
 								<tr>
@@ -113,8 +114,18 @@
 							</tbody>
 		    			</table>
 						<div style="margin-left: 10px;">
-							<input style="width:90px; height:23px;" type="button" value="도서 정보 수정" onclick="location.href='${root}/bookManage/bookStockUpdate.do?book_num=${bookDto.book_num}'"/>
-							<input style="width:70px; height:23px;" type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
+							<input style="width:90px; height:23px;" type="button" value="도서 정보 수정" onclick="location.href='${root}/bookManage/bookUpdate.do?book_num=${bookDto.book_num}&pageNumber=${pageNumber}&pageInfo=${pageInfo}'"/>
+							<input style="width:70px; height:23px;" type="button" value="도서입고" onclick="location.href='${root}/bookManage/bookStockUpdate.do?book_num=${bookDto.book_num}&pageNumber=${pageNumber}&pageInfo=${pageInfo}'"/>
+							<c:if test="${bookDto.book_state!=5 && bookDto.book_state!=3}">
+								<input style="width:70px; height:23px;" type="button" value="특가설정" onclick="location.href='${root}/bookManage/bookSpecialPriceUpdate.do?book_num=${bookDto.book_num}&pageNumber=${pageNumber}'"/>
+								<input style="width:70px; height:23px;" type="button" value="공구등록" onclick="location.href='${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${bookDto.book_num}'"/>
+							</c:if>
+							<c:if test="${bookDto.book_state==5}">
+								<input style="width:70px; height:23px;" type="button" value="특가종료" onclick="bookSpecialPriceCancleFun('${root}','${bookDto.book_num}','${pageNumber}')"/>
+							</c:if>
+							<c:if test="${bookDto.book_state==3}">
+								<input style="width:70px; height:23px;" type="button" value="공구수정" onclick="location.href='${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${bookDto.book_num}'"/>
+							</c:if>
 						</div>
 					</div>
 				</div>

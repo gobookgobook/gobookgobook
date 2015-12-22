@@ -13,8 +13,8 @@ public interface IBookManageService {
 	public void bookInsert(ModelAndView mav);
 	public void bookInsertOk(ModelAndView mav);
 	public void bookStockList(ModelAndView mav);
-	public void bookStockUpdate(ModelAndView mav);
-	public void bookStockUpdateOk(ModelAndView mav);
+	public void bookUpdate(ModelAndView mav);
+	public void bookUpdateOk(ModelAndView mav);
 	public void bookReOrderList(ModelAndView mav);
 	public void bookReOrderCount(ModelAndView mav);
 	public void bookGroupPurchase(ModelAndView mav);
@@ -28,4 +28,10 @@ public interface IBookManageService {
 	public void bookNewPublishList(ModelAndView mav);
 	public void bookList(ModelAndView mav);
 	public void bookRead(ModelAndView mav);
+	public void bookStockUpdate(ModelAndView mav);
+	public void bookStockUpdateOk(ModelAndView mav);
+	public void bookSpecialPriceUpdate(ModelAndView mav);
+	public void bookSpecialPriceUpdateOk(ModelAndView mav);
+	public void bookSpecialPriceCancle(ModelAndView mav);
+	public void bookSpecialPrice(ModelAndView mav);
 }

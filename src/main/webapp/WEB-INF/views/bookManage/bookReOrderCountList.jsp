@@ -46,7 +46,7 @@
 							<tbody id="listAllTd"></tbody>
 						</table>
 					</div>
-					<span>재입고 요청 도서가 없습니다</span>
+					<div align="center"><span>재입고 요청 도서가 없습니다</span></div>
 				</c:if>
 			
 				<c:if test="${count>0}">
@@ -67,7 +67,7 @@
 									<tr class="success">
 										<td style="text-align:center">${book.book_num}</td>
 										<td style="text-align:left">
-											<a href="${root}/bookManage/bookStockUpdate.do?book_num=${book.book_num}&pageNumber=${currentPage}"  style="margin-left: 20px;">
+											<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}&pageInfo=bookROCL"  style="margin-left: 20px;">
 												<c:choose>
 												<c:when test="${fn:length(book.book_name) > 35}">
 													<c:out value="${fn:substring(book.book_name, 0, 34)}"/>....

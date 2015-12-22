@@ -3,7 +3,7 @@
  * @함수이름 : bookDataForm
  * @작성일 : 2015. 12. 8.
  * @개발자 : 성기훈
- * @설명 : 도서등록 및 수정 스크립트
+ * @설명 : 도서등록 스크립트
  */
 function bookDataForm(form){
 	if(form.book_num.value==""){
@@ -95,6 +95,84 @@ function bookDataForm(form){
 }
 
 /**
+ * @함수이름 : bookUpdateForm
+ * @작성일 : 2015. 12. 23.
+ * @개발자 : 성기훈
+ * @설명 : 도서 수정 스크립트
+ */
+function bookUpdateForm(upform){
+	// alert("OK");
+	if(upform.book_name.value==""){
+		alert("도서번호를 써주세요.");
+		upform.book_name.focus();
+		return false;
+	}
+	
+	if(upform.book_writer.value==""){
+		alert("저자를 써주세요.");
+		upform.book_writer.focus();
+		return false;
+	}
+	
+	if(upform.book_publisher.value==""){
+		alert("출판사를 써주세요.");
+		upform.book_publisher.focus();
+		return false;
+	}
+	
+	var strDate="";
+	if(upform.book_publish_date_year.value!="년"||upform.book_publish_date_month.value!="월"||upform.book_publish_date_day.value!="일"){
+		if(upform.book_publish_date_year.value=="년"||upform.book_publish_date_month.value=="월"||upform.book_publish_date_day.value=="일"){
+			alert("년, 월, 일을 모두 올바르게 입력해주세요.");
+			return false;
+		}
+		
+		if(upform.book_publish_date_month.value==2){
+			if(upform.book_publish_date_year.value%4==0&&upform.book_publish_date_year.value%100!=0){
+				if(upform.book_publish_date_day.value>29){
+					alert("출판일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+			
+			if(upform.book_publish_date_year.value%4!=0||upform.book_publish_date_year.value%100==0){
+				if(upform.book_publish_date_day.value>28){
+					alert("출판일을 다시 확인해주세요.");
+					return false;
+				}
+			}
+		}
+		
+		if(upform.book_publish_date_month.value==4||upform.book_publish_date_month.value==6||upform.book_publish_date_month.value==9||upform.book_publish_date_month.value==11){
+			if(upform.book_publish_date_day.value>30){
+				alert("출판일을 다시 확인해주세요.");
+				return false;
+			}
+		}
+		
+		strDate=upform.book_publish_date_year.value+"/"+upform.book_publish_date_month.value+"/"+upform.book_publish_date_day.value;
+		//alert(strDate);
+		upform.book_publish_date.value=strDate;
+		
+		var check=false;
+		var str="";
+		for(var i=0;i<upform.category.length;i++){
+			if(upform.category[i].checked==true){
+				str+=upform.category[i].value + ",";
+				check=true;
+			}
+		}
+		if(check==false){
+			alert("카테고리를 하나 이상 선택하세요.");
+			upform.category[0].focus();
+			return false;
+		}
+		
+		upform.book_category.value=str;
+	}
+}
+
+/**
  * @함수이름 : groupPurchaseDeleteFun
  * @작성일 : 2015. 12. 21.
  * @개발자 : 성기훈
@@ -170,6 +248,21 @@ function groupPurchaseForm(form){
 		
 		strDate=form.group_purchase_date_year.value+"/"+form.group_purchase_date_month.value+"/"+form.group_purchase_date_day.value;
 		//alert(strDate);
+		
 		form.group_purchase_date.value=strDate;
 	}
+}
+
+/**
+ * @함수이름 : bookSpecialPriceCancleFun
+ * @작성일 : 2015. 12. 23.
+ * @개발자 : 성기훈
+ * @설명 : 특가 설정 취소 스크립트
+ */
+function bookSpecialPriceCancleFun(root,book_num,pageNumber){
+	var check=confirm("특별 할인을 종료 하시겠습니까?");
+	if(check==true) {
+		location.href=root+"/bookManage/bookSpecialPriceCancle.do?book_num="+book_num+"&pageNumber="+pageNumber;
+	}
+	return check;
 }

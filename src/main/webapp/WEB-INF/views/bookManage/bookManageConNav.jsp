@@ -30,6 +30,10 @@
 		</tr>
 		
 		<tr style="color:white">
+			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookSpecialPrice.do">특가도서목록</a></td>
+		</tr>
+		
+		<tr style="color:white">
 			<td style="background:#41AF39"><a id="tda" href="${root}/bookManage/bookManage.do">고객도서요청</a></td>
 		</tr>
 		

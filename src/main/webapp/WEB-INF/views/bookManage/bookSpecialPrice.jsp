@@ -7,12 +7,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>도서 목록</title>
+<title>특가 도서 목록</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
@@ -27,7 +28,7 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 18px;">도서 목록</b></div>
+			<div align="center"><b style="font-size: 18px;">특가 도서 목록</b></div>
 			<br/>
 			
 			<c:if test="${count==0}">
@@ -39,14 +40,15 @@
 								<th style="text-align:center">도서명</th>
 								<th style="text-align:center">도서수량</th>
 								<th style="text-align:center">별점</th>
-								<th style="text-align:center">입고요청</th>
-								<th style="text-align:center">공구요청</th>
+								<th style="text-align:center">도서원가</th>
+								<th style="text-align:center">도서정가</th>
+								<th style="text-align:center">도서특가</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<div align="center"><span>등록된 도서가 없습니다.</span></div>
+				<div align="center"><span>특별 할인 도서 목록이 없습니다.</span></div>
 			</c:if>
 			
 			<c:if test="${count>0}">
@@ -55,22 +57,22 @@
 						<thead>
 							<tr class="success" align="center" style="color:#1DDB16">
 								<th style="text-align:center">도서번호</th>
-									<th style="text-align:center;width:375px">도서명</th>
+									<th style="text-align:center;width:345px">도서명</th>
 									<th style="text-align:center">도서수량</th>
-									<th style="text-align:center">별점</th>
-									<th style="text-align:center">입고요청</th>
-									<th style="text-align:center">공구요청</th>
+									<th style="text-align:center">도서원가</th>
+									<th style="text-align:center">도서정가</th>
+									<th style="text-align:center">도서특가</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd">
-							<c:forEach var="book" items="${bookList}">
+							<c:forEach var="book" items="${bookSpecialPriceList}">
 								<tr class="success">
 									<td style="text-align:center">${book.book_num}</td>
 									<td style="text-align:left">
-										<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}&pageInfo=bookList"  style="margin-left: 20px;">
+										<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=${currentPage}&pageInfo=bookSP"  style="margin-left: 20px;">
 											<c:choose>
-												<c:when test="${fn:length(book.book_name) > 31}">
-													<c:out value="${fn:substring(book.book_name, 0, 30)}"/>....
+												<c:when test="${fn:length(book.book_name) > 26}">
+													<c:out value="${fn:substring(book.book_name, 0, 25)}"/>....
 												</c:when>
 												<c:otherwise>
 													${book.book_name}
@@ -79,9 +81,9 @@
 										</a>
 									</td>
 									<td style="text-align:center">${book.book_quantity}</td>
-									<td style="text-align:center">${book.book_star}</td>
-									<td style="text-align:center">${book.book_reorder_count}</td>
-									<td style="text-align:center">${book.book_group_purchase_count}</td>
+									<td style="text-align:center">${book.book_cost}</td>
+									<td style="text-align:center">${book.book_cost*2}</td>
+									<td style="text-align:center">${book.book_price}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -100,18 +102,18 @@
 					</c:if>
 					
 					<c:if test="${startPage>pageBlock}">
-						<a href="${root}/bookManage/bookList.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+						<a href="${root}/bookManage/bookSpecialPrice.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 					</c:if>
 					
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
 						<c:if test="${currentPage==i}">&nbsp;&nbsp;&nbsp;[${i}]</c:if>
 						<c:if test="${currentPage!=i}">
-						<a href="${root}/bookManage/bookList.do?pageNumber=${i}">[${i}]</a>
+						<a href="${root}/bookManage/bookSpecialPrice.do?pageNumber=${i}">[${i}]</a>
 						</c:if>
 					</c:forEach>
 					
 					<c:if test="${endPage<pageCount}">
-						<a href="${root}/bookManage/bookList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+						<a href="${root}/bookManage/bookSpecialPrice.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 					</c:if>
 				</div>
 			</c:if>

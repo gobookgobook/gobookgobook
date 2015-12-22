@@ -88,32 +88,32 @@ public class BookManageCotroller {
 	}
 	
 	/**
-	 * @함수이름 : bookStockUpdate
+	 * @함수이름 : bookUpdate
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서수정(입고신청)
+	 * @설명 : 도서수정
 	 */
-	@RequestMapping(value="/bookManage/bookStockUpdate.do", method=RequestMethod.GET)
-	public ModelAndView bookStockUpdate(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="/bookManage/bookUpdate.do", method=RequestMethod.GET)
+	public ModelAndView bookUpdate(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		iBookManageService.bookStockUpdate(mav);
+		iBookManageService.bookUpdate(mav);
 		
 		return mav;
 	}
 	
 	/**
-	 * @함수이름 : bookStockUpdateOk
+	 * @함수이름 : bookUpdateOk
 	 * @작성일 : 2015. 12. 8.
 	 * @개발자 : 성기훈
-	 * @설명 : 도서수정(입고신청)
+	 * @설명 : 도서수정
 	 */
-	@RequestMapping(value="/bookManage/bookStockUpdate.do", method=RequestMethod.POST)
-	public ModelAndView bookStockUpdateOk(HttpServletRequest request, HttpServletResponse response, BookDto bookDto){
+	@RequestMapping(value="/bookManage/bookUpdate.do", method=RequestMethod.POST)
+	public ModelAndView bookUpdateOk(HttpServletRequest request, HttpServletResponse response, BookDto bookDto){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("bookDto", bookDto);
-		iBookManageService.bookStockUpdateOk(mav);
+		iBookManageService.bookUpdateOk(mav);
 		
 		return mav;
 	}
@@ -310,6 +310,97 @@ public class BookManageCotroller {
 		mav.addObject("request", request);
 		mav.addObject("response", response);
 		iBookManageService.bookRead(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookStockUpdate
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 입고
+	 */
+	@RequestMapping(value="/bookManage/bookStockUpdate.do", method=RequestMethod.GET)
+	public ModelAndView bookStockUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookStockUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookStockUpdateOk
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 입고
+	 */
+	@RequestMapping(value="/bookManage/bookStockUpdate.do", method=RequestMethod.POST)
+	public ModelAndView bookStockUpdateOk(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookStockUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookSpecialPriceUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 설정
+	 */
+	@RequestMapping(value="/bookManage/bookSpecialPriceUpdate.do", method=RequestMethod.GET)
+	public ModelAndView bookSpecialPriceUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookSpecialPriceUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookSpecialPriceUpdateOk
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서특가 설정
+	 */
+	@RequestMapping(value="/bookManage/bookSpecialPriceUpdate.do", method=RequestMethod.POST)
+	public ModelAndView bookSpecialPriceUpdateOk(HttpServletRequest request, HttpServletResponse response, BookDto bookDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("bookDto", bookDto);
+		iBookManageService.bookSpecialPriceUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookSpecialPriceCancle
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 특가 설정 취소
+	 */
+	@RequestMapping(value="/bookManage/bookSpecialPriceCancle.do", method=RequestMethod.GET)
+	public ModelAndView bookSpecialPriceCancle(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookSpecialPriceCancle(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bookSpecialPrice
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 도서 특가 목록
+	 */
+	@RequestMapping(value="/bookManage/bookSpecialPrice.do", method=RequestMethod.GET)
+	public ModelAndView bookSpecialPrice(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookSpecialPrice(mav);
 		
 		return mav;
 	}
