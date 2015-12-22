@@ -25,11 +25,9 @@
 			<div align="center"><b style="font-size:18px">주문내역</b></div>
 		<br/>
 	<c:if test="${id==null}">
-		<h3 align="center">회원가입 혹은 로그인을 해주세여</h3>
-		<div align="center">
-			<a href="${root}/member/register.do">회원가입</a> <a href="${root}/member/login.do">로그인</a>
-		</div>
+		<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>지금 Login을 하신 후 회원님의 주문내역을 보실 수 있습니다.</div>
 	</c:if>
+	
 <div align="left" style="float: left; margin: 10 0 0 10px; width: 850px;">
 	<c:if test="${id !=null && id!='admin'}">
 		<div class="container" style="width:100%">
@@ -101,9 +99,7 @@
 				</tbody>
 			</table>
 		</div>
-	</c:if>	
-	
-			
+
 		<div align="center">
 			<c:if test="${count > 0}">
 				<c:set var="pageBlock" value="${2}"/>
@@ -132,6 +128,7 @@
 				<a href="${root}/myPage/myPageOrderList.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 			</c:if>  
 		</div>
+	</c:if>	
 	</div>	
 </div> 
 

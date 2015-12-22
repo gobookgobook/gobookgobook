@@ -23,6 +23,17 @@
       border-radius: 0px 10px 10px 10px;
    }
 </style>
+<script type="text/javascript">
+	$(function() {
+	    $('div#star').raty({
+	        score: $('#displayStarRating').html(),
+	        path : "${root}/css/star",
+	        width : 130,
+	        readOnly : true,
+	        scoreName: $('#displayStarRating').html()
+	    });
+	});
+</script>
 </head>
 <body>
 <div id="contents" style="height:840px; background:white; border:0px solid black">

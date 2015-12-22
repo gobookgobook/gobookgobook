@@ -329,7 +329,7 @@ public class UserBookService implements IUserBookService {
 		
 		String keyword=request.getParameter("keyword");
 		
-		int boardSize=10;
+		int boardSize=9;
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) pageNumber="1";
 		

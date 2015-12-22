@@ -30,15 +30,15 @@
 			if(cookies.length>=3){
 				for(int i=cookies.length-1;i>=cookies.length-3;i--){
 					if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')" style="cursor:pointer;"/></li>
 				<%}}else if(cookies.length>=2){
 					for(int i=cookies.length-1;i>=cookies.length-2;i--){
 					if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')" style="cursor:pointer;"/></li>
 				<%}}else if(cookies.length>=1){
 					for(int i=cookies.length-1;i>=cookies.length-1;i--){
 			 		if(cookies[i].getName().equals("book_num") || cookies[i].getName().equalsIgnoreCase("JSESSIONID")) continue;%>
-		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')"/></li>
+		 			<li><img src="http://localhost:8181/gobook/images/bookImg/<%=cookies[i].getValue()%>" alt="" onclick="javascript:userBookRead('${root}', '<%=cookies[i].getName() %>')" style="cursor:pointer;"/></li>
 				<%}}}%>
 		<li><a href="#"><img src="${root}/images/quick_top_btn.png" alt="상단으로 이동" /></a></li>
 	</ul>
