@@ -30,7 +30,7 @@
 		<form class="memberMnager" name="managerForm" action="${root}/memberManager/memberManagerUpdateOk.do" method="post" onsubmit="">
 			<input type="hidden" name="member_id" value="${memberDto.member_id}">
 			
-			<table class="table table-bordered" style=" width:600px; margin: 0px auto;">
+			<table class="table table-bordered" style=" width:800px; margin: 0px auto;">
 				 <tbody>
 			    <tr>
 			    <th style="background:#dff0d8;">관리자 아이디</th>
@@ -64,7 +64,7 @@
 		<input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}" />
 		<input type="hidden" name="member_address1" value="${memberDto.member_address1}" />
 		<input type="hidden" name="member_address2" value="${memberDto.member_address2}"/>
-		<div align="center" style="margin-top: 10px;">
+		<div align="center" style="margin-top: 10px; margin-left: 130px;">
 			<input type="submit" value="수정" style="width: 60px; height: 30px;"/>
 			<input type="reset" value="취소" style="width: 60px; height: 30px;"/>
 		</div>

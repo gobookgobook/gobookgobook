@@ -63,7 +63,7 @@ $(function(){
 		<form  action="${root}/memberManager/memberManageCouponInsertOk.do" class="couponInsert" name="couponForm" onsubmit="return insertForm(this)" method="post">
 			<input type="hidden" name="member_id" value="${memberDto.member_id}">
 			
-			<table class="table table-bordered" style=" width:600px; margin: 0px auto;">
+			<table class="table table-bordered" style=" width:800px; margin: 0px auto;">
 				 <tbody>
 			    <tr>
 			    <th style="background:#dff0d8;">쿠폰 이름</th>
@@ -83,7 +83,7 @@ $(function(){
 			    <tr>
 			    <th style="background:#dff0d8;">쿠폰 내용</th>
 			     <td colspan="3">
-			       <input type="text" name="manager_coupon_content"/>
+			       <textarea rows="10" cols="40" name="manager_coupon_content" style="resize:none;"></textarea>
 			     </td>
 			    </tr>
 			    
@@ -98,8 +98,8 @@ $(function(){
 
 		</tbody>
 		</table>
-		<div align="center">
-		<input type="submit" value="쿠폰 등록" style="width: 60px; height: 30px;"/>
+		<div align="center" style="margin-left: 130px; margin-top: 20px;">
+			<input type="submit" value="쿠폰 등록" style="width: 60px; height: 30px;"/>
 		</div>
 	</form>	
 	</c:if>

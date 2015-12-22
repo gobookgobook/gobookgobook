@@ -29,7 +29,7 @@
 			<div align="center"><b style="font-size:18px">쿠폰 목록</b></div>
 		<br/>
 	<div style="width: 100%; border: 0px solid black; height: 100%; margin-left: 50px;">
-		<div class="container" style="width:650px;">
+		<div class="container" style="width:800px;">
 			<table class="table table-bordered" style="line-height: 100px">
 				<thead>
 					<tr class="success" align="center" style="color:#1DDB16">
