@@ -33,41 +33,41 @@
 			<table class="table table-bordered" style=" width:600px; margin: 0px auto;">
 				 <tbody>
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">관리자 아이디</th>
+			    <th style="background:#dff0d8;">관리자 아이디</th>
 			     <td colspan="3">
 			       <input type="text" name="id" value="${memberDto.member_id}" disabled="disabled"/>
 			     </td>
 			    </tr>
 			   
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">비밀번호</th>
+			    <th style="background:#dff0d8;">비밀번호</th>
 			     <td colspan="3">
 			       <input type="password" name="member_password" value="${memberDto.member_password}"/>
 			     </td>
 			    </tr>
 			    
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">관리자 이름</th>
+			    <th style="background:#dff0d8;">관리자 이름</th>
 			     <td colspan="3">
 			       <input type="text" name="member_name" value="${memberDto.member_name}"/>
 			     </td>
 			    </tr>
 			    
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">전화번호</th>
+			    <th style="background:#dff0d8;">전화번호</th>
 			     <td colspan="3">
 			       <input type="text" name="member_phone" value="${memberDto.member_phone}"/>
 			     </td>
 			    </tr>
-			    
-			     <tr>
-			     <td colspan="4" align="center">
-			       <input type="submit" value="수정" style="width: 60px; height: 30px;"/>
-					<input type="reset" value="취소" style="width: 60px; height: 30px;"/>
-			     </td>
-			    </tr>
 		</tbody>
 		</table>
+		<input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}" />
+		<input type="hidden" name="member_address1" value="${memberDto.member_address1}" />
+		<input type="hidden" name="member_address2" value="${memberDto.member_address2}"/>
+		<div align="center" style="margin-top: 10px;">
+			<input type="submit" value="수정" style="width: 60px; height: 30px;"/>
+			<input type="reset" value="취소" style="width: 60px; height: 30px;"/>
+		</div>
 	</form>	
 	</c:if>
 </div>

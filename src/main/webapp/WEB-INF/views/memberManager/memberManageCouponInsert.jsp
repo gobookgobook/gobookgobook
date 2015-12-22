@@ -66,14 +66,14 @@ $(function(){
 			<table class="table table-bordered" style=" width:600px; margin: 0px auto;">
 				 <tbody>
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">쿠폰 이름</th>
+			    <th style="background:#dff0d8;">쿠폰 이름</th>
 			     <td colspan="3">
 			       <input type="text" name="manager_coupon_name">
 			     </td>
 			    </tr>
 			   
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">쿠폰 사용기간</th>
+			    <th style="background:#dff0d8;">쿠폰 사용기간</th>
 			     <td colspan="3">
 					<input type="text" id="date" name="manager_coupon_period_value" disabled="disabled"/>
 					<input type="hidden" name="manager_coupon_period">
@@ -81,14 +81,14 @@ $(function(){
 			    </tr>
 			    
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">쿠폰 내용</th>
+			    <th style="background:#dff0d8;">쿠폰 내용</th>
 			     <td colspan="3">
 			       <input type="text" name="manager_coupon_content"/>
 			     </td>
 			    </tr>
 			    
 			    <tr>
-			    <th style="background:#dff0d8; color:#1DDB16;">쿠폰 할인율</th>
+			    <th style="background:#dff0d8;">쿠폰 할인율</th>
 			     <td colspan="3">
 					<input type="radio" name="discount" id="percent"/>%
 					<input type="radio" name="discount" id="won"/>원
