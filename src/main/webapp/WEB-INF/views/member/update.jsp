@@ -30,46 +30,46 @@
 	
 
 	<div id="member_id" style="margin-top:10px; margin-left:-68px;">
-	<input type="text" name="idName" value="아이디" disabled="disabled"  style="background:#1993A8; color:white; height:30px;"/>
+	<input type="text" name="idName" value="아이디" disabled="disabled"  style="background:#37415a;  color:white; height:30px;"/>
 	<input type="text" name="id_check"  value= "${memberDto.member_id }" size="60" style=height:30px; disabled="disabled"/>
 	<input type="hidden" name="member_id" value="${memberDto.member_id }"/>
     </div> 
     
     <div id="member_password"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="passwordName" value="비밀번호" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="passwordName" value="비밀번호" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="password" name="member_password" value = "${memberDto.member_password }" size="60" style=height:30px;/>
     </div>
     
     <div id="passwordCheck"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="passwordCheckName" value="비밀번호확인" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="passwordCheckName" value="비밀번호확인" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="password" name="passwordCheck" value = "${memberDto.member_password }" size="60" style=height:30px;/>
     </div>
     
     <div id="member_name"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="member_nameName" value="이름" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="member_nameName" value="이름" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="member_name"  value = "${memberDto.member_name}" size="60" style=height:30px; disabled="disabled"/>
     </div>
     
     <div id="zipcodeDisp"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="zipcodeName"  value="우편번호" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="zipcodeName"  value="우편번호" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="zipcodeDisp"  size="47" value="${memberDto.member_zipcode}" style=height:30px; disabled="disabled"/>
     <input type="hidden" name="member_zipcode" value="${memberDto.member_zipcode}"/>
     <input type="button" name="zipcodeBtn" value="우편번호검색" style="height:30px;" onclick="zipcodeRead('${root}')"/>
     </div>
     
     <div id="address1Disp"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="address1Name" value="주소" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="address1Name" value="주소" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="address1Disp" size="60" value="${memberDto.member_address1}" style=height:30px; disabled="disabled"/>
     <input type="hidden" name="member_address1" value="${memberDto.member_address1}"/>
     </div>
     
     <div id="member_address2"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text"name="address2Name"  value="상세주소" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text"name="address2Name"  value="상세주소" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="member_address2"  size="60" value="${memberDto.member_address2}" style=height:30px;/>
     </div>
     
     <div id="member_phone"  style="margin-top:10px; margin-left:-68px;">
-    <input type="text" name="phoneName"  value="휴대폰 번호" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text" name="phoneName"  value="휴대폰 번호" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="member_phone" value="${memberDto.member_phone}" size="60" style=height:30px;/>
     </div>
     
@@ -77,7 +77,7 @@
     <div align="center"><b style="font-size:18px">선택사항</b></div>
          <br/>
     <div id="choose">
-    <input type="text" name="choose" value="관심분야"  style="background:#1993A8; color:white; height:30px; margin-top:10px; margin-left:-40px;" disabled="disabled"/>
+    <input type="text" name="choose" value="관심분야"  style="background:#37415a;  color:white; height:30px; margin-top:10px; margin-left:-40px;" disabled="disabled"/>
      <input type="checkbox" name="member_interestValue" value="문학"/>문학
 	 <input type="checkbox" name="member_interestValue" value="교육도서"/>교육도서
      <input type="checkbox" name="member_interestValue" value="전공도서"/>전공도서
@@ -99,7 +99,7 @@
     </div>
     
      <div id="choose" style="margin-top:10px; margin-left:-300px;">
-    <input type="text" name="birthName" value="생년월일" style="background:#1993A8; color:white; height:30px;"  disabled="disabled"/>
+    <input type="text" name="birthName" value="생년월일" style="background:#37415a;  color:white; height:30px;"  disabled="disabled"/>
     <select name="member_birth_year">
     <option>년</option>
 						<c:forEach var="year" begin="1900" end="${today}">
@@ -145,11 +145,11 @@
 					</c:forTokens>
     </div>
     <div id="member_email"  style="margin-top:10px; margin-left:-75px;">
-    <input type="text"name="emailName"  value="이메일" disabled="disabled" style="background:#1993A8; color:white; height:30px;"/>
+    <input type="text"name="emailName"  value="이메일" disabled="disabled" style="background:#37415a;  color:white; height:30px;"/>
     <input type="text" name="member_email" value="${memberDto.member_email}" size="60" style=height:30px;/><br/><br/><br/>
     </div>
      
-    <input type="submit" size="40" style=height:30px; value="수정"/>
+    <input type="submit" size="40" style= background:#37415a;color:white;width:80px;height:30px; value="수정"/>
     </form>
 	</div>
 	</div>
