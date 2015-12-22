@@ -162,12 +162,11 @@ function idCheck(root, memberForm){
 	var url=root+"/member/idCheck.do?member_id="+id;
 	
 	var width=340;
-	var height=300;
+	var height=280;
 	
 	var top = (screen.availHeight / 2) - (height / 2); 
 	var left = (screen.availWidth / 2) - (width / 2); 
-	//alert(url);
-	window.open(url,"","width="+width+", height="+height+", left="+left+", top="+top);
+	window.open(url,"","width="+width+" height="+height+" left="+left+" top="+top);
 }
 
 /**
@@ -180,7 +179,13 @@ function zipcodeRead(root){
 	var url =root+"/member/zipcode.do";
 	//alert(url);
 	
-	window.open(url,"","width=400, height=400, scrollbars=yes");
+	var width=500;
+	var height=300;
+	
+	var top = (screen.availHeight / 2) - (height / 2); 
+	var left = (screen.availWidth / 2) - (width / 2); 
+	
+	window.open(url,"","width="+width+" height="+height+" left="+left+" top="+top+" scrollbars=yes");
 }
 
 /**
@@ -233,6 +238,14 @@ function reCheckId(root){
 	var id = document.getElementById("reCheck").value;
 	
 	var url=root+"/member/idCheck.do?member_id="+id;
+	
+	location.href=url;
+}
+
+function reAddr(root){
+	var dong = document.getElementById("reAddr").value;
+	
+	var url=root+"/member/zipcode.do?dong="+dong;
 	
 	location.href=url;
 }

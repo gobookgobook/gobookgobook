@@ -7,11 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="Shortcut Icon" href="${root}/images/favicon.ico"/>
 <link href="${root}/css/member/style.css" type="text/css"
 	rel="stylesheet" />
 <script type="text/javascript" src="${root}/script/member/script.js"></script>
 </head>
-<body style="margin: -3px;">
+<body style="margin: -3px; overflow-x:hidden; overflow-y:hidden;">
 	<table style="width: 340; height: 240; border: 0; cellpadding: 0; cellspacing: 0;">
 		<tbody>
 			<tr>
@@ -101,65 +102,5 @@
 			</tr>
 		</tbody>
 	</table>
-<%-- 
-	<c:if test="${check>0 }">
-		<div align="center">
-			<c:if test="${length<6 || length>12}">
-				<span>아이디는 6자 이상으로 입력해주세요.</span>
-				<form action="${root}/member/idCheck.do" method="post">
-					<input type="text" name="member_id" /> <input type="submit"
-						value="확인" />
-				</form>
-			</c:if>
-
-			<c:if test="${length>=6 && length<=12}">
-				<span style="color: red">${id}</span>
-				은 이미 사용중인 아이디 입니다.
-				<form action="${root}/member/idCheck.do" method="post">
-					<input type="text" name="member_id" /> <input type="submit"
-						value="확인" />
-				</form>
-			</c:if>
-		</div>
-	</c:if>
-
-	<c:if test="${check==0 }">
-		<div align="center">
-			<c:if test="${length<6  || length>12}">
-				<span>아이디는 6자 이상, 12자 이하로 입력해주세요.</span>
-				<form action="${root}/member/idCheck.do" method="post">
-					<input type="text" name="member_id" /> 
-					<input type="submit" value="확인" />
-				</form>
-			</c:if>
-
-			<c:if test="${length>=6  && length<=12}">
-				<span style="color: red">${id}</span>
-				사용가능한 아이디 입니다.<br />
-				사용 하시겠습니까?<br />
-				<script type="text/javascript">
-					opener.memberForm.id_check.value = "${id}"
-				</script>
-				<input type="button" value="사용" onclick="chooseId()" />
-				<input type="button" value="취소" onclick="resetId('${root}')" />
-			</c:if>
-		</div>
-	</c:if>
-
-	<c:if test="${check==-1 }">
-		<div align="center">
-			새로운 아이디를 입력하세요.
-			<form action="${root}/member/idCheck.do" method="post">
-				<input type="text" name="member_id" /> 
-				<input type="submit" value="확인" />
-			</form>
-		</div>
-	</c:if>
-
-	<div align="center">
-		<div align="center">
-			<input type="button" value="닫기" onclick="cancel()" />
-		</div>
-	</div> --%>
 </body>
 </html>
