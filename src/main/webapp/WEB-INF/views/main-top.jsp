@@ -80,7 +80,7 @@
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
 			<li>
-				<a href="${root}/myPage/myPageCoupon.do">myPage</a>
+				<a href="${root}/myPage/myPageOrderList.do">MyPage</a>
 			</li>
 			<li>
 				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
@@ -124,11 +124,11 @@
      </li>
      <li><a href="${root}/myBasket/myBasketList.do"><img src="${root}/images/gnb_4_pic.png" alt="장바구니" style="width:100px; height:40px;"/></a>
      </li>
-     <li><a href="${root}/myPage/myPageCoupon.do"><img src="${root}/images/gnb_5_pic.png" alt="MyPage" style="width:100px; height:40px;"/></a>
+     <li><a href="${root}/myPage/myPageOrderList.do"><img src="${root}/images/gnb_5_pic.png" alt="MyPage" style="width:100px; height:40px;"/></a>
         <ul class="sub2">
            <li><a href="${root}/myPage/myPageCoupon.do">쿠폰함</a></li>
            <li><a href="${root}/myPage/myPagePoint.do">포인트함</a></li>
-           <li><a href="${root}/myPage/">주문내역</a></li>
+           <li><a href="${root}/myPage/myPageOrderList.do">주문내역</a></li>
         </ul>
         
      </li>
