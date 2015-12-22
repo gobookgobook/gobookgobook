@@ -32,7 +32,7 @@
 							<td style="text-align:center">${book.book_num}</td>
 							<td style="text-align:left">
 								<c:if test="${id=='admin'}">
-									<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}"  style="margin-left: 20px;">${book.book_name}</a>
+									<a href="${root}/bookManage/bookRead.do?book_num=${book.book_num}&pageNumber=-1"  style="margin-left: 20px;">${book.book_name}</a>
 								</c:if>
 								<c:if test="${id!='admin'}">
 									<a href="${root}/userBook/userBookRead.do?book_num=${book.book_num}"  style="margin-left: 20px;">${book.book_name}</a>

@@ -63,21 +63,12 @@
      <dd class="util_first">
         <ul>
            <c:if test="${id=='admin'}">
-          <li>
-				<a href="${root}/member/update.do">회원수정</a>
-			</li>
 			<li>
 				<a href="${root}/member/logout.do">로그아웃</a>
 			</li>
-			<li>
-				<a href="${root}/myPage/myPageOrderList.do">myPage</a>
-			</li>
-			<li>
-				<a href="${root}/myBasket/myBasketList.do">장바구니</a>
-			</li>
-			<li>
-				<a href="${root}/member/adminMain.do">관리자</a>
-			</li>
+            <li>
+           		<a href="${root}/memberManager/memberManagerUpdate.do">관리자정보수정</a>
+           	</li>
            </c:if>
         </ul>
      </dd>
@@ -99,8 +90,10 @@
      <li><a href="${root}/bookManage/bookManage.do"><img src="${root}/images/gnb_7_pic.png" alt="도서관리" style="width:100px; height:40px;"/></a>
         <ul class="sub7">
            	<li><a href="${root}/bookManage/bookInsert.do">도서등록</a></li>
+           	<li><a href="${root}/bookManage/bookList.do">도서목록</a></li>
 			<li><a href="${root}/bookManage/bookStockList.do">재고관리</a></li>
 			<li><a href="${root}/bookManage/bookSoldOutList.do">품절도서목록</a></li>
+			<li><a href="${root}/bookManage/bookManage.do">고객도서요청</a></li>
 			<li><a href="${root}/bookManage/bookReOrderList.do">재입고현황</a></li>
 			<li><a href="${root}/bookManage/bookGroupPurchase.do">공동구매</a></li>
 			<li><a href="${root}/bookManage/bookSchedule.do">출간일정관리</a></li>

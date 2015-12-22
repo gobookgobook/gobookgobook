@@ -10,42 +10,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/userBook/userBookRead.css"/>
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
-<script type="text/javascript" src="${root}/script/userBook/script.js"></script>
+<script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="${root}/script/star/jquery.raty.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#groupPurchaseAsk").one("click", function(){
-			$(this).fadeOut();
-		});
-	});
-	$(function(){
-		$("#soldOutAsk").one("click", function(){
-			$(this).fadeOut();
-		});
-	});
-</script>
-<script type="text/javascript">
-	$(function() {
-	    $('div#star').raty({
-	        score: $('#displayStarRating').html(),
-	        path : "${root}/css/star",
-	        width : 130,
-	        readOnly : true,
-	        scoreName: $('#displayStarRating').html()
-	    });
-	    
-	    $('div#inputstar').raty({
-	        score: 0,
-	        path : "${root}/css/star",
-	        width : 130,
-	        click: function(score, evt) {
-                $("#userstar").val(score);
-            }
-
-	    });
-	});
-</script>
 <style type="text/css">
 #nav_info{
       border-bottom: 5px solid #cccccc;
@@ -86,11 +53,6 @@
 			        <div style="padding-top:1px;">
 			            <label>별점 : </label><span id="displayStarRating" style="padding-left:20px;">${bookDto.book_star}</span>
 			        </div>
-					<c:if test="${id !=null }">		   
-				        <div id="inputstar"></div>
-				        <input type="hidden" id="userstar"/>
-				        <input type="button" value="전송" style="width:70px; height:23px;" onclick="userbookstar_star('${root}', '${bookDto.book_num}')"/>
-				    </c:if>
 				</div>
 			</div>
 			<div class="book_info" id="nav_info">
@@ -130,11 +92,7 @@
 							<td style="background:#37415a; color: white; padding: 7px;">수량  : </td>
 							
 							<c:if test="${bookDto.book_quantity>0}">
-								<td><select id="book_quantity">
-									<c:forEach var="i" begin="1" end="${bookDto.book_quantity}">
-										<option value="${i}" id="quantity">${i}</option>
-									</c:forEach>
-								</select>&nbsp;/&nbsp;${bookDto.book_quantity}</td>
+								<td>${bookDto.book_quantity}</td>
 							</c:if>
 							<c:if test="${bookDto.book_quantity==0}">
 								<td>품절/${bookDto.book_quantity}</td>
@@ -143,18 +101,11 @@
 					</tbody>
     			</table>
 				<div style="margin-left: 10px;">
-				<c:if test="${id !='admin' && id !=null}">
-					<c:if test="${bookDto.book_quantity > 0 }">
-						<input style="width:70px; height:23px;" type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
-						<input style="width:70px; height:23px;" type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
+					<input style="width:90px; height:23px;" type="button" value="도서 정보 수정" onclick="location.href='${root}/bookManage/bookStockUpdate.do?book_num=${bookDto.book_num}'"/>
+					<c:if test="${bookDto.book_quantity==0}">
+						<input style="width:70px; height:23px;" type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
 					</c:if>
-				<!-- 수량 없을때 if문 처리 해주자-->	
-				<c:if test="${bookDto.book_quantity==0}">
-					<input style="width:70px; height:23px;" type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
-				</c:if>
-					<input style="width:90px; height:23px;" type="button" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
-				</c:if>
-				</div>				
+				</div>
 			</div>
 		</div>
 		

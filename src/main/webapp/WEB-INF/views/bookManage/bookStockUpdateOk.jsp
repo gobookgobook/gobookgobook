@@ -15,6 +15,7 @@
 		alert("도서정보가 수정되었습니다.");
 		var pageNumber=${pageNumber};
 		if(pageNumber==0) location.href="${root}/bookManage/bookSchedule.do";
+		else if (pageNumber==-1) location.href="${root}/bookManage/bookRead.do?book_num=${book_num}&pageNumber=${pageNumber}";
 		else location.href="${root}/bookManage/bookStockList.do?pageNumber="+pageNumber;
 	</script>
 	</c:if>

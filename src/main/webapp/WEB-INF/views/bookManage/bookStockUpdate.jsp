@@ -23,7 +23,7 @@
 	<c:set var="id" value="admin" scope="session"/>
 	<div id="contents" style="background:white; border:0px solid black">
 	<c:if test="${id=='admin'}">
-		<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 도서 관리</b>
 		</div>
 		
@@ -32,7 +32,7 @@
 		</div>
 			
 		<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-			<div align="center"><b style="font-size: 18px;">도서 수정</b></div>
+			<div align="center"><b style="font-size: 18px;">도서 정보 수정</b></div>
 			<br/>
 			<form class="form_style" name="bookStokUpdate" action="${root}/bookManage/bookStockUpdate.do" method="post" onsubmit="return bookDataForm(this)" enctype="multipart/form-data">	
 				<div style="width:598px; height:15px; border-width:2px; text-align:right; padding:15px 0px 0px 0px; border-bottom-width:0px;">
@@ -99,7 +99,7 @@
 								if(bookStokUpdate.book_publish_date_year.value!="년"){
 									if(bookStokUpdate.book_publish_date_month.value!="월"){
 										if(bookStokUpdate.book_publish_date_day.value=="일"){
-											bookStokUpdate.book_publish_date_day.value="${publish_date}";
+											bookStokUpdate.book_publish_date_day.value=parseInt("${publish_date}");
 										}
 									}
 								}

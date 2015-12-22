@@ -188,6 +188,7 @@ public class BookManageService implements IBookManageService {
 
 		mav.addObject("check", check);
 		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("book_num", bookDto.getBook_num());
 		
 		mav.setViewName("bookManage/bookInsertOk");
 		
