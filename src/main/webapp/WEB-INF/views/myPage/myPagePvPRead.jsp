@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GoBookGoBook</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/myPage/helppvp.css"/>
 </head>
 <body>

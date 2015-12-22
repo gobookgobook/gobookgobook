@@ -7,7 +7,7 @@
 <head>
 <jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GoBookGoBook</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -54,13 +54,14 @@
 							</tr>
 						</c:forEach>
 					</c:if>
-					<c:if test="${count==0 }">
-						<td class="orderbody" style="text-align: center;">
-							 최근 주문내역이 없습니다.
-						</td>
-					</c:if>
+
 				</tbody>
 			</table>
+				<c:if test="${count==0 }">
+					<div class="orderbody" style="text-align: center;">
+						 최근 주문내역이 없습니다.
+					</div>
+				</c:if>
 		</div>
 		
 		<br/>
@@ -91,13 +92,14 @@
 							</tr>
 						</c:forEach>
 					</c:if>
-					<c:if test="${count==0 }">
-						<td class="orderbody" style="text-align: center;">
-							 주문내역이 없습니다.
-						</td>
-					</c:if>
+
 				</tbody>
 			</table>
+				<c:if test="${count==0 }">
+					<div class="orderbody" style="text-align: center;">
+						 주문내역이 없습니다.
+					</div>
+				</c:if>
 		</div>
 
 		<div align="center">

@@ -40,14 +40,13 @@
 		<jsp:include page="eventConNav.jsp"/>
 	</div>
 		<br/>
-		<div align="center" style="border:0px solid black; width: 100%; height: 10%;"><b style="font-size:18px;">이벤트 목록</b></div>
-		<br/>
-		<div id="event_one" style="border: 0px solid black; width:100%; height: 80%; float: left;">
+		<div align="center" style="border:0px solid black;"><b style="font-size:18px;">이벤트 목록</b></div>
+		<div id="event_one" style="border: 0px solid black; width:88%; height: 80%; float: left;">
 			<c:forEach var="eventDto" items="${eventList}">
 				<div class="bookList" id="nav_info" style="height: 40%;">
 					<div style="text-align: center; ">
 					<a href="javascript:readFun('${root}','${eventDto.event_bunho}')">
-						<img src="${root}/css/event/images/${eventDto.event_file_name}"	title="${eventDto.event_name}" width="90%" height="130px" style="margin-left:20px"/>
+						<img src="${root}/css/event/images/${eventDto.event_file_name}"	title="${eventDto.event_name}" width="70%" height="130px" style="margin-left:20px"/>
 					</a>
 					</div>
 					<div class="userbook_list_all">

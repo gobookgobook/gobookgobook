@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GoBookGoBook</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -48,13 +48,14 @@
 				  </tr>
 			</c:forEach>
 			</c:if>
-			<c:if test="${couponSelect.size() == 0}">
-				<td class="user_coupon_title" style="text-align: center; font-size: 20">
-					현재 보유중인 쿠폰이 없습니다.
-				</td>
-			</c:if>	
+
 				</tbody>
 			</table>
+			<c:if test="${couponSelect.size() == 0}">
+				<div class="user_coupon_title" style="text-align: center; font-size: 20">
+					현재 보유중인 쿠폰이 없습니다.
+				</div>
+			</c:if>	
 		</div>
 	</c:if>
 	<c:if test="${id ==null }">

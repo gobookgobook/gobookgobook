@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>GoBookGoBook</title>
 <script type="text/javascript" src="${root}/script/memberManage/memberManager.js"></script>
 </head>
 <body>
