@@ -28,20 +28,20 @@
 			<br/>
 			
 			<hr><br/>
-			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px">
+			<div align="center" class="container" style="width:960px;height:460px;padding:0px;border:0px solid black;margin-left:40px">
 			 	<form style="margin-left:130px" action="${root}/help/adminHelpNoticeWrite.do" method="post" onsubmit="return adminHelpNoticeWrite(this)">
 					<div>
-						<label class="title" style="height:32px;color:#1DDB16;background-color:#dff0d8">제목</label>
-						<input class="content" type="text" size="50" name="helpnotice_subject" style="height:32px"/>
+						<label class="title" style="width:200px;height:32px;font-size:14px;background-color:#dff0d8">제목</label>
+						<input class="content" type="text" size="50" name="helpnotice_subject" style="width:610px;font-size:14px;height:32px"/>
 					</div><br/><br/>
 					
 					<div style="height: 67px">
-						<label class="title" style="height:204px;border-bottom:2px solid #DDDDDD;color:#1DDB16;background-color:#dff0d8">내용</label>
-						<textarea class="content" rows="14" cols="67" name="helpnotice_content" style="border-bottom:2px solid #DDDDDD; resize:none"></textarea>
+						<label class="title" style="width:200px;font-size:14px;height:260px;border-bottom:2px solid #DDDDDD;background-color:#dff0d8">내용</label>
+						<textarea class="content" rows="14" cols="67" name="helpnotice_content" style="height:260px;width:610px;font-size:14px;border-bottom:2px solid #DDDDDD; resize:none"></textarea>
 					</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-					<div>
-						<input type="submit" class="btn btn-success btn-sm" value="공지사항 등록"  style="margin-left:-100px"/>
+					<div style="margin-top:30px">
+						<input type="submit" class="btn btn-success btn-sm" value="공지사항 등록"  style="margin-left:-70px"/>
 					</div>
 				</form>
 			</div>
