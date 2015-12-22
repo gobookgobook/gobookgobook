@@ -95,14 +95,12 @@ $(function(){
 					<input type="text" name="manager_coupon_discount" id="coupon"/> (원/%)
 			     </td>
 			    </tr>
-			    
-			     <tr>
-			     <td colspan="4" align="center">
-					<input type="submit" value="쿠폰 등록" style="width: 60px; height: 30px;"/>
-			     </td>
-			    </tr>
+
 		</tbody>
 		</table>
+		<div align="center">
+		<input type="submit" value="쿠폰 등록" style="width: 60px; height: 30px;"/>
+		</div>
 	</form>	
 	</c:if>
 </div>

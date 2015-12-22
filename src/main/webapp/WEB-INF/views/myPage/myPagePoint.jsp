@@ -27,12 +27,12 @@
 			<br/>
 			<c:if test="${id !=null }">
 			<c:if test="${member_point > 0 }">
-			<div class="user_point_title" style="text-align: center; font-size: 20">				
-				당신의 포인트는 ${member_point} 원 입니다
+			<div class="user_point_title" style="text-align: center; font-size: 14">				
+				당신의 포인트는 <span style="color:red; font-weight: bold;">${member_point}</span> 원 입니다
 			</div>
 			</c:if>
 			<c:if test="${member_point == 0 || member_point ==null }">
-			<div class="user_point_title" style="text-align: center; font-size: 20">
+			<div class="user_point_title" style="text-align: center; font-size: 14">
 				<span>현재 보유중인 포인트가 없습니다.</span>
 			</div>
 			</c:if>
