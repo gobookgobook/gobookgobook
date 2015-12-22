@@ -41,7 +41,7 @@ public class EventService implements IEventService {
 	      GoBookAspect.logger.info(GoBookAspect.logMsg+ event_file_name +"," +event_file_size); 
 	      
 	      if(event_file_size !=0){
-	    	  File path= new File("C:\\gobook\\workspace\\gobookgobook\\src\\main\\webapp\\css\\event\\images");
+	    	  File path= new File("C:\\gobook\\workspace\\gobookgobook\\src\\main\\webapp\\css\\event\\images\\");
 	    	  path.mkdir();
 	    	  if(path.exists() && path.isDirectory()){
 	    		  File file= new File(path,event_file_name);
@@ -149,31 +149,37 @@ public class EventService implements IEventService {
 		
 		MultipartFile event_file= request.getFile("event_file");
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "event_file:"+event_file);
-		String event_file_name= event_file.getOriginalFilename();
-		long event_file_size= event_file.getSize();
+		String event_file_name=Long.toString(System.currentTimeMillis()) + "_" + event_file.getOriginalFilename();
+		long event_file_size=event_file.getSize();
 		System.out.println("event_file_name:"+event_file_name);
+		System.out.println("event_file_name:"+event_file_size);
+		
+		File file=null;
 		if(event_file_size !=0){
-			File path=new File("C:/eventpicture modify/");
+			File path= new File("C:\\gobook\\workspace\\gobookgobook\\src\\main\\webapp\\css\\event\\images\\");
 			path.mkdirs();
 			
 			if(path.exists() && path.isDirectory()){
-				File file= new File(path,event_file_name);
+				file= new File(path,event_file_name);
 				try{
 					event_file.transferTo(file);
 					eventDto.setEvent_file_name(event_file_name);
-					eventDto.setEvent_file_path(file.getAbsolutePath());
 					eventDto.setEvent_file_size(event_file_size);
+					eventDto.setEvent_file_path(file.getAbsolutePath());
 				}catch(Exception e){
 					e.printStackTrace();
 				}
 			}
+			
 		}
 		
-	
+		
       int check=iEventDao.eventUpdate(eventDto);
       GoBookAspect.logger.info(GoBookAspect.logMsg+ check);
+      
       mav.addObject("check",check);
       mav.setViewName("event/eventUpdateOk");
+      
     }
 
 	/**
@@ -187,11 +193,21 @@ public class EventService implements IEventService {
 		Map<String, Object> map= mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
+		
 		int event_bunho=Integer.parseInt(request.getParameter("event_bunho"));
 		GoBookAspect.logger.info(GoBookAspect.logMsg + event_bunho);
 		
+		EventDto eventDto=iEventDao.eventDelSelect(event_bunho);
 		int check=iEventDao.eventDelete(event_bunho);
 		
+	      if(check > 0 && eventDto.getEvent_file_path() != null){
+	         File file = new File(eventDto.getEvent_file_path());
+	         
+	         if(file.exists() && file.isFile()){
+	            file.delete();
+	         }
+	      }
+	      
 		mav.addObject("event_bunho",event_bunho);
 		mav.addObject("check",check);
 		mav.setViewName("event/eventDelete");

@@ -35,7 +35,16 @@
       update event set event_name=#{event_name}, event_start_period=#{event_start_period},event_end_period= #{event_end_period},event_Content= #{event_Content} where event_bunho=#{event_bunho}
     </update>
     
+    <update id="eventUpdateFile" parameterType="com.gobook.event.dto.EventDto">
+      update event set event_name=#{event_name}, event_start_period=#{event_start_period},event_end_period= #{event_end_period},event_Content= #{event_Content}, event_file_name=#{event_file_name}, event_file_path=#{event_file_path}, event_file_size=#{event_file_size} where event_bunho=#{event_bunho}
+    </update>
+    
     <delete id="eventDelete" parameterType="int">
       delete from event where event_bunho=#{event_bunho}
     </delete>
+    
+    <select id="eventDelSelect" parameterType="int" resultType="com.gobook.event.dto.EventDto">
+    	select *from event where event_bunho=#{event_bunho}
+    </select>
+    
 </mapper>

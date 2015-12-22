@@ -17,4 +17,6 @@ public interface IEventDao {
      public int eventUpdate(EventDto eventDto);
      
      public int eventDelete(int event_bunho);
+     
+     public EventDto eventDelSelect(int event_bunho);
 }

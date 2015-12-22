@@ -85,7 +85,15 @@ public class EventDao implements IEventDao {
 	@Override
 	public int eventUpdate(EventDto eventDto) {
 		
-		return sqlSessionTemplate.update("dao.EventMapper.eventUpdate",eventDto);
+		int value=0;
+		
+		if(eventDto.getEvent_file_name() !=null){
+			value=sqlSessionTemplate.update("dao.EventMapper.eventUpdateFile", eventDto);
+		}else{
+			value=sqlSessionTemplate.update("dao.EventMapper.eventUpdate",eventDto);
+		}
+		
+		return value;
 	}
 
 	/**
@@ -99,6 +107,11 @@ public class EventDao implements IEventDao {
 		
 		
 		return sqlSessionTemplate.delete("dao.EventMapper.eventDelete",event_bunho);
+	}
+
+	@Override
+	public EventDto eventDelSelect(int event_bunho) {
+		return sqlSessionTemplate.selectOne("dao.EventMapper.eventDelSelect", event_bunho);
 	}
 
 	
