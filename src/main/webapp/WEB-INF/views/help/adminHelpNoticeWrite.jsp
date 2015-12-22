@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${root}/script/help/script.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/help/style.css"/>
 </head>
 <body>
@@ -27,7 +28,6 @@
 			<div align="center"><b style="font-size:18px">공지사항 쓰기</b></div>
 			<br/>
 			
-			<hr><br/>
 			<div align="center" class="container" style="width:960px;height:460px;padding:0px;border:0px solid black;margin-left:40px">
 			 	<form style="margin-left:130px" action="${root}/help/adminHelpNoticeWrite.do" method="post" onsubmit="return adminHelpNoticeWrite(this)">
 					<div>

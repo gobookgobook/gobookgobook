@@ -44,7 +44,7 @@
 			<div align="left" class="container" style="width:835px;padding:0px;margin-left:180px">
 				<div>
 					<label class="title" style="text-align:center;height:32px;width:200px;font-size:14px;background-color:#dff0d8">제목</label>
-					<span class="content" style="width:600px;height:32px">${helpNoticeDto.helpnotice_subject}</span>
+					<span class="content" style="width:600px;font-size:14px;height:32px">${helpNoticeDto.helpnotice_subject}</span>
 				</div><br/><br/>
 				
 				<div style="width:835px">
