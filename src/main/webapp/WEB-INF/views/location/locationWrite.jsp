@@ -29,38 +29,31 @@
 			
 			  <div align="center"><b style="font-size:18px">지점 등록</b></div>
 		       <br/><br/>
-			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px;">
+			<div align="center" class="container" style="width:960px;height:460px;padding:0px;margin-left:40px;border:0px solid red;">
 				<form style="margin-left:130px" name="locationForm" action="${root}/location/locationWrite.do" 
 					method="post" onsubmit="return locationWriteForm(this)">
-					<div class="line">
-						<label class="title" style="height:32px;font-size:14px;background-color:#dff0d8">지점명</label>
-						<span class="content">
-							<input type="text" value="꼬북꼬북" style="font-size:14px;"disabled="disabled" />	
-						</span>
+					<div>
+						<label class="title" style="width:200px;font-size:14px;height:32px; background-color:#dff0d8">지점명</label>
+					    <input class="content" value="꼬북꼬북" style="width:610px;font-size:14px;height:32px" disabled="disabled" />	
+						
 				  	</div>
 					
-					<div class="line">
-						<label class="title" style="height:32px;font-size:14px; background-color:#dff0d8">지점 주소</label>
-						<span class="content">
-							<input type="text" name="location_address" size="48"/>
-						</span>
+					<div style="height: 30px">
+						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 주소</label>
+						<input class="content" type="text" size="50" name="location_address" style="width:610px;font-size:14px;height:32px"/>
 					</div>
 					
-					<div class="line">
-						<label class="title" style="height:32px;font-size:14px; background-color:#dff0d8">지점장 이름</label>
-						<span class="content">
-							<input type="text" name="location_admin" size="48" />
-						</span>
+					<div style="height: 30px">
+						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점장 이름</label>
+						<input class="content" type="text" size="50" name="location_admin" style="width:610px;font-size:14px;height:32px"/>
 					</div>
 					
-					<div class="line">
-						<label class="title" style="height:32px;font-size:14px; background-color:#dff0d8">지점 전화번호</label>
-						<span class="content">
-							<input type="text" name="location_phone" size="48" />
-						</span>
+					<div style="height: 30px">
+						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 전화번호</label>
+						<input class="content" type="text" size="50" name="location_phone" style="width:610px;font-size:14px;height:32px"/>
 					</div>
 					
-					<div class="line" style="width:591px; border-width:2px; border-color:#dddddd; text-align:center;">
+					<div class="line" style="width:810px; border-width:2px; border-color:#dddddd; text-align:center; margin-top:30px;">
 						<input type="submit" class="btn btn-success btn-xs" value="지점등록" style="font-size:14px;"/>
 						<input type="reset" class="btn btn-success btn-xs" value="취소" style="font-size:14px;" />
 					</div>
