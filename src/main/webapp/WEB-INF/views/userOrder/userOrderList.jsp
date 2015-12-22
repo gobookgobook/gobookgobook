@@ -156,11 +156,12 @@
 
 							<hr width="75%" color="white" />
 							<div align="right" id="order" style="width: 98%">
-								<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber
+								<label class="title" style="font-size:16px;">포인트 총 적립액:<fmt:formatNumber
 										value="${point_sum+((point_sum%1>0.5)?(1-(point_sum%1))%1:-(point_sum%1))}" groupingUsed="true" />원
-								</span>&nbsp;&nbsp;&nbsp; <span id="sum" style="font-size: 20px">상품
+								</label>&nbsp;&nbsp;&nbsp; 
+								<label class="title" style="font-size:16px;">상품
 									총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true" />원
-								</span>
+								</label>
 							</div>
 							<br />
 							<br />
@@ -211,11 +212,11 @@
 
 							<hr width="75%" color="white" />
 							<div align="right" id="order" style="width: 98%">
-								<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber
+								<label class="title" style="font-size:16px;">포인트 총 적립액:<fmt:formatNumber
 										value="${point_sum+((point_sum%1>0.5)?(1-(point_sum%1))%1:-(point_sum%1))}" groupingUsed="true" />원
-								</span>&nbsp;&nbsp;&nbsp; <span id="sum" style="font-size: 20px">상품
+								</label>&nbsp;&nbsp;&nbsp; <label class="title" style="font-size:16px;">상품
 									총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true" />원
-								</span>
+								</label>
 							</div>
 							<br />
 							<br />
@@ -230,66 +231,70 @@
 							<div style="background:#37415a; height:200px;">
 								<div align="left">
 									<div class="form-group">
-										<label for="addr" style="font-size:14px; color:white;">배송지 주소</label>
-										<div align="center">
+									<br/>
+										<div align="left">
 											<span class="content"> 
-											<label style="font-size:14px; color:white;"><input type="radio" name="address"  value="old" id="o" checked>기존 배송지</label>&nbsp;&nbsp;&nbsp; 
-											<label style="font-size:14px; color:white;"><input type="radio" name="address"  value="new" id="n">새로 입력</label>&nbsp;&nbsp;&nbsp;
+											<label style="font-size:14px; color:white;"><input type="radio" name="address"  value="old" id="o" style="margin-left:80px;"checked>기존 배송지</label>&nbsp;&nbsp;&nbsp; 
+											<label style="font-size:14px; color:white;"><input type="radio" name="address"  value="new" id="n" >새로 입력</label>&nbsp;&nbsp;&nbsp;
 											</span>
                                             <br/><br/>
 											<div id="new">
 												<div class="line">
-													<label class="title" style="font-size:14px; color:white;">우편번호</label> 
+													<label class="title" style="font-size:14px; color:white; margin-left:80px;">우편번호</label> 
 													<span class="content">
-														<input type="text" name="zipcodeDisp" style="background:white;" disabled="disabled" />
+														<input type="text" name="zipcodeDisp" style="background:white;" size="30" disabled="disabled" />
 														<input type="hidden" name="member_zipcode" /> 
 														<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')" />
 													</span>
 												</div>
                                                 <br/>
 												<div class="line">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													<span class="content"> 
-													<input type="text" name="address1Disp" size="70"  style="background:white;" disabled="disabled" /> 
+													<input type="text" name="address1Disp" size="70"  style="background:white; margin-left:80px;" disabled="disabled" /> 
 													<input type="hidden" name="member_address1" />
 													</span>
 												</div>
                                                 <br/>
 												<div class="line">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													<span class="content"> 
-													<input type="text" name="member_address2" size="40" />
+													<input type="text" name="member_address2" size="70" style="margin-left:80px;"/>
 													</span>
 												</div>
                                                 <br/>
-												<label for="phone" style="font-size:14px; color:white;">전화번호</label> 
+												<label for="phone" style="font-size:14px; color:white; margin-left:80px;">전화번호</label> 
 												<input type="text"  id="hphone" name="member_phone" value="" size="30"/>
 											</div>
 
 											<div id="old">
 												<div class="line">
-													<label class="title" style="font-size:14px; color:white;">우편번호</label> 
+													<label class="title" style="font-size:14px; color:white; margin-left:80px;">우편번호</label> 
 													<span class="content">
-														<input type="text" name="oldZipcodeDisp" value="${memberDto.member_zipcode}"  style="background:white;" disabled="disabled" />
+														<input type="text" name="oldZipcodeDisp" value="${memberDto.member_zipcode}"  style="background:white;" size="30" disabled="disabled" />
 														<input type="hidden" name="order_zipcode" value="${memberDto.member_zipcode}" />
 													</span>
 												</div>
                                                 <br/>
 												<div class="line" >
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													<span class="content" style="align:center"> 
-													  <input type="text"  name="oldAddress1Disp" size="70" value="${memberDto.member_address1}" style="background:white;" disabled="disabled" />
+													  <input type="text"  name="oldAddress1Disp" size="70" value="${memberDto.member_address1}" style="background:white; margin-left:80px;" disabled="disabled" />
 													  <input type="hidden" name="order_book_user_address1" value="${memberDto.member_address1}" />
 													</span>
 												</div>
                                                 <br/>
 												<div class="line">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													<span class="content"  style="align:center"> 
-													<input type="text"  name="old_address2" value="${memberDto.member_address2}" size="40" /> 
+													<input type="text"  name="old_address2"  size="70"  style="margin-left:80px;" value="${memberDto.member_address2}" /> 
 													<input type="hidden" name="order_book_user_address2" />
 													</span>
 												</div>
                                                 <br/>
-                                                 <div align="center">
-												<label for="phone" style="font-size:14px; color:white;">전화번호</label>
-												<input type="text"  id="oldHphone" name="old_phone" value="${memberDto.member_phone}" size="30"> 
+                                                 <div align="left">
+												<label for="phone" style="font-size:14px; color:white; margin-left:80px;">전화번호</label>
+												<input type="text"  id="oldHphone" name="old_phone" value="${memberDto.member_phone}" size="30" > 
 												<input type="hidden" name="order_book_user_number" />
 											     </div>
 											</div>
@@ -306,11 +311,8 @@
 						<div class="container" style="width: 100%">
 							<div style="background:#37415a; height:230px;">
 							  <br/><br/>
-							  <div align="left">
-									<label class="title" style="font-size:14px; color:white;">쿠폰 사용</label><br /> 
-									</div>
-								<div align="center">
-									<label class="title" style="font-size:14px; color:white;">쿠폰</label> 
+								<div align="left">
+									<label class="title" style="font-size:14px; color:white; margin-left:80px;">쿠폰</label> 
 									<span class="content"> 
 									<input type="hidden" name="order_user_coupon_num" />
 									</span> 
@@ -326,20 +328,18 @@
 									<br />
 									</span>
 								</div>
-								<div align="left">
-									<label class="title" style="font-size:14px; color:white;">포인트 사용</label><br /> 
-									</div>
-									<div align="center">
-									<span class="content" style="font-size:14px; color:white;"> 적용하실 포인트 : 
-									<input type="text" size="10" id="point" value="0" name="order_book_point_disp" /> 
-									Point (포인트는 100 Point이상단위부터 사용가능합니다.)<br/><br/> 
-									보유하신 포인트 : 
-									<input type="text" name="equipPoint" size="10" value="${memberDto.member_point}" disabled="disabled" /> Point<br />
-									<br /> <input type="hidden" name="order_book_point" value="0" />
-										<span id="applyPointDisp">적용된 포인트 : 0 Point</span> <input
-										type="button" name="payPoint" value="포인트적용"
-										onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)" />
-									</span>
+									<div align="left">
+									<span class="content" style="font-size:14px; color:white; margin-left:80px;"> 적용하실 포인트 : </span>
+									<input type="text" size="10" id="point" value="0"  name="order_book_point_disp" style="font-size:14px; color:white;"/> 
+									<label class="title" style="font-size:14px; color:white;">Point (포인트는 100 Point이상단위부터 사용가능합니다.)</label><br/><br/> 
+									
+									<span class="content" style="font-size:14px; color:white; margin-left:80px;">보유하신 포인트 : </span>
+									<input type="text" size="10" name="equipPoint"  value="${memberDto.member_point}" style="width:80px;"disabled="disabled" /> 
+									<label class="title" style="font-size:14px; color:white;">Point</label><br /><br />
+									
+									<input type="hidden" name="order_book_point" value="0" />
+									<span class="content" style="font-size:14px; color:white; margin-left:80px;">적용된 포인트 : 0 Point</span> 
+									<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)" />
 								</div>
 							</div>
 						</div>
@@ -351,23 +351,23 @@
                              <br/><br/>
 						<div class="container" style="width: 100%">
 							<div style="background:#37415a; height:230px;">
-								<div align="center">
-									<label class="title" style="font-size:14px; color:white;">상품 총 금액 : </label> 
+							<br/><br/>
+								<div align="left">
+									<label class="title" style="font-size:14px; color:white; margin-left:80px;">상품 총 금액 : </label> 
 									<span class="content"  style="font-size:14px; color:white;">
 										<fmt:formatNumber value="${sum}" groupingUsed="true"  />원
 									</span><br />
-									<br /> <label class="title" style="font-size:14px; color:white;">포인트 적립액 : </label> 
+									<br /> <label class="title" style="font-size:14px; color:white; margin-left:80px;">포인트 적립액 : </label> 
 									<span class="content"  style="font-size:14px; color:white;"> 
 									<fmt:formatNumber value="${point_sum}" 	groupingUsed="true" />원 
 									<input type="hidden" name="allBookPoint" value="${point_sum}" />
 									</span><br />
-									<br /> <label class="title" style="font-size:14px; color:white;">쿠폰 할인 금액 : </label> 
+									<br /> <label class="title" style="font-size:14px; color:white; margin-left:80px;">쿠폰 할인 금액 : </label> 
 									<span class="content" id="applyCouponCharge"  style="font-size:14px; color:white;"> 0 원 </span><br/>
-									<br /> <label class="title" style="font-size:14px; color:white;">포인트 할인 금액 : </label> 
+									<br /> <label class="title" style="font-size:14px; color:white; margin-left:80px;">포인트 할인 금액 : </label> 
 									<span class="content" id="applyPointCharge"  style="font-size:14px; color:white;"> 0원 </span><br/>
 									<br />
-									<br /> 
-									<label class="title"  style="font-size:14px; color:white;">최종 결제 금액 :</label> 
+									<label class="title"  style="font-size:14px; color:white; margin-left:80px;">최종 결제 금액 :</label> 
 									<span class="content" id="applyTotalCharge" style="color: red; font-size: 20px;"> 
 									<fmt:formatNumber value="${sum}" groupingUsed="true" />원
 									</span><br />
@@ -383,8 +383,7 @@
                              <br/><br/>
 						<div class="container" style="width: 100%">
 							<div style="background:#37415a; height:230px;">
-								<div align="left">
-									<label class="title"  style="font-size:14px; color:white;">결제수단</label>
+							<br/>
 									<div align="center">
 										<span class="content"> 
 										<label class="title" style="font-size:14px; color:white;">
@@ -433,7 +432,6 @@
 											</div>
 										</form>
 									</div>
-								</div>
 							</div>
 						</div>
                         <br/><br/>
