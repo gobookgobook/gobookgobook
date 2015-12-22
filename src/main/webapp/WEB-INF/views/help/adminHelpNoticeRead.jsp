@@ -16,13 +16,13 @@
 <script type="text/javascript">
 	function deleteFun(root, helpnotice_num){
 		var url=root+"/help/adminHelpNoticeDelete.do?helpnotice_num="+helpnotice_num;
-		alert("url:"+ url);
+		//alert("url:"+ url);
 		location.href=url;
 	}
 	
 	function updateFun(root, helpnotice_num, pageNumber){
 		var url=root+"/help/adminHelpNoticeUpdate.do?helpnotice_num="+helpnotice_num +"&pageNumber="+pageNumber;
-		alert(url);
+		//alert(url);
 		location.href=url;
 	}
 </script>

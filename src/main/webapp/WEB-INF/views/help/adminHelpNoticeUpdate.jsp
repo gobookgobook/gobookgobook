@@ -3,11 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>공지사항 수정</title>
-<c:set var="root" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
 	<form action="${root}/help/adminHelpNoticeUpdate.do" method="post" onsubmit="return adminHelpNoticeWrite(this)">
