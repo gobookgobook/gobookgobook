@@ -178,7 +178,7 @@
 
  <div id="bestbook_zone">
    <h3>
-      <img src="${root}/images/bestbook_title.gif" alt="베스트셀러" />
+      <img src="${root}/images/book_best.png" alt="베스트셀러" />
    </h3>
    <div id="best_bg">
       <ul>
@@ -212,9 +212,9 @@
    </div>
  </div> <!-- close of bestbook_zone -->
  
-  <div id="newbook_zone" style="margin-top: 260px;">
+  <div id="newbook_zone" style="margin-top: 260px; margin-left:-20px;">
    <h3>
-      <img src="${root}/images/bestbook_title.gif" alt="신작도서" />
+      <img src="${root}/images/book_new.png" alt="신작도서" />
    </h3>
    <div id="new_bg">
       <ul>
