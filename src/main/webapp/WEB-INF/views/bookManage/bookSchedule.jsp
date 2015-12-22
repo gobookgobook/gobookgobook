@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>도서 출간 일정</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/fullcalendar.css" />
 <script type="text/javascript" src="${root}/script/bookManage/jquery-1.5.2.min.js"></script>

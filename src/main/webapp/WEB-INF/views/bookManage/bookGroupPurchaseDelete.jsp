@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공구등록 취소</title>
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>

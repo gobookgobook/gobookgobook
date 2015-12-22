@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공구 수정</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="${root}/script/bookManage/script.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/bookManage/style.css"/>

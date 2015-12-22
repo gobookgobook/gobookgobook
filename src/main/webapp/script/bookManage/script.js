@@ -8,25 +8,25 @@
 function bookDataForm(form){
 	if(form.book_num.value==""){
 		alert("도서번호를 써주세요.");
-		form.id_check.focus();
+		form.book_num.focus();
 		return false;
 	}
 	
 	if(form.book_name.value==""){
 		alert("도서번호를 써주세요.");
-		form.id_check.focus();
+		form.book_name.focus();
 		return false;
 	}
 	
 	if(form.book_writer.value==""){
 		alert("저자를 써주세요.");
-		form.id_check.focus();
+		form.book_writer.focus();
 		return false;
 	}
 	
 	if(form.book_publisher.value==""){
 		alert("출판사를 써주세요.");
-		form.id_check.focus();
+		form.book_publisher.focus();
 		return false;
 	}
 	
@@ -67,13 +67,13 @@ function bookDataForm(form){
 	
 	if(form.book_cost.value==""){
 		alert("도서원가를 써주세요.");
-		form.id_check.focus();
+		form.book_cost.focus();
 		return false;
 	}
 	
 	if(form.book_price.value==""){
 		alert("도서가격을 써주세요.");
-		form.id_check.focus();
+		form.book_price.focus();
 		return false;
 	}
 	
