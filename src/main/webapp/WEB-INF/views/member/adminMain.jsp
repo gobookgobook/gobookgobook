@@ -25,7 +25,6 @@
 </head>
 <body>
 <c:if test="${id=='admin'}">
-<jsp:include page="../cookie/cookie.jsp"/>
 <div id="wrap">
 <dl class="hide">
  <dt>스킵 메뉴</dt>
@@ -178,7 +177,7 @@
       <ul>
 		<c:forEach var="bestSeller" items="${bestSeller}">
 			<li>
-				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
+				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${bestSeller.book_num}'" width=120px; height="100px;" style="cursor: pointer;"/>
 				<span><strong>
 				<c:choose>
 					<c:when test="${fn:length(bestSeller.book_name) > 10}">
@@ -223,7 +222,7 @@
       <ul>
 		<c:forEach var="newBook" items="${newBook}">
 			<li>
-				<img src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${newBook.book_num}')" width=120px; height="100px;"/>
+				<img src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${newBook.book_num}'" width=120px; height="100px;"/>
 				<span><strong>
 				<c:choose>
 					<c:when test="${fn:length(newBook.book_name) > 10}">
