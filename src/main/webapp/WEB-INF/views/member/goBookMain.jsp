@@ -212,7 +212,7 @@
    </div>
  </div> <!-- close of bestbook_zone -->
  
-  <div id="newbook_zone" style="margin-top: 260px; margin-left:-20px;">
+  <div id="newbook_zone" style="margin-top: 260px; margin-left:10px;">
    <h3>
       <img src="${root}/images/book_new.png" alt="신작도서" />
    </h3>
