@@ -52,13 +52,14 @@ function deleteToServer(basket_num, member_id, root){
 			var strNum=numberFormat(tempNum);
 			
 			var tempPoint=data*0.03;
-			var strPoint=numberFormat(tempPoint);
+			var roundPoint=tempPoint+((tempPoint%1>0.5)?(1-(tempPoint%1))%1:-(tempPoint%1));	// 반올림 계산
+			var strPoint=numberFormat(roundPoint);
 
-			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+strNum+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+strPoint+"원</span>");
+			$("#sum").replaceWith("<span id='sum' style='font-size:15px; color:red; font-weight:bold'>"+strNum+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:15px'>포인트 총 적립액:"+strPoint+"원</span>");
 			
 			if($("tbody").children().size()==0) {	
-				$("<div align='center' style='padding-bottom:25px; border-bottom:1px solid #DDDDDD'>확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>").insertBefore("hr");
+				$("<div align='center' style='font-size:14px; padding-bottom:25px; border-bottom:1px solid #DDDDDD'>확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>").insertBefore("hr");
 				$("#order").hide();
 			}
 		},
@@ -99,16 +100,17 @@ function updateToServer(basket_num, value, root){
 			var total_price=parseInt(basket_total_price);	// 세 자리 콤마를 위한 int형변환
 			// alert(total_price.toLocaleString());
 			// alert(basket_num + "|" + basket_quantity + "|" + basket_total_price + "|" + sum);
-			$("#totalPrice"+basket_num).replaceWith("<td style='text-align:center; font-weight:bold' id='totalPrice"+basket_num+"'>"+total_price.toLocaleString()+"원</td>");
+			$("#totalPrice"+basket_num).replaceWith("<td style='font-size:14px; text-align:center; font-weight:bold' id='totalPrice"+basket_num+"'>"+total_price.toLocaleString()+"원</td>");
 			
 			var tempNum=sum;
 			var strNum=numberFormat(tempNum);
 			
 			var tempPoint=sum*0.03;
-			var strPoint=numberFormat(tempPoint);
+			var roundPoint=tempPoint+((tempPoint%1>0.5)?(1-(tempPoint%1))%1:-(tempPoint%1));	// 반올림 계산 식
+			var strPoint=numberFormat(roundPoint);
 			
-			$("#sum").replaceWith("<span id='sum' style='font-size:20px; color:red; font-weight:bold'>"+strNum+"원</span>");
-			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:20px'>포인트 총 적립액:"+strPoint+"원</span>");
+			$("#sum").replaceWith("<span id='sum' style='font-size:15px; color:red; font-weight:bold'>"+strNum+"원</span>");
+			$("#point_sum").replaceWith("<span id='point_sum' style='font-size:15px'>포인트 총 적립액:"+strPoint+"원</span>");
 		},
 		error:function(xhr, status, errorMsg){
 			alert(status + "," + errorMsg);

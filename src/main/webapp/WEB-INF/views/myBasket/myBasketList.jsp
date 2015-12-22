@@ -36,7 +36,7 @@
 </script>
 </head>
 <body>
-<div id="contents" style="background:white; border:0px solid black; position:static;">
+<div id="contents" style="background:white;height:80%; border:0px solid black; position:static;">
     <c:if test="${id==null}">
     	<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 장바구니 목록</b>
@@ -47,18 +47,17 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr style="color:white;background-color:#37415a">
-						<th style="text-align:center">책제목</th>
-						<th style="text-align:center">판매가</th>
-						<th style="text-align:center">수량</th>
-						<th style="text-align:center">합계</th>
-						<th style="text-align:center">삭제</th>
+						<th style="font-size:14px;text-align:center">책제목</th>
+						<th style="font-size:14px;text-align:center">판매가</th>
+						<th style="font-size:14px;text-align:center">수량</th>
+						<th style="font-size:14px;text-align:center">합계</th>
+						<th style="font-size:14px;text-align:center">삭제</th>
 					</tr>
 				</thead>
 				<tbody id="listAllTd"></tbody>
 			</table>
 		</div>
-		<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>현재 고객님의 장바구니에 담긴 도서가 없습니다!<br/>지금 Login을 하신 후 장바구니를 보시면 회원님의 장바구니를 보실 수 있습니다.</div>
-		
+		<div align="center" style="font-size:14px;padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/>현재 고객님의 장바구니에 담긴 도서가 없습니다!<br/>지금 Login을 하신 후 장바구니를 보시면 회원님의 장바구니를 보실 수 있습니다.</div>
 	</c:if>
 	
     <c:if test="${id !=null}">
@@ -73,17 +72,17 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr style="color:white;background-color:#37415a">
-								<th style="text-align:center">책제목</th>
-								<th style="text-align:center">판매가</th>
-								<th style="text-align:center">수량</th>
-								<th style="text-align:center">합계</th>
-								<th style="text-align:center">삭제</th>
+								<th style="font-size:14px;text-align:center">책제목</th>
+								<th style="font-size:14px;text-align:center">판매가</th>
+								<th style="font-size:14px;text-align:center">수량</th>
+								<th style="font-size:14px;text-align:center">합계</th>
+								<th style="font-size:14px;text-align:center">삭제</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>
+				<div align="center" style="font-size:14px;padding-bottom:25px; border-bottom:1px solid #DDDDDD">확인하세요!<br/> 현재 고객님의 장바구니에 담긴 도서가 없습니다!</div>
 			</c:if>
 			
 			<c:if test="${count > 0}">
@@ -92,11 +91,11 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr style="color:white;background-color:#37415a">
-								<th style="text-align:center">책제목</th>
-								<th style="text-align:center">판매가</th>
-								<th style="text-align:center">수량</th>
-								<th style="text-align:center">합계</th>
-								<th style="text-align:center">삭제</th>
+								<th style="font-size:14px;text-align:center">책제목</th>
+								<th style="font-size:14px;text-align:center">판매가</th>
+								<th style="font-size:14px;text-align:center">수량</th>
+								<th style="font-size:14px;text-align:center">합계</th>
+								<th style="font-size:14px;text-align:center">삭제</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd">
@@ -108,19 +107,19 @@
 							<c:forEach var="myBasket" items="${myBasketList}">
 							<c:set var="point" value="${myBasket.basket_book_price*0.03}"/>	
 								<tr id="${myBasket.basket_num}">
-									<td>${myBasket.basket_book_name}</td>
-									<td style="text-align:center">
+									<td style="font-size:14px">${myBasket.basket_book_name}</td>
+									<td style="font-size:14px;text-align:center">
 										<b><fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원</b>
-										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true"/> &nbsp;P)
+										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
 									</td>
-									<td style="text-align:center">
+									<td style="font-size:14px;text-align:center">
 										<form name="quantity_update" method="post">
 											<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="2" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>&nbsp;
 											<c:set var="value" value="upQuantity.value"/>
 											<input type="button" class="btn btn-info btn-xs" value="수정" onclick="updateToServer('${myBasket.basket_num}', ${value}, '${root}')"/>
 										</form>
 									</td>
-									<td style="text-align:center;font-weight: bold" id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원</td>
+									<td style="font-size:14px;text-align:center;font-weight: bold" id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원</td>
 									<!-- <td>
 										<input type="checkbox" checked="checked"/>
 									</td> -->
@@ -137,9 +136,9 @@
 				
 				<hr width="100%" color="blue"/>
 				<div align="right" id="order" style="width:999px;padding:0px">
-					<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber value="${point_sum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-					<span style="font-size:20px">상품 총 금액:</span>
-					<span id="sum" style="font-size: 20px; color:red; font-weight:bold"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
+					<span id="point_sum" style="font-size: 15px">포인트 총 적립액:<fmt:formatNumber value="${point_sum+((point_sum%1>0.5)?(1-(point_sum%1))%1:-(point_sum%1))}" groupingUsed="true" />원</span>&nbsp;&nbsp;&nbsp;
+					<span style="font-size:15px">상품 총 금액:</span>
+					<span id="sum" style="font-size: 15px; color:red; font-weight:bold"><fmt:formatNumber value="${sum}" groupingUsed="true"/>원</span>
 					<input type="button" class="btn btn-primary" value="주문하기" onclick="javascript:location.href='${root}/userOrder/userOrderList.do'"/>
 				</div>
 			</c:if>
