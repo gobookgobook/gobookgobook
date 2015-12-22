@@ -41,7 +41,7 @@
 
 					<div id="member_id" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="idName" value="아이디" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="id_check" size="48" style="height: 30px;" value="아이디는 6~12자 사이로 입력해주세요." onfocus="javascript:this.value=''"/> 
+						<input type="text" name="id_check" size="48" style="height: 30px;" value="아이디는 6~12자 사이로 입력해주세요." onfocus="javascript:this.value=''; memberForm.member_id.value=''; "/> 
 						<input type="hidden" name="member_id" /> 
 						<input type="button" value="아이디중복" style="height: 30px;" onclick="idCheck('${root}',memberForm)" />
 					</div>
@@ -105,10 +105,11 @@
 
 					<div id="choose" style="margin-top: 10px; margin-left: -300px;">
 						<input type="text" name="birthName" value="생년월일"style="background: #37415a; color: white; height: 30px;" disabled="disabled" /> 
-						<select name="member_birth_year">
+						
+						<select name="member_birth_year" onfocus="javascript: this.value=1980">
 							<option>년</option>
 							<c:forEach var="year" begin="1900" end="${today}">
-								<option value="${year}">${year}</option>`
+								<option value="${year}">${year}</option>
 							</c:forEach>
 						</select> 
 						<select name="member_birth_month">

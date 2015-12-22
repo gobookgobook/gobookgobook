@@ -152,11 +152,22 @@ function registerForm(form){
  * @설명 : 아이디 체크
  */
 function idCheck(root, memberForm){	
+	
+	if(memberForm.id_check.value=="아이디는 6~12자 사이로 입력해주세요."){
+		memberForm.id_check.value="";
+	}
+	
 	var id=memberForm.id_check.value;
 	
 	var url=root+"/member/idCheck.do?member_id="+id;
+	
+	var width=340;
+	var height=300;
+	
+	var top = (screen.availHeight / 2) - (height / 2); 
+	var left = (screen.availWidth / 2) - (width / 2); 
 	//alert(url);
-	window.open(url,"","width=250, height=150, left=810, top=300");
+	window.open(url,"","width="+width+", height="+height+", left="+left+", top="+top);
 }
 
 /**
@@ -197,20 +208,7 @@ function sendAddress(zipcode,sido,gugun,dong,ri,bunji){
  */
 function chooseId(){
 	opener.memberForm.member_id.value=opener.memberForm.id_check.value;
-	opener.memberForm.id_check.disabled="disabled";
 	self.close();
-}
-
-/**
- * @함수이름 : resetId
- * @작성일 : 2015. 12. 8.
- * @개발자 : 강주혁
- * @설명 : id 초기화
- */
-function resetId(root){
-	opener.memberForm.member_id.value="";
-	opener.memberForm.id_check.value="";
-	location.href=root+"/member/idCheck.do?member_id="+opener.memberForm.member_id.value;
 }
 
 /**
@@ -223,4 +221,18 @@ function cancel(){
 	opener.memberForm.member_id.value="";
 	opener.memberForm.id_check.value="";
 	self.close();
+}
+
+/**
+ * @함수이름 : reCheckId
+ * @작성일 : 2015. 12. 22.
+ * @개발자 : 강주혁
+ * @설명 : Id 다시 체크
+ */
+function reCheckId(root){
+	var id = document.getElementById("reCheck").value;
+	
+	var url=root+"/member/idCheck.do?member_id="+id;
+	
+	location.href=url;
 }

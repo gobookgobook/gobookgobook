@@ -71,12 +71,17 @@ public class MemberService implements IMemberService {
 		int check=iMemberDao.memberIdCheck(id);
 		GoBookAspect.logger.info(GoBookAspect.logMsg + "check:" + check);
 		
+		int length=0;
+		
 		if(id.equals("")){
 			check=-1;
+		}else{
+			length=id.length();
 		}
 		
 		mav.addObject("check", check);
 		mav.addObject("id", id);
+		mav.addObject("length",length);
 		
 		mav.setViewName("member/idCheck");
 	}
