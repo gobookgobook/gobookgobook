@@ -75,6 +75,7 @@
 			</c:if>
 			
 			<c:if test="${count > 0}">
+			<div align="center" style="width:835px; margin-left:100px;">
 				<table class="table table-bordered">
 					<tr>
 						<td width="100" align="center" style="background:#37415a; color: white;">지점명</td>
@@ -97,6 +98,7 @@
 						
 					</c:forEach>
 				</table>
+				</div>
 			</c:if>
 		</div>
 	</div>
