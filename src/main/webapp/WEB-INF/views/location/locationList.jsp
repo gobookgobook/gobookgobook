@@ -37,8 +37,8 @@
 				<jsp:include page="locationConNav.jsp"/>
 			</div>
 			
-			<h1 style="margin-left:20px">지점목록</h1>
-			
+			<div align="center"><b style="font-size:18px">지점 목록</b></div>
+			<br/><br/>
 			<div align="center"><div id="map"></div></div>
 			<br/><br/>
 			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px">
@@ -53,23 +53,23 @@
 				<c:if test="${count > 0}">
 					<table border="1" class="table table-bordered">
 						<tr class="success" style="color:#1DDB16">
-							<td align="center">지점명</td>
-							<td align="center">지점주소</td>
-							<td align="center">지점장</td>
-							<td align="center">전화번호</td>
-							<td align="center">수정&삭제</td>
+							<td align="center" style="font-size:14px;">지점명</td>
+							<td align="center" style="font-size:14px;">지점주소</td>
+							<td align="center" style="font-size:14px;">지점장</td>
+							<td align="center" style="font-size:14px;">전화번호</td>
+							<td align="center" style="font-size:14px;">수정&삭제</td>
 						</tr>
 						
 						<c:set var="i" value="0"/>
 						<c:forEach var="location" items="${locationList}">
 							<tr class="success">
-								<td align="center">꼬북꼬북</td>
-								<td align="center">${location.location_address}</td>
-								<td align="center">${location.location_admin}</td>
-								<td align="center">${location.location_phone}</td>
-								<td align="center">
-									<input type="button" class="btn btn-success btn-xs" value="수정" onclick="javascript:location.href='${root}/location/locationUpdate.do?locationNum=${location.location_num}'"/>
-									<input type="button" class="btn btn-success btn-xs" value="삭제" onclick="javascript:deleteCheck('${root}','${location.location_num}')"/>
+								<td align="center" style="font-size:14px;">꼬북꼬북</td>
+								<td align="center" style="font-size:14px;">${location.location_address}</td>
+								<td align="center" style="font-size:14px;">${location.location_admin}</td>
+								<td align="center" style="font-size:14px;">${location.location_phone}</td>
+								<td align="center" style="font-size:14px;">
+									<input type="button" class="btn btn-success btn-xs" value="수정" style="font-size:14px;" onclick="javascript:location.href='${root}/location/locationUpdate.do?locationNum=${location.location_num}'"/>
+									<input type="button" class="btn btn-success btn-xs" value="삭제" style="font-size:14px;" onclick="javascript:deleteCheck('${root}','${location.location_num}')"/>
 								</td>
 							</tr>
 							

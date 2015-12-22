@@ -41,7 +41,6 @@
 	
 	<c:if test="${id=='admin'}">
 		<div id="wrap">
-		<br/>
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 매출 관리</b>
 		</div>
@@ -50,7 +49,6 @@
 			<jsp:include page="salesConNav.jsp"/>
 		</div>
 	
-		<br/>
          <div align="center"><b style="font-size:18px">일일 매출</b></div>
          <br/>
 			<div align="center">
