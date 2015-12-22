@@ -123,7 +123,7 @@
 		
 	<!-- 이벤트 -->
 	<select id="eventListSelect" resultType="com.gobook.event.dto.EventDto">
-		select *from event where event_end_period >= sysdate
+		select *from event where event_end_period >= sysdate order by event_bunho
 	</select>	
 	
 	<!-- 신간도서 -->

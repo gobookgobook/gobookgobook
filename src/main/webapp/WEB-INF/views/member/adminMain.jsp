@@ -155,12 +155,7 @@
 	</c:forEach>
    </ul>
   </div>
-  <ul class="touch_bullet"> <!-- 배너 위치 표시 -->
-     <li><img src="${root}/images/visual_bullet_on.png" class="active" alt="" /></li>
-	<c:forEach begin="1" end="${eventeList.size()-1}">
-     <li><img src="${root}/images/visual_bullet_off.png" alt="" /></li>
-    </c:forEach>
-  </ul>
+
   <p class="touch_left_btn"> <!-- 이전 버튼 -->
      <a href="#">
      <img src="${root}/images/visual_btn_left.png" alt="이전 배너" />

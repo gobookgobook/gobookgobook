@@ -19,7 +19,7 @@
     <select id="eventListSelect" resultType="com.gobook.event.dto.EventDto">
     	<![CDATA[
 		SELECT * FROM(SELECT ROWNUM rnum, g.* FROM
-		(SELECT * FROM event) g) 
+		(SELECT * FROM event order by event_bunho) g) 
 		]]>
     </select>
     
