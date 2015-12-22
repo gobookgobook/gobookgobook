@@ -168,10 +168,10 @@
 					</c:if>
 					<c:if test="${purchase=='immediately'}">
 						<!-- 즉시구매일 경우 뿌려주는 구매 리스트 -->
-						<div align="left" style="width: 75%">
-							<label class="title">1. 주문 상품 목록</label>
-
-							<div class="container" style="width: 100%">
+						<div align="left" >
+							<label class="title" style="font-size:16px;">1. 주문 상품 목록</label>
+                             <br/><br/>
+							<div class="container" style="width: 999px; margin-left:">
 								<table class="table table-bordered">
 									<thead>
 										<tr style="background:#37415a;color:white;">
@@ -184,14 +184,15 @@
 									<tbody>
 
 										<c:set var="point" value="${book_price*0.03}" />
-										<tr class="info" id="${book_num}">
-											<td>${book_name}</td>
-											<td><fmt:formatNumber value="${book_price}"
+										<tr id="${book_num}">
+											<td style="font-size:14px;">${book_name}</td>
+											<td style="font-size:14px;"><fmt:formatNumber value="${book_price}"
 													groupingUsed="true" />원 &nbsp;(<fmt:formatNumber
 													value="${point}" groupingUsed="true" pattern="#" />
 												&nbsp;P)</td>
-											<td>${book_quantity}</td>
-											<td id="${sum}"><fmt:formatNumber value="${sum}"
+											<td style="font-size:14px;">${book_quantity}</td>
+											<td id="${sum}" style="font-size:14px;">
+											<fmt:formatNumber value="${sum}"
 													groupingUsed="true" />원 <input type="hidden"
 												name="book_num" value="${book_num}" /> <input type="hidden"
 												name="order_book_name" value="${book_name}" /> <input
@@ -208,10 +209,10 @@
 							<br />
 							<br />
 
-							<hr width="75%" color="blue" />
+							<hr width="75%" color="white" />
 							<div align="right" id="order" style="width: 98%">
 								<span id="point_sum" style="font-size: 20px">포인트 총 적립액:<fmt:formatNumber
-										value="${point_sum}" groupingUsed="true" />원
+										value="${point_sum+((point_sum%1>0.5)?(1-(point_sum%1))%1:-(point_sum%1))}" groupingUsed="true" />원
 								</span>&nbsp;&nbsp;&nbsp; <span id="sum" style="font-size: 20px">상품
 									총 금액:<fmt:formatNumber value="${sum}" groupingUsed="true" />원
 								</span>
