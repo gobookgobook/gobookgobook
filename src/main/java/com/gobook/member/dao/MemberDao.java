@@ -223,4 +223,15 @@ public class MemberDao implements IMemberDao{
 	public List<EventDto> eventListSelect() {
 		return sqlSessionTemplate.selectList("dao.memberMapper.eventListSelect");
 	}
+
+	/**
+	 * @함수이름 : newBookSelect
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 오주석
+	 * @설명 : 신간도서
+	 */
+	@Override
+	public List<BookDto> newBookSelect() {
+		return sqlSessionTemplate.selectList("dao.memberMapper.newBookSelect");
+	}
 }

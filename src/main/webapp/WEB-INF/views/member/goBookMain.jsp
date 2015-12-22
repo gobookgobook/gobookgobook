@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
@@ -184,7 +185,16 @@
 		<c:forEach var="bestSeller" items="${bestSeller}">
 			<li>
 				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${bestSeller.book_num}')" width=120px; height="100px;"/>
-				<span><strong>${bestSeller.book_name}</strong></span>
+				<span><strong>
+				<c:choose>
+					<c:when test="${fn:length(bestSeller.book_name) > 14}">
+						<c:out value="${fn:substring(bestSeller.book_name, 0, 13)}"/>....
+					</c:when>
+					<c:otherwise>
+						<c:out value="${bestSeller.book_name}"/>
+					</c:otherwise>
+				</c:choose>
+				</strong></span>
 				<span><strong>${bestSeller.book_writer}</strong></span>
 			</li>      	
 		</c:forEach>
@@ -201,6 +211,42 @@
       </p>
    </div>
  </div> <!-- close of bestbook_zone -->
+ 
+  <div id="newbook_zone" style="margin-top: 260px;">
+   <h3>
+      <img src="${root}/images/bestbook_title.gif" alt="신작도서" />
+   </h3>
+   <div id="new_bg">
+      <ul>
+		<c:forEach var="newBook" items="${newBook}">
+			<li>
+				<img src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="javascript:userBookRead('${root}', '${newBook.book_num}')" width=120px; height="100px;"/>
+				<span><strong>
+				<c:choose>
+					<c:when test="${fn:length(newBook.book_name) > 14}">
+						<c:out value="${fn:substring(newBook.book_name, 0, 13)}"/>....
+					</c:when>
+					<c:otherwise>
+						<c:out value="${newBook.book_name}"/>
+					</c:otherwise>
+				</c:choose>
+				</strong></span>
+				<span><strong>${newBook.book_writer}</strong></span>
+			</li>      	
+		</c:forEach>
+      </ul>
+      <p class="new_prev_btn">
+         <a href="#">
+         <img src="${root}/images/bestbook_btn_left.png" alt="이전으로 이동" />
+         </a>
+      </p>
+      <p class="new_next_btn">
+         <a href="#">
+         <img src="${root}/images/bestbook_btn_right.png" alt="다음으로 이동" />
+         </a>
+      </p>
+   </div>
+ </div>
 
  <p id="pop_wrap">
   <img src="${root}/images/popup.jpg" alt="검색이 잘 되는 키워드는 따로 있다!" usemap="#pop" />
@@ -213,7 +259,7 @@
 </div> <!-- close of wrap -->
 <hr />
 
-<div id="footer_wrap">
+<div id="footer_wrap" style="margin-top: 250px;">
 <div id="inner_footer">
  <h3 class="footer_logo">
     <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>

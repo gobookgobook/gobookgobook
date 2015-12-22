@@ -26,4 +26,5 @@ public interface IMemberDao {
 	public int memberDeleteBasketDate(String loginId);
 	public List<BookDto> userBookBestSeller();
 	public List<EventDto> eventListSelect();
+	public List<BookDto> newBookSelect();
 }

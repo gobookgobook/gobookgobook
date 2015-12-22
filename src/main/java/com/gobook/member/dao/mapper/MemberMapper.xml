@@ -126,4 +126,8 @@
 		select *from event where event_end_period >= sysdate
 	</select>	
 	
+	<!-- 신간도서 -->
+	<select id="newBookSelect" resultType="com.gobook.bookmanage.dto.BookDto">
+		select *from book where book_publish_date >= (sysdate-20)
+	</select>
 </mapper>

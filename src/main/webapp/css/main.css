@@ -56,6 +56,7 @@
 	
 }
 #bestbook_zone h3{margin:10px;}
+
 #best_bg{
 	width:940px;height:270px;
 	padding-top:18px;
@@ -93,6 +94,49 @@
 	margin:10px;
 }
 
+#newbook_zone{
+	margin-bottom:60px;
+	overflow:hidden;
+	
+}
+#newbook_zone h3{margin:10px;}
+
+#new_bg{
+	width:940px;height:270px;
+	padding-top:18px;
+	background:url("../images/bestbook_bg.gif") 0 0 no-repeat;
+	position:absolute;
+	left:30px;
+
+}
+#new_bg span, #new_bg span strong{
+	display:block;text-align:center;
+	
+	
+}
+#new_bg span strong{
+	color:#88332e;font-weight:bold;
+}
+#new_bg span{
+	padding-top:18px;
+	margin-top:-10px;	
+}
+
+#new_bg .new_prev_btn{
+	position:absolute;top:98px;left:50px;
+}
+#new_bg .new_next_btn{
+	position:absolute;top:98px;right:50px;
+}
+#new_bg ul{
+	width:960px;
+	
+}
+#new_bg ul li a img{
+	width:100px; 
+	height:160px; 
+	margin:10px;
+}
 
 #pop_wrap{
 	position:absolute;top:200px;

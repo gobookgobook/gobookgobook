@@ -237,8 +237,12 @@ public class MemberService implements IMemberService {
 		List<EventDto> eventeList=iMemberDao.eventListSelect();
 		GoBookAspect.logger.info(GoBookAspect.logMsg + eventeList.size());
 		
+		List<BookDto> newBook=iMemberDao.newBookSelect();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + newBook.size());
+		
 		mav.addObject("bestSeller", bestSeller);
 		mav.addObject("eventeList", eventeList);
+		mav.addObject("newBook", newBook);
 		
 		try{
 			if(id.equals("admin")) mav.setViewName("member/adminMain");

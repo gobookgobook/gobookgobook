@@ -156,6 +156,30 @@ $(function(){
   mySlider.goToNextSlide();
   return false;
   });
+  
+  var newMySlider=$("#new_bg ul").bxSlider({
+      mode:"horizontal",
+        speed:500,
+        pager:false,
+        moveSlides:1,
+        slideWidth:125,
+        minSlides:5,
+        maxSlides:5,
+        slideMargin:30,
+        auto:true,
+        autoHover:true,
+        controls:false
+  });
+  
+  $(".new_prev_btn").on("click",function(){
+	  newMySlider.goToPrevSlide();
+	  return false;
+	  });
+
+  $(".new_next_btn").on("click",function(){
+	  newMySlider.goToNextSlide();
+  return false;
+  });
 
    /*팝업 연동*/
   if($.cookie("pop") != "no") $("#pop_wrap").show();
