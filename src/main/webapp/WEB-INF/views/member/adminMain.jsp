@@ -235,7 +235,8 @@
  
  <label style="font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,
  한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
- 2015-2016 꼬북꼬북. All Rights Reserved</label>
+ 2015-2016 꼬북꼬북. All Rights Reserved<br/>
+ LG U+ 구매안전서비스 : 고객님은 안전거래를 위해 현금 등으로 결제시 <br/> 저희 쇼핑몰에서 가입한 LG유플러스의 구매안전서비스를 이용하실 수 있습니다</label>
  
  </address>
 </div>

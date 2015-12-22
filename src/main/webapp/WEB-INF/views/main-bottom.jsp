@@ -25,7 +25,7 @@
     <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="	position:absolute;left:100px; bottom:-10px; border:0px solid red;width:150px;height:90px;"/></a>
  </h3>
  <br/><br/>
- <div id="relSite_wrap" style="position:absolute;left:815px;top:50px;">
+ <div id="relSite_wrap" style="position:absolute;left:815px;top:30px;">
    <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기"/></h3>
    <form action="#" method="get" name="rel_f">
      <fieldset>
