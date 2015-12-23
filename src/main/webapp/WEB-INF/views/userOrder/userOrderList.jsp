@@ -55,8 +55,32 @@
 		});
 	});
 
-	function authPhone() {
+	function authPhone(authPhoneNum) {
+		
+		if(authPhoneNum.value==""){
+			alert("핸드폰번호를 입력해주세요.");
+			authPhoneNum.focus();
+			return false;
+		}
+		
+		var tempPhoneNum= authPhoneNum.value;
+		
+		if(tempPhoneNum.length <10 || tempPhoneNum.length >11){
+			alert("핸드폰번호를 정확하게 입력해주세요.");
+			return false;
+		}
+		
+		for(var i=0;i<tempPhoneNum.length ;i++ ){
+			ch=authPhoneNum.value.charAt(i);
+			if (!(ch>='0' && ch<='9')){
+				alert ("핸드폰번호는 숫자만 입력해주세요.");
+				authPhoneNum.focus();
+				return false;
+			}
+		}
+		
 		alert("휴대폰 인증이 정상적으로 처리되었습니다.");
+		
 		$(function() {
 			$("#authPhoneNum").attr("disabled", true);
 		});
@@ -434,8 +458,8 @@
 										<div id="phone">
 											<label class="title" style="font-size: 14px; color: black;">휴대폰결제</label>
 											<span class="content"> 
-											<input type="text" name="authPhoneNum" id="authPhoneNum" /> 
-											<input type="button" value="휴대폰인증" onclick="authPhone()" />
+											<input type="text" size="50" name="authPhoneNum" id="authPhoneNum" value="휴대폰번호를 - 없이 입력해주세요." style="height: 34px;" onfocus="javascript:this.value=''"/> 
+											<input type="button" value="휴대폰인증" style="height: 34px;" onclick="authPhone(authPhoneNum)" />
 											</span>
 										</div>
 									</form>

@@ -250,4 +250,27 @@ function userOrderForm(form){
 		}
 	}
 	
+	var test2=false;
+	
+	for(var i=0; i<form.order_book_charge.length;i++){
+		if(form.order_book_charge[i].checked==true){
+			if(i==2){
+				var tempPhoneNum = form.authPhoneNum.value;
+				
+				if(tempPhoneNum.length <10 || tempPhoneNum.length >11){
+					alert("핸드폰번호를 정확하게 입력해주세요.");
+					return false;
+				}
+			}
+		}
+	}
+	
+	for(var i=0;i<tempPhoneNum.length ;i++ ){
+		ch=form.authPhoneNum.value.charAt(i);
+		if (!(ch>='0' && ch<='9')){
+			alert ("핸드폰번호는 숫자만 입력해주세요.");
+			form.authPhoneNum.focus();
+			return false;
+		}
+	}
 }
