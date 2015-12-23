@@ -30,7 +30,7 @@ public interface IBookManageDao {
 	public List<BookGroupPurchaseDto> gpList();
 	public BookGroupPurchaseDto gpRead(long book_num);
 	public int bookGroupPurchaseUpdate(BookGroupPurchaseDto bookGroupPurchaseDto);
-	public int bookGroupPurchaseDelete(int gp_num);
+	public int bookGroupPurchaseDelete(int gp_num, long book_num);
 	public int bookNewPublishCount();
 	public List<BookDto> bookNewPublishList(HashMap<String, Integer> hMap);
 	public int bookCount();

@@ -136,7 +136,7 @@
 	</select>
 	
 	<update id="GroupPurchaseInit" parameterType="long">
-		update book set BOOK_GROUP_PURCHASE_COUNT=0 where book_num=#{book_num}
+		update book set BOOK_GROUP_PURCHASE_COUNT=0, BOOK_STATE=3 where book_num=#{book_num}
 	</update>
 	
 	<insert id="bookGroupPurchaseInsert" parameterType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
@@ -163,6 +163,10 @@
 	
 	<update id="bookGroupPurchaseUpdate" parameterType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
 		update GROUPPURCHASE set group_purchase_price=#{group_purchase_price},group_purchase_min_count=#{group_purchase_min_count},group_purchase_max_count=#{group_purchase_max_count},group_purchase_date=#{group_purchase_date} where gp_num=#{gp_num}
+	</update>
+	
+	<update id="bookGroupPurchaseDeleteInit" parameterType="long">
+		update book set BOOK_STATE=1 where book_num=#{book_num}
 	</update>
 	
 	<update id="bookGroupPurchaseDelete" parameterType="int">

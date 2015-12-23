@@ -721,8 +721,9 @@ public class BookManageService implements IBookManageService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		int gp_num=Integer.parseInt(request.getParameter("gp_num"));
+		long book_num=Long.parseLong(request.getParameter("book_num"));
 		
-		int check=iBookManageDao.bookGroupPurchaseDelete(gp_num);
+		int check=iBookManageDao.bookGroupPurchaseDelete(gp_num, book_num);
 		
 		mav.addObject("check", check);
 		

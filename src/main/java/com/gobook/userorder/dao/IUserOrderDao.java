@@ -31,5 +31,5 @@ public interface IUserOrderDao {
 	
 	public int userOrderSavingPoint(String member_id, int savingPoint);
 	
-	public int userOrderUpBookCount(long book_num, int book_count);
+	public int userOrderUpBookCount(long book_num, int book_count, int book_quantity);
 }

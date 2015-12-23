@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.aop.GoBookAspect;
+import com.gobook.bookmanage.dao.IBookManageDao;
+import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.member.dao.IMemberDao;
 import com.gobook.member.dto.MemberDto;
 import com.gobook.member.dto.UserCouponDto;
@@ -31,6 +33,9 @@ public class UserOrderService implements IUserOrderService{
 	
 	@Autowired
 	private IMemberDao iMemberDao;
+	
+	@Autowired
+	private IBookManageDao iBookManageDao;
 
 	/**
 	 * @클래스이름 : UserOrderList
@@ -178,6 +183,8 @@ public class UserOrderService implements IUserOrderService{
 			
 			GoBookAspect.logger.info(GoBookAspect.logMsg + "order_user_coupon_discount:"+order_user_coupon_discount);
 			
+			BookDto bookDto=iBookManageDao.bookInfo(userOrderDto.getBook_num());
+			
 			if(purchase=="basket"){
 				List<MyBasketDto> myBasketList=iMyBasketDao.myBasketList(member_id);
 				GoBookAspect.logger.info(GoBookAspect.logMsg+"myBasketList Size:"+myBasketList.size());
@@ -222,8 +229,8 @@ public class UserOrderService implements IUserOrderService{
 					int salesInsertCheck=iUserOrderDao.userOrderSalesInsert(salesUOD, salesDaily_profit);
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "2.salesInsertCheck:" + salesInsertCheck);
 					
-					// 3. 주문시 책에서 도서 수량 감소
-					int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count());
+					// 3. 주문시 책에서 도서 수량 감소 및 도서 상태 변경
+					int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count(),bookDto.getBook_quantity());
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "3.upBookCountCheck : " + upBookCountCheck);
 				}
 				
@@ -261,7 +268,7 @@ public class UserOrderService implements IUserOrderService{
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "2.salesInsertCheck:" + salesInsertCheck);
 				
 				// 3. 주문시 책에서 도서 수량 감소
-				int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count());
+				int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count(),bookDto.getBook_quantity());
 				GoBookAspect.logger.info(GoBookAspect.logMsg + "3.upBookCountCheck : " + upBookCountCheck);
 			}
 			

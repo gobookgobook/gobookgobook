@@ -62,6 +62,6 @@
 	</update>
 	
 	<update id="userOrderUpBook" parameterType="java.util.HashMap">
-		update book set book_quantity= book_quantity-#{book_count} where book_num=#{book_num}
+		update book set book_quantity= book_quantity-#{book_count}, book_state=#{book_state} where book_num=#{book_num}
 	</update>
 </mapper>

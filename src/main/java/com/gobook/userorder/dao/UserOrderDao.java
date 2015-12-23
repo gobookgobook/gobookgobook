@@ -155,10 +155,13 @@ public class UserOrderDao implements IUserOrderDao{
 	 * @설명 : 주문시 책에서 도서 수량 감소
 	 */
 	@Override
-	public int userOrderUpBookCount(long book_num, int book_count) {
+	public int userOrderUpBookCount(long book_num, int book_count, int book_quantity) {
+		int book_state=1;
 		HashMap<String, Object> hMap=new HashMap<String, Object>();
 		hMap.put("book_num",book_num);
 		hMap.put("book_count",book_count);
+		if((book_quantity-book_count)==0) book_state=0;
+		hMap.put("book_state",book_state);
 
 		return sqlSessionTemplate.update("dao.UserOrderMapper.userOrderUpBook",hMap);
 	}

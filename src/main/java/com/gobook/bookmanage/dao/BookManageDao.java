@@ -282,8 +282,8 @@ public class BookManageDao implements IBookManageDao {
 	 * @설명 : 공동구매 등록 취소
 	 */
 	@Override
-	public int bookGroupPurchaseDelete(int gp_num) {
-		
+	public int bookGroupPurchaseDelete(int gp_num, long book_num) {
+		sqlSessionTemplate.update("dao.bookmanageMapper.bookGroupPurchaseDeleteInit", book_num);
 		return sqlSessionTemplate.update("dao.bookmanageMapper.bookGroupPurchaseDelete", gp_num);
 	}
 
