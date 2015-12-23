@@ -52,10 +52,18 @@
 			<br/>
 			<div align="center">
 				<c:if test="${bookGroupPurchaseListCount!=0}">
-					<a href="${root}/bookManage/bookGroupPurchase.do">현재 공동구매가 ${bookGroupPurchaseListCount}건 진행되고 있습니다.</a>
+					<a href="${root}/bookManage/bookGroupPurchaseSuccess.do">조건이 충족된 공구가 ${bookGroupPurchaseListCount}건 있습니다.</a>
 				</c:if>
 				<c:if test="${bookGroupPurchaseListCount==0}">
-					진행중인 공동구매가 없습니다.
+					조건이 충족된 공동구매가 없습니다.
+				</c:if>
+				<br/><br/>
+				
+				<c:if test="${bookGroupPurchaseListCount!=0}">
+					<a href="${root}/bookManage/bookGroupPurchase.do">현재 등록된 공동구매가 ${bookGroupPurchaseListCount}건 있습니다.</a>
+				</c:if>
+				<c:if test="${bookGroupPurchaseListCount==0}">
+					등록된 공동구매가 없습니다.
 				</c:if>
 				<br/><br/>
 				

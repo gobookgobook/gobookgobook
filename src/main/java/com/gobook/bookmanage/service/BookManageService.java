@@ -53,13 +53,14 @@ public class BookManageService implements IBookManageService {
 		int bookGroupPurchaseListCount=iBookManageDao.gpCount();
 		int bookGroupPurchaseCount=iBookManageDao.bookGroupPurchaseCount();
 		int bookNewPublishCount=iBookManageDao.bookNewPublishCount();
-		int bookGroupPurchaseSuccess=
+		int bookGroupPurchaseSuccess=iBookManageDao.bookGroupPurchaseSuccess();
 		
 		mav.addObject("id", id);
 		mav.addObject("bookReOrderCount", bookReOrderCount);
 		mav.addObject("bookGroupPurchaseListCount", bookGroupPurchaseListCount);
 		mav.addObject("bookGroupPurchaseCount", bookGroupPurchaseCount);
 		mav.addObject("bookNewPublishCount", bookNewPublishCount);
+		mav.addObject("bookGroupPurchaseSuccess", bookGroupPurchaseSuccess);
 		
 		mav.setViewName("bookManage/bookManage");
 	}
@@ -1076,6 +1077,20 @@ public class BookManageService implements IBookManageService {
 		mav.addObject("count", count);
 		
 		mav.setViewName("bookManage/bookSpecialPrice");
+		
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseSuccess
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구조건충족 공구진행 목록
+	 */
+	@Override
+	public void bookGroupPurchaseSuccess(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
 		
 	}
 	

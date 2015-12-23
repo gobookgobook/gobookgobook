@@ -40,4 +40,5 @@ public interface IBookManageDao {
 	public int bookSpecialPriceCancle(BookDto bookDto);
 	public int bookSpecialPriceCount();
 	public List<BookDto> bookSpecialPriceList(HashMap<String, Integer> hMap);
+	public int bookGroupPurchaseSuccess();
 }

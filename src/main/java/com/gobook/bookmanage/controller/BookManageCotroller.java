@@ -404,4 +404,19 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : bookGroupPurchaseSuccess
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구조건충족 공구진행 목록
+	 */
+	@RequestMapping(value="/bookManage/bookGroupPurchaseSuccess.do", method=RequestMethod.GET)
+	public ModelAndView bookGroupPurchaseSuccess(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.bookGroupPurchaseSuccess(mav);
+		
+		return mav;
+	}
 }

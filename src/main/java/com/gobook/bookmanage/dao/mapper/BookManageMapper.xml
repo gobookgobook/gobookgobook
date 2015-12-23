@@ -230,4 +230,16 @@
 			where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
+	
+	<select id="bookGroupPurchaseSuccess" resultType="int">
+		<![CDATA[
+			select count(*) from GROUPPURCHASE 
+			where GROUP_PURCHASE_STATE=1 and GROUP_PURCHASE_DATE<sysdate and GROUP_PURCHASE_MIN_COUNT<=GROUP_PURCHASE_COUNT and GROUP_PURCHASE_MAX_COUNT>GROUP_PURCHASE_COUNT
+		]]>
+	</select>
+	
+	<select id="bookGroupPurchaseSuccessMax" resultType="int">
+		select count(*) from GROUPPURCHASE 
+		where GROUP_PURCHASE_STATE=1 and GROUP_PURCHASE_MAX_COUNT>GROUP_PURCHASE_COUNT
+	</select>
 </mapper>

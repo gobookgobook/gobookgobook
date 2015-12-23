@@ -34,4 +34,5 @@ public interface IBookManageService {
 	public void bookSpecialPriceUpdateOk(ModelAndView mav);
 	public void bookSpecialPriceCancle(ModelAndView mav);
 	public void bookSpecialPrice(ModelAndView mav);
+	public void bookGroupPurchaseSuccess(ModelAndView mav);
 }

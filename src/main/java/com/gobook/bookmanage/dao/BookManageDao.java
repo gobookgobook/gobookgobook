@@ -413,6 +413,21 @@ public class BookManageDao implements IBookManageDao {
 		
 		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookSpecialPriceList", hMap);
 	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseSuccess
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구 조건 만족 공구 진행 목록수
+	 */
+	@Override
+	public int bookGroupPurchaseSuccess() {
+		int value=0;
+		int val=0;
+		value=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccess");
+		val=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccessMax");
+		return value+val;
+	}
 	
 	
 }
