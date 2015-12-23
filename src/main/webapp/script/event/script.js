@@ -35,5 +35,11 @@ function eventForm(form){
 		return false;
 	}
 	
+	if(form.event_file.value ==""){
+		alert("이벤트 사진을 넣어주세요.");
+		form.event_file.focus();
+		return false;		
+	}
+	
 }
 

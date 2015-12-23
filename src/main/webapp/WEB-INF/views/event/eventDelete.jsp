@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 삭제</title>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
     <c:if test="${check > 0}">

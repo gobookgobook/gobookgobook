@@ -6,7 +6,12 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<jsp:include page="../admin-top.jsp"/>
+<c:if test="${id =='admin' }">
+	<jsp:include page="../admin-top.jsp"/>
+</c:if>
+<c:if test="${id !='admin' }">
+	<jsp:include page="../main-top.jsp"/>
+</c:if>
 <meta charset="UTF-8">
 <title>이벤트 열람</title>
 <script type="text/javascript">
