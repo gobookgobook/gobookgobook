@@ -62,7 +62,7 @@
 				<div id="dailyTable">
 					<c:if test="${count == 0}">
 						<div class="container" style="width:835px;padding:0px;">
-							<table class="table table-bordered" style="border:1px solid blue;">
+							<table class="table table-bordered">
 								<thead>
 									<tr class="success" style="color:#1DDB16">
 										<th style="text-align:center;width:120px;">결제일</th>
@@ -93,9 +93,9 @@
 							</script>
 						</c:if>
 						<div class="container" style="width:835px;padding:0px">
-							<table class="table table-bordered" style="line-height: 100px">
+							<table class="table table-bordered" style="line-height: 100px; border:0px solid red; height:1000px; margin-left:50px;">
 								<thead>
-									<tr class="success" align="center" style="color:#1DDB16">
+									<tr class="success" align="center" style="color:#1DDB16;">
 										<th style="text-align:center">결제일</th>
 										<th style="text-align:center">도서번호</th>
 										<th style="text-align:center">도서명</th>
@@ -123,12 +123,12 @@
 											<td><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
 											<td>${salesDaily.book_num}</td>
 											<td>${salesDaily.salesdaily_book_name}</td>
-											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
-											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
-											<td style="text-align:center">${salesDaily.salesdaily_quantity}</td>
-											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
-											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
-											<td style="text-align:right"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
+											<td style="text-align:center;">${salesDaily.salesdaily_quantity}</td>
+											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
 										</tr>
 									</c:forEach>
 									
@@ -137,8 +137,8 @@
 						</div>
 						
 						<hr width="70%" color="blue"/>
-						<div align="left" id="order" style="width: 880px;margin-left:20px">
-							<span id="daily_sum" style="font-size: 20px">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
+						<div align="left" id="order" style="width: 880px;margin-left:300px">
+							<span id="daily_sum" style="font-size: 20px;">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 							<span id="daily_profit" style="font-size: 20px">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${dailyUpdate}', '${root}')"/>
 						</div>

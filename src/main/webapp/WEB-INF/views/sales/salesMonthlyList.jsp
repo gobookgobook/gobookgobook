@@ -89,7 +89,7 @@
 						
 						<c:if test="${count > 0}">
 							<div class="container" style="width:835px;padding:0px">
-								<table class="table table-bordered" style="line-height: 100px">
+								<table class="table table-bordered" style="line-height: 100px;margin-left:50px;">
 									<thead>
 										<tr class="success" align="center" style="color:#1DDB16">
 											<th style="text-align:center">일일정산날짜</th>
@@ -130,7 +130,7 @@
 							</div>
 							
 							<hr width="90%" color="blue"/>
-							<div align="left" id="order" style="width:880px; margin-left:20px">
+							<div align="left" id="order" style="width:880px; margin-left:130px">
 								<span id="monthly_sum" style="font-size: 18px">월 판매 총액:<fmt:formatNumber value="${monthlySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 								<span id="daily_profit_sum" style="font-size: 18px">일일 순이익 합계:<fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
 								<span id="monthly_order_sum" style="font-size: 18px">월 입고 총액:<fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
