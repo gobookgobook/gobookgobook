@@ -55,7 +55,7 @@
 				<c:if test="${book.size()==0}">
 					<h2 align="center">베스트 셀러 추천</h2>
 					<c:forEach var="interestBook" items="${bestList}">
-						<div class="interest">
+						<div class="interest" id="nav_info">
 							<div style="width: 100%; height: 83%;" align="center">
 								<a href="javascript:userBookRead('${root}', '${interestBook.book_num}')">
 									<img src="http://localhost:8181/gobook/images/bookImg/${interestBook.book_cover_file_name}" width="60%" height="90%" style="margin-top: 5px;"/>

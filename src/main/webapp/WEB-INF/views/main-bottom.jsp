@@ -19,13 +19,13 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap" style="margin-top:40px; margin-left:180px; width:970px; height:5px; position:static;">
-<div id="inner_footer" style="width:970px; height:100px; margin-top:100px; position:relative;  padding:10px 0 0 400px;  border-top:1px solid #37415a;">
+<div id="footer_wrap" style="width:1000px; height:150px; position:static; border-top: 1px solid #37415a; margin: 10px auto;">
+<hr size="3px">
+<div id="inner_footer" style="width:90%; height:150px; margin-top:-40px; position:relative; border:0px solid #37415a;">
  <h3 class="footer_logo">
-    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="	position:absolute;left:100px; bottom:-10px; border:0px solid red;width:150px;height:90px;"/></a>
+    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="	position:absolute;left:100px; bottom:-10px; border:0px solid red;width:150px;height:90px; ma"/></a>
  </h3>
- <br/><br/>
- <div id="relSite_wrap" style="position:absolute;left:815px;top:30px;">
+ <div id="relSite_wrap" style=" border: 0px solid black; left: 790px;top:70px;">
    <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기"/></h3>
    <form action="#" method="get" name="rel_f">
      <fieldset>

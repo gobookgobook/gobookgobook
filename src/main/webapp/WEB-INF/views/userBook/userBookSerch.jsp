@@ -64,7 +64,7 @@
 								<img alt="" src="http://localhost:8181/gobook/images/bookImg/a.jpg" width="45%" height="70%">
 							</c:if>
 						</div>
-						<div class="userbook_list_all" style="border: 1px dotted black;">
+						<div class="userbook_list_all" style="border: 0px dotted black;">
 							<label class="userBook_title">책 제목 : </label>
 							<span class="userBook_content">
 							<c:choose>

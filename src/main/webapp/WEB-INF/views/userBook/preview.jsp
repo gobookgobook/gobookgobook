@@ -8,8 +8,15 @@
 <title>미리 보기</title>
 </head>
 <body>
-	<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name1}">
-	<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name2}">
-	<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name3}">
+	
+	<c:if test="${preview.book_preview_file_name1 !=null}">
+		<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name1}" width="30%" height="90%"/>
+	</c:if>
+	<c:if test="${preview.book_preview_file_name2 !=null}">
+		<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name2}" width="30%" height="90%"/>
+	</c:if>
+	<c:if test="${preview.book_preview_file_name3 !=null}">
+		<img alt="" src="http://localhost:8181/gobook/images/bookImg/${preview.book_preview_file_name3}" width="30%" height="90%"/>
+	</c:if>
 </body>
 </html>
