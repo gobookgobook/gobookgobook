@@ -29,8 +29,8 @@
 </script>
 </head>
 <body>
-	<div id="contents" style="height:50%; background:white; border:0px solid black;position: static">
-		<div id="wrap">
+	<div id="contents" style="height:70%; background:white; border:0px solid black;position: static">
+		<div id="wrap" style="height:320px">
 			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객 센터</b>
 			</div>
@@ -62,6 +62,7 @@
 		</div>
 	</div>
 	
+	<br/><br/>
 	<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>

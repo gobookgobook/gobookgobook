@@ -28,7 +28,7 @@
 			<div align="center"><b style="font-size:18px">Q&A 쓰기</b></div>
 	
 			<hr><br/>
-			<div align="center" class="container" style="width:960px;height:460px;padding:0px;border:0px solid black;margin-left:40px">
+			<div align="center" class="container" style="width:960px;height:350px;padding:0px;border:0px solid black;margin-left:40px">
 				<form style="margin-left:130px" action="${root}/help/adminHelpQnAWrite.do" method="post" onsubmit="return adminHelpQnAWrite(this)">
 					<div>
 						<label class="title" style="width:200px;font-size:14px;margin-bottom:0px;height:40px;background-color:#dff0d8">질문</label>
@@ -48,6 +48,7 @@
 		</div>
 	</div>
 	
+	<br/><br/><br/>
 	<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>
