@@ -154,12 +154,18 @@
 										<c:forEach var="myBasketOrder" items="${myBasketOrderList}">
 											<c:set var="point" value="${myBasketOrder.basket_book_price*0.03}" />
 											<tr style="background: white; color: black;" id="${myBasketOrder.basket_num}">
-												<td style="font-size: 14px;">${myBasketOrder.basket_book_name}</td>
+												<c:set var="totPrice" value="${myBasketOrder.basket_book_price*myBasketOrder.basket_quantity}" />
+												<td style="font-size: 14px;">${myBasketOrder.basket_book_name}<c:if test="${totPrice != myBasketOrder.basket_total_price}"> <span style="color:red;">(공동구매)</span></c:if> </td>
 												<td style="font-size: 14px;">
+												
 												<fmt:formatNumber value="${myBasketOrder.basket_book_price}" groupingUsed="true" />원 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#" /> &nbsp;P)</td>
 												<td style="font-size: 14px;">${myBasketOrder.basket_quantity}</td>
 												<td style="font-size: 14px;" id="totalPrice${myBasketOrder.basket_num}">
-												<fmt:formatNumber value="${myBasketOrder.basket_total_price}" groupingUsed="true" />원</td>
+												<fmt:formatNumber value="${myBasketOrder.basket_total_price}" groupingUsed="true" />원
+												<c:if test="${totPrice != myBasketOrder.basket_total_price}">
+													<span style="color:red">(할인 적용)</span>
+												</c:if>
+												</td>
 											</tr>
 										</c:forEach>
 
@@ -389,7 +395,7 @@
 									</span><br /> <br /> 
 									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">포인트	적립액 : </label> 
 									<span class="content" style="font-size: 14px; color: black;"> 
-									<fmt:formatNumber value="${point_sum}" groupingUsed="true" />원 
+									<fmt:formatNumber value="${point_sum+((point_sum%1>0.5)?(1-(point_sum%1))%1:-(point_sum%1))}" groupingUsed="true" />원 
 									<input type="hidden" name="allBookPoint" value="${point_sum}" />
 									</span><br /> <br /> 
 									

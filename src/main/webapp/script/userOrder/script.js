@@ -138,6 +138,7 @@ function applyPoint(root, point, memberPoint,order_book_point){
 	}else{
 		alert("포인트가 적용되었습니다.");
 		savingPoint=savingPoint-applyPoint;
+		memberPoint.value=savingPoint;
 		
 		var odp=parseInt(order_book_point.value);
 		if(order_book_point.value==(null)||order_book_point.value==("")){

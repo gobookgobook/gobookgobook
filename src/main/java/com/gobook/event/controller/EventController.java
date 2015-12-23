@@ -13,6 +13,12 @@ import com.gobook.event.dto.EventDto;
 import com.gobook.event.service.EventService;
 import com.gobook.event.service.IEventService;
 
+/**
+ * @클래스이름 : EventController
+ * @날짜 : 2015. 12. 9.
+ * @개발자 : 김재석
+ * @설명 : 이벤트 Controller
+ */
 @Controller
 public class EventController {
 	

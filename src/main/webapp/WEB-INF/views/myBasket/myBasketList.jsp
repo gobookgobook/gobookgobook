@@ -107,19 +107,33 @@
 							<c:forEach var="myBasket" items="${myBasketList}">
 							<c:set var="point" value="${myBasket.basket_book_price*0.03}"/>	
 								<tr id="${myBasket.basket_num}">
-									<td style="font-size:14px">${myBasket.basket_book_name}</td>
+									<c:set var="totPrice" value="${myBasket.basket_book_price*myBasket.basket_quantity}" />
+									<td style="font-size:14px">${myBasket.basket_book_name} <c:if test="${totPrice != myBasket.basket_total_price}"> <span style="color:red;">(공동구매)</span></c:if> </td>
 									<td style="font-size:14px;text-align:center">
-										<b><fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원</b>
+										<b>
+											<fmt:formatNumber value="${myBasket.basket_book_price}" groupingUsed="true"/>원
+										</b>
 										 &nbsp;(<fmt:formatNumber value="${point}" groupingUsed="true" pattern="#"/> &nbsp;P)
 									</td>
 									<td style="font-size:14px;text-align:center">
 										<form name="quantity_update" method="post">
-											<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="2" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>&nbsp;
-											<c:set var="value" value="upQuantity.value"/>
-											<input type="button" class="btn btn-info btn-xs" value="수정" onclick="updateToServer('${myBasket.basket_num}', ${value}, '${root}')"/>
+											<c:if test="${totPrice != myBasket.basket_total_price}">
+												<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="2" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;' disabled="disabled"/>&nbsp;
+											</c:if>
+											
+											<c:if test="${totPrice == myBasket.basket_total_price}">
+												<input type="text" id="upQuantity${myBasket.basket_num}" name="upQuantity" value="${myBasket.basket_quantity}" size="2" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>&nbsp;
+												<c:set var="value" value="upQuantity.value"/>
+												<input type="button" class="btn btn-info btn-xs" value="수정" onclick="updateToServer('${myBasket.basket_num}', ${value}, '${root}')"/>
+											</c:if>
+										
 										</form>
 									</td>
-									<td style="font-size:14px;text-align:center;font-weight: bold" id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원</td>
+									<td style="font-size:14px;text-align:center;font-weight: bold" id="totalPrice${myBasket.basket_num}"><fmt:formatNumber value="${myBasket.basket_total_price}" groupingUsed="true"/>원
+									<c:if test="${totPrice != myBasket.basket_total_price}">
+												<span style="color:red">(할인 적용)</span>
+											</c:if>
+									</td>
 									<!-- <td>
 										<input type="checkbox" checked="checked"/>
 									</td> -->
