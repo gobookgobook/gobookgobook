@@ -27,7 +27,7 @@ public class MyPageDao implements IMyPageDao {
 	 * @함수이름 : myPageOrderListSelect
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 
+	 * @설명 : 주문내역
 	 */
 	@Override
 	public List<UserOrderDto> myPageOrderListSelect(String member_id) {

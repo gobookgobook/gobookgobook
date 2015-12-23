@@ -64,7 +64,7 @@ public class MemberManageDao implements IMemberManageDao {
 	 * @함수이름 : memberManageCouponInsert
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 쿠폰 제작
+	 * @설명 : 쿠폰 생성
 	 */
 	@Override
 	public int memberManageCouponInsert(ManagerCouponDto managerCouponDto) {
@@ -112,7 +112,7 @@ public class MemberManageDao implements IMemberManageDao {
 	 * @함수이름 : memberManageCouponGiveUserInsert
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 오주석
-	 * @설명 : 쿠폰 제작
+	 * @설명 : 쿠폰 지급
 	 */
 	@Override
 	public int memberManageCouponGiveUserInsert(List<MemberDto> member_id, int mcoupon_num) {
