@@ -99,7 +99,7 @@ A:hover  {color:#b1b1b1 ;text-decoration: underline;}
 			</tr>
 			<tr>
 				<td height="24" align="right"  background="${root}/images/member/pop_bottom2.jpg" class="close">
-					<img src="${root}/images/member/close2.gif" style="cursor: pointer;" hspace="5" border="0" onclick="javascript:close()">
+					<img src="${root}/images/member/close2.gif" style="cursor: pointer;" hspace="5" border="0" onclick="javascript:self.close();">
 				</td>
 			</tr>
 		</tbody>

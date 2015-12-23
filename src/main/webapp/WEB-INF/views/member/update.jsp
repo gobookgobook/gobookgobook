@@ -77,15 +77,15 @@
     <div align="center"><b style="font-size:18px">선택사항</b></div>
          <br/>
     <div id="choose">
-    <input type="text" name="choose" value="관심분야"  style="background:#37415a;  color:white; height:30px; margin-top:10px; margin-left:-40px;" disabled="disabled"/>
-     <input type="checkbox" name="member_interestValue" value="문학"/>문학
-	 <input type="checkbox" name="member_interestValue" value="교육도서"/>교육도서
-     <input type="checkbox" name="member_interestValue" value="전공도서"/>전공도서
-     <input type="checkbox" name="member_interestValue" value="만화"/>만화
-	 <input type="checkbox" name="member_interestValue" value="잡지"/>잡지
-	 <input type="checkbox" name="member_interestValue" value="역사"/>역사
-	 <input type="checkbox" name="member_interestValue" value="SF/판타지"/>SF/판타지
-	 <input type="checkbox" name="member_interestValue" value="교양"/>교양
+    <input type="text" name="choose" value="관심분야"  style="background:#37415a;  color:white; height:30px; margin-top:10px; margin-left:-220px;" disabled="disabled"/>
+    <input type="checkbox" name="member_interestValue" value="문학" />문학&nbsp; 
+	<input type="checkbox" name="member_interestValue" value="교육도서" />교육도서&nbsp;
+	<input type="checkbox" name="member_interestValue" value="전공도서" />전공도서&nbsp;
+	<input type="checkbox" name="member_interestValue" value="만화" />만화<br />
+	<input type="checkbox" name="member_interestValue" value="잡지" style="margin-left: -55px;" />잡지&nbsp; 
+	<input type="checkbox" name="member_interestValue" value="역사" />역사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="member_interestValue" value="교양" />교양&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="checkbox" name="member_interestValue" value="SF/판타지" />SF/판타지
 	 <input type="hidden" name="member_interest"/>
      <c:forTokens var="interest" items="${memberDto.member_interest}" delims=",">
 						<script type="text/javascript">
