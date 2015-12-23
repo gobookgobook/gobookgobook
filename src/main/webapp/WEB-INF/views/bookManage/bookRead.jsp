@@ -72,37 +72,37 @@
 						<table class="table table-bordered" style="width:860px; border-spacing:13px;">
 							<tbody>
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;" width="20%">제목 : </td>
+									<td style="background:#dff0d8; padding: 7px;" width="20%">제목 : </td>
 									<td>
 									${bookDto.book_name}								
 									</td>
 								</tr>
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">저자 : </td>
+									<td style="background:#dff0d8; padding: 7px;">저자 : </td>
 									<td>
 									${bookDto.book_writer}							
 									</td>
 								</tr>
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">출판사 : </td>
+									<td style="background:#dff0d8; padding: 7px;">출판사 : </td>
 									<td>
 									${bookDto.book_publisher}							
 									</td>
 								</tr>						
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">도서원가 : </td>
+									<td style="background:#dff0d8; padding: 7px;">도서원가 : </td>
 									<td>
 									${bookDto.book_cost}							
 									</td>
 								</tr>
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">판매가 : </td>
+									<td style="background:#dff0d8;padding: 7px;">판매가 : </td>
 									<td>
 									${bookDto.book_price}						
 									</td>
 								</tr>
 								<tr>
-									<td style="background:#37415a; color: white; padding: 7px;">수량  : </td>
+									<td style="background:#dff0d8; padding: 7px;">수량  : </td>
 									
 									<c:if test="${bookDto.book_quantity>0}">
 										<td>${bookDto.book_quantity}</td>
@@ -131,26 +131,26 @@
 				</div>
 				
 				<div class="book_body">
-					<div class="book_title">목차</div>
+					<div class="book_title" style="background: #dff0d8; color: black; font-size: 14px;">목차</div>
 					<span class="book_content">
 					<c:if test="${bookDto.book_index !=null}">
-						<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">${bookDto.book_index}
+						<textarea rows="10" cols="111" disabled="disabled"  style="background-color: white; font-size: 14px;resize: none;">${bookDto.book_index}
 						</textarea>
 					</c:if>
 					<c:if test="${bookDto.book_index ==null}">
-						<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">목차가 존재 하지 않습니다.
+						<textarea rows="10" cols="111" disabled="disabled"  style="background-color: white; font-size: 14px;resize: none;">목차가 존재 하지 않습니다.
 						</textarea>
 					</c:if>
 					</span>
 		
-					<div class="book_title" style="margin-top: 13px;">줄거리</div>
+					<div class="book_title" style="margin-top: 13px; background: #dff0d8; color: black; font-size: 14px;">줄거리</div>
 					<span class="book_content">
 						<c:if test="${bookDto.book_summary !=null}">
-							<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >${bookDto.book_summary}
+							<textarea rows="10" cols="111" disabled="disabled" style="background-color: white; font-size: 14px;resize: none;" >${bookDto.book_summary}
 							</textarea>
 						</c:if>
 						<c:if test="${bookDto.book_summary ==null}">
-							<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
+							<textarea rows="10" cols="111" disabled="disabled" style="font-size: 14px; background-color: white;resize: none;" >줄거리가없습니다.
 							</textarea>
 						</c:if>
 					</span>

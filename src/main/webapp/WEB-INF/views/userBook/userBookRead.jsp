@@ -148,8 +148,8 @@
 									</c:forEach>
 								</select>&nbsp;/&nbsp;${bookDto.book_quantity}</td>
 							</c:if>
-							<c:if test="${bookDto.book_quantity==0}">
-								<td>품절/${bookDto.book_quantity}</td>
+							<c:if test="${bookDto.book_quantity<=0}">
+								<td>품절/0</td>
 							</c:if>		
 						</tr>
 					</tbody>
@@ -161,7 +161,7 @@
 						<input style="width:70px; height:23px;" type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
 					</c:if>
 					<!-- 수량 없을때 if문 처리 해주자-->	
-					<c:if test="${bookDto.book_quantity==0}">
+					<c:if test="${bookDto.book_quantity<=0}">
 						<input style="width:70px; height:23px;" type="button" value="입고요청" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
 					</c:if>
 					<c:if test="${bookDto.book_state!=3 && bookDto.book_state!=5}">
@@ -173,26 +173,26 @@
 		</div>
 		
 		<div class="book_body">
-			<div class="book_title">목차</div>
+			<div class="book_title" style="font-size: 14px;">목차</div>
 			<span class="book_content">
 			<c:if test="${bookDto.book_index !=null}">
-				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">${bookDto.book_index}
+				<textarea rows="10" cols="111" disabled="disabled"  style="font-size: 14px; background-color: white;resize: none;">${bookDto.book_index}
 				</textarea>
 			</c:if>
 			<c:if test="${bookDto.book_index ==null}">
-				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">목차가 존재 하지 않습니다.
+				<textarea rows="10" cols="111" disabled="disabled"  style="font-size: 14px; background-color: white;resize: none;">목차가 존재 하지 않습니다.
 				</textarea>
 			</c:if>
 			</span>
 
-			<div class="book_title" style="margin-top: 13px;">줄거리</div>
+			<div class="book_title" style="margin-top: 13px; font-size: 14px;">줄거리</div>
 			<span class="book_content">
 				<c:if test="${bookDto.book_summary !=null}">
-					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >${bookDto.book_summary}
+					<textarea rows="10" cols="111" disabled="disabled" style="font-size: 14px; background-color: white;resize: none;" >${bookDto.book_summary}
 					</textarea>
 				</c:if>
 				<c:if test="${bookDto.book_summary ==null}">
-					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
+					<textarea rows="10" cols="111" disabled="disabled" style="font-size: 14px; background-color: white;resize: none;" >줄거리가없습니다.
 					</textarea>
 				</c:if>
 			</span>

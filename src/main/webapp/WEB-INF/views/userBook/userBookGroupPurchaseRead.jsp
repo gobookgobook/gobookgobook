@@ -116,7 +116,7 @@
 			<div class="book_title" style="font-size: 14px;">목차</div>
 			<span class="book_content">
 			<c:if test="${bookGroupPurchaseDto.book_index !=null}">
-				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
+				<textarea rows="10" cols="129" disabled="disabled"  style="font-size: 14px; background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
 				</textarea>
 			</c:if>
 			<c:if test="${bookGroupPurchaseDto.book_index ==null}">
