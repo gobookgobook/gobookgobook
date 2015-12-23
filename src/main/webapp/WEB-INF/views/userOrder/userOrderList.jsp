@@ -243,7 +243,7 @@
 						<br />
 
 						<div class="container" style="width: 100%">
-							<div style="background: #F2EFDE; height: 230px;">
+							<div style="background: #F2EFDE; height: 280px;">
 								<div align="left">
 									<div class="form-group">
 										<br />
@@ -261,15 +261,15 @@
 												<div class="line">
 													<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">우편번호</label>
 													<span class="content"> 
-													<input type="text" name="zipcodeDisp" style="background: white;" size="30" disabled="disabled" /> 
+													<input type="text" name="zipcodeDisp" style="background: white; height: 34px;" size="30" disabled="disabled"/> 
 													<input type="hidden" name="member_zipcode" /> 
-													<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')" />
+													<input type="button" name="zipcodeBtn" value="우편번호검색" onclick="zipcodeRead('${root}')" style="height: 34px;"/>
 													</span>
 												</div>
 												<br />
 												<div class="line">
 													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													<span class="content"> <input type="text" name="address1Disp" size="70" style="background: white; margin-left: 80px;" disabled="disabled" /> 
+													<span class="content"> <input type="text" name="address1Disp" size="70" style="background: white; margin-left: 80px; height: 34px;" disabled="disabled" /> 
 													<input type="hidden" name="member_address1" />
 													</span>
 												</div>
@@ -277,54 +277,42 @@
 												<div class="line">
 													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													<span class="content"> 
-													<input type="text" name="member_address2" size="70" style="margin-left: 80px;" />
+													<input type="text" name="member_address2" size="70" style="margin-left: 80px; height: 34px;" />
 													</span>
 												</div>
-												<br /> <label for="phone" style="font-size: 14px; color: black; margin-left: 80px;">전화번호</label>
-												<input type="text" id="hphone" name="member_phone" value=""
-													size="30" />
+												<br /> <label for="phone" style="font-size: 14px; color: black; margin-left: 80px; height: 34px;">전화번호</label>
+												<input type="text" id="hphone" name="member_phone" value="" size="30" style="height: 34px;"/>
 											</div>
 
 											<div id="old">
 												<div class="line">
-													<label class="title"
-														style="font-size: 14px; color: black; margin-left: 80px;">우편번호</label>
-													<span class="content"> <input type="text"
-														name="oldZipcodeDisp" value="${memberDto.member_zipcode}"
-														style="background: white;" size="30" disabled="disabled" />
-														<input type="hidden" name="order_zipcode"
-														value="${memberDto.member_zipcode}" />
+													<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">우편번호</label>
+													<span class="content"> 
+														<input type="text" name="oldZipcodeDisp" value="${memberDto.member_zipcode}" style="background: white; height: 34px;" size="30" disabled="disabled" />
+														<input type="hidden" name="order_zipcode" value="${memberDto.member_zipcode}" />
 													</span>
 												</div>
 												<br />
 												<div class="line">
 													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													<span class="content" style="align: center"> <input
-														type="text" name="oldAddress1Disp" size="70"
-														value="${memberDto.member_address1}"
-														style="background: white; margin-left: 80px;"
-														disabled="disabled" /> <input type="hidden"
-														name="order_book_user_address1"
-														value="${memberDto.member_address1}" />
+													<span class="content" style="align: center"> 
+													<input type="text" name="oldAddress1Disp" size="70" value="${memberDto.member_address1}" style="background: white; margin-left: 80px; height: 34px;" disabled="disabled" /> 
+													<input type="hidden" name="order_book_user_address1" value="${memberDto.member_address1}" />
 													</span>
 												</div>
 												<br />
 												<div class="line">
 													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													<span class="content" style="align: center"> <input
-														type="text" name="old_address2" size="70"
-														style="margin-left: 80px;"
-														value="${memberDto.member_address2}" /> <input
-														type="hidden" name="order_book_user_address2" />
+													<span class="content" style="align: center"> 
+													<input type="text" name="old_address2" size="70" style="margin-left: 80px; height: 34px;" value="${memberDto.member_address2}" /> 
+													<input type="hidden" name="order_book_user_address2" />
 													</span>
 												</div>
 												<br />
 												<div align="left">
-													<label for="phone"
-														style="font-size: 14px; color: black; margin-left: 80px;">전화번호</label>
-													<input type="text" id="oldHphone" name="old_phone"
-														value="${memberDto.member_phone}" size="30"> <input
-														type="hidden" name="order_book_user_number" />
+													<label for="phone" style="font-size: 14px; color: black; margin-left: 80px;">전화번호</label>
+													<input type="text" id="oldHphone" name="old_phone" value="${memberDto.member_phone}" size="30" style="height: 34px;"> 
+													<input type="hidden" name="order_book_user_number" />
 												</div>
 												<br />
 											</div>
@@ -341,7 +329,7 @@
 						<br />
 						<br />
 						<div class="container" style="width: 100%">
-							<div style="background: #F2EFDE; height: 200px;">
+							<div style="background: #F2EFDE; height: 230px;">
 								<br />
 								<br />
 								<div align="left">
@@ -351,25 +339,25 @@
 									<input type="hidden" name="order_user_coupon_num" />
 									</span> 
 									<span class="content"> 
-										<input type="text" name="couponNameDisp" style="font-size: 14px;" disabled="disabled" /> 
+										<input type="text" name="couponNameDisp" style="font-size: 14px; height: 34px;" disabled="disabled"/> 
 										<input type="hidden" name="order_user_coupon_name" />
 									</span> 
 									<span class="content" id="coupon_halin"> 
-									<label class="title" style="font-size: 14px; color: black;">할인:</label>
-									<input type="text" name="couponDiscountDisp" value="0" size="8" class="title" style="font-size: 14px; color: black;" disabled="disabled" /> 
+									<label class="title" style="font-size: 14px; color: black;">할인 : </label>
+									<input type="text" name="couponDiscountDisp" value="0" size="8" class="title" style="font-size: 14px; color: black; height: 34px;" disabled="disabled" /> 
 									<input type="hidden" name="coupon_discount" /> 
-									<input type="button" id="coupon_btn" name="coupon_button" value="쿠폰적용" class="title" onclick="couponRead('${root}')" /> 
+									<input type="button" id="coupon_btn" name="coupon_button" value="쿠폰적용" class="title" onclick="couponRead('${root}')" style="height: 34px;" /> 
 									<label class="title" style="font-size: 14px; color: black;">쿠폰은 최대 1개만 적용 가능합니다.</label><br /> <br />
 									</span>
 								</div>
 								<div align="left">
 									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">적용하실 포인트 : </label> 
-									<input type="text" size="10" id="point" value="0" name="order_book_point_disp" style="font-size: 14px;" /> 
+									<input type="text" size="10" id="point" value="0" name="order_book_point_disp" style="font-size: 14px; height: 34px;" /> 
 									<label class="title" style="font-size: 14px; color: black;">Point(포인트는 100 Point이상단위부터 사용가능합니다.)</label><br />
 									<br /> 
 									
 									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">보유하신 포인트 : </label>
-									<input type="text" size="10" name="equipPoint" value="${memberDto.member_point}" style="width: 80px;" disabled="disabled" /> 
+									<input type="text" size="10" name="equipPoint" value="${memberDto.member_point}" style="width: 80px; height: 34px;" disabled="disabled" /> 
 									<label class="title" style="font-size: 14px; color: black;">Point</label><br /><br /> 
 									<input type="hidden" name="order_book_point" value="0" />
 									<label class="title" id="applyPointDisp"  style="font-size: 14px; color: black; margin-left: 80px;">적용된 포인트 : 0 Point</label>
