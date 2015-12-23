@@ -166,7 +166,7 @@ function idCheck(root, memberForm){
 	
 	var top = (screen.availHeight / 2) - (height / 2); 
 	var left = (screen.availWidth / 2) - (width / 2); 
-	window.open(url,"","width="+width+" height="+height+" left="+left+" top="+top);
+	window.open(url,"","location=0 menubar=0 status=0 toolbar=0 width="+width+" height="+height+" left="+left+" top="+top);
 }
 
 /**

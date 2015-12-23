@@ -41,25 +41,25 @@
 
 					<div id="member_id" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="idName" value="아이디" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="id_check" size="48" style="height: 30px;" value="아이디는 6~12자 사이로 입력해주세요." onfocus="javascript:this.value=''; memberForm.member_id.value=''; "/> 
+						<input type="text" name="id_check" size="48" style="height: 30px;" value="아이디는 6~12자 사이로 입력해주세요." onfocus="javascript:this.value=''; memberForm.member_id.value=''; " onfocusout="javascript:if(this.value==''){this.value='아이디는 6~12자 사이로 입력해주세요.'}"/> 
 						<input type="hidden" name="member_id" /> 
 						<input type="button" value="아이디중복" style="height: 30px;" onclick="idCheck('${root}',memberForm)" />
 					</div>
 
 					<div id="member_password" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="passwordName" value="비밀번호" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="member_password" size="60"	style="height: 30px;" value="비밀번호는 6~20자 사이로 입력해주세요." onfocus="javascript:this.value=''; this.type='password'"/>
+						<input type="text" name="member_password" size="60"	style="height: 30px;" value="비밀번호는 6~20자 사이로 입력해주세요." onfocus="javascript:this.value=''; this.type='password'" onfocusout="javascript:if(this.value==''){this.type='text'; this.value='비밀번호는 6~20자 사이로 입력해주세요.'}"/>
 					</div>
 
 					<div id="passwordCheck"
 						style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="passwordCheckName" value="비밀번호확인" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-							<input type="text" name="passwordCheck" size="60" style="height: 30px;" value="비밀번호를 다시 입력해주세요." onfocus="javascript:this.value=''; this.type='password'"/>
+							<input type="text" name="passwordCheck" size="60" style="height: 30px;" value="비밀번호를 다시 입력해주세요." onfocus="javascript:this.value=''; this.type='password'" onfocusout="javascript:if(this.value==''){this.type='text'; this.value='비밀번호를 다시 입력해주세요.'}"/>
 					</div>
 
 					<div id="member_name" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="member_nameName" value="이름" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="member_name" size="60" style="height: 30px;" value="이름을 입력해주세요." onfocus="javascript:this.value='';"/>
+						<input type="text" name="member_name" size="60" style="height: 30px;" value="이름을 입력해주세요." onfocus="javascript:this.value='';" onfocusout="javascript:if(this.value==''){this.value='이름을 입력해주세요.'}"/>
 					</div>
 
 					<div id="zipcodeDisp" style="margin-top: 10px; margin-left: -68px;">
@@ -76,12 +76,12 @@
 
 					<div id="member_address2" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="address2Name" value="상세주소" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="member_address2" size="60" style="height: 30px;" value="상세주소를 입력해주세요." onfocus="javascript:this.value='';"/>
+						<input type="text" name="member_address2" size="60" style="height: 30px;" value="상세주소를 입력해주세요." onfocus="javascript:this.value='';" onfocusout="javascript:if(this.value==''){this.value='상세주소를 입력해주세요.'}"/>
 					</div>
 
 					<div id="member_phone" style="margin-top: 10px; margin-left: -68px;">
 						<input type="text" name="phoneName" value="휴대폰 번호" disabled="disabled" style="background: #37415a; color: white; height: 30px;" /> 
-						<input type="text" name="member_phone" size="60" style="height: 30px;" value="휴대폰번호를 입력해주세요." onfocus="javascript:this.value='';"/>
+						<input type="text" name="member_phone" size="60" style="height: 30px;" value="휴대폰번호를 입력해주세요." onfocus="javascript:this.value='';" onfocusout="javascript:if(this.value==''){this.value='휴대폰번호를 입력해주세요.'}"/>
 					</div>
 
 					<br />
