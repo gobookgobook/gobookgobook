@@ -54,7 +54,7 @@
 			    <tr>
 			    <th style="background:#dff0d8;">쿠폰 할인율</th>
 					<c:if test="${managerCouponDto.manager_coupon_discount <100}">
-						<td>${coupon.manager_coupon_discount}%</td>
+						<td>${managerCouponDto.manager_coupon_discount}%</td>
 					</c:if>
 					<c:if test="${managerCouponDto.manager_coupon_discount >=100}">
 						<td>${managerCouponDto.manager_coupon_discount}원</td>
