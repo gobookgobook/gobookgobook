@@ -237,9 +237,7 @@
 				
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="도서수정"/>
-					<input type="reset" value="다시작성"/>
-					<input type="button" value="공구등록" onclick="location.href='${root}/bookManage/bookGroupPurchaseInsert.do?book_num=${bookDto.book_num}'"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/bookManage/bookStockList.do'"/>
+					<input type="button" value="이전으로" onclick="location.href='javascript:history.back()'"/>
 				</div>
 			</form>	
 		</div>
@@ -258,8 +256,14 @@
 	</div>
 	</c:if>
 	
-	<c:if test="${bookDto.book_cover_file_name!=null}">
-	<div style="margin-top:650px">
+	<c:if test="${bookDto.book_cover_file_name!=null && bookDto.book_preview_file_name1==null}">
+	<div style="margin-top:600px">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
+	</c:if>
+	
+	<c:if test="${bookDto.book_cover_file_name!=null && bookDto.book_preview_file_name1!=null}">
+	<div style="margin-top:680px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>

@@ -79,7 +79,7 @@
 				<br/>
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="특가등록"/>
-					<input type="reset" value="특가변경"/>
+					<input type="button" value="이전으로" onclick="location.href='javascript:history.back()'"/>
 				</div>
 			</form>	
 		</div>

@@ -60,7 +60,12 @@
 <body>
 <div id="contents" style="height:840px; background:white; border:0px solid black">
 		<br/>
-		<div align="center"><b style="font-size:18px">도서 상세 보기</b></div>
+		<c:if test="${bookDto.book_state!=5}">
+			<div align="center"><b style="font-size:18px">도서 상세 보기</b></div>
+		</c:if>
+		<c:if test="${bookDto.book_state==5}">
+			<div align="center"><b style="font-size:18px;color:red">특별 할인 도서</b></div>
+		</c:if>
 		<br/>
 	<div class="book_read">
 		<div class="book_top">	
@@ -123,7 +128,13 @@
 						<tr>
 							<td style="background:#37415a; color: white; padding: 7px;">판매가 : </td>
 							<td>
-							${bookDto.book_price}						
+								<c:if test="${bookDto.book_state!=5}">
+									${bookDto.book_price}원
+								</c:if>
+								
+								<c:if test="${bookDto.book_state==5}">
+									<span style="color: red">특가 : ${bookDto.book_price}원</span>
+								</c:if>
 							</td>
 						</tr>
 						<tr>
@@ -148,11 +159,13 @@
 						<input style="width:70px; height:23px;" type="button" value="장바구니" onclick="myBasket('${root}', '${bookDto.book_num}', '${bookDto.book_name}', '${bookDto.book_price}')"/>
 						<input style="width:70px; height:23px;" type="button" value="구매" onclick="order('${root}', '${bookDto.book_num}', '${bookDto.book_price}', '${bookDto.book_name}')" />
 					</c:if>
-				<!-- 수량 없을때 if문 처리 해주자-->	
-				<c:if test="${bookDto.book_quantity==0}">
-					<input style="width:70px; height:23px;" type="button" value="재입고" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
-				</c:if>
-					<input style="width:90px; height:23px;" type="button" value="공동구매신청" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
+					<!-- 수량 없을때 if문 처리 해주자-->	
+					<c:if test="${bookDto.book_quantity==0}">
+						<input style="width:70px; height:23px;" type="button" value="입고요청" id="soldOutAsk" onclick="soldOutAsk('${root}', '${bookDto.book_num}')"/>
+					</c:if>
+					<c:if test="${bookDto.book_state!=3 && bookDto.book_state!=5}">
+						<input style="width:90px; height:23px;" type="button" value="공동구매요청" id="groupPurchaseAsk" onclick="groupPurchaseAsk('${root}', '${bookDto.book_num}')"/>
+					</c:if>
 				</c:if>
 				</div>				
 			</div>
