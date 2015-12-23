@@ -134,24 +134,70 @@ public class UserBookDao implements IUserBookDao {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookGroupPurchaseRead", book_num);
 	}
 
+	/**
+	 * @함수이름 : userBookGroupPurchaseInsert
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@Override
 	public int userBookGroupPurchaseInsert(HashMap<String, Object> hMap) {
 		return sqlSessionTemplate.insert("dao.userBookMapper.userBookGroupPurchaseInsert", hMap);
 	}
 
+	/**
+	 * @함수이름 : userBookGroupPurchaseUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@Override
 	public int userBookGroupPurchaseUpdate(int group_purchase_num) {
 		return sqlSessionTemplate.update("dao.userBookMapper.userBookGroupPurchaseUpdate", group_purchase_num);
 	}
 
+	/**
+	 * @함수이름 : userBookGroupPurchaseSelect
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@Override
 	public int userBookGroupPurchaseSelect(HashMap<String, Object> userMap) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookGroupPurchaseSelect", userMap);
 	}
 
+	/**
+	 * @함수이름 : userBookPreview
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
 	@Override
 	public BookDto userBookPreview(long book_num) {
 		return sqlSessionTemplate.selectOne("dao.userBookMapper.userBookPreview", book_num);
+	}
+
+	/**
+	 * @함수이름 : specialsBookSelect
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@Override
+	public List<BookDto> specialsBookSelect(HashMap<String, Object> hMap) {
+		return sqlSessionTemplate.selectList("dao.userBookMapper.specialsBookSelect", hMap);
+	}
+
+	/**
+	 * @함수이름 : userBookListCount
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 
+	 */
+	@Override
+	public int specialsBookCount() {
+		return sqlSessionTemplate.selectOne("dao.userBookMapper.specialsBookCount");
 	}
 	
 }

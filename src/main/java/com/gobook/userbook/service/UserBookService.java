@@ -588,6 +588,12 @@ public class UserBookService implements IUserBookService {
 		return rslt;
 	}
 
+	/**
+	 * @함수이름 : userBookPreview
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 오주석
+	 * @설명 : 미리보기
+	 */
 	@Override
 	public void userBookPreview(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -601,6 +607,40 @@ public class UserBookService implements IUserBookService {
 		
 		mav.addObject("preview", preview);
 		mav.setViewName("userBook/preview");
+	}
+
+	@Override
+	public void userBookListSpecials(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int specialsBookCount=iUserBookDao.specialsBookCount();
+		GoBookAspect.logger.info(GoBookAspect.logMsg + specialsBookCount);
+		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		int boardSize=9;
+		
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("startRow", startRow);
+		hMap.put("endRow", endRow);
+		
+		List<BookDto> specialsBook=null;
+		if(specialsBookCount >0){
+			specialsBook=iUserBookDao.specialsBookSelect(hMap);
+			GoBookAspect.logger.info(GoBookAspect.logMsg + specialsBook.size());
+		}
+		
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("specialsBookCount", specialsBookCount);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("specialsBook", specialsBook);
+		mav.setViewName("userBook/specialsBookList");
 	}
 }
 

@@ -227,4 +227,13 @@ public class UserBookController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/userBook/userBookListSpecials.do", method=RequestMethod.GET)
+	public ModelAndView userBookListSpecials(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iUserBookService.userBookListSpecials(mav);
+		
+		return mav;
+	}
 }

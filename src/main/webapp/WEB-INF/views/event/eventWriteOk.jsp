@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="../admin-top.jsp"/>
 </head>
 <body>
 <c:set var="root" value="${pageContext.request.contextPath}"/>

@@ -134,4 +134,18 @@
 	<select id="userBookPreview" parameterType="java.lang.Long" resultType="com.gobook.bookmanage.dto.BookDto">
 		select *from book where book_num=#{book_num}
 	</select>
+	
+	<!-- 특사 설정 -->
+	<select id="specialsBookCount" resultType="int">
+		select count(*) from book where book_state=5
+	</select>
+	
+	<select id="specialsBookSelect" resultType="com.gobook.bookmanage.dto.BookDto">
+		<![CDATA[
+		SELECT *FROM
+			(SELECT ROWNUM rnum, b.*FROM
+				(SELECT *FROM book WHERE book_state=5)b)
+					where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
 </mapper>

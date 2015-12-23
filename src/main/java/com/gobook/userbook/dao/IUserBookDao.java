@@ -34,4 +34,6 @@ public interface IUserBookDao {
 	public int userBookGroupPurchaseInsert(HashMap<String, Object> hMap);
 	public int userBookGroupPurchaseUpdate(int group_purchase_num);
 	public BookDto userBookPreview(long book_num);
+	public int specialsBookCount();
+	public List<BookDto> specialsBookSelect(HashMap<String, Object> hMap);
 }

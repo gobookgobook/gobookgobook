@@ -17,5 +17,6 @@ public interface IUserBookService {
 	public void userBookGroupPurchaseRead(ModelAndView mav);
 	public void userBookGroupPurchaseInsert(ModelAndView mav);
 	public void userBookPreview(ModelAndView mav);
+	public void userBookListSpecials(ModelAndView mav);
 }
 

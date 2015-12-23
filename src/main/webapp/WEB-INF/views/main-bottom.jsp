@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="${root}/js/main.js"></script>
 </head>
 <body>
-<div id="footer_wrap" style="width:1000px; height:150px; position:static; border-top: 1px solid #37415a; margin: 10px auto;">
+<div id="footer_wrap" style="width:1000px; height:150px; position:static; border-top: 1px solid #37415a; margin: 80px auto 10px;">
 <hr size="3px">
 <div id="inner_footer" style="width:90%; height:150px; margin-top:-40px; position:relative; border:0px solid #37415a;">
  <h3 class="footer_logo">
