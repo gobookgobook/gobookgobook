@@ -52,8 +52,8 @@
          <br/>
 			<div align="center">
 				<form name="dayChoice" method="post" style="text-align:right">
-					<label>날짜선택:</label>
-					<input type="text" id="dailyDate" name="selectDate"/>
+					<label style="font-size:14px">날짜선택:</label>
+					<input type="text" id="dailyDate" name="selectDate" style="font-size:14px" value="클릭 시 날짜 선택" onfocus="javascript:this.value=''"/>
 					<c:set var="salesdaily_date" value="selectDate.value"/>
 					<input type="button" id="clickDate" class="btn btn-success btn-sm" value="조회" onclick="selectToServer(${salesdaily_date}, '${root}')"/>
 				</form><br/>
@@ -94,15 +94,15 @@
 							<table class="table table-bordered" style="line-height: 100px; border:0px solid red; margin-left:50px;">
 								<thead>
 									<tr class="success" align="center" style="color:#1DDB16;">
-										<th style="text-align:center;font-size:14px">결제일</th>
-										<th style="text-align:center;font-size:14px">도서번호</th>
-										<th style="text-align:center;font-size:14px">도서명</th>
-										<th style="text-align:center;font-size:14px">도서원가</th>
-										<th style="text-align:center;font-size:14px">판매가</th>
-										<th style="text-align:center;font-size:14px">수량</th>
-										<th style="text-align:center;font-size:14px">판매총액</th>
-										<th style="text-align:center;font-size:14px">결제액</th>
-										<th style="text-align:center;font-size:14px">순이익</th>
+										<th style="text-align:center;font-size:13px">결제일</th>
+										<th style="text-align:center;font-size:13px">도서번호</th>
+										<th style="text-align:center;font-size:13px">도서명</th>
+										<th style="text-align:center;font-size:13px">도서원가</th>
+										<th style="text-align:center;font-size:13px">판매가</th>
+										<th style="text-align:center;font-size:13px">수량</th>
+										<th style="text-align:center;font-size:13px">판매총액</th>
+										<th style="text-align:center;font-size:13px">결제액</th>
+										<th style="text-align:center;font-size:13px">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd">
@@ -118,9 +118,9 @@
 									
 									<c:forEach var="salesDaily" items="${salesDailyList}">
 										<tr class="success" id="${salesDaily.salesdaily_num}">
-											<td style="font-size:14px"><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
-											<td style="font-size:14px">${salesDaily.book_num}</td>
-											<td style="font-size:14px">
+											<td style="font-size:13px"><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
+											<td style="font-size:13px">${salesDaily.book_num}</td>
+											<td style="font-size:13px">
 												<c:choose>
 													<c:when test="${fn:length(salesDaily.salesdaily_book_name) > 10}">
 														<c:out value="${fn:substring(salesDaily.salesdaily_book_name, 0, 9)}"/>....
@@ -130,12 +130,12 @@
 													</c:otherwise>
 												</c:choose>
 											</td>
-											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
-											<td style="text-align:center;font-size:14px">${salesDaily.salesdaily_quantity}</td>
-											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:13px"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:13px"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
+											<td style="text-align:center;font-size:13px">${salesDaily.salesdaily_quantity}</td>
+											<td style="text-align:right;font-size:13px"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:13px"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:13px"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
 										</tr>
 									</c:forEach>
 									

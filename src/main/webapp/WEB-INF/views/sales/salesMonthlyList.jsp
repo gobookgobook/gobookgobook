@@ -138,18 +138,19 @@
 							</div>
 							
 							<div align="right" id="order" style="width:900px">
-								<div id="monthly_sum" style="font-size: 18px"><b>월 판매 총액 : <fmt:formatNumber value="${monthlySum}" groupingUsed="true"/> 원</b></div><br/><br/>
-								<div id="daily_profit_sum" style="height:30px;font-size: 18px"><b>일일 순이익 합계 : <fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/> 원</b></div>
+								<div id="daily_profit_sum" style="height:30px;font-size: 18px"><b>일일 순이익 합계 : <fmt:formatNumber value="${monthlyProfit}" groupingUsed="true"/> 원</b></div><br/><br/>
+								
+								<div id="monthly_sum" style="font-size: 18px"><b>월 판매 총액 : <fmt:formatNumber value="${monthlySum}" groupingUsed="true"/> 원</b></div>
 								<div id="monthly_order_sum" style="width:300px;height:40px;font-size: 18px;border-bottom:2px solid black"><b>월 입고 총액 : <fmt:formatNumber value="${monthlyOrderSum}" groupingUsed="true"/> 원</b></div>
 								<div id="monthly_profit" style="height:40px;line-height:40px;font-size: 18px"><b>월 순이익 : 
-								<c:if test="${monthlyProfit-monthlyOrderSum >= 0}">
+								<c:if test="${monthlySum-monthlyOrderSum >= 0}">
 									<span style="color:blue;">
-										<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>
+										<fmt:formatNumber value="${monthlySum-monthlyOrderSum}" groupingUsed="true"/>
 									</span>
 								</c:if>
-								<c:if test="${monthlyProfit-monthlyOrderSum < 0}">
+								<c:if test="${monthlySum-monthlyOrderSum < 0}">
 									<span style="color:red;">
-										<fmt:formatNumber value="${monthlyProfit-monthlyOrderSum}" groupingUsed="true"/>
+										<fmt:formatNumber value="${monthlySum-monthlyOrderSum}" groupingUsed="true"/>
 									</span>
 								</c:if>
 								원</b></div>

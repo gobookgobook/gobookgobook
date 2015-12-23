@@ -4,6 +4,12 @@ function selectToServer(salesdaily_date, root){
 		alert("날짜를 선택해주세요");
 		return false;
 	}
+	
+	if(salesdaily_date=="클릭 시 날짜 선택"){
+		alert("날짜를 선택해주세요");
+		return false;
+	}
+	
 	var url=root+"/sales/salesDailyList.do?salesdaily_date="+salesdaily_date;
 	//alert(url);
 	location.href=url;
