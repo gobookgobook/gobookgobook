@@ -27,7 +27,7 @@
 			</div>
 				
 			<div align="left" style="float: left;margin: 0 0 0 50px;width: 80%;">
-				<div align="center"><b style="font-size: 18px;">재입고 요청 내역</b></div>
+				<div align="center"><b style="font-size: 18px;">입고 요청 내역</b></div>
 				<br/>
 				
 				<c:if test="${count==0}">

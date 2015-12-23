@@ -137,7 +137,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top: -100px">
+	<div style="margin-top: 10px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 </body>

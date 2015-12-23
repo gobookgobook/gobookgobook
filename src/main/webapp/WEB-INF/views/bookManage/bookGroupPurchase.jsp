@@ -214,7 +214,7 @@
 	</c:if>
 	
 	<c:if test="${gpCount>0 && gpCount<=3}">
-		<div style="margin-top: 350px">
+		<div style="margin-top: 360px">
 			<jsp:include page="../main-bottom.jsp"/>
 		</div>
 	</c:if>

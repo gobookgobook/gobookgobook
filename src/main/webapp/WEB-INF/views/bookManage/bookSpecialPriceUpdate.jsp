@@ -92,7 +92,7 @@
 		</script>
 	</c:if>
 	
-	<div style="margin-top: -150px">
+	<div>
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	

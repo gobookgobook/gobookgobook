@@ -257,13 +257,13 @@
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name!=null && bookDto.book_preview_file_name1==null}">
-	<div style="margin-top:600px">
+	<div style="margin-top:620px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name!=null && bookDto.book_preview_file_name1!=null}">
-	<div style="margin-top:680px">
+	<div style="margin-top:710px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>

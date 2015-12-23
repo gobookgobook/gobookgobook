@@ -97,7 +97,7 @@
 	</select>
 	
 	<select id="bookReOrderCount" resultType="int">
-		select count(*) from book where BOOK_STATE=0 and BOOK_REORDER_COUNT!=0
+		select count(*) from book where BOOK_REORDER_COUNT!=0
 	</select>
 	
 	<select id="bookReOrderCountList" parameterType="java.util.Map" resultType="com.gobook.bookmanage.dto.BookDto">

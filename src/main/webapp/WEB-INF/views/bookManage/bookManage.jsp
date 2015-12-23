@@ -36,14 +36,14 @@
 			</div>
 			
 			<br/><br/>
-			<div align="center"><b style="font-size: 18px;">재입고 요청</b></div>
+			<div align="center"><b style="font-size: 18px;">입고 요청</b></div>
 			<br/>
 			<div align="center">
 				<c:if test="${bookReOrderCount!=0}">
-					<a href="${root}/bookManage/bookReOrderCount.do">재입고 요청 도서가 ${bookReOrderCount}권 있습니다.</a>
+					<a href="${root}/bookManage/bookReOrderCount.do">입고 요청 도서가 ${bookReOrderCount}권 있습니다.</a>
 				</c:if>
 				<c:if test="${bookReOrderCount==0}">
-					품절도서 재입고 요청이 없습니다.
+					품절도서 입고 요청이 없습니다.
 				</c:if>
 			</div>
 			
@@ -75,7 +75,7 @@
 		</script>
 	</c:if>
 	</div>
-	<div style="margin-top: -150px">
+	<div>
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>	
 </body>
