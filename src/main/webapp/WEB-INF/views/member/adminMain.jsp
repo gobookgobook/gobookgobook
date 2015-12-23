@@ -177,7 +177,7 @@
       <ul>
 		<c:forEach var="bestSeller" items="${bestSeller}">
 			<li>
-				<img src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${bestSeller.book_num}'" width=120px; height="100px;" style="cursor: pointer;"/>
+				<img style="cursor: pointer;" src="http://localhost:8181/gobook/images/bookImg/${bestSeller.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${bestSeller.book_num}'" width=120px; height="100px;" style="cursor: pointer;"/>
 				<span><strong>
 				<c:choose>
 					<c:when test="${fn:length(bestSeller.book_name) > 10}">
@@ -222,7 +222,7 @@
       <ul>
 		<c:forEach var="newBook" items="${newBook}">
 			<li>
-				<img src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${newBook.book_num}'" width=120px; height="100px;"/>
+				<img style="cursor: pointer;" src="http://localhost:8181/gobook/images/bookImg/${newBook.book_cover_file_name}" alt="" onclick="location.href='${root}/bookManage/bookRead.do?book_num=${newBook.book_num}'" width=120px; height="100px;"/>
 				<span><strong>
 				<c:choose>
 					<c:when test="${fn:length(newBook.book_name) > 10}">
@@ -269,14 +269,14 @@
 </div> <!-- close of contents -->
 </div> <!-- close of wrap -->
 <hr />
-<div id="footer_wrap" style="margin-top: 250px;">
-<div id="inner_footer">
+<div id="footer_wrap" style="width:1000px; height:150px; position:static; border-top: 1px solid #37415a; margin: 280px auto 10px;">
+<hr size="3px">
+<div id="inner_footer" style="width:90%; height:150px; margin-top:-40px; position:relative; border:0px solid #37415a;">
  <h3 class="footer_logo">
-    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고"/></a>
+    <a href="${root}/"><img src="${root}/images/logomain.png" alt="로고" style="	position:absolute;left:100px; bottom:-10px; border:0px solid red;width:150px;height:90px; ma"/></a>
  </h3>
- <br/><br/>
- <div id="relSite_wrap">
-   <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기" /></h3>
+ <div id="relSite_wrap" style=" border: 0px solid black; left: 790px;top:70px;">
+   <h3><img src="${root}/images/rel_site_title.gif" alt="관련 사이트 이동하기"/></h3>
    <form action="#" method="get" name="rel_f">
      <fieldset>
        <legend>관련 사이트 이동</legend>
@@ -290,11 +290,10 @@
    </form>
  </div>
  <address>
- 
- <label style="font-family: 맑은 고딕; font-size:13px">경기 성남시 분당구 삼평동  유스페이스 802호,
- 한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
+
+ <label style="border:0px solid red; position:absolute; left :300px;bottom:-30px; margin-bottom:30px;">경기 성남시 분당구 삼평동  유스페이스 802호,한국소프트웨어기술진흥협회<br/> <b>대표전화 (031) 398-2278 / 326-1723 이메일 lp0021@naver.com</b><br/> Copyright &copy; 
  2015-2016 꼬북꼬북. All Rights Reserved<br/>
- LG U+ 구매안전서비스 : 고객님은 안전거래를 위해 현금 등으로 결제시 <br/> 저희 쇼핑몰에서 가입한 LG유플러스의 구매안전서비스를 이용하실 수 있습니다</label>
+ LG U+ 구매안전서비스 : 고객님은 안전거래를 위해 현금 등으로 결제시<br/> 저희 쇼핑몰에서 가입한 LG유플러스의 구매안전서비스를 이용하실 수 있습니다</label>
  
  </address>
 </div>
