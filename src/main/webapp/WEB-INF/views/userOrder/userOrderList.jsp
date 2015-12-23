@@ -213,23 +213,23 @@
 						<br />
 
 						<div class="container" style="width: 100%">
-							<div style="background: #37415a; height: 230px;">
+							<div style="background: #F2EFDE; height: 230px;">
 								<div align="left">
 									<div class="form-group">
 										<br />
 										<br />
 										<div align="left">
 											<span class="content"> 
-											<label style="font-size: 14px; color: white;">
+											<label style="font-size: 14px; color: black;">
 											<input type="radio" name="address" value="old" id="o" style="margin-left: 80px;" checked>기존 배송지</label>&nbsp;&nbsp;&nbsp;
-											<label style="font-size: 14px; color: white;">
+											<label style="font-size: 14px; color: black;">
 											
 											<input type="radio" name="address" value="new" id="n">새로 입력</label>&nbsp;&nbsp;&nbsp;
 											</span> <br />
 											<br />
 											<div id="new">
 												<div class="line">
-													<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">우편번호</label>
+													<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">우편번호</label>
 													<span class="content"> 
 													<input type="text" name="zipcodeDisp" style="background: white;" size="30" disabled="disabled" /> 
 													<input type="hidden" name="member_zipcode" /> 
@@ -250,7 +250,7 @@
 													<input type="text" name="member_address2" size="70" style="margin-left: 80px;" />
 													</span>
 												</div>
-												<br /> <label for="phone" style="font-size: 14px; color: white; margin-left: 80px;">전화번호</label>
+												<br /> <label for="phone" style="font-size: 14px; color: black; margin-left: 80px;">전화번호</label>
 												<input type="text" id="hphone" name="member_phone" value=""
 													size="30" />
 											</div>
@@ -258,7 +258,7 @@
 											<div id="old">
 												<div class="line">
 													<label class="title"
-														style="font-size: 14px; color: white; margin-left: 80px;">우편번호</label>
+														style="font-size: 14px; color: black; margin-left: 80px;">우편번호</label>
 													<span class="content"> <input type="text"
 														name="oldZipcodeDisp" value="${memberDto.member_zipcode}"
 														style="background: white;" size="30" disabled="disabled" />
@@ -291,7 +291,7 @@
 												<br />
 												<div align="left">
 													<label for="phone"
-														style="font-size: 14px; color: white; margin-left: 80px;">전화번호</label>
+														style="font-size: 14px; color: black; margin-left: 80px;">전화번호</label>
 													<input type="text" id="oldHphone" name="old_phone"
 														value="${memberDto.member_phone}" size="30"> <input
 														type="hidden" name="order_book_user_number" />
@@ -311,12 +311,12 @@
 						<br />
 						<br />
 						<div class="container" style="width: 100%">
-							<div style="background: #37415a; height: 200px;">
+							<div style="background: #F2EFDE; height: 200px;">
 								<br />
 								<br />
 								<div align="left">
 									<label class="title"
-										style="font-size: 14px; color: white; margin-left: 80px;">쿠폰</label>
+										style="font-size: 14px; color: black; margin-left: 80px;">쿠폰</label>
 									<span class="content"> 
 									<input type="hidden" name="order_user_coupon_num" />
 									</span> 
@@ -325,24 +325,24 @@
 										<input type="hidden" name="order_user_coupon_name" />
 									</span> 
 									<span class="content" id="coupon_halin"> 
-									<label class="title" style="font-size: 14px; color: white;">할인:</label>
+									<label class="title" style="font-size: 14px; color: black;">할인:</label>
 									<input type="text" name="couponDiscountDisp" value="0" size="8" class="title" style="font-size: 14px; color: black;" disabled="disabled" /> 
 									<input type="hidden" name="coupon_discount" /> 
 									<input type="button" id="coupon_btn" name="coupon_button" value="쿠폰적용" class="title" onclick="couponRead('${root}')" /> 
-									<label class="title" style="font-size: 14px; color: white;">쿠폰은 최대 1개만 적용 가능합니다.</label><br /> <br />
+									<label class="title" style="font-size: 14px; color: black;">쿠폰은 최대 1개만 적용 가능합니다.</label><br /> <br />
 									</span>
 								</div>
 								<div align="left">
-									<span class="content" style="font-size: 14px; color: white; margin-left: 80px;">적용하실 포인트 : </span> 
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">적용하실 포인트 : </label> 
 									<input type="text" size="10" id="point" value="0" name="order_book_point_disp" style="font-size: 14px;" /> 
-									<label class="title" style="font-size: 14px; color: white;">Point(포인트는 100 Point이상단위부터 사용가능합니다.)</label><br />
+									<label class="title" style="font-size: 14px; color: black;">Point(포인트는 100 Point이상단위부터 사용가능합니다.)</label><br />
 									<br /> 
 									
-									<span class="content" style="font-size: 14px; color: white; margin-left: 80px;">보유하신 포인트 : </span> 
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">보유하신 포인트 : </label>
 									<input type="text" size="10" name="equipPoint" value="${memberDto.member_point}" style="width: 80px;" disabled="disabled" /> 
-									<label class="title" style="font-size: 14px; color: white;">Point</label><br /><br /> 
+									<label class="title" style="font-size: 14px; color: black;">Point</label><br /><br /> 
 									<input type="hidden" name="order_book_point" value="0" />
-									<span id="applyPointDisp" class="content" style="font-size: 14px; color: white; margin-left: 80px;">적용된 포인트 : 0 Point</span> 
+									<label class="title" id="applyPointDisp"  style="font-size: 14px; color: black; margin-left: 80px;">적용된 포인트 : 0 Point</label>
 									<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)" />
 								</div>
 							</div>
@@ -355,27 +355,27 @@
 						<label class="title" style="font-size: 16px;">4. 결제총액</label> <br />
 						<br />
 						<div class="container" style="width: 100%">
-							<div style="background: #37415a; height: 230px;">
+							<div style="background: #F2EFDE; height: 230px;">
 								<br />
 								<br />
 								<div align="left">
-									<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">상품 총 금액 : </label> 
-										<span class="content" style="font-size: 14px; color: white;"> 
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">상품 총 금액 : </label> 
+										<span class="content" style="font-size: 14px; color: black;"> 
 										<fmt:formatNumber value="${sum}" groupingUsed="true" />원
 									</span><br /> <br /> 
-									<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">포인트	적립액 : </label> 
-									<span class="content" style="font-size: 14px; color: white;"> 
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">포인트	적립액 : </label> 
+									<span class="content" style="font-size: 14px; color: black;"> 
 									<fmt:formatNumber value="${point_sum}" groupingUsed="true" />원 
 									<input type="hidden" name="allBookPoint" value="${point_sum}" />
 									</span><br /> <br /> 
 									
-									<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">쿠폰 할인 금액 : </label> 
-									<span class="content" id="applyCouponCharge" style="font-size: 14px; color: white;"> 0 원 </span><br /> <br />
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">쿠폰 할인 금액 : </label> 
+									<span class="content" id="applyCouponCharge" style="font-size: 14px; color: black;"> 0 원 </span><br /> <br />
 									
-									<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">포인트	할인 금액 : </label> 
-									<span class="content" id="applyPointCharge" style="font-size: 14px; color: white;"> 0원 </span><br /> <br />
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">포인트	할인 금액 : </label> 
+									<span class="content" id="applyPointCharge" style="font-size: 14px; color: black;"> 0원 </span><br /> <br />
 									
-									<label class="title" style="font-size: 14px; color: white; margin-left: 80px;">최종 결제 금액 :</label> 
+									<label class="title" style="font-size: 14px; color: black; margin-left: 80px;">최종 결제 금액 :</label> 
 									<span class="content" id="applyTotalCharge" style="color: red; font-size: 20px;"> 
 									<fmt:formatNumber value="${sum}" groupingUsed="true" />원
 									</span><br /> <br /> 
@@ -391,17 +391,17 @@
 						<label class="title" style="font-size: 16px;">5. 결제 정보</label> <br />
 						<br />
 						<div class="container" style="width: 100%">
-							<div style="background: #37415a; height: 230px;">
+							<div style="background: #F2EFDE; height: 230px;">
 								<br />
 								<br />
 								<div align="center">
 									<span class="content"> 
-									<label class="title" style="font-size: 14px; color: white;"> 
+									<label class="title" style="font-size: 14px; color: black;"> 
 									<input type="radio" name="order_book_charge" value="신용카드" id="c" checked>신용카드
 									</label>&nbsp;&nbsp;&nbsp; 
-									<label class="title" style="font-size: 14px; color: white;"> 
+									<label class="title" style="font-size: 14px; color: black;"> 
 									<input type="radio" name="order_book_charge" value="무통장입금" id="b">무통장입금</label>&nbsp;&nbsp;&nbsp; 
-									<label class="title" style="font-size: 14px; color: white;"> 
+									<label class="title" style="font-size: 14px; color: black;"> 
 									<input type="radio" name="order_book_charge" value="휴대폰결제" id="p">휴대폰결제</label>&nbsp;&nbsp;&nbsp;<br /> <br />
 									</span>
 								</div>
@@ -409,20 +409,20 @@
 								<div class="container" style="width: 50%">
 									<form role="form">
 										<div id="card" class="form-group">
-											<label class="title" for="cardSel1" style="font-size: 14px; color: white;">카드선택</label> 
+											<label class="title" for="cardSel1" style="font-size: 14px; color: black;">카드선택</label> 
 												<select class="form-control" id="cardSel1">
 												<option>국민카드</option>
 												<option>삼성카드</option>
 												<option>현대카드</option>
 												<option>신한카드</option>
-											</select><br /> <label class="title" for="cardSel2" style="font-size: 14px; color: white;">할부기간</label> 
+											</select><br /> <label class="title" for="cardSel2" style="font-size: 14px; color: black;">할부기간</label> 
 											<select class="form-control" id="cardSel2">
 												<option>일시불</option>
 											</select>
 										</div>
 
 										<div id="bank">
-											<label class="title" for="bankSel" style="font-size: 14px; color: white;">계좌선택</label> 
+											<label class="title" for="bankSel" style="font-size: 14px; color: black;">계좌선택</label> 
 											<select class="form-control" id="bankSel">
 												<option>국민은행 490302-04-052974 꼬북(강주혁)</option>
 												<option>우리은행 953455-07-388721 꼬북(강주혁)</option>
@@ -432,7 +432,7 @@
 										</div>
 
 										<div id="phone">
-											<label class="title" style="font-size: 14px; color: white;">휴대폰결제</label>
+											<label class="title" style="font-size: 14px; color: black;">휴대폰결제</label>
 											<span class="content"> 
 											<input type="text" name="authPhoneNum" id="authPhoneNum" /> 
 											<input type="button" value="휴대폰인증" onclick="authPhone()" />
