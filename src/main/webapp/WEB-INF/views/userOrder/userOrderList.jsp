@@ -329,7 +329,7 @@
 						<br />
 						<br />
 						<div class="container" style="width: 100%">
-							<div style="background: #F2EFDE; height: 230px;">
+							<div style="background: #F2EFDE; height: 240px;">
 								<br />
 								<br />
 								<div align="left">
@@ -361,7 +361,7 @@
 									<label class="title" style="font-size: 14px; color: black;">Point</label><br /><br /> 
 									<input type="hidden" name="order_book_point" value="0" />
 									<label class="title" id="applyPointDisp"  style="font-size: 14px; color: black; margin-left: 80px;">적용된 포인트 : 0 Point</label>
-									<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)" />
+									<input type="button" name="payPoint" value="포인트적용" onclick="applyPoint('${root}',order_book_point_disp,equipPoint,order_book_point)" style="height: 34px;" />
 								</div>
 							</div>
 						</div>
