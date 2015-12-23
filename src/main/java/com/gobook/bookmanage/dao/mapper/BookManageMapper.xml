@@ -231,15 +231,37 @@
 		]]>
 	</select>
 	
-	<select id="bookGroupPurchaseSuccess" resultType="int">
+	<select id="bookGroupPurchaseSuccessCount" resultType="int">
 		<![CDATA[
 			select count(*) from GROUPPURCHASE 
 			where GROUP_PURCHASE_STATE=1 and GROUP_PURCHASE_DATE<sysdate and GROUP_PURCHASE_MIN_COUNT<=GROUP_PURCHASE_COUNT and GROUP_PURCHASE_MAX_COUNT>GROUP_PURCHASE_COUNT
 		]]>
 	</select>
 	
-	<select id="bookGroupPurchaseSuccessMax" resultType="int">
+	<select id="bookGroupPurchaseSuccessCountMax" resultType="int">
 		select count(*) from GROUPPURCHASE 
-		where GROUP_PURCHASE_STATE=1 and GROUP_PURCHASE_MAX_COUNT>GROUP_PURCHASE_COUNT
+		where GROUP_PURCHASE_STATE=1 and GROUP_PURCHASE_MAX_COUNT=GROUP_PURCHASE_COUNT
 	</select>
+	
+	<select id="bookGroupPurchaseSuccess" resultType="com.gobook.bookmanage.dto.BookGroupPurchaseDto">
+		<![CDATA[
+			select gp.*, book.book_name, book.book_cost, book.book_price, book.book_quantity
+			from grouppurchase gp, book
+			where gp.book_num=book.book_num
+			and ((gp.group_purchase_state=1 and gp.group_purchase_date<sysdate and gp.group_purchase_min_count<=gp.group_purchase_count and gp.group_purchase_max_count>gp.group_purchase_count)
+			or (gp.group_purchase_state=1 and gp.group_purchase_max_count=gp.group_purchase_count))
+		]]>
+	</select>
+	
+	<select id="memberIdList" parameterType="int" resultType="String">
+		select member_id from UserGP where gp_num=#{gp_num} and member_id!='admin'
+	</select>
+	
+	<insert id="mbinsert" parameterType="java.util.Map">
+		INSERT INTO mybasket values(mybasket_basket_num_seq.nextval, #{member_id}, #{book_num}, #{group_purchase_price}, 1, sysdate)
+	</insert>
+	
+	<update id="gpStatusUpdate" parameterType="int">
+		UPDATE grouppurchase SET group_purchase_state=2 WHERE gp_num=#{gp_num}
+	</update>
 </mapper>

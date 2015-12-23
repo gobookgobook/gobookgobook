@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dao.IBookManageDao;
 import com.gobook.bookmanage.dto.*;
+import com.gobook.member.dto.UserGP;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -53,14 +54,14 @@ public class BookManageService implements IBookManageService {
 		int bookGroupPurchaseListCount=iBookManageDao.gpCount();
 		int bookGroupPurchaseCount=iBookManageDao.bookGroupPurchaseCount();
 		int bookNewPublishCount=iBookManageDao.bookNewPublishCount();
-		int bookGroupPurchaseSuccess=iBookManageDao.bookGroupPurchaseSuccess();
+		int bookGroupPurchaseSuccessCount=iBookManageDao.bookGroupPurchaseSuccessCount();
 		
 		mav.addObject("id", id);
 		mav.addObject("bookReOrderCount", bookReOrderCount);
 		mav.addObject("bookGroupPurchaseListCount", bookGroupPurchaseListCount);
 		mav.addObject("bookGroupPurchaseCount", bookGroupPurchaseCount);
 		mav.addObject("bookNewPublishCount", bookNewPublishCount);
-		mav.addObject("bookGroupPurchaseSuccess", bookGroupPurchaseSuccess);
+		mav.addObject("bookGroupPurchaseSuccessCount", bookGroupPurchaseSuccessCount);
 		
 		mav.setViewName("bookManage/bookManage");
 	}
@@ -1091,6 +1092,56 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		List<BookGroupPurchaseDto> bookGroupPurchaseSuccess=iBookManageDao.bookGroupPurchaseSuccess();
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("bookGroupPurchaseSuccess", bookGroupPurchaseSuccess);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseSuccess");
+	}
+
+	/**
+	 * @함수이름 : gpSuccessConfirm
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 승인후 사용자 장바구니 담기
+	 */
+	@Override
+	public void gpSuccessConfirm(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		long book_num=Long.parseLong(request.getParameter("book_num"));
+		int gp_num=Integer.parseInt(request.getParameter("gp_num"));
+		int group_purchase_price=Integer.parseInt(request.getParameter("group_purchase_price"));
+		
+		List<String> member_id=iBookManageDao.memberIdList(gp_num);
+		// GoBookAspect.logger.info(GoBookAspect.logMsg + "member_id:" + member_id.size());
+		
+		for(int i=0;i<member_id.size();i++){
+			HashMap<String, Object> hMap=new HashMap<String, Object>();
+			hMap.put("book_num", book_num);
+			hMap.put("gp_num", gp_num);
+			hMap.put("group_purchase_price", group_purchase_price);
+			hMap.put("member_id", member_id.get(i));
+			
+			iBookManageDao.mbinsert(hMap);
+		}
+		
+		int count=iBookManageDao.gpStatusUpdate(gp_num);
+		
+		// GoBookAspect.logger.info(GoBookAspect.logMsg + "count:" + count);
+		
+		HttpSession session=request.getSession();
+		String id=(String) session.getAttribute("id");
+		
+		mav.addObject("id", id);
+		mav.addObject("count", count);
+		
+		mav.setViewName("bookManage/bookGroupPurchaseSuccessOk");
 		
 	}
 	

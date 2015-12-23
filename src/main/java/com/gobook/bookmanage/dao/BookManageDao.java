@@ -15,6 +15,7 @@ import com.gobook.aop.GoBookAspect;
 import com.gobook.bookmanage.dto.BookDto;
 import com.gobook.bookmanage.dto.BookGroupPurchaseDto;
 import com.gobook.bookmanage.dto.BookReOrderDto;
+import com.gobook.member.dto.UserGP;
 
 /**
  * @클래스이름 : BookManageDao
@@ -421,12 +422,60 @@ public class BookManageDao implements IBookManageDao {
 	 * @설명 : 공구 조건 만족 공구 진행 목록수
 	 */
 	@Override
-	public int bookGroupPurchaseSuccess() {
+	public int bookGroupPurchaseSuccessCount() {
 		int value=0;
 		int val=0;
-		value=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccess");
-		val=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccessMax");
+		value=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccessCount");
+		val=sqlSessionTemplate.selectOne("dao.bookmanageMapper.bookGroupPurchaseSuccessCountMax");
 		return value+val;
+	}
+
+	/**
+	 * @함수이름 : bookGroupPurchaseSuccess
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공구 조건 만족 공구 진행 목록
+	 */
+	@Override
+	public List<BookGroupPurchaseDto> bookGroupPurchaseSuccess() {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.bookGroupPurchaseSuccess");
+	}
+
+	/**
+	 * @함수이름 : memberIdList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 신청인 아이디 받아오기
+	 */
+	@Override
+	public List<String> memberIdList(int gp_num) {
+		
+		return sqlSessionTemplate.selectList("dao.bookmanageMapper.memberIdList", gp_num);
+	}
+
+	/**
+	 * @함수이름 : mbinsert
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 승인후 사용자 장바구니 담기
+	 */
+	@Override
+	public int mbinsert(HashMap<String, Object> hMap) {
+		
+		return sqlSessionTemplate.insert("dao.bookmanageMapper.mbinsert", hMap);
+	}
+
+	/**
+	 * @함수이름 : gpStatusUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 상태 수정
+	 */
+	@Override
+	public int gpStatusUpdate(int gp_num) {
+		
+		return sqlSessionTemplate.update("dao.bookmanageMapper.gpStatusUpdate", gp_num);
 	}
 	
 	

@@ -266,3 +266,8 @@ function bookSpecialPriceCancleFun(root,book_num,pageNumber){
 	}
 	return check;
 }
+
+function gpSuccessConfirm(root,book_num,gp_num,group_purchase_price){
+	// alert(root +" "+ book_num+" "+ gp_num+" "+ group_purchase_price);
+	location.href=root+"/bookManage/gpSuccessConfirm.do?book_num="+book_num+"&gp_num="+gp_num+"&group_purchase_price="+group_purchase_price;
+}

@@ -419,4 +419,19 @@ public class BookManageCotroller {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : gpSuccessConfirm
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 성기훈
+	 * @설명 : 공동구매 승인후 사용자 장바구니 담기
+	 */
+	@RequestMapping(value="/bookManage/gpSuccessConfirm.do", method=RequestMethod.GET)
+	public ModelAndView gpSuccessConfirm(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		iBookManageService.gpSuccessConfirm(mav);
+		
+		return mav;
+	}
 }

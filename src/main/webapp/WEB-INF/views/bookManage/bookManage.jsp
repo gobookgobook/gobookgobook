@@ -51,10 +51,10 @@
 			<div align="center"><b style="font-size: 18px;">공동구매 현황</b></div>
 			<br/>
 			<div align="center">
-				<c:if test="${bookGroupPurchaseListCount!=0}">
-					<a href="${root}/bookManage/bookGroupPurchaseSuccess.do">조건이 충족된 공구가 ${bookGroupPurchaseListCount}건 있습니다.</a>
+				<c:if test="${bookGroupPurchaseSuccessCount!=0}">
+					<a href="${root}/bookManage/bookGroupPurchaseSuccess.do">조건이 충족된 공구가 ${bookGroupPurchaseSuccessCount}건 있습니다.</a>
 				</c:if>
-				<c:if test="${bookGroupPurchaseListCount==0}">
+				<c:if test="${bookGroupPurchaseSuccessCount==0}">
 					조건이 충족된 공동구매가 없습니다.
 				</c:if>
 				<br/><br/>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.gobook.bookmanage.dto.*;
+import com.gobook.member.dto.UserGP;
 
 /**
  * @클래스이름 : IBookManageDao
@@ -40,5 +41,9 @@ public interface IBookManageDao {
 	public int bookSpecialPriceCancle(BookDto bookDto);
 	public int bookSpecialPriceCount();
 	public List<BookDto> bookSpecialPriceList(HashMap<String, Integer> hMap);
-	public int bookGroupPurchaseSuccess();
+	public int bookGroupPurchaseSuccessCount();
+	public List<BookGroupPurchaseDto> bookGroupPurchaseSuccess();
+	public List<String> memberIdList(int gp_num);
+	public int mbinsert(HashMap<String, Object> hMap);
+	public int gpStatusUpdate(int gp_num);
 }
