@@ -11,6 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.userhelp.service.IUserHelpService;
+
+/**
+ * @클래스이름 : UserHelpController
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 사용자 고객센터 Controller
+ */
 @Controller
 public class UserHelpController {
 	@Autowired
@@ -31,6 +38,13 @@ public class UserHelpController {
 		iUserHelpService.userHelpPvP(mav);
 		return mav;	
 	}
+	
+	/**
+	 * @함수이름 : userHelpQnA
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 Q&A 목록
+	 */
 	@RequestMapping(value="userHelp/userHelpQnA.do", method=RequestMethod.GET)
 	public ModelAndView userHelpQnA(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -39,6 +53,13 @@ public class UserHelpController {
 		iUserHelpService.userHelpQnAList(mav);
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : userHelpQnARead
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 Q&A 읽기
+	 */
 	@RequestMapping(value="userHelp/userHelpQnARead.do", method=RequestMethod.GET)
 	public ModelAndView userHelpQnARead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -47,6 +68,13 @@ public class UserHelpController {
 		iUserHelpService.userHelpQnARead(mav);
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : userHelpNotice
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 공지사항 목록
+	 */
 	@RequestMapping(value="userHelp/userHelpNotice.do", method=RequestMethod.GET)
 	public ModelAndView userHelpNotice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -56,6 +84,13 @@ public class UserHelpController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : userHelpNoticeRead
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 공지사항 읽기
+	 */
 	@RequestMapping(value="userHelp/userHelpNoticeRead.do",method=RequestMethod.GET)
 	public ModelAndView userHelpNoticeRead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();

@@ -7,6 +7,12 @@ import com.gobook.help.dto.HelpNoticeDto;
 //import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
 
+/**
+ * @클래스이름 : IAdminHelpDao
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 관리자 고객센터 Dao 인터페이스
+ */
 public interface IAdminHelpDao {
 	public int adminHelpQnACount();
 	public List<HelpQnADto> adminHelpQnAListSelect(int startRow, int endRow);

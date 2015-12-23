@@ -17,6 +17,13 @@ import com.gobook.help.dto.HelpPvPDto;
 import com.gobook.help.dto.HelpQnADto;
 import com.gobook.location.dto.LocationDto;
 import com.gobook.userhelp.dao.IUserHelpDao;
+
+/**
+ * @클래스이름 : UserHelpService
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 사용자 고객센터 Service
+ */
 @Component
 public class UserHelpService implements IUserHelpService {
 	@Autowired
@@ -50,6 +57,12 @@ public class UserHelpService implements IUserHelpService {
 			
 	}
 
+	/**
+	 * @함수이름 : userHelpQnAList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 Q&A 목록
+	 */
 	@Override
 	public void userHelpQnAList(ModelAndView mav) {
 		Map<String, Object> hmap=mav.getModelMap();
@@ -77,15 +90,18 @@ public class UserHelpService implements IUserHelpService {
 			
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("count", count);
-			mav.addObject("boardSize", boardSize);
-			
-			
-			
+			mav.addObject("boardSize", boardSize);	
 		}
 		mav.addObject("userHelpQnAList", userHelpQnAList);
 		mav.setViewName("userHelp/userHelpQnA");
 	}
 
+	/**
+	 * @함수이름 : userHelpQnARead
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 Q&A 읽기
+	 */
 	@Override
 	public void userHelpQnARead(ModelAndView mav) {
 		Map<String, Object> hmap=mav.getModelMap();
@@ -101,9 +117,14 @@ public class UserHelpService implements IUserHelpService {
 		mav.addObject("helpQnADto", helpQnADto);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("userHelp/userHelpQnARead");
-		
 	}
 
+	/**
+	 * @함수이름 : userHelpNoticeList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 공지사항 목록
+	 */
 	@Override
 	public void userHelpNoticeList(ModelAndView mav) {
 		Map<String, Object> hmap=mav.getModelMap();
@@ -137,6 +158,12 @@ public class UserHelpService implements IUserHelpService {
 		mav.setViewName("userHelp/userHelpNotice");
 	}
 
+	/**
+	 * @함수이름 : userHelpNoticeRead
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 조재웅
+	 * @설명 : 사용자 공지사항 읽기
+	 */
 	@Override
 	public void userHelpNoticeRead(ModelAndView mav) {
 		Map<String, Object> hmap=mav.getModelMap();
@@ -152,7 +179,6 @@ public class UserHelpService implements IUserHelpService {
 		mav.addObject("helpNoticeDto", helpNoticeDto);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("userHelp/userHelpNoticeRead");
-		
 	}
 
 	/**

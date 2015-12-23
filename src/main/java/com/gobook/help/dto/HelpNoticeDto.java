@@ -2,6 +2,12 @@ package com.gobook.help.dto;
 
 import java.util.Date;
 
+/**
+ * @클래스이름 : HelpNoticeDto
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 고객센터 공지사항 Dto
+ */
 public class HelpNoticeDto {
 	private int helpnotice_num;
 	private String helpnotice_subject;

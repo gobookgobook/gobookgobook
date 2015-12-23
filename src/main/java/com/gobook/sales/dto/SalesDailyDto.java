@@ -2,10 +2,16 @@ package com.gobook.sales.dto;
 
 import java.util.Date;
 
+/**
+ * @클래스이름 : SalesDailyDto
+ * @날짜 : 2015. 12. 15.
+ * @개발자 : 황규성
+ * @설명 : 일일매출 Dto
+ */
 public class SalesDailyDto {
 	
 	private int salesdaily_num;	         //일일매출관리번호(자동증가번호)
-	private long book_num;     //도서 번호
+	private long book_num;     			 //도서 번호
 	private int order_bunho;	         //주문번호
 	private String member_id;	         //회원 아이디
 	private Date salesdaily_date;	     //결제일

@@ -31,6 +31,12 @@ public class SalesService implements ISalesService {
 	@Autowired
 	private ISalesDao iSalesDao;
 
+	/**
+	 * @함수이름 : salesDailyList
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 황규성
+	 * @설명 : 일일매출 목록
+	 */
 	@Override
 	public void salesDailyList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
@@ -162,7 +168,6 @@ public class SalesService implements ISalesService {
 	public void salesMonthlyList(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
 		
 		HttpSession session=request.getSession();
 		String member_id="admin";			// 원래는 세션에 있는 아이디를 받아서 admin인지 파악해야 하지만 테스트 편의상 admin을 넣어놓음

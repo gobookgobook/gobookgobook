@@ -1,5 +1,11 @@
 package com.gobook.help.dto;
 
+/**
+ * @클래스이름 : HelpQnADto
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 고객센터 Q&A Dto
+ */
 public class HelpQnADto {
 	private int helpqna_num;
 	private String helpqna_subject;

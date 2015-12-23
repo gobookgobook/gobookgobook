@@ -2,6 +2,12 @@ package com.gobook.adminhelp.service;
 
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * @클래스이름 : IAdminHelpService
+ * @날짜 : 2015. 12. 23.
+ * @개발자 : 조재웅
+ * @설명 : 관리자 고객센터 Service 인터페이스
+ */
 public interface IAdminHelpService {
 	public void adminHelpQnAWrite(ModelAndView mav);
 	public void adminHelpQnAWriteOk(ModelAndView mav);
