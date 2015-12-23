@@ -17,25 +17,57 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div id="contents" style="height:100%; background:white; border:0px solid black;position: static">
+	<div id="contents" style="height:40%; background:white; border:0px solid black;position: static">
 		<div id="wrap">
-			<div style="background-color: #41AF39;margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;지점 관리</b>
+			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
+				<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 지점 관리</b>
 			</div>
 			
 			<div align="left" style="width: 110px;float: left">
 				<jsp:include page="locationConNav.jsp"/>
 			</div>
 			
-			<h1 style="margin-left:20px">지점수정</h1>
+			<div align="center" style="width:1040px"><b style="font-size:18px">지점 수정</b></div>
+		    <br/>
+		    
+		    <div align="center" class="container" style="width:960px;height:250px;padding:0px;margin-left:40px;border:0px solid red;">
+				<form style="margin-left:130px" name="locationForm" action="${root}/location/locationUpdate.do" 
+					method="post" onsubmit="return locationWriteForm(this)">
+					<div>
+						<label class="title" style="width:200px;font-size:14px;height:32px; background-color:#dff0d8">지점명</label>
+					    <input type="text" class="content" value="꼬북꼬북" style="width:610px;font-size:14px;height:32px" disabled="disabled" />	
+						<input type="hidden" name="location_num" value="${locationDto.location_num}"/>
+				  	</div>
+					
+					<div style="height: 30px">
+						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 주소</label>
+						<input class="content" type="text" size="50" name="location_address" style="width:610px;font-size:14px;height:32px" value="${locationDto.location_address}"/>
+					</div>
+					
+					<div style="height: 30px">
+						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점장 이름</label>
+						<input class="content" type="text" size="50" name="location_admin" style="width:610px;font-size:14px;height:32px" value="${locationDto.location_admin}"/>
+					</div>
+					
+					<div style="height: 30px">
+						<label class="title" style="border-bottom-width:2px; border-bottom-color:#dddddd;width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 전화번호</label>
+						<input class="content" type="text" size="50" name="location_phone" style="border-bottom-width:2px; border-bottom-color:#dddddd;width:610px;font-size:14px;height:32px" value="${locationDto.location_phone}"/>
+					</div>
+					
+					<div class="line" style="width:810px;text-align:center; margin-top:30px;">
+						<input type="submit" class="btn btn-success btn-xs" value="지점수정" style="font-size:14px;"/>
+						<input type="reset" class="btn btn-success btn-xs" value="취소" style="font-size:14px;" />
+					</div>
+				</form>
+			</div>
 		
-			<div align="center" class="container" style="width:835px;padding:0px;margin-left:130px">
+			<%-- <div align="center" class="container" style="width:1000px;height:250px;padding:0px;margin-left:-20px">
 				<form class="form_style" name="locationForm" action="${root}/location/locationUpdate.do" 
 					method="post" onsubmit="return locationWriteForm(this)">
 					<div class="line">
-						<label class="title">지점명</label>
+						<label class="title" style="width:200px;font-size:14px;height:32px; background-color:#dff0d8">지점명</label>
 						<span class="content">
-							*<input type="text" value="꼬북꼬북" disabled="disabled" />	
+							<input type="text" value="꼬북꼬북" style="width:610px;font-size:14px;height:32px" disabled="disabled" />	
 							<input type="hidden" name="location_num" value="${locationDto.location_num}"/>
 						</span>
 				  	</div>
@@ -66,7 +98,7 @@
 						<input type="reset" class="btn btn-success btn-xs" value="취소" />
 					</div>
 				</form>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 	<jsp:include page="../main-bottom.jsp"/>

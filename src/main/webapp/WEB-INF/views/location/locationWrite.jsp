@@ -17,19 +17,19 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div id="contents" style="height:80%; background:white; border:0px solid black; position: static">
+	<div id="contents" style="height:40%; background:white; border:0px solid black; position: static">
 		<div id="wrap">
 			<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
-			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 매출 관리</b>
+			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 지점 관리</b>
 		</div>
 		
 		<div align="left" style="width: 110px;float: left;">
 			<jsp:include page="locationConNav.jsp"/>
 		</div>
 			
-			  <div align="center"><b style="font-size:18px">지점 등록</b></div>
-		       <br/><br/>
-			<div align="center" class="container" style="width:960px;height:460px;padding:0px;margin-left:40px;border:0px solid red;">
+			  <div align="center" style="width:1040px"><b style="font-size:18px">지점 등록</b></div>
+		       <br/>
+			<div align="center" class="container" style="width:960px;height:250px;padding:0px;margin-left:40px;border:0px solid red;">
 				<form style="margin-left:130px" name="locationForm" action="${root}/location/locationWrite.do" 
 					method="post" onsubmit="return locationWriteForm(this)">
 					<div>
@@ -49,11 +49,11 @@
 					</div>
 					
 					<div style="height: 30px">
-						<label class="title" style="width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 전화번호</label>
-						<input class="content" type="text" size="50" name="location_phone" style="width:610px;font-size:14px;height:32px"/>
+						<label class="title" style="border-bottom-width:2px; border-bottom-color:#dddddd;width:200px;height:32px;font-size:14px; background-color:#dff0d8">지점 전화번호</label>
+						<input class="content" type="text" size="50" name="location_phone" style="border-bottom-width:2px; border-bottom-color:#dddddd;width:610px;font-size:14px;height:32px"/>
 					</div>
 					
-					<div class="line" style="width:810px; border-width:2px; border-color:#dddddd; text-align:center; margin-top:30px;">
+					<div class="line" style="width:810px;text-align:center; margin-top:30px;">
 						<input type="submit" class="btn btn-success btn-xs" value="지점등록" style="font-size:14px;"/>
 						<input type="reset" class="btn btn-success btn-xs" value="취소" style="font-size:14px;" />
 					</div>

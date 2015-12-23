@@ -5,6 +5,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
