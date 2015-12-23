@@ -44,6 +44,5 @@
 	</div>
 </div>
  <jsp:include page="../main-bottom.jsp"/> 
-	<br/><br/>
 </body>
 </html>

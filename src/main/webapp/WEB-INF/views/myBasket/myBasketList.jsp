@@ -159,7 +159,6 @@
 		</div>
 	</c:if>
 </div>
-<jsp:include page="../main-bottom.jsp"/>
-	<br/><br/>		
+<jsp:include page="../main-bottom.jsp"/>	
 </body>
 </html>
