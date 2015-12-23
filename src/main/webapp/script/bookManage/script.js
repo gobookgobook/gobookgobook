@@ -267,7 +267,27 @@ function bookSpecialPriceCancleFun(root,book_num,pageNumber){
 	return check;
 }
 
+/**
+ * @함수이름 : gpSuccessConfirm
+ * @작성일 : 2015. 12. 23.
+ * @개발자 : 성기훈
+ * @설명 : 공동구매 조건달성 진행 스크립트
+ */
 function gpSuccessConfirm(root,book_num,gp_num,group_purchase_price){
 	// alert(root +" "+ book_num+" "+ gp_num+" "+ group_purchase_price);
 	location.href=root+"/bookManage/gpSuccessConfirm.do?book_num="+book_num+"&gp_num="+gp_num+"&group_purchase_price="+group_purchase_price;
+}
+
+function bookStockUpdateFun(bsuform){
+	if(bsuform.reorder_quantity.value==""){
+		alert("입고수량을 입력하세요.");
+		bsuform.reorder_quantity.focus();
+		return false;
+	}
+	
+	if(bsuform.reorder_quantity.value<0){
+		alert("음수는 입력할수 없습니다.");
+		bsuform.reorder_quantity.focus();
+		return false;
+	}
 }
