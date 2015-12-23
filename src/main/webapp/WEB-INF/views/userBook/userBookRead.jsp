@@ -133,6 +133,7 @@
 								</c:if>
 								
 								<c:if test="${bookDto.book_state==5}">
+									<span style="text-decoration:line-through;">${bookDto.book_cost*2}원</span>&nbsp;&nbsp;&nbsp;
 									<span style="color: red">특가 : ${bookDto.book_price}원</span>
 								</c:if>
 							</td>
