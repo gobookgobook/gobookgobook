@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

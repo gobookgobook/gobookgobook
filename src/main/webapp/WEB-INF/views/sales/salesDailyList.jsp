@@ -148,7 +148,7 @@
 						<hr width="70%" color="blue"/>
 						<div align="right" id="order" style="width: 950px">
 							<span id="daily_sum" style="font-size: 18px;"><b>일일 매출액 : <fmt:formatNumber value="${dailySum}" groupingUsed="true"/> 원</b></span>&nbsp;&nbsp;&nbsp;
-							<b style="font-size:18px">일일 순이익 : <span id="daily_profit" style="font-size: 18px;color:red"><fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/></span> 원</b>&nbsp;&nbsp;&nbsp;&nbsp;
+							<b style="font-size:18px">일일 순이익 : <span id="daily_profit" style="font-size: 18px;color:blue"><fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/></span> 원</b>&nbsp;&nbsp;&nbsp;&nbsp;
 						</div><br/>
 						
 						<div align="right" style="margin-right:45px">
