@@ -12,7 +12,7 @@
 
   $(window).scroll(function()  
     {  
-        $('#quick').animate({top:$(window).scrollTop()+"px" },{queue: false, duration: 350});    
+        $('#quick').animate({top:$(window).scrollTop()+100+"px" },{queue: false, duration: 350});    
     });  
     //when the close button at right corner of the message box is clicked   
     $('#quick').click(function()  
