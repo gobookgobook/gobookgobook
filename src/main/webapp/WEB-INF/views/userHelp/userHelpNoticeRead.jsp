@@ -6,7 +6,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<jsp:include page="../admin-top.jsp"/>
+<jsp:include page="../main-top.jsp"/>
 <meta charset="UTF-8">
 <title>사용자 공지사항 읽기</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">

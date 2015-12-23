@@ -5,6 +5,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${root}/css/location/style.css" type="text/css" rel="stylesheet"/>
@@ -12,7 +13,7 @@
 <script type="text/javascript" src="${root}/script/jquery.js"></script>
 </head>
 <body>
-	<jsp:include page="../member/menu.jsp"/>
+	<%-- <jsp:include page="../member/menu.jsp"/>
 	<br/><br/>
 	<div>
 		<font size="2"><b>매장 수정</b></font>
@@ -55,7 +56,7 @@
 				<input type="reset" value="취소" />
 			</div>
 		</form>
-	</div>
+	</div> --%>
 	
 	<c:if test="${check >0 }">
 		<script type="text/javascript">
