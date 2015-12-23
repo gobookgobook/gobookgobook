@@ -28,11 +28,9 @@
 		 });
 	});
 </script>
-
-
 </head>
 <body>
-    <div id="contents" style="height:70%; background:white; border:0px solid black; position: static;">
+    <div id="contents" style="height:100%; background:white; border:0px solid black; position: static;">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -41,7 +39,7 @@
 	</c:if>
 	
 	<c:if test="${id=='admin'}">
-		<div id="wrap">
+		<div id="wrap" style="padding-bottom:80px">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 매출 관리</b>
 		</div>
