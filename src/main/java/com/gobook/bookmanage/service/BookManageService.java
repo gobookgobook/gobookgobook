@@ -53,6 +53,7 @@ public class BookManageService implements IBookManageService {
 		int bookGroupPurchaseListCount=iBookManageDao.gpCount();
 		int bookGroupPurchaseCount=iBookManageDao.bookGroupPurchaseCount();
 		int bookNewPublishCount=iBookManageDao.bookNewPublishCount();
+		int bookGroupPurchaseSuccess=
 		
 		mav.addObject("id", id);
 		mav.addObject("bookReOrderCount", bookReOrderCount);
