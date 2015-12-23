@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
@@ -31,7 +32,7 @@
 
 </head>
 <body>
-    <div id="contents" style="height:100%; background:white; border:0px solid black; position: static;">
+    <div id="contents" style="height:70%; background:white; border:0px solid black; position: static;">
     <c:if test="${id!='admin'}">
 		<h3 align="center">관리자 권한이 없습니다.</h3>
 		<div align="center">
@@ -61,26 +62,25 @@
 				
 				<div id="dailyTable">
 					<c:if test="${count == 0}">
-						<div class="container" style="width:835px;padding:0px;">
+						<div class="container" style="width:835px;padding:0px;margin-left:132px">
 							<table class="table table-bordered">
 								<thead>
 									<tr class="success" style="color:#1DDB16">
-										<th style="text-align:center;width:120px;">결제일</th>
-										<th style="text-align:center;width:120px;">도서번호</th>
-										<th style="text-align:center;width:120px;">도서명</th>
-										<th style="text-align:center;width:120px;">도서원가</th>
-										<th style="text-align:center;width:120px;">판매가</th>
-										<th style="text-align:center;width:120px;">수량</th>
-										<th style="text-align:center;width:120px;">판매총액</th>
-										<th style="text-align:center;width:120px;">결제액</th>
-										<th style="text-align:center;width:120px;">순이익</th>
+										<th style="text-align:center;width:120px;font-size:14px">결제일</th>
+										<th style="text-align:center;width:120px;font-size:14px">도서번호</th>
+										<th style="text-align:center;width:120px;font-size:14px">도서명</th>
+										<th style="text-align:center;width:120px;font-size:14px">도서원가</th>
+										<th style="text-align:center;width:120px;font-size:14px">판매가</th>
+										<th style="text-align:center;width:120px;font-size:14px">수량</th>
+										<th style="text-align:center;width:120px;font-size:14px">판매총액</th>
+										<th style="text-align:center;width:120px;font-size:14px">결제액</th>
+										<th style="text-align:center;width:120px;font-size:14px">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd"></tbody>
 							</table>
 						</div>
-						<span>일일매출 내역이 없습니다.</span>
-						<hr width="80%" color="blue"/>
+						<div style="width:835px;font-size:14px; padding-bottom:25px; border-bottom:2px solid #DDDDDD; margin-left:100px">일일매출 내역이 없습니다.</div>
 					</c:if>
 					
 					<c:if test="${count > 0}">
@@ -88,23 +88,23 @@
 							<script type="text/javascript">
 								$(function(){
 									$("#calculBtn").hide();
-									$("<h3>정산완료</h3>").insertBefore("#calculBtn");
+									$("<b style='font-size:18px'>정산완료</b>").insertBefore("#calculBtn");
 								});
 							</script>
 						</c:if>
 						<div class="container" style="width:835px;padding:0px">
-							<table class="table table-bordered" style="line-height: 100px; border:0px solid red; height:1000px; margin-left:50px;">
+							<table class="table table-bordered" style="line-height: 100px; border:0px solid red; margin-left:50px;">
 								<thead>
 									<tr class="success" align="center" style="color:#1DDB16;">
-										<th style="text-align:center">결제일</th>
-										<th style="text-align:center">도서번호</th>
-										<th style="text-align:center">도서명</th>
-										<th style="text-align:center">도서원가</th>
-										<th style="text-align:center">판매가</th>
-										<th style="text-align:center">수량</th>
-										<th style="text-align:center">판매총액</th>
-										<th style="text-align:center">결제액</th>
-										<th style="text-align:center">순이익</th>
+										<th style="text-align:center;font-size:14px">결제일</th>
+										<th style="text-align:center;font-size:14px">도서번호</th>
+										<th style="text-align:center;font-size:14px">도서명</th>
+										<th style="text-align:center;font-size:14px">도서원가</th>
+										<th style="text-align:center;font-size:14px">판매가</th>
+										<th style="text-align:center;font-size:14px">수량</th>
+										<th style="text-align:center;font-size:14px">판매총액</th>
+										<th style="text-align:center;font-size:14px">결제액</th>
+										<th style="text-align:center;font-size:14px">순이익</th>
 									</tr>
 								</thead>
 								<tbody id="listAllTd">
@@ -120,15 +120,24 @@
 									
 									<c:forEach var="salesDaily" items="${salesDailyList}">
 										<tr class="success" id="${salesDaily.salesdaily_num}">
-											<td><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
-											<td>${salesDaily.book_num}</td>
-											<td>${salesDaily.salesdaily_book_name}</td>
-											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
-											<td style="text-align:center;">${salesDaily.salesdaily_quantity}</td>
-											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
-											<td style="text-align:right;"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
+											<td style="font-size:14px"><fmt:formatDate value="${salesDaily.salesdaily_date}" type="both" pattern="yy/MM/dd HH:mm:ss"/></td>
+											<td style="font-size:14px">${salesDaily.book_num}</td>
+											<td style="font-size:14px">
+												<c:choose>
+													<c:when test="${fn:length(salesDaily.salesdaily_book_name) > 10}">
+														<c:out value="${fn:substring(salesDaily.salesdaily_book_name, 0, 9)}"/>....
+													</c:when>
+													<c:otherwise>
+														${salesDaily.salesdaily_book_name}
+													</c:otherwise>
+												</c:choose>
+											</td>
+											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_book_cost}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_book_price}" groupingUsed="true"/>원</td>
+											<td style="text-align:center;font-size:14px">${salesDaily.salesdaily_quantity}</td>
+											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_total}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_pay}" groupingUsed="true"/>원</td>
+											<td style="text-align:right;font-size:14px"><fmt:formatNumber value="${salesDaily.salesdaily_profit}" groupingUsed="true"/>원</td>
 										</tr>
 									</c:forEach>
 									
@@ -137,9 +146,12 @@
 						</div>
 						
 						<hr width="70%" color="blue"/>
-						<div align="left" id="order" style="width: 880px;margin-left:300px">
-							<span id="daily_sum" style="font-size: 20px;">일일 매출액:<fmt:formatNumber value="${dailySum}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;
-							<span id="daily_profit" style="font-size: 20px">일일 순이익:<fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/>원</span>&nbsp;&nbsp;&nbsp;&nbsp;
+						<div align="right" id="order" style="width: 950px">
+							<span id="daily_sum" style="font-size: 18px;"><b>일일 매출액 : <fmt:formatNumber value="${dailySum}" groupingUsed="true"/> 원</b></span>&nbsp;&nbsp;&nbsp;
+							<b style="font-size:18px">일일 순이익 : <span id="daily_profit" style="font-size: 18px;color:red"><fmt:formatNumber value="${dailyProfit}" groupingUsed="true"/></span> 원</b>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div><br/>
+						
+						<div align="right" style="margin-right:45px">
 							<input type="button" id="calculBtn" class="btn btn-success btn-sm" value="정산하기" onclick="salesMonthlyInsert(${dailySum}, ${dailyProfit}, '${dailyUpdate}', '${root}')"/>
 						</div>
 					</c:if>
