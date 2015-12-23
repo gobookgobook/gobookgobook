@@ -230,6 +230,7 @@ public class UserOrderService implements IUserOrderService{
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "2.salesInsertCheck:" + salesInsertCheck);
 					
 					// 3. 주문시 책에서 도서 수량 감소 및 도서 상태 변경
+					bookDto=iBookManageDao.bookInfo(userOrderDto.getBook_num());
 					int upBookCountCheck = iUserOrderDao.userOrderUpBookCount(userOrderDto.getBook_num(),userOrderDto.getOrder_book_count(),bookDto.getBook_quantity());
 					GoBookAspect.logger.info(GoBookAspect.logMsg + "3.upBookCountCheck : " + upBookCountCheck);
 				}
