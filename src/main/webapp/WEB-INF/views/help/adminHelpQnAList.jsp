@@ -14,7 +14,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="contents" style="height:40%; background:white; border:0px solid black;position: static">
+<div id="contents" style="height:50%; background:white; border:0px solid black;position: static">
 	<div id="wrap">
 		<div style="margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 			<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객 센터</b>
@@ -32,14 +32,14 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr style="color:white;background-color:#37415a">
-								<th style="text-align:center">번호</th>
-								<th style="text-align:center">질문</th>
+								<th style="font-size:14px;text-align:center">번호</th>
+								<th style="font-size:14px;text-align:center">질문</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">Q&A글이 없습니다.</div>
+				<div align="center" style="font-size:14px;padding-bottom:25px; border-bottom:1px solid #DDDDDD">Q&A글이 없습니다.</div>
 			</c:if>
 			
 			<c:if test="${adminHelpQnAList !=null}">
@@ -47,16 +47,16 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr class="success" style="color:#1DDB16">
-								<th style="text-align:center">번호</th>
-								<th style="text-align:center">질문</th>
+								<th style="font-size:14px;text-align:center">번호</th>
+								<th style="font-size:14px;text-align:center">질문</th>
 							</tr>
 						</thead>
 						<tbody id="listAllTd">
 							<c:forEach var="help" items="${adminHelpQnAList}">	<%-- 서비스에서 넘겨준 boardList --%>
 								<tr class="success">
-									<td style="text-align:center">${help.helpqna_num}</td>
+									<td style="font-size:14px;text-align:center">${help.helpqna_num}</td>
 									<td>
-										<a href="${root}/help/adminHelpQnARead.do?helpqna_num=${help.helpqna_num}&pageNumber=${currentPage}">${help.helpqna_subject}</a>
+										<a style="font-size:14px" href="${root}/help/adminHelpQnARead.do?helpqna_num=${help.helpqna_num}&pageNumber=${currentPage}">${help.helpqna_subject}</a>
 									</td>
 								</tr>
 							</c:forEach>

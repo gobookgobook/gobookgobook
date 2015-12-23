@@ -45,7 +45,7 @@
 			<div align="left" class="container" style="width:835px;padding:0px;margin-left:180px">
 				<div>
 					<label class="title" style="text-align:center;width:200px;height:70px;font-size:14px;background-color:#dff0d8">질문</label>
-					<span class="content" style="width:600px;height:70px;font-size:14px;">${helpQnADto.helpqna_subject}</span>
+					<span class="content" style="width:600px;height:70px;font-size:15px">${helpQnADto.helpqna_subject}</span>
 				</div><br/><br/>
 			
 				<div style="height: 200px">

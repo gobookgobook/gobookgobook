@@ -35,15 +35,15 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr style="color:white;background-color:#37415a">
-									<th style="text-align:center">번호</th>
-									<th style="text-align:center">제목</th>
-									<th style="text-align:center">날짜</th>
+									<th style="font-size:14px;text-align:center">번호</th>
+									<th style="font-size:14px;text-align:center">제목</th>
+									<th style="font-size:14px;text-align:center">날짜</th>
 								</tr>
 							</thead>
 							<tbody id="listAllTd"></tbody>
 						</table>
 					</div>
-					<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">공지사항이 없습니다.</div>
+					<div align="center" style="font-size:14px;padding-bottom:25px; border-bottom:1px solid #DDDDDD">공지사항이 없습니다.</div>
 				</c:if>
 				
 				<c:if test="${adminHelpNoticeList != null}">
@@ -51,19 +51,19 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr class="success" style="color:#1DDB16">
-									<th style="text-align:center">번호</th>
-									<th style="text-align:center">제목</th>
-									<th style="text-align:center">날짜</th>
+									<th style="font-size:14px;text-align:center">번호</th>
+									<th style="font-size:14px;text-align:center">제목</th>
+									<th style="font-size:14px;text-align:center">날짜</th>
 								</tr>
 							</thead>
 							<tbody id="listAllTd">
 								<c:forEach var="help" items="${adminHelpNoticeList}">	<%-- 서비스에서 넘겨준 boardList --%>
 									<tr class="success">
-										<td style="text-align:center">${help.helpnotice_num}</td>
-										<td >
-											<a href="${root}/help/adminHelpNoticeRead.do?helpnotice_num=${help.helpnotice_num}&pageNumber=${currentPage}">${help.helpnotice_subject}</a>
+										<td style="font-size:14px;text-align:center">${help.helpnotice_num}</td>
+										<td>
+											<a style="font-size:14px" href="${root}/help/adminHelpNoticeRead.do?helpnotice_num=${help.helpnotice_num}&pageNumber=${currentPage}">${help.helpnotice_subject}</a>
 										</td>
-										<td style="text-align:center"><fmt:formatDate value="${help.helpnotice_writeDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+										<td style="font-size:14px;text-align:center"><fmt:formatDate value="${help.helpnotice_writeDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 									</tr>
 								</c:forEach>
 							</tbody>

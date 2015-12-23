@@ -4,6 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>공지사항등록 Ok</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>

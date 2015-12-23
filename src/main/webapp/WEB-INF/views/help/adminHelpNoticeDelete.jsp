@@ -4,6 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>공지사항 삭제</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -12,6 +13,13 @@
 	<c:if test="${check > 0}">
 		<script type="text/javascript">
 			alert("게시물을 삭제 하였습니다.");
+			location.href="${root}/help/adminHelpNoticeList.do";
+		</script>
+	</c:if>
+	
+	<c:if test="${check == 0}">
+		<script type="text/javascript">
+			alert("게시물이 삭제 되지 않았습니다.");
 			location.href="${root}/help/adminHelpNoticeList.do";
 		</script>
 	</c:if>

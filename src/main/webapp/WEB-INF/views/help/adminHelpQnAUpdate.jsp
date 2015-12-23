@@ -29,7 +29,7 @@
 	
 			<hr><br/>
 			<div align="center" class="container" style="width:960px;height:460px;padding:0px;border:0px solid black;margin-left:40px">
-				<form style="margin-left:130px" action="${root}/help/adminHelpQnAWrite.do" method="post" onsubmit="return adminHelpQnAWrite(this)">
+				<form style="margin-left:130px" action="${root}/help/adminHelpQnAUpdate.do" method="post" onsubmit="return adminHelpQnAWrite(this)">
 					<input type="hidden" name="helpqna_num" value="${helpQnADto.helpqna_num}"/>
 					
 					<div>

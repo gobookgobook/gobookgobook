@@ -4,6 +4,7 @@
 <!DOCTYPE>
 <html>
 <head>
+<jsp:include page="../admin-top.jsp"/>
 <meta charset="UTF-8">
 <title>QnA수정 확인</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -12,11 +13,17 @@
 <body>
 	
 	<c:if test="${check > 0}">
-			<script type="text/javascript">
-				alert("글이 수정 되었습니다.");
-				location.href="${root}/help/adminHelpQnAList.do";
-			</script>
-		</c:if>
-
+		<script type="text/javascript">
+			alert("글이 수정 되었습니다.");
+			location.href="${root}/help/adminHelpQnAList.do";
+		</script>
+	</c:if>
+	
+	<c:if test="${check == 0}">
+		<script type="text/javascript">
+			alert("글이 수정 되지 않았습니다.");
+			location.href="${root}/help/adminHelpQnAList.do";
+		</script>
+	</c:if>
 </body>
 </html>
