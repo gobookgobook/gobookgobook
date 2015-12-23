@@ -124,7 +124,6 @@ public class MemberDao implements IMemberDao{
 		hMap.put("password", password);
 		
 		int count=0;
-		
 		TransactionDefinition definition=new DefaultTransactionDefinition();
 		TransactionStatus status=transactionManager.getTransaction(definition);
 		
@@ -138,7 +137,7 @@ public class MemberDao implements IMemberDao{
 			sqlSessionTemplate.delete("dao.memberMapper.memberMyBasketDelete",id);
 			sqlSessionTemplate.delete("dao.memberMapper.memberUserGPDelete",id);
 			if(tempBookNum >0){
-				sqlSessionTemplate.update("dao.memberMapper.memberGroupPurchaseDelete",tempBook);
+				sqlSessionTemplate.update("dao.memberMapper.memberGroupPurchaseDelete",tempBookNum);
 			}
 			
 			count=sqlSessionTemplate.update("dao.memberMapper.memberDelete", hMap);

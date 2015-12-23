@@ -103,7 +103,7 @@
 		delete from myBasket where member_id=#{id}
 	</delete>
 	
-	<select id="memberUserGPSelect" parameterType="String" resultType="int">
+	<select id="memberUserGPSelect" parameterType="String" resultType="String">
 		<![CDATA[
 			select gp_num from userGP where member_id=#{id}
 		]]>
