@@ -57,9 +57,9 @@
 				<div style="height: 67px">
 					<label class="title" style="text-align:center;width:200px;height:250px;border-bottom:2px solid #DDDDDD;font-size:14px;background-color:#dff0d8">내용</label>
 					<textarea class="content" rows="14" cols="140" name="helpnotice_content" style="background-color:white;border-bottom:2px solid #DDDDDD; resize:none;width:600px; height:250px; font-size:14px" disabled="disabled">${helpNoticeDto.helpnotice_content}</textarea>
-				</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</div>
 				
-				<div style="width:93%;text-align:center;margin-top:20px">
+				<div style="width:93%;text-align:center;margin-top:220px">
 					<input type="button" value="글삭제" class="btn btn-success btn-sm" onclick="deleteFun('${root}', '${helpNoticeDto.helpnotice_num}')"/>
 					<input type="button" value="글수정" class="btn btn-success btn-sm" onclick="updateFun('${root}', '${helpNoticeDto.helpnotice_num}', '${pageNumber}')"/>
 					<input type="button" value="목록으로" class="btn btn-success btn-sm" onclick="location.href='${root}/help/adminHelpNoticeList.do?pageNumber=${pageNumber}'"/>
@@ -68,7 +68,8 @@
 		</div>
 	</div>
 	
-	<br/><br/>
-	<jsp:include page="../main-bottom.jsp"/>
+	<div style="margin-top: 300px;">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>

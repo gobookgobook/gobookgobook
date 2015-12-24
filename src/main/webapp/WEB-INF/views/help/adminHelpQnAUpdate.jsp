@@ -50,7 +50,8 @@
 		</div>
 	</div>
 	
-	<br/><br/><br/><br/>
-	<jsp:include page="../main-bottom.jsp"/>
+	<div style="margin-top:300px;">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>

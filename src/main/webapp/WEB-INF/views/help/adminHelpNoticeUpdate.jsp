@@ -42,9 +42,9 @@
 					<div style="height: 67px">
 						<label class="title" style="width:200px;font-size:14px;height:260px;border-bottom:2px solid #DDDDDD;background-color:#dff0d8">내용</label>
 						<textarea class="content" rows="14" cols="67" name="helpnotice_content" style="height:260px;width:610px;font-size:14px;border-bottom:2px solid #DDDDDD; resize:none">${helpNoticeDto.helpnotice_content}</textarea>
-					</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					</div>
 
-					<div style="margin-top:30px">
+					<div style="margin-top:220px;">
 						<input type="submit" class="btn btn-success btn-sm" value="공지사항 수정"  style="margin-left:-70px"/>
 					</div>
 				</form>
@@ -52,7 +52,8 @@
 		</div>
 	</div>
 	
-	<br/><br/>
-	<jsp:include page="../main-bottom.jsp"/>
+	<div style="margin-top: 300px;">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>

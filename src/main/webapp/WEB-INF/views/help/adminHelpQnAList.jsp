@@ -28,10 +28,10 @@
 		
 		<div align="center" class="container" style="width:835px;padding:0px;margin-left:210px">
 			<c:if test="${adminHelpQnAList==null}">
-				<div align="center" style="width:835px">
+				<div align="center" style="width:835px;margin-left:-120px">
 					<table class="table table-bordered">
 						<thead>
-							<tr style="color:white;background-color:#37415a">
+							<tr class="success" style="color:#1DDB16">
 								<th style="font-size:14px;text-align:center">번호</th>
 								<th style="font-size:14px;text-align:center">질문</th>
 							</tr>
@@ -39,7 +39,7 @@
 						<tbody id="listAllTd"></tbody>
 					</table>
 				</div>
-				<div align="center" style="font-size:14px;padding-bottom:25px; border-bottom:1px solid #DDDDDD">Q&A글이 없습니다.</div>
+				<div align="center" style="font-size:14px;padding-bottom:25px;width:834px;margin-left:-120px; border-bottom:1px solid #DDDDDD">Q&A글이 없습니다.</div>
 			</c:if>
 			
 			<c:if test="${adminHelpQnAList !=null}">

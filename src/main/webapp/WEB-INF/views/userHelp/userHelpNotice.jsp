@@ -30,7 +30,7 @@
 			
 			<div class="point_body" style="width:400px;margin-left:20px">
 				<c:if test="${userHelpNoticeList ==null}">
-					<div align="center" style="width:400px">
+					<div align="center" style="width:835px; padding:0px; margin-left:-110px;">
 						<table class="table table-bordered">
 							<thead>
 								<tr style="color:white;background-color:#37415a">
@@ -42,7 +42,7 @@
 							<tbody id="listAllTd"></tbody>
 						</table>
 					</div>
-					<div align="center" style="padding-bottom:25px; border-bottom:1px solid #DDDDDD">공지사항이 없습니다.</div>
+					<div align="center" style="padding-bottom:25px; width:835px;margin-left:-100px; border-bottom:1px solid #DDDDDD">공지사항이 없습니다.</div>
 				</c:if>
 				
 				<c:if test="${userHelpNoticeList != null}">

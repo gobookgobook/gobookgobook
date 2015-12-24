@@ -45,15 +45,16 @@
 				<div style="height: 67px">
 					<label class="title" style="text-align:center;width:200px;height:250px;border-bottom:2px solid #DDDDDD;font-size:14px;color:white;background-color:#37415a">내용</label>
 					<textarea class="content" rows="14" cols="140" name="helpnotice_content" style="background-color:white;border-bottom:2px solid #DDDDDD; resize:none;width:600px; height:250px; font-size:14px;" disabled="disabled">${helpNoticeDto.helpnotice_content}</textarea>
-				</div><br/><br/><br/><br/><br/><br/><br/>
+				</div>
 			</div>
 			
-			<div style="width:83%">
+			<div style="width:83%; ">
 				<input type="button" class="btn btn-primary btn-sm" value="목록" style="margin-left:530px; margin-top:60px;" onclick="location.href='${root}/userHelp/userHelpNotice.do?pageNumber=${pageNumber}'"/>
 			</div>
 		</div>
 	</div>
-	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	<jsp:include page="../main-bottom.jsp"/>
+	<div style="margin-top: 300px;">
+		<jsp:include page="../main-bottom.jsp"/>
+	</div>
 </body>
 </html>
