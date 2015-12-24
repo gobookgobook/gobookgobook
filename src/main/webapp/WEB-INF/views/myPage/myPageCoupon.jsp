@@ -43,7 +43,12 @@
 				  <tr>
 					<td>${couponSelect.user_coupon_name}</td>
 					<td>${couponSelect.user_coupon_content}</td>
-					<td>${couponSelect.user_coupon_discount}</td>
+					<c:if test="${couponSelect.user_coupon_discount>=100 }">
+						<td>${couponSelect.user_coupon_discount}원</td>
+					</c:if>
+					<c:if test="${couponSelect.user_coupon_discount<100 }">
+						<td>${couponSelect.user_coupon_discount}%</td>
+					</c:if>
 					<td><fmt:formatDate value="${couponSelect.user_coupon_period}" pattern="yyyy-MM-dd"/></td>
 				  </tr>
 			</c:forEach>

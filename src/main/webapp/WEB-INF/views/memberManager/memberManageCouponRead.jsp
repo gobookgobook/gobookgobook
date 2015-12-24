@@ -33,7 +33,7 @@
 			    <tr>
 			    <th style="background:#dff0d8;">쿠폰 이름</th>
 			     <td colspan="3">
-			       ${managerCouponDto.mcoupon_num}
+			       ${managerCouponDto.manager_coupon_name}
 			     </td>
 			    </tr>
 			   
