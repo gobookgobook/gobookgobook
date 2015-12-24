@@ -305,5 +305,5 @@ function returnPage(root,pageInfo,pageNumber){
 	else if (pageInfo=="bookSOL") location.href=root+"/bookManage/bookSoldOutList.do?pageNumber="+pageNumber;
 	else if (pageInfo=="bookSL") location.href=root+"/bookManage/bookStockList.do?pageNumber="+pageNumber;
 	else if (pageInfo=="bookSP") location.href=root+"/bookManage/bookSpecialPrice.do?pageNumber="+pageNumber;
-	else location.href=root+"/bookManage/bookList.do?pageNumber="+pageNumber;
+	else location.href=root+"/bookManage/bookList.do?pageNumber=1";
 }
