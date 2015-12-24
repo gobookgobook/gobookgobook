@@ -115,6 +115,7 @@
 				from grouppurchase gp, book
 					WHERE gp.book_num=book.book_num
 						and gp.book_num=#{book_num}
+							and gp.group_purchase_state=1
 		]]>
 	</select>
 	
