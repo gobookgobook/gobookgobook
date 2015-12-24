@@ -35,9 +35,9 @@
 				</div><br/><br/>
 			
 				<div style="height: 67px">
-					<label class="title" style="text-align:center;width:200px;height:150px;font-size:14px;border-bottom:2px solid #DDDDDD;color:white;background-color:#37415a">답변</label>
-					<textarea class="content" rows="14" cols="67" name="helpQnA_content" style="background-color:white;border-bottom:2px solid #DDDDDD; resize:none; width:600px; height:150px; font-size:14px;" disabled="disabled">${helpQnADto.helpqna_content}</textarea>
-				</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<label class="title" style="text-align:center;width:200px;height:300px;font-size:14px;border-bottom:2px solid #DDDDDD;color:white;background-color:#37415a">답변</label>
+					<textarea class="content" rows="14" cols="67" name="helpQnA_content" style="background-color:white;border-bottom:2px solid #DDDDDD; resize:none; width:600px; height:300px; font-size:14px;" disabled="disabled">${helpQnADto.helpqna_content}</textarea>
+				</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 			</div>
 			
 			<div style="width:83%">
@@ -45,6 +45,7 @@
 			</div>
 		</div>
 	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<jsp:include page="../main-bottom.jsp"/>
 </body>
 </html>

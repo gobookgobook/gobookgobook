@@ -14,7 +14,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="contents" style="height:350px; background:white; margin:0 auto; border:0px solid black; position:static;">
+<div id="contents" style="height:350px; background:white; margin:0 auto; margin-bottom:300px; border:0px solid black; position:static;">
 	<div style="background-color:margin: -10px 0 0 1px;width: 999px;height: 40px;line-height: 40px;">
 		<b style="font-size: 18px;">&nbsp;&nbsp;&nbsp;> 고객센터</b>
 	</div>
