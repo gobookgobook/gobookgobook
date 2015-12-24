@@ -647,9 +647,15 @@ public class BookManageService implements IBookManageService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		BookGroupPurchaseDto bookGroupPurchaseDto=(BookGroupPurchaseDto)map.get("bookGroupPurchaseDto");
+		String pageNumber=null;
+		String pageInfo=null;
 		
-		String pageNumber=request.getParameter("pageNumber");
-		String pageInfo=request.getParameter("pageInfo");
+		try{
+			pageNumber=request.getParameter("pageNumber");
+			if(pageNumber==null) pageNumber="1";
+			pageInfo=request.getParameter("pageInfo");
+			if(pageInfo==null) pageInfo="1";
+		}catch(Exception e){}
 		
 		int check=iBookManageDao.bookGroupPurchaseInsert(bookGroupPurchaseDto);
 		
