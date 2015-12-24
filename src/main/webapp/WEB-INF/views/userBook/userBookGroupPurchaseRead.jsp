@@ -116,11 +116,11 @@
 			<div class="book_title" style="font-size: 14px;">목차</div>
 			<span class="book_content">
 			<c:if test="${bookGroupPurchaseDto.book_index !=null}">
-				<textarea rows="10" cols="129" disabled="disabled"  style="font-size: 14px; background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
+				<textarea rows="10" cols="111" disabled="disabled"  style="font-size: 14px; background-color: white;resize: none;">${bookGroupPurchaseDto.book_index}
 				</textarea>
 			</c:if>
 			<c:if test="${bookGroupPurchaseDto.book_index ==null}">
-				<textarea rows="10" cols="129" disabled="disabled"  style="background-color: white;resize: none;">목차가 존재 하지 않습니다.
+				<textarea rows="10" cols="111" disabled="disabled"  style="background-color: white;resize: none;font-size: 14px;">목차가 존재 하지 않습니다.
 				</textarea>
 			</c:if>
 			</span>
@@ -129,11 +129,11 @@
 			<div class="book_title" style="margin-top: 30px; font-size: 14px;">줄거리</div>
 			<span class="book_content">
 				<c:if test="${bookGroupPurchaseDto.book_summary !=null}">
-					<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >${bookGroupPurchaseDto.book_summary}
+					<textarea rows="10" cols="111" disabled="disabled" style="background-color: white;resize: none;font-size: 14px;" >${bookGroupPurchaseDto.book_summary}
 					</textarea>
 				</c:if>
 				<c:if test="${bookGroupPurchaseDto.book_summary ==null}">
-				<textarea rows="10" cols="129" disabled="disabled" style="background-color: white;resize: none;" >줄거리가없습니다.
+				<textarea rows="10" cols="111" disabled="disabled" style="background-color: white;resize: none;font-size: 14px;" >줄거리가없습니다.
 				</textarea>
 				</c:if>
 			</span>
