@@ -238,6 +238,7 @@
 				<div class="line" style="text-align:center;">
 					<input type="submit" value="도서수정"/>
 					<input type="button" value="이전으로" onclick="location.href='javascript:history.back()'"/>
+					<input type="button" value="목록으로" onclick="javascript:returnPage('${root}','${pageInfo}','${pageNumber}')"/>
 				</div>
 			</form>	
 		</div>
@@ -251,7 +252,7 @@
 	</c:if>
 	
 	<c:if test="${bookDto.book_cover_file_name==null}">
-	<div style="margin-top:570px">
+	<div style="margin-top:590px">
 		<jsp:include page="../main-bottom.jsp"/>
 	</div>
 	</c:if>

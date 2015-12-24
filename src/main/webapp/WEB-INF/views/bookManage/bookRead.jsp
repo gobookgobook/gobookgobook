@@ -126,6 +126,7 @@
 							<c:if test="${bookDto.book_state==3}">
 								<input style="width:70px; height:23px;" type="button" value="공구수정" onclick="location.href='${root}/bookManage/bookGroupPurchaseUpdate.do?book_num=${bookDto.book_num}'"/>
 							</c:if>
+							<input style="width:70px; height:23px;" type="button" value="목록으로" onclick="javascript:returnPage('${root}','${pageInfo}','${pageNumber}')"/>
 						</div>
 					</div>
 				</div>

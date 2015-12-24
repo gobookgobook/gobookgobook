@@ -278,6 +278,12 @@ function gpSuccessConfirm(root,book_num,gp_num,group_purchase_price){
 	location.href=root+"/bookManage/gpSuccessConfirm.do?book_num="+book_num+"&gp_num="+gp_num+"&group_purchase_price="+group_purchase_price;
 }
 
+/**
+ * @함수이름 : bookStockUpdateFun
+ * @작성일 : 2015. 12. 24.
+ * @개발자 : 성기훈
+ * @설명 : 입고변경 스크립트
+ */
 function bookStockUpdateFun(bsuform){
 	if(bsuform.reorder_quantity.value==""){
 		alert("입고수량을 입력하세요.");
@@ -290,4 +296,14 @@ function bookStockUpdateFun(bsuform){
 		bsuform.reorder_quantity.focus();
 		return false;
 	}
+}
+
+function returnPage(root,pageInfo,pageNumber){
+	//alert("ok");
+	if(pageInfo=="bookSchedule") location.href=root+"/bookManage/bookSchedule.do";
+	else if (pageInfo=="bookROCL") location.href=root+"/bookManage/bookReOrderCountList.do?pageNumber="+pageNumber;
+	else if (pageInfo=="bookSOL") location.href=root+"/bookManage/bookSoldOutList.do?pageNumber="+pageNumber;
+	else if (pageInfo=="bookSL") location.href=root+"/bookManage/bookStockList.do?pageNumber="+pageNumber;
+	else if (pageInfo=="bookSP") location.href=root+"/bookManage/bookSpecialPrice.do?pageNumber="+pageNumber;
+	else location.href=root+"/bookManage/bookList.do?pageNumber="+pageNumber;
 }
