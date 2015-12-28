@@ -178,10 +178,10 @@ function bookUpdateForm(upform){
  * @개발자 : 성기훈
  * @설명 : 공구등록 취소 스크립트
  */
-function groupPurchaseDeleteFun(root,gp_num){
+function groupPurchaseDeleteFun(root,gp_num,book_num){
 	var check=confirm("공동구매 진행을 취소하시겠습니까?");
 	if(check==true) {
-		location.href=root+"/bookManage/bookGroupPurchaseDelete.do?gp_num="+gp_num;
+		location.href=root+"/bookManage/bookGroupPurchaseDelete.do?gp_num="+gp_num+"&book_num="+book_num;
 	}
 	return check;
 }
