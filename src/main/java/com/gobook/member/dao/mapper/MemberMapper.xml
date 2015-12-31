@@ -39,12 +39,13 @@
 	<delete id="memberDeleteCouponDate" parameterType="String">
 		<![CDATA[
 			DELETE FROM usercoupon
-				where mcoupon_num=(
+				where mcoupon_num in(
 					SELECT	ucoupon.mcoupon_num
 						FROM usercoupon ucoupon, managercoupon mcoupon
 							WHERE ucoupon.mcoupon_num=mcoupon.mcoupon_num
 							AND mcoupon.manager_coupon_period < SYSDATE
 							AND member_id=#{loginId})
+				AND member_id=#{loginId}
 		]]>
 	</delete>
 	
